@@ -1,0 +1,1330 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="display.xsl"?>
+<api
+    xmlns="urn:sunshine.local"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="urn:sunshine.local services.xsd">
+    
+    <endpoint>
+        <url>/ws/application?action=request</url>
+        <description>
+            Retrieves the application by id.
+        </description>
+        <request method="POST" contentType="application/x-www-form-urlencoded">
+            <parameter name="application_id" value="XXX"></parameter>
+        </request>
+        <response contentType="application/json">
+            <json>
+                <![CDATA[
+{
+  response: 0,
+  data: {
+  },
+  errors: []
+}
+                ]]>
+            </json>
+        </response>
+    </endpoint>
+    
+    <endpoint>
+        <url>/ws/application?action=inprogress</url>
+        <description>Return a list of applications that are in-progress.</description>
+        <request method="GET" contentType="application/x-www-form-urlencoded" />
+        <response contentType="application/json">
+            <json>
+                <![CDATA[
+{
+  "response": 0,
+  "data": [
+    {
+      "id": 84,
+      "ssn": "123456789"
+    },
+    {
+      "id": 85,
+      "ssn": "123456790"
+    }
+  ]
+}
+                ]]>
+            </json>
+        </response>
+    </endpoint>
+    
+    <endpoint>
+        <url>/ws/application?action=inprogress</url>
+        <description>
+            Return a single in-progress application by passing in
+            the form variable.  Preference given to 'application_id'.
+        </description>
+        <request method="GET" contentType="application/x-www-form-urlencoded">
+            <parameter name="application_id" value="123" />
+            <parameter name="ssn" value="123456789" />
+        </request>
+        <response contentType="application/json">
+            <json>
+<![CDATA[
+{
+  "response": 0,
+  "data": {
+    "id": "",
+    "last_name": "Public",
+    "first_name": "John",
+    "middle_name": "Q",
+    "social_security_number": "123456789",
+    "prefix": 2,
+    "suffix": 1,
+    "date_of_birth": "3/7/1960",
+    "remarks": "This is an area to write comments about the borrower",
+    "high_credit": "200.00",
+    "email_address": "sample@server.com",
+    "number_of_dependents": 2,
+    "home_city": "San Antonio",
+    "home_city_how_long": 14,
+    "requested_amount": "300.00",
+    "ownership_type_id": 2,
+    "by_phone": true,
+    "referral_name": "Jane Thompson",
+    "stability": 2,
+    "ability": 2,
+    "willingness": 2,
+    "security": 2,
+    "approval_date": "9/9/2013",
+    "net_loan": "200.00",
+    "directions_to_residence": "Some text to describe directions to residence",
+    "denial_reason_id": 1,
+    "denial_description": "A place to describe the denial reason",
+    "status_id": 1,
+    "source_id": 0,
+    "approved_amount": "200.00",
+    "joint_borrower_ssn": "999999999",
+    "joint_relationship": 2,
+    "residences": [
+      {
+        "id": "",
+        "ownership_type_id": 2,
+        "verified_by": 1,
+        "verified_how": 2,
+        "payment": "900.00",
+        "how_long": 2,
+        "year_moved_in": 1990,
+        "is_primary": true,
+        "address": "1 Street",
+        "city": "San Antonio",
+        "state": "XX",
+        "zip": "78201",
+        "zip_four": "1234",
+        "type": 3,
+        "description": "An area to type a description"
+      }
+    ],
+    "phones": [
+      {
+        "id": "",
+        "number": "2105550001",
+        "extension": "23",
+        "type": 2,
+        "description": "An area to describe the phone number",
+        "is_primary": true
+      }
+    ]
+  }
+}
+]]>
+            </json>
+        </response>
+    </endpoint>
+    
+    <endpoint>
+        <url>/ws/application?action=review</url>
+        <description>
+            Return a list of applications waiting for manager review/approval.
+        </description>
+        <request method="POST"></request>
+        <response contentType="application/json">
+            <json>
+                <![CDATA[
+{
+    "response": code,
+    "data": [{
+        "id": 0,
+        "ssn": "123456789"
+        /* TBD */
+    },{
+        "id": 1,
+        "ssn": "123456780"
+        /* TBD */
+    }],
+    "errors": []
+}
+                ]]>
+            </json>
+        </response>
+    </endpoint>
+
+    <endpoint>
+        <url>/ws/application?action=save</url>
+        <description>
+            This will save the application to the temporary data source on the
+            server.  This is actually the temporary table on the database.
+        </description>
+        <request method="POST" contentType="application/x-www-form-urlencoded">
+            <parameter name="ssn" value="123456789" />
+            <parameter name="json_raw" value="&quot;{&quot;jsonified&quot;:&quot;string&quot;}&quot;" />
+        </request>
+        <response contentType="application/json">
+            <json>
+               <![CDATA[
+{
+    "response": code,
+    "data": {
+        /* TBD */
+    },
+    "errors": []
+}
+               ]]>
+            </json> 
+        </response>
+    </endpoint>
+    
+    <endpoint>
+        <url>/ws/application?action=submit</url>
+        <description>
+           Save the application to the database. The jsonified string should
+            be in the following  &lt;a href="application.json"&gt;form&lt;/a&gt;.
+            Elements prefixed by "+" are required.
+        </description>
+        <request contentType="application/x-www-form-urlencoded" method="POST">
+            <parameter name="ssn" value="123456789" />
+            <parameter name="json_raw" value="&quot;{&quot;jsonified&quot;:&quot;string&quot;}&quot;" />
+        </request>
+        <response contentType="application/json">
+            <json>
+               <![CDATA[
+{
+    "response": code,
+    "data": {
+        /* TBD */
+    },
+    "errors": []
+}
+               ]]>
+            </json>
+        </response>
+    </endpoint>
+
+    <endpoint>
+        <url>/ws/application?action=types</url>
+        <description>
+Retrieve a list of all the possible choices for dropdowns in the application.
+        </description>
+        <request method="POST" />
+        <response contentType="application/json">
+            <json>
+                <![CDATA[
+{
+  "response" : 0,
+  "data" : {
+    "type" : "dropdowns",
+    "prefixes" : [ {
+      "id" : 1,
+      "name" : " "
+    }, {
+      "id" : 2,
+      "name" : "Mr"
+    }, {
+      "id" : 3,
+      "name" : "Mrs"
+    }, {
+      "id" : 4,
+      "name" : "Miss"
+    }, {
+      "id" : 5,
+      "name" : "Ms"
+    }, {
+      "id" : 6,
+      "name" : "Prof"
+    }, {
+      "id" : 7,
+      "name" : "Ph.D"
+    }, {
+      "id" : 8,
+      "name" : "Capt"
+    }, {
+      "id" : 9,
+      "name" : "Lt"
+    }, {
+      "id" : 10,
+      "name" : "Dr"
+    }, {
+      "id" : 11,
+      "name" : "Rev"
+    } ],
+    "suffixes" : [ {
+      "id" : 1,
+      "name" : "II"
+    }, {
+      "id" : 3,
+      "name" : "III"
+    }, {
+      "id" : 6,
+      "name" : "IV"
+    }, {
+      "id" : 5,
+      "name" : "Jr."
+    }, {
+      "id" : 4,
+      "name" : "Sr."
+    }, {
+      "id" : 7,
+      "name" : "V"
+    }, {
+      "id" : 8,
+      "name" : "VI"
+    } ],
+    "phones" : [ {
+      "id" : 1,
+      "name" : "Not completed"
+    }, {
+      "id" : 2,
+      "name" : "Mobile"
+    }, {
+      "id" : 3,
+      "name" : "Home"
+    }, {
+      "id" : 4,
+      "name" : "Work"
+    }, {
+      "id" : 5,
+      "name" : "Near by"
+    } ],
+    "marketing_sources" : [ {
+      "id" : 1,
+      "name" : "Not completed"
+    }, {
+      "id" : 2,
+      "name" : "Direct mail"
+    }, {
+      "id" : 3,
+      "name" : "FB or update"
+    }, {
+      "id" : 4,
+      "name" : "Flier"
+    }, {
+      "id" : 5,
+      "name" : "Mailing"
+    }, {
+      "id" : 6,
+      "name" : "Other"
+    }, {
+      "id" : 7,
+      "name" : "Radio"
+    }, {
+      "id" : 8,
+      "name" : "Relative friend"
+    }, {
+      "id" : 9,
+      "name" : "Sunloan customer"
+    }, {
+      "id" : 10,
+      "name" : "Telemarketing"
+    }, {
+      "id" : 11,
+      "name" : "Television"
+    }, {
+      "id" : 12,
+      "name" : "Yellow pages"
+    } ],
+    "ownership_types" : [ {
+      "id" : 1,
+      "name" : "Not Completed"
+    }, {
+      "id" : 2,
+      "name" : "Individual"
+    }, {
+      "id" : 3,
+      "name" : "Joint"
+    } ],
+    "states" : [ {
+      "id" : 2,
+      "name" : "Alaska",
+      "abbrev" : "AK"
+    }, {
+      "id" : 1,
+      "name" : "Alabama",
+      "abbrev" : "AL"
+    }, {
+      "id" : 4,
+      "name" : "Arkansas",
+      "abbrev" : "AR"
+    }, {
+      "id" : 3,
+      "name" : "Arizona",
+      "abbrev" : "AZ"
+    }, {
+      "id" : 5,
+      "name" : "California",
+      "abbrev" : "CA"
+    }, {
+      "id" : 6,
+      "name" : "Colorado",
+      "abbrev" : "CO"
+    }, {
+      "id" : 7,
+      "name" : "Connecticut",
+      "abbrev" : "CT"
+    }, {
+      "id" : 8,
+      "name" : "Delaware",
+      "abbrev" : "DE"
+    }, {
+      "id" : 9,
+      "name" : "Florida",
+      "abbrev" : "FL"
+    }, {
+      "id" : 10,
+      "name" : "Georgia",
+      "abbrev" : "GA"
+    }, {
+      "id" : 11,
+      "name" : "Hawaii",
+      "abbrev" : "HI"
+    }, {
+      "id" : 15,
+      "name" : "Iowa",
+      "abbrev" : "IA"
+    }, {
+      "id" : 12,
+      "name" : "Idaho",
+      "abbrev" : "ID"
+    }, {
+      "id" : 13,
+      "name" : "Illinois",
+      "abbrev" : "IL"
+    }, {
+      "id" : 14,
+      "name" : "Indiana",
+      "abbrev" : "IN"
+    }, {
+      "id" : 16,
+      "name" : "Kansas",
+      "abbrev" : "KS"
+    }, {
+      "id" : 17,
+      "name" : "Kentucky",
+      "abbrev" : "KY"
+    }, {
+      "id" : 18,
+      "name" : "Louisiana",
+      "abbrev" : "LA"
+    }, {
+      "id" : 21,
+      "name" : "Massachusetts",
+      "abbrev" : "MA"
+    }, {
+      "id" : 20,
+      "name" : "Maryland",
+      "abbrev" : "MD"
+    }, {
+      "id" : 19,
+      "name" : "Maine",
+      "abbrev" : "ME"
+    }, {
+      "id" : 22,
+      "name" : "Michigan",
+      "abbrev" : "MI"
+    }, {
+      "id" : 23,
+      "name" : "Minnesota",
+      "abbrev" : "MN"
+    }, {
+      "id" : 25,
+      "name" : "Missouri",
+      "abbrev" : "MO"
+    }, {
+      "id" : 24,
+      "name" : "Mississippi",
+      "abbrev" : "MS"
+    }, {
+      "id" : 26,
+      "name" : "Montana",
+      "abbrev" : "MT"
+    }, {
+      "id" : 33,
+      "name" : "North Carolina",
+      "abbrev" : "NC"
+    }, {
+      "id" : 34,
+      "name" : "North Dakota",
+      "abbrev" : "ND"
+    }, {
+      "id" : 27,
+      "name" : "Nebraska",
+      "abbrev" : "NE"
+    }, {
+      "id" : 29,
+      "name" : "New Hampshire",
+      "abbrev" : "NH"
+    }, {
+      "id" : 30,
+      "name" : "New Jersey",
+      "abbrev" : "NJ"
+    }, {
+      "id" : 31,
+      "name" : "New Mexico",
+      "abbrev" : "NM"
+    }, {
+      "id" : 28,
+      "name" : "Nevada",
+      "abbrev" : "NV"
+    }, {
+      "id" : 32,
+      "name" : "New York",
+      "abbrev" : "NY"
+    }, {
+      "id" : 35,
+      "name" : "Ohio",
+      "abbrev" : "OH"
+    }, {
+      "id" : 36,
+      "name" : "Oklahoma",
+      "abbrev" : "OK"
+    }, {
+      "id" : 37,
+      "name" : "Oregon",
+      "abbrev" : "OR"
+    }, {
+      "id" : 38,
+      "name" : "Pennsylvania",
+      "abbrev" : "PA"
+    }, {
+      "id" : 39,
+      "name" : "Rhode Island",
+      "abbrev" : "RI"
+    }, {
+      "id" : 40,
+      "name" : "South Carolina",
+      "abbrev" : "SC"
+    }, {
+      "id" : 41,
+      "name" : "South Dakota",
+      "abbrev" : "SD"
+    }, {
+      "id" : 42,
+      "name" : "Tennessee",
+      "abbrev" : "TN"
+    }, {
+      "id" : 43,
+      "name" : "Texas",
+      "abbrev" : "TX"
+    }, {
+      "id" : 44,
+      "name" : "Utah",
+      "abbrev" : "UT"
+    }, {
+      "id" : 46,
+      "name" : "Virginia",
+      "abbrev" : "VA"
+    }, {
+      "id" : 45,
+      "name" : "Vermont",
+      "abbrev" : "VT"
+    }, {
+      "id" : 47,
+      "name" : "Washington",
+      "abbrev" : "WA"
+    }, {
+      "id" : 49,
+      "name" : "Wisconsin",
+      "abbrev" : "WI"
+    }, {
+      "id" : 48,
+      "name" : "West Virginia",
+      "abbrev" : "WV"
+    }, {
+      "id" : 50,
+      "name" : "Wyoming",
+      "abbrev" : "WY"
+    } ],
+    "timespans" : [ {
+      "id" : 1,
+      "name" : "Not completed"
+    }, {
+      "id" : 2,
+      "name" : "Less than 1 Month"
+    }, {
+      "id" : 3,
+      "name" : "1 Month"
+    }, {
+      "id" : 4,
+      "name" : "2 Months"
+    }, {
+      "id" : 5,
+      "name" : "3 Months"
+    }, {
+      "id" : 6,
+      "name" : "4 Months"
+    }, {
+      "id" : 7,
+      "name" : "5 Months"
+    }, {
+      "id" : 8,
+      "name" : "6 Months"
+    }, {
+      "id" : 9,
+      "name" : "7 Months"
+    }, {
+      "id" : 10,
+      "name" : "8 Months"
+    }, {
+      "id" : 11,
+      "name" : "9 Months"
+    }, {
+      "id" : 12,
+      "name" : "10 Months"
+    }, {
+      "id" : 13,
+      "name" : "11 Months"
+    }, {
+      "id" : 14,
+      "name" : "1 Year"
+    }, {
+      "id" : 15,
+      "name" : "1.5 Years"
+    }, {
+      "id" : 16,
+      "name" : "2.5 Years"
+    }, {
+      "id" : 17,
+      "name" : "3 Years"
+    }, {
+      "id" : 18,
+      "name" : "4 Years"
+    }, {
+      "id" : 19,
+      "name" : "3.5 Years"
+    }, {
+      "id" : 20,
+      "name" : "2 Years"
+    }, {
+      "id" : 21,
+      "name" : "4.5 Years"
+    }, {
+      "id" : 22,
+      "name" : "6 Years"
+    }, {
+      "id" : 23,
+      "name" : "5 Years"
+    }, {
+      "id" : 24,
+      "name" : "7 Years"
+    }, {
+      "id" : 25,
+      "name" : "9 Years"
+    }, {
+      "id" : 26,
+      "name" : "8 Years"
+    }, {
+      "id" : 27,
+      "name" : "10 Years"
+    }, {
+      "id" : 28,
+      "name" : "15 to 20 Years"
+    }, {
+      "id" : 29,
+      "name" : "10 to 15 Years"
+    }, {
+      "id" : 30,
+      "name" : "20 to 25 Years"
+    }, {
+      "id" : 31,
+      "name" : "25 Years or more"
+    } ],
+    "howlong" : [ {
+      "id" : 1,
+      "name" : "Not completed"
+    }, {
+      "id" : 2,
+      "name" : "Less than 1 Month"
+    }, {
+      "id" : 3,
+      "name" : "1 Month"
+    }, {
+      "id" : 4,
+      "name" : "2 Months"
+    }, {
+      "id" : 5,
+      "name" : "3 Months"
+    }, {
+      "id" : 6,
+      "name" : "4 Months"
+    }, {
+      "id" : 7,
+      "name" : "5 Months"
+    }, {
+      "id" : 8,
+      "name" : "6 Months"
+    }, {
+      "id" : 9,
+      "name" : "7 Months"
+    }, {
+      "id" : 10,
+      "name" : "8 Months"
+    }, {
+      "id" : 11,
+      "name" : "9 Months"
+    }, {
+      "id" : 12,
+      "name" : "10 Months"
+    }, {
+      "id" : 13,
+      "name" : "11 Months"
+    }, {
+      "id" : 14,
+      "name" : "1 Year"
+    }, {
+      "id" : 15,
+      "name" : "1.5 Years"
+    }, {
+      "id" : 16,
+      "name" : "2 Years"
+    }, {
+      "id" : 17,
+      "name" : "2.5 Years"
+    }, {
+      "id" : 18,
+      "name" : "3 Years"
+    }, {
+      "id" : 19,
+      "name" : "3.5 Years"
+    }, {
+      "id" : 20,
+      "name" : "4 Years"
+    }, {
+      "id" : 21,
+      "name" : "4.5 Years"
+    }, {
+      "id" : 22,
+      "name" : "5 Years"
+    }, {
+      "id" : 23,
+      "name" : "6 Years"
+    }, {
+      "id" : 24,
+      "name" : "7 Years"
+    }, {
+      "id" : 25,
+      "name" : "8 Years"
+    }, {
+      "id" : 26,
+      "name" : "9 Years"
+    }, {
+      "id" : 27,
+      "name" : "10 Years"
+    }, {
+      "id" : 28,
+      "name" : "10 to 15 Years"
+    }, {
+      "id" : 29,
+      "name" : "15 to 20 Years"
+    }, {
+      "id" : 30,
+      "name" : "20 to 25 Years"
+    }, {
+      "id" : 31,
+      "name" : "25 Years or more"
+    } ],
+    "ownerships" : [ {
+      "id" : 1,
+      "name" : "Not completed"
+    }, {
+      "id" : 2,
+      "name" : "Buying"
+    }, {
+      "id" : 3,
+      "name" : "Own"
+    }, {
+      "id" : 4,
+      "name" : "Renting"
+    }, {
+      "id" : 5,
+      "name" : "Live with friend(s)"
+    }, {
+      "id" : 6,
+      "name" : "Live with family"
+    }, {
+      "id" : 7,
+      "name" : "Live with relative"
+    }, {
+      "id" : 8,
+      "name" : "None"
+    } ],
+    "restypes" : [ {
+      "id" : 1,
+      "name" : "Not completed"
+    }, {
+      "id" : 2,
+      "name" : "House"
+    }, {
+      "id" : 3,
+      "name" : "Mobile"
+    }, {
+      "id" : 4,
+      "name" : "Appartment"
+    } ],
+    "years" : [ {
+      "id" : 2013,
+      "name" : "2013"
+    }, {
+      "id" : 2012,
+      "name" : "2012"
+    }, {
+      "id" : 2011,
+      "name" : "2011"
+    }, {
+      "id" : 2010,
+      "name" : "2010"
+    }, {
+      "id" : 2009,
+      "name" : "2009"
+    }, {
+      "id" : 2008,
+      "name" : "2008"
+    }, {
+      "id" : 2007,
+      "name" : "2007"
+    }, {
+      "id" : 2006,
+      "name" : "2006"
+    }, {
+      "id" : 2005,
+      "name" : "2005"
+    }, {
+      "id" : 2004,
+      "name" : "2004"
+    }, {
+      "id" : 2003,
+      "name" : "2003"
+    }, {
+      "id" : 2002,
+      "name" : "2002"
+    }, {
+      "id" : 2001,
+      "name" : "2001"
+    }, {
+      "id" : 2000,
+      "name" : "2000"
+    }, {
+      "id" : 1999,
+      "name" : "1999"
+    }, {
+      "id" : 1998,
+      "name" : "1998"
+    }, {
+      "id" : 1997,
+      "name" : "1997"
+    }, {
+      "id" : 1996,
+      "name" : "1996"
+    }, {
+      "id" : 1995,
+      "name" : "1995"
+    }, {
+      "id" : 1994,
+      "name" : "1994"
+    }, {
+      "id" : 1993,
+      "name" : "1993"
+    }, {
+      "id" : 1992,
+      "name" : "1992"
+    }, {
+      "id" : 1991,
+      "name" : "1991"
+    }, {
+      "id" : 1990,
+      "name" : "1990"
+    }, {
+      "id" : 1989,
+      "name" : "1989"
+    }, {
+      "id" : 1988,
+      "name" : "1988"
+    }, {
+      "id" : 1987,
+      "name" : "1987"
+    }, {
+      "id" : 1986,
+      "name" : "1986"
+    }, {
+      "id" : 1985,
+      "name" : "1985"
+    }, {
+      "id" : 1984,
+      "name" : "1984"
+    }, {
+      "id" : 1983,
+      "name" : "1983"
+    }, {
+      "id" : 1982,
+      "name" : "1982"
+    }, {
+      "id" : 1981,
+      "name" : "1981"
+    }, {
+      "id" : 1980,
+      "name" : "1980"
+    }, {
+      "id" : 1979,
+      "name" : "1979"
+    }, {
+      "id" : 1978,
+      "name" : "1978"
+    }, {
+      "id" : 1977,
+      "name" : "1977"
+    }, {
+      "id" : 1976,
+      "name" : "1976"
+    }, {
+      "id" : 1975,
+      "name" : "1975"
+    }, {
+      "id" : 1974,
+      "name" : "1974"
+    }, {
+      "id" : 1973,
+      "name" : "1973"
+    }, {
+      "id" : 1972,
+      "name" : "1972"
+    }, {
+      "id" : 1971,
+      "name" : "1971"
+    }, {
+      "id" : 1970,
+      "name" : "1970"
+    }, {
+      "id" : 1969,
+      "name" : "1969"
+    }, {
+      "id" : 1968,
+      "name" : "1968"
+    }, {
+      "id" : 1967,
+      "name" : "1967"
+    }, {
+      "id" : 1966,
+      "name" : "1966"
+    }, {
+      "id" : 1965,
+      "name" : "1965"
+    }, {
+      "id" : 1964,
+      "name" : "1964"
+    }, {
+      "id" : 1963,
+      "name" : "1963"
+    }, {
+      "id" : 1962,
+      "name" : "1962"
+    }, {
+      "id" : 1961,
+      "name" : "1961"
+    }, {
+      "id" : 1960,
+      "name" : "1960"
+    }, {
+      "id" : 1959,
+      "name" : "1959"
+    }, {
+      "id" : 1958,
+      "name" : "1958"
+    }, {
+      "id" : 1957,
+      "name" : "1957"
+    }, {
+      "id" : 1956,
+      "name" : "1956"
+    }, {
+      "id" : 1955,
+      "name" : "1955"
+    }, {
+      "id" : 1954,
+      "name" : "1954"
+    }, {
+      "id" : 1953,
+      "name" : "1953"
+    }, {
+      "id" : 1952,
+      "name" : "1952"
+    }, {
+      "id" : 1951,
+      "name" : "1951"
+    }, {
+      "id" : 1950,
+      "name" : "1950"
+    }, {
+      "id" : 1949,
+      "name" : "1949"
+    }, {
+      "id" : 1948,
+      "name" : "1948"
+    }, {
+      "id" : 1947,
+      "name" : "1947"
+    }, {
+      "id" : 1946,
+      "name" : "1946"
+    }, {
+      "id" : 1945,
+      "name" : "1945"
+    }, {
+      "id" : 1944,
+      "name" : "1944"
+    }, {
+      "id" : 1943,
+      "name" : "1943"
+    }, {
+      "id" : 1942,
+      "name" : "1942"
+    }, {
+      "id" : 1941,
+      "name" : "1941"
+    }, {
+      "id" : 1940,
+      "name" : "1940"
+    }, {
+      "id" : 1939,
+      "name" : "1939"
+    }, {
+      "id" : 1938,
+      "name" : "1938"
+    }, {
+      "id" : 1937,
+      "name" : "1937"
+    }, {
+      "id" : 1936,
+      "name" : "1936"
+    }, {
+      "id" : 1935,
+      "name" : "1935"
+    }, {
+      "id" : 1934,
+      "name" : "1934"
+    }, {
+      "id" : 1933,
+      "name" : "1933"
+    }, {
+      "id" : 1932,
+      "name" : "1932"
+    }, {
+      "id" : 1931,
+      "name" : "1931"
+    }, {
+      "id" : 1930,
+      "name" : "1930"
+    } ],
+    "relationships" : [ {
+      "id" : 1,
+      "name" : "Not completed"
+    }, {
+      "id" : 2,
+      "name" : "Father"
+    }, {
+      "id" : 3,
+      "name" : "Brother"
+    }, {
+      "id" : 20,
+      "name" : "Sister"
+    }, {
+      "id" : 21,
+      "name" : "Uncle"
+    }, {
+      "id" : 22,
+      "name" : "Mother"
+    } ],
+    "how_verified" : [ {
+      "id" : 1,
+      "name" : "Not Completed"
+    }, {
+      "id" : 2,
+      "name" : "Award Letter"
+    }, {
+      "id" : 3,
+      "name" : "Bills"
+    }, {
+      "id" : 4,
+      "name" : "Bank Statement"
+    }, {
+      "id" : 5,
+      "name" : "Credit Bureau"
+    }, {
+      "id" : 6,
+      "name" : "Creditor"
+    }, {
+      "id" : 7,
+      "name" : "Lease Agreement"
+    }, {
+      "id" : 8,
+      "name" : "Letter"
+    }, {
+      "id" : 9,
+      "name" : "Phone"
+    }, {
+      "id" : 10,
+      "name" : "Pay Stub and Phone"
+    }, {
+      "id" : 11,
+      "name" : "Pay Stub"
+    }, {
+      "id" : 12,
+      "name" : "Tax Return"
+    } ],
+    "payment_schedules" : [ {
+      "id" : 1,
+      "name" : "Not completed"
+    }, {
+      "id" : 2,
+      "name" : "Every 2 Weeks"
+    }, {
+      "id" : 3,
+      "name" : "Bi-Monthly"
+    }, {
+      "id" : 4,
+      "name" : "Daily"
+    }, {
+      "id" : 5,
+      "name" : "Monthly"
+    }, {
+      "id" : 6,
+      "name" : "Weekly"
+    } ],
+    "debt_types" : [ {
+      "id" : 1,
+      "name" : "Auto Insurance"
+    }, {
+      "id" : 3,
+      "name" : "Groceries"
+    }, {
+      "id" : 4,
+      "name" : "Phone"
+    }, {
+      "id" : 6,
+      "name" : "Sun Loan"
+    }, {
+      "id" : 2,
+      "name" : "Transportation"
+    }, {
+      "id" : 5,
+      "name" : "Utilities"
+    } ],
+    "other_debt_types" : [ {
+      "id" : 1,
+      "name" : "Car Paymant"
+    }, {
+      "id" : 2,
+      "name" : "Credit Card"
+    }, {
+      "id" : 3,
+      "name" : "Credit Report"
+    }, {
+      "id" : 4,
+      "name" : "Finance Company"
+    }, {
+      "id" : 5,
+      "name" : "No Car Payment"
+    }, {
+      "id" : 6,
+      "name" : "No Rent/Mortgage"
+    }, {
+      "id" : 8,
+      "name" : "Other"
+    }, {
+      "id" : 7,
+      "name" : "Rent/Mortgage"
+    } ],
+    "collateral" : [ {
+      "id" : 4,
+      "name" : "ATV"
+    }, {
+      "id" : 1,
+      "name" : "Boat"
+    }, {
+      "id" : 2,
+      "name" : "Car"
+    }, {
+      "id" : 3,
+      "name" : "Truck"
+    } ],
+    "application_statuses" : [ {
+      "id" : 1,
+      "name" : "NOT COMPLETED"
+    }, {
+      "id" : 2,
+      "name" : "UNDER REVIEW"
+    }, {
+      "id" : 3,
+      "name" : "APPROVED"
+    }, {
+      "id" : 4,
+      "name" : "APPROVED AND COMPLETED"
+    }, {
+      "id" : 5,
+      "name" : "DECLINED"
+    } ],
+    "denial_reaspons" : [ {
+      "id" : 1,
+      "name" : "BANKRUPTCY"
+    }, {
+      "id" : 2,
+      "name" : "CREDIT APPLICATION INCOMPLETE"
+    }, {
+      "id" : 3,
+      "name" : "DELINQUENT PAST OR PRESENT CREDIT OBLIGATIONS"
+    }, {
+      "id" : 4,
+      "name" : "EXCESSIVE CREDIT OBLIGATIONS"
+    }, {
+      "id" : 5,
+      "name" : "GARNISHMENT, ATTACHMENT, FORECLOSURE, REPOSSESSION, COLLECTION, ACTION, OR JUDGEMENT"
+    }, {
+      "id" : 6,
+      "name" : "INSUFFICIENT INCOME FOR AMOUNT OF CREDIT REQUESTED"
+    }, {
+      "id" : 7,
+      "name" : "INSUFFICIENT NUMBER FOR AMOUNT OF REFERENFCES PROVIDED"
+    }, {
+      "id" : 8,
+      "name" : "LENGTH OF EMPLOYMENT"
+    }, {
+      "id" : 9,
+      "name" : "LENGTH OF RESIDENCE"
+    }, {
+      "id" : 10,
+      "name" : "LIMITED CREDIT EXPERIENCE"
+    }, {
+      "id" : 11,
+      "name" : "NO CREDIT FILE"
+    }, {
+      "id" : 12,
+      "name" : "OTHER"
+    }, {
+      "id" : 13,
+      "name" : "POOR CREDIT PERFORMANCE"
+    }, {
+      "id" : 14,
+      "name" : "TEMPORARY EMPLOYMENT"
+    }, {
+      "id" : 15,
+      "name" : "TEMPORARY RESIDENCE"
+    }, {
+      "id" : 16,
+      "name" : "UNABLE TO VERIFY CREDIT REFERENCES"
+    }, {
+      "id" : 17,
+      "name" : "UNABLE TO VERIFY EMPLOYMENT"
+    }, {
+      "id" : 18,
+      "name" : "UNABLE TO VERIFY INCOME"
+    }, {
+      "id" : 19,
+      "name" : "UNABLE TO VERIFY RESIDENCE"
+    }, {
+      "id" : 20,
+      "name" : "VALUE OR TYPE OF COLLATERAL NOT SUDDICIENT"
+    } ]
+  }
+}
+                ]]>
+            </json>
+        </response>
+    </endpoint>    
+
+    <endpoint>
+        <url>/ws/checkssn</url>
+        
+        <description>
+            Check and validate the social security number.
+        </description>
+        <request contentType="application/x-www-form-urlencoded" method="POST">
+            <parameter name="ssn" value="123456789"></parameter>
+        </request>
+        <response contentType="application/json">
+            <json>
+                <![CDATA[
+{
+    "response": code,
+    "data": {
+        /*
+            1000 error
+            1001 unauthorized ssn
+            1002 used ssn
+            1003 unused ssn
+            1004 temporary ssn
+        */
+        code: 0 /* this is a code specific to checkssn */
+    },
+    "errors": []
+}
+                ]]>
+            </json>
+        </response> 
+    </endpoint>
+    
+    <endpoint>
+        <url>/ws/employee/active.json</url>
+        <description>
+            Get the employee (user) that's currently logged in.
+        </description>
+        <request method="POST">
+            
+        </request>
+        <response contentType="application/json">
+            <json>
+                <![CDATA[
+{
+    "response": code,
+    "data": {
+        "id":1,
+        "lastName":"Administrator",
+        "firstName":"Application",
+        "middleName":"M",
+        "userName":"admin", 
+        "address":"",
+        "city":"San Antonio",
+        "state":"TX",
+        "zip":"12345",
+        "zipFour":"1111",
+        "homePhone":"2104567894",
+        "workPhone":"",
+        "mobilePhone":"2105456776",
+        "workExtention":"",
+        "emailAddress":"Adminitrator@brundage.com",
+        "createdDate":"2011-01-16T00:00:00-06:00",
+        "updatedDate":"2011-05-24T00:00:00-05:00",
+        "password":"admin",
+        "socialSecurityNumber":"000",
+        "organizationList":["1"],
+        "organizationId":"1",
+        "updatedBy":"1",
+        "departmentId":"1",
+        "roles":[{
+            "id":6,"name":"Administrator",
+            "description":"This role is the default role you should not delete this role.",
+            "createdDate":"2011-02-12T00:00:00-06:00",
+            "updatedDate":"2012-10-29T00:00:00-05:00",
+            "organizationId":"1",
+            "updatedBy":"1",
+            "createdBy":"1"
+        }]
+    },
+    "errors": []
+}
+                ]]>
+            </json>
+        </response>
+    </endpoint>
+
+</api>

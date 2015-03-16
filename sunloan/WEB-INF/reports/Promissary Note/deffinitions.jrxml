@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="deffinitions" language="groovy" pageWidth="572" pageHeight="752" columnWidth="572" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="5f6680b6-063e-47d4-bd5f-f1963aecc378">
+	<property name="ireport.zoom" value="2.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<detail>
+		<band height="125" splitType="Stretch">
+			<frame>
+				<reportElement uuid="a4b6eb83-3c6c-4474-a082-deba38aea3d2" x="0" y="0" width="572" height="125"/>
+				<box>
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<staticText>
+					<reportElement uuid="e7aff41c-e980-4e9c-8e16-27c9a3bad652" x="0" y="0" width="171" height="20"/>
+					<box rightPadding="1"/>
+					<textElement textAlignment="Right" verticalAlignment="Top"/>
+					<text><![CDATA[SECURITY:]]></text>
+				</staticText>
+				<staticText>
+					<reportElement uuid="adc972fa-1508-41fe-946a-e255a0d4daeb" x="171" y="0" width="401" height="20"/>
+					<box leftPadding="1"/>
+					<textElement verticalAlignment="Top"/>
+					<text><![CDATA[You will have a security interest in the following described collateral Unsecured]]></text>
+				</staticText>
+				<staticText>
+					<reportElement uuid="6a68a495-8037-442e-a8b0-84f27cd35584" x="0" y="20" width="171" height="51"/>
+					<box rightPadding="1"/>
+					<textElement textAlignment="Right" verticalAlignment="Top"/>
+					<text><![CDATA[LATE CHARGE:]]></text>
+				</staticText>
+				<staticText>
+					<reportElement uuid="74eba6ea-a8e9-4ecb-9059-8dae3139d922" x="171" y="20" width="401" height="51"/>
+					<box leftPadding="1"/>
+					<textElement verticalAlignment="Top"/>
+					<text><![CDATA[For a loan that has an amount financed of less than $100, the late charge for a payment that is unpaid for 10 days after it is due is 5% of the amount of the installment. For a loan that has an amount financed of $100 or more, the late charge for a payment that is unpaid for 10 days after it is due is the greater of $10 or 5% of the amount of the installment.]]></text>
+				</staticText>
+				<staticText>
+					<reportElement uuid="57bfa00a-6991-41c4-ae74-7a71b3683ab0" x="0" y="71" width="171" height="20"/>
+					<box rightPadding="1"/>
+					<textElement textAlignment="Right" verticalAlignment="Top"/>
+					<text><![CDATA[PREPAYMENT:]]></text>
+				</staticText>
+				<staticText>
+					<reportElement uuid="afc774c4-7204-4103-a17b-64718c190e40" x="171" y="71" width="401" height="20"/>
+					<box leftPadding="1"/>
+					<textElement verticalAlignment="Top"/>
+					<text><![CDATA[If I pay off early, I may be entitled to a refund of part of the finance charge.]]></text>
+				</staticText>
+				<staticText>
+					<reportElement uuid="1cd2a8b2-9d04-41f3-91f4-f21963ab1153" x="0" y="91" width="171" height="34"/>
+					<box rightPadding="1"/>
+					<textElement textAlignment="Right" verticalAlignment="Top"/>
+					<text><![CDATA[Additional Information:]]></text>
+				</staticText>
+				<staticText>
+					<reportElement uuid="bb2167e7-246c-431d-838a-53b8441bb014" x="171" y="91" width="401" height="34"/>
+					<box leftPadding="1"/>
+					<textElement verticalAlignment="Top"/>
+					<text><![CDATA[See the contract documents for any additional information about nonpayment, default, any required repayment in full before the scheduled date, and prepayment refunds and penalties.]]></text>
+				</staticText>
+			</frame>
+		</band>
+	</detail>
+</jasperReport>

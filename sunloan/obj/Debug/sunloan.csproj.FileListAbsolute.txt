@@ -1,0 +1,5 @@
+C:\Development\ANGULARJS\AngularJS\sunloan_sol\sunloan\bin\sunloan.dll.config
+C:\Development\ANGULARJS\AngularJS\sunloan_sol\sunloan\bin\sunloan.dll
+C:\Development\ANGULARJS\AngularJS\sunloan_sol\sunloan\bin\sunloan.pdb
+C:\Development\ANGULARJS\AngularJS\sunloan_sol\sunloan\obj\Debug\sunloan.dll
+C:\Development\ANGULARJS\AngularJS\sunloan_sol\sunloan\obj\Debug\sunloan.pdb

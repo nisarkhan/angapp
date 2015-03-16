@@ -1,0 +1,227 @@
+
+<!DOCTYPE html>
+<html>
+    <head>
+    <style>
+        textarea {
+            height:600px;
+            width:750px;
+        }
+    </style>
+    <script src="../../html/content/js/library/jquery.js" type="text/javascript"></script>
+    <script>
+        $(document).ready(function() {
+           $('#submit_app').click(function(e) {
+               e.preventDefault();
+
+               $.ajax('../../ws/application?action=submit', {
+                   type: 'POST',
+                   dataType: 'json',
+                   data: {
+                       ssn: '123456789',
+                       json_raw: $('#request textarea').val()
+                   }
+               }).done(function(envelope) {
+
+                    console.log('success');
+                    $('#response textarea').html(JSON.stringify(envelope, null, '  '));
+                   
+               }).fail(function(envelope) {
+                    console.log('error');
+               });
+
+           });
+           
+           $('#reset_app').click(function(e) {
+                e.preventDefault();
+                
+                $.ajax('../../ws/application/reset.json', {
+                    type: 'GET',
+                    dataType: 'json',
+                    data: {
+                        ssn: '123456789'
+                    }
+                }).done(function(envelope) {
+                    console.log('success');
+                    $('#response textarea').html(JSON.stringify(envelope, null, '  '));
+                }).fail(function(envelope) {
+                    console.log('error');
+                });
+           });
+         
+        });
+    </script>
+    </head>
+    <body>
+        <div id="request">
+            <textarea>
+{
+  "id": "",
+  "last_name": "Public",
+  "first_name": "John",
+  "middle_name": "Q",
+  "social_security_number": "123456789",
+  "prefix": 2, /* dropdown prefixes */
+  "suffix": 1, /* dropdown suffixes */
+  "date_of_birth": "3/7/1960",
+  "remarks": "This is an area to write comments about the borrower",
+  "high_credit": "200.00",
+  "email_address": "sample@server.com",
+  "number_of_dependents": 2,
+  "home_city": "San Antonio",
+  "home_city_how_long": 14, /* dropdowns timespans */
+  "requested_amount": "300.00",
+  "ownership_type_id": 2, /* dropdowns ownership_types */
+  "by_phone": true,
+  "referral_name": "Jane Thompson",
+  "stability": 2, /* radio buttons in old system: weak, average, good, under review */
+  "ability": 2, /* same */
+  "willingness": 2, /* same */
+  "security": 2, /* same */
+  "approval_date": "9/9/2013",
+  "net_loan": "200.00",
+  "directions_to_residence": "Some text to describe directions to residence",
+  "denial_reason_id": 1, /* dropdown TBD */
+  "denial_description": "A place to describe the denial reason",
+  "status_id" : 1, /* dropdown TBD */
+  "source_id": 0, /* dropdown marketing_sources */
+  "approved_amount": "200.00",
+  "joint_borrower_ssn": "999999999",
+  "joint_relationship": 2, /* dropdowns relationships */
+  "residences": [
+      {
+          "id": "",
+          "ownership_type_id": 2, /* dropdowns ownerships */
+          "verified_by": 1,
+          "verified_how": 2, /* dropdowns how_verified */
+          "payment": "900.00",
+          "how_long": 2, /* dropdowns timespans */
+          "year_moved_in": 1990,
+          "is_primary": true,
+          "address": "1 Street",
+          "city": "San Antonio",
+          "state": "XX",
+          "zip": "78201",
+          "zip_four": "1234",
+          "type" : 3, /* dropdowns residence_type */
+          "description": "An area to type a description"
+      }
+  ],
+  "phones": [
+      {
+          "id": "",
+          "number": "2105550001",
+          "extension": "23",
+          "type": 2, /* dropdowns phones */
+          "description": "An area to describe the phone number",
+          "is_primary": true
+      }
+  ],
+  "employers": [
+  {
+      "id": "",
+      "name": "Company name",
+      "address": "1 Street",
+      "city": "San Antonio",
+      "state": 43,
+      "zip": "78201",
+      "zip_four": "1234",
+      "contact_last_name": "Roberts",
+      "contact_first_name": "Steve",
+      "contact_email_address": "roberts@server.com",
+      "payment_schedule_id": 2, /* dropdowns payment_schedules */
+      "shift": "Textual shift name",
+      "net_income": "100.00",
+      "net_salary": "100.00",
+      "verified_how": 2, /* dropdowns how_verified */
+      "verified_by": 1, /* employee (user) id */
+      "employment_date": "5/20/2001",
+      "phone_number": "2105551234",
+      "extension": "x123",
+      "position": "Position name",
+      "how_long": 2 /* dropdowns timespans */
+  }
+  ],
+  "debts": [
+  {
+      "id": "",
+      "type": 1, /* dropdowns debt_types */ 
+      "value": "312.44",
+      "description": "A place to type a description of debt",
+      "no_pay": false
+  }
+  ],
+  "other_debts": [
+  {
+      "id": "",
+      "creditor": "Creditor Card Co",
+      "other_debt_type_id": 2, /* dropdowns other_debt_types */
+      "previous": "300.00",
+      "high_credit": "4000.00",
+      "debt_value": "1500.00",
+      "payment_schedule_type_id": 2, /* dropdowns payment_schedules */
+      "no_pay": true,
+      "current_balance": "750.00",
+      "how_paid": "Describe how paid",
+      "last_payment_made": "8/15/2013",
+      "next_payment_due": "9/10/2013",
+      "description": "Description of other debt"
+  }
+  ],
+  "references": [
+  {
+      "id": "",
+      "relationship_type_id": 2, /* dropdowns relationships */
+      "last_name": "Smith",
+      "first_name": "John",
+      "middle_name": "Lance",
+      "address": "300 Westberry",
+      "city": "San Antonio",
+      "state": "XX",
+      "zip": "78100",
+      "zip_four": "1234",
+      "phone_number": "2105551111",
+      "phone_type_id": 2 /* dropdowns phones */
+  }
+  ],
+  "automobiles": [
+  {
+      "id": "",
+      "make": "Honda",
+      "model": "Civic",
+      "color": "black",
+      "description": "Description of automobile",
+      "vin_number": "12345678901234567"
+  },
+  {
+      "id": "",
+      "make": "Ford",
+      "model": "Focus",
+      "color": "red",
+      "description": "Description of automobile",
+      "vin_number": "12345678901234568"
+  }
+  ],
+  "collateral": [
+  {
+      "id": "",
+      "collateral_types_id": 2, /* dropdowns collateral */
+      "description": "Description of collateral",
+      "object_id": 3, /* dropdowns TBD */
+      "object_value": "12000.00"
+  }
+  ]
+}
+            </textarea>
+            <button id="submit_app">Submit application</button>
+            <button id="reset_app">Reset application</button>
+            <div style="font-size:0.85em">
+                <div>To re-test, you have to reset the app.  Otherwise you'll get an unfriendly "transaction aborted" error.</div>
+            </div>
+        </div>
+        <div id="response">
+            <textarea>
+            </textarea>
+        </div>
+    </body>
+</html>

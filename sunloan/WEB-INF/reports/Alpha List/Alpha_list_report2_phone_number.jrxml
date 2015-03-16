@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Alpha_list_report2_phone_number" language="groovy" pageWidth="100" pageHeight="752" columnWidth="100" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="15e67ce6-0783-4012-898a-e3dc1bc6ed9b">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="borrowerID" class="java.lang.Long">
+		<defaultValueExpression><![CDATA[14L]]></defaultValueExpression>
+	</parameter>
+	<parameter name="phoneTypeID" class="java.lang.Integer">
+		<defaultValueExpression><![CDATA[1]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT
+     phone_numbers."phone_number" AS phone_numbers_phone_number
+FROM
+     "sunloans"."phone_numbers" phone_numbers
+WHERE
+     phone_numbers."borrower_id" = $P{borrowerID}
+AND
+     phone_numbers."phone_type_id" = $P{phoneTypeID}]]>
+	</queryString>
+	<field name="phone_numbers_phone_number" class="java.lang.String"/>
+	<detail>
+		<band height="20" splitType="Stretch">
+			<textField isBlankWhenNull="true">
+				<reportElement uuid="af780944-9bdd-447e-b442-1baf30ff217e" x="0" y="0" width="100" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font size="7"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{phone_numbers_phone_number}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>

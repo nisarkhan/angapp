@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <style>
+        textarea {
+            height:600px;
+            width:750px;
+        }
+        </style>
+        <script src="../../html/content/js/library/jquery.js" type="text/javascript"></script>
+        <script>
+            $(document).ready(function() {
+                
+                $('#request_app').click(function(e) {
+                    var ssn = $('#ssn').val(),
+                        appid = $('#app_id').val(),
+                        data = {};
+                        
+                   e.preventDefault();
+                   
+                   if(appid.length > 0) {
+                       data.application_id = appid;
+                   } else {
+                       data.ssn = ssn;
+                   }
+                   
+                   $.ajax('../../ws/application?action=request', {
+                        'type': 'POST',
+                        'dataType': 'json',
+                        'data': data
+                    }).done(function(envelope) {
+
+                        console.log('success');
+                        $('#response textarea').html(JSON.stringify(envelope, null, '  '));
+                   
+                    }).fail(function(envelope) {
+                        console.log('error');
+                    });
+                });
+        });
+        </script>
+    </head>
+    <body>
+        <div>
+            <label for="ssn">social security number</label>
+            <input id="ssn" type="text" name="ssn" value="123456789" />
+            
+            <label for="app_id">application id</label>
+            <input id="app_id" type="text" name="app_id" />
+            
+            <button id="request_app">request application</button>
+        </div>
+        <div id="response">
+            <textarea>
+            </textarea>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="timespan_type" pageWidth="555" pageHeight="802" columnWidth="555" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="16091e84-f703-4c63-9297-82849f2056cb">
+	<property name="ireport.zoom" value="1.610510000000001"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="title" class="java.lang.String"/>
+	<parameter name="timespanID" class="java.lang.Integer" isForPrompting="false">
+		<defaultValueExpression><![CDATA[2]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT
+     timespan_types."timespan_type_name" AS timespan_types_timespan_type_name
+FROM
+     "sunloans"."timespan_types" timespan_types
+WHERE
+  timespan_types."timespan_type_id" = $P{timespanID}]]>
+	</queryString>
+	<field name="timespan_types_timespan_type_name" class="java.lang.String"/>
+	<detail>
+		<band height="17" splitType="Stretch">
+			<textField>
+				<reportElement uuid="06c1f7ad-53ca-484b-9b31-3aa2056d4b64" x="0" y="0" width="555" height="9"/>
+				<box leftPadding="1"/>
+				<textElement>
+					<font size="7"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{title}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="06c1f7ad-53ca-484b-9b31-3aa2056d4b64" x="0" y="8" width="555" height="9"/>
+				<box leftPadding="1"/>
+				<textElement>
+					<font size="7" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{timespan_types_timespan_type_name}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>

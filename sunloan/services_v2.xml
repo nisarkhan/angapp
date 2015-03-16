@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="display.xsl"?>
+<api
+    xmlns="urn:sunshine.local"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="urn:sunshine.local services.xsd">
+    
+    <endpoint>
+        <url>/sunloans/rest/application/{ssn}</url>
+        <description>Get the application by social security number</description>
+        <request method="GET" />
+        <response contentType="application/json" />
+    </endpoint>
+    
+    <endpoint>
+        <url>/sunloans/rest/application/{ssn}</url>
+        <description>Save an application</description>
+        <request method="PUT" />
+        <response />
+    </endpoint>
+    
+    <endpoint>
+        <url>/sunloans/rest/application?show=inprogress</url>
+        <description>List all in-progress applications</description>
+        <request method="GET" />
+        <response contentType="application/json" />
+    </endpoint>
+    
+    <endpoint>
+        <url>/sunloans/rest/application/{ssn}</url>
+        <description>Delete an application</description>
+        <request method="DELETE" />
+        <response />
+    </endpoint>
+</api>

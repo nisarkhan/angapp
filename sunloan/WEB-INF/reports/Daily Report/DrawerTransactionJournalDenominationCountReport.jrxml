@@ -1,0 +1,505 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="DrawerTransactionJournalDenominationCountReport" pageWidth="390" pageHeight="802" whenNoDataType="NoDataSection" columnWidth="390" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="d85fe69d-693e-44de-8e7c-6092066970a1">
+	<property name="ireport.zoom" value="2.5937424601000023"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<field name="coinCountPenny" class="java.lang.Integer">
+		<fieldDescription><![CDATA[coinCountPenny]]></fieldDescription>
+	</field>
+	<field name="coinCountNickle" class="java.lang.Integer">
+		<fieldDescription><![CDATA[coinCountNickle]]></fieldDescription>
+	</field>
+	<field name="coinCountDime" class="java.lang.Integer">
+		<fieldDescription><![CDATA[coinCountDime]]></fieldDescription>
+	</field>
+	<field name="coinCountQuarter" class="java.lang.Integer">
+		<fieldDescription><![CDATA[coinCountQuarter]]></fieldDescription>
+	</field>
+	<field name="coinCountHalfDollar" class="java.lang.Integer">
+		<fieldDescription><![CDATA[coinCountHalfDollar]]></fieldDescription>
+	</field>
+	<field name="coinCountSilverDollar" class="java.lang.Integer">
+		<fieldDescription><![CDATA[coinCountSilverDollar]]></fieldDescription>
+	</field>
+	<field name="rollCountPenny" class="java.lang.Integer">
+		<fieldDescription><![CDATA[rollCountPenny]]></fieldDescription>
+	</field>
+	<field name="rollCountNickle" class="java.lang.Integer">
+		<fieldDescription><![CDATA[rollCountNickle]]></fieldDescription>
+	</field>
+	<field name="rollCountDime" class="java.lang.Integer">
+		<fieldDescription><![CDATA[rollCountDime]]></fieldDescription>
+	</field>
+	<field name="rollCountQuarter" class="java.lang.Integer">
+		<fieldDescription><![CDATA[rollCountQuarter]]></fieldDescription>
+	</field>
+	<field name="rollCountHalfDollar" class="java.lang.Integer">
+		<fieldDescription><![CDATA[rollCountHalfDollar]]></fieldDescription>
+	</field>
+	<field name="rollCountSilverDollar" class="java.lang.Integer">
+		<fieldDescription><![CDATA[rollCountSilverDollar]]></fieldDescription>
+	</field>
+	<field name="dollarCountOne" class="java.lang.Integer">
+		<fieldDescription><![CDATA[dollarCountOne]]></fieldDescription>
+	</field>
+	<field name="dollarCountTwo" class="java.lang.Integer">
+		<fieldDescription><![CDATA[dollarCountTwo]]></fieldDescription>
+	</field>
+	<field name="dollarCountFive" class="java.lang.Integer">
+		<fieldDescription><![CDATA[dollarCountFive]]></fieldDescription>
+	</field>
+	<field name="dollarCountTen" class="java.lang.Integer">
+		<fieldDescription><![CDATA[dollarCountTen]]></fieldDescription>
+	</field>
+	<field name="dollarCountTwenty" class="java.lang.Integer">
+		<fieldDescription><![CDATA[dollarCountTwenty]]></fieldDescription>
+	</field>
+	<field name="dollarCountFifty" class="java.lang.Integer">
+		<fieldDescription><![CDATA[dollarCountFifty]]></fieldDescription>
+	</field>
+	<field name="dollarCountOneHundred" class="java.lang.Integer">
+		<fieldDescription><![CDATA[dollarCountOneHundred]]></fieldDescription>
+	</field>
+	<detail>
+		<band height="111" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="130" height="20" uuid="33b53f93-2240-4ad0-8108-87215e63697c"/>
+				<text><![CDATA[Bills]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="130" y="0" width="130" height="20" uuid="e8e44439-7d5a-4464-92e3-831bcc0e87ad"/>
+				<text><![CDATA[Rolls]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="260" y="0" width="130" height="20" uuid="d00db517-4118-4ae7-bca9-78148be8dbaa"/>
+				<text><![CDATA[Coins]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="20" width="38" height="13" uuid="9c49bcdd-b5d9-4f9c-8fb9-d607a64fa5b8"/>
+				<text><![CDATA[100.00]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="38" y="20" width="10" height="13" uuid="e4026832-a25d-4e94-9260-04120954ba11"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[x]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="48" y="20" width="23" height="13" uuid="3dcafb28-e713-4f4d-a1bf-bbfb05ef883c"/>
+				<textFieldExpression><![CDATA[$F{dollarCountOneHundred}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="71" y="20" width="10" height="13" uuid="ddc91ff8-ff98-424d-9c2b-fca012976aaf"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[=]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="48" y="33" width="23" height="13" uuid="ae9da676-9814-49c7-9047-9b0926656d21"/>
+				<textFieldExpression><![CDATA[$F{dollarCountFifty}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="71" y="33" width="10" height="13" uuid="7b94ea97-c3ac-4c24-a88a-c4247483da9c"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[=]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="38" y="33" width="10" height="13" uuid="bb208c97-c3cb-4e68-87dc-8a036d606c74"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[x]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="33" width="38" height="13" uuid="f334493e-07a0-4f1a-a638-319af7cd417a"/>
+				<text><![CDATA[50.00]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="48" y="46" width="23" height="13" uuid="765a67af-15f9-4a00-b437-a33147eb4182"/>
+				<textFieldExpression><![CDATA[$F{dollarCountTwenty}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="71" y="46" width="10" height="13" uuid="4a1b5938-59f4-4607-b43d-3f4298ffb7ad"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[=]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="38" y="46" width="10" height="13" uuid="09b49dff-9f09-4ee6-b9b1-fd61348272e9"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[x]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="46" width="38" height="13" uuid="31cecc22-a19d-4ccc-939c-7c362473f87e"/>
+				<text><![CDATA[20.00]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="48" y="59" width="23" height="13" uuid="1030c175-a879-4f1a-baad-fe595c7dd062"/>
+				<textFieldExpression><![CDATA[$F{dollarCountTen}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="71" y="59" width="10" height="13" uuid="7133ed3b-6514-4560-a736-bd45a970bb42"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[=]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="38" y="59" width="10" height="13" uuid="0fbb28bc-94fc-424a-8dea-9974cf17c21f"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[x]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="59" width="38" height="13" uuid="a1205736-367a-4a95-b4a8-4be42e890f1c"/>
+				<text><![CDATA[10.00]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="48" y="72" width="23" height="13" uuid="c38f5b79-be27-477b-a5e6-193548840db3"/>
+				<textFieldExpression><![CDATA[$F{dollarCountFive}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="71" y="72" width="10" height="13" uuid="5a3bf510-ebb4-483f-8ebe-6abc0f77b70d"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[=]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="38" y="72" width="10" height="13" uuid="e706a0eb-a3ef-4781-955e-c31f112247f4"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[x]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="72" width="38" height="13" uuid="7cab785f-0c26-4bd1-96ac-f3961da69c48"/>
+				<text><![CDATA[5.00]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="48" y="85" width="23" height="13" uuid="b6f69a69-a9a2-4eee-a85f-97a4f4046e25"/>
+				<textFieldExpression><![CDATA[$F{dollarCountTwo}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="71" y="85" width="10" height="13" uuid="9365e0c7-215f-4d26-b0cb-a0017d255539"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[=]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="38" y="85" width="10" height="13" uuid="3cead4a7-4953-45e9-8cfb-54838bb95b8a"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[x]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="85" width="38" height="13" uuid="75a37595-e8d2-4350-81f6-8e020a327667"/>
+				<text><![CDATA[2.00]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="48" y="98" width="23" height="13" uuid="b302ea60-7ba4-4b88-817c-a6dd734f717f"/>
+				<textFieldExpression><![CDATA[$F{dollarCountOneHundred}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="71" y="98" width="10" height="13" uuid="51c5fd09-fd94-48c3-ab91-c0fe4b30ef86"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[=]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="38" y="98" width="10" height="13" uuid="96dd18ce-1ce4-4f23-bdf7-992973ed02cc"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[x]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="98" width="38" height="13" uuid="09b7aca2-fa59-487f-aba4-bf94adef6e39"/>
+				<text><![CDATA[1.00]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="178" y="20" width="23" height="13" uuid="eafcf299-b89f-4856-8b0d-dab6bb3437f5"/>
+				<textFieldExpression><![CDATA[$F{rollCountSilverDollar}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="130" y="59" width="38" height="13" uuid="8bb29490-fe9e-459f-97cc-cb576ef05aff"/>
+				<text><![CDATA[0.10]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="168" y="72" width="10" height="13" uuid="adec4a5e-5a3d-424f-8014-62e661719683"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[x]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="168" y="20" width="10" height="13" uuid="9f43ac25-6472-40f7-8a04-94df38de5b6a"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[x]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="168" y="85" width="10" height="13" uuid="9b5319f2-a86b-482e-beeb-e8447e3ea673"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[x]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="178" y="59" width="23" height="13" uuid="608879c1-2090-42fc-ad9b-cfd9dba32713"/>
+				<textFieldExpression><![CDATA[$F{rollCountDime}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="130" y="85" width="38" height="13" uuid="e9c5942e-60e0-46e9-9883-962f83802172"/>
+				<text><![CDATA[0.01]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="178" y="33" width="23" height="13" uuid="6818ee77-1871-490f-890a-d33ae362e79c"/>
+				<textFieldExpression><![CDATA[$F{rollCountHalfDollar}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="168" y="46" width="10" height="13" uuid="553650f7-29b3-42df-88cd-21c976c967ae"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[x]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="178" y="85" width="23" height="13" uuid="a87bd049-a689-477e-95b1-b13f849f85b6"/>
+				<textFieldExpression><![CDATA[$F{rollCountPenny}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="178" y="72" width="23" height="13" uuid="4487da1a-7278-4934-8851-5c5b4217ee71"/>
+				<textFieldExpression><![CDATA[$F{rollCountNickle}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="130" y="33" width="38" height="13" uuid="10dfbdb1-7843-4ea6-a488-c31312634572"/>
+				<text><![CDATA[0.50]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="178" y="46" width="23" height="13" uuid="44fc7cb4-6936-4e95-bc5b-ed87b521f9a5"/>
+				<textFieldExpression><![CDATA[$F{rollCountQuarter}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="130" y="72" width="38" height="13" uuid="e4f61644-9033-45d1-99cf-bd617b23bec6"/>
+				<text><![CDATA[0.05]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="168" y="59" width="10" height="13" uuid="eab2bb9c-6eb0-4962-abae-d25fd33de48e"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[x]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="130" y="46" width="38" height="13" uuid="d6e5f4ca-67ff-4160-9cbb-406dcc787465"/>
+				<text><![CDATA[0.25]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="130" y="20" width="38" height="13" uuid="0676c201-9ede-4958-b17d-1835fcc730ce"/>
+				<text><![CDATA[1.00]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="168" y="33" width="10" height="13" uuid="17f49a36-2fc6-43a2-acf9-c709d117a029"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[x]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="201" y="20" width="10" height="13" uuid="c7d7f485-4b09-4316-ba09-e394c096704a"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[=]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="201" y="33" width="10" height="13" uuid="2a34908d-4d86-4235-b2e0-606d519bebd7"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[=]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="201" y="46" width="10" height="13" uuid="8266ecf4-63d6-4392-b5c6-b3ae826b4027"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[=]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="201" y="59" width="10" height="13" uuid="a9177d23-fd6f-467c-9ee3-024d47c850b2"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[=]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="201" y="72" width="10" height="13" uuid="70afe870-880b-462b-b93d-9687898d95bd"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[=]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="201" y="85" width="10" height="13" uuid="0c871ea4-b959-4ef5-bd4d-d66bf0dc6695"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[=]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="308" y="33" width="23" height="13" uuid="57c0e6d7-c82e-4bf9-857c-7e5c0ae5e8a6"/>
+				<textFieldExpression><![CDATA[$F{coinCountHalfDollar}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="331" y="46" width="10" height="13" uuid="45ce0f19-3daa-4915-9149-52c237cb7f5f"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[=]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="260" y="33" width="38" height="13" uuid="4840ca68-dad5-4db9-8a9a-f63b5e7fffa0"/>
+				<text><![CDATA[0.50]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="308" y="85" width="23" height="13" uuid="d9034b61-f578-4814-a389-a00efb78db9d"/>
+				<textFieldExpression><![CDATA[$F{coinCountPenny}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="298" y="20" width="10" height="13" uuid="237a3ba7-48ce-4b3f-9e60-f46cd9135e83"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[x]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="331" y="20" width="10" height="13" uuid="61fb7adf-cc61-4bc2-a8fe-a9df8ed80376"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[=]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="331" y="85" width="10" height="13" uuid="db14d747-6640-48b1-9d07-53c5b958c8c1"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[=]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="260" y="46" width="38" height="13" uuid="f325f8d4-e2c2-4080-b5ac-140b47c42de9"/>
+				<text><![CDATA[0.25]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="260" y="59" width="38" height="13" uuid="91c004b2-aee3-4953-8624-fd1398ed3685"/>
+				<text><![CDATA[0.10]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="308" y="72" width="23" height="13" uuid="d10406ab-2028-48a6-8683-a653fc6a13d2"/>
+				<textFieldExpression><![CDATA[$F{coinCountNickle}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="298" y="59" width="10" height="13" uuid="5cb29129-19ce-4cf8-94d3-69b7039b4c73"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[x]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="260" y="20" width="38" height="13" uuid="f0b7cffb-b52c-437d-8fa3-8347232028ae"/>
+				<text><![CDATA[1.00]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="331" y="72" width="10" height="13" uuid="1d00a2ab-6c3b-40dc-9751-55d0ffa33860"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[=]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="308" y="20" width="23" height="13" uuid="97c487a5-4829-4c05-bc98-a7ec72b131d7"/>
+				<textFieldExpression><![CDATA[$F{coinCountSilverDollar}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="308" y="59" width="23" height="13" uuid="4d5c5dbb-9805-449f-a3da-bb07a570351d"/>
+				<textFieldExpression><![CDATA[$F{coinCountDime}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="260" y="72" width="38" height="13" uuid="6fe36f1b-77ac-4a64-a07c-f75b2beeb940"/>
+				<text><![CDATA[0.05]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="298" y="33" width="10" height="13" uuid="6718874f-71af-482d-bcc1-9da0537fbdd8"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[x]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="308" y="46" width="23" height="13" uuid="d35ae289-a276-4a70-aa77-3336d29a09c2"/>
+				<textFieldExpression><![CDATA[$F{coinCountQuarter}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="331" y="33" width="10" height="13" uuid="321d163e-48be-4dc8-9ec7-3f98fbc4d285"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[=]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="298" y="72" width="10" height="13" uuid="6d6e9b06-bf7e-4bd0-90cb-3914dab0e935"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[x]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="260" y="85" width="38" height="13" uuid="303b1af1-c0bc-4ab8-bec2-cfc0b513fb50"/>
+				<text><![CDATA[0.01]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="331" y="59" width="10" height="13" uuid="2c7cee15-da7c-469e-83cd-88db75d8a1bd"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[=]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="298" y="85" width="10" height="13" uuid="f7bb6ed6-3990-46dd-b889-894ecfb785a2"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[x]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="298" y="46" width="10" height="13" uuid="1c38dcbb-e3c8-4b9e-8a59-47f4d84403d2"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[x]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="341" y="85" width="40" height="13" uuid="cf2bcbeb-c61b-40ab-8444-d0fa1d78b5eb"/>
+				<textFieldExpression><![CDATA[($F{coinCountPenny} * .01)]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="341" y="46" width="40" height="13" uuid="07ec8e7f-ac75-4af0-abac-b5bd2c34e1b4"/>
+				<textFieldExpression><![CDATA[($F{coinCountQuarter} * .25)]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="341" y="72" width="40" height="13" uuid="f113ad49-2d70-425f-a6bb-b0e784768b28"/>
+				<textFieldExpression><![CDATA[($F{coinCountNickle} * .05)]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="341" y="59" width="40" height="13" uuid="53431aa5-305c-4c17-99e3-bee45e62da86"/>
+				<textFieldExpression><![CDATA[($F{coinCountDime} * .10)]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="341" y="20" width="40" height="13" uuid="2b88a4ca-b1d6-42e0-a63b-56b25d681d4e"/>
+				<textFieldExpression><![CDATA[($F{coinCountSilverDollar} * 1.00)]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="341" y="33" width="40" height="13" uuid="64970ab3-56f2-4729-81c3-053daf02da6b"/>
+				<textFieldExpression><![CDATA[($F{coinCountHalfDollar} * .50)]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="211" y="20" width="40" height="13" uuid="b92b9c22-3377-4439-92ea-fc3e31f8a26b"/>
+				<textFieldExpression><![CDATA[($F{rollCountSilverDollar} * 25.00)]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="211" y="72" width="40" height="13" uuid="1c078cc2-d9a4-4c3e-9f3c-06289f191e6b"/>
+				<textFieldExpression><![CDATA[($F{rollCountNickle} * 2.00)]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="211" y="33" width="40" height="13" uuid="18290c05-7a81-41c1-a71d-2bd8e5cf57c5"/>
+				<textFieldExpression><![CDATA[($F{rollCountHalfDollar} * 10.00)]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="211" y="85" width="40" height="13" uuid="f421a36f-548f-44ac-a205-ef91d781ef3c"/>
+				<textFieldExpression><![CDATA[($F{rollCountPenny} * .50)]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="211" y="46" width="40" height="13" uuid="1e28e5d3-1ea0-4e39-893f-2472ff13607f"/>
+				<textFieldExpression><![CDATA[($F{rollCountQuarter} * 10.00)]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="211" y="59" width="40" height="13" uuid="977ab9cc-4f16-4f9c-bc3e-8d6fa13eb32f"/>
+				<textFieldExpression><![CDATA[($F{rollCountDime} * 5.00)]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="81" y="46" width="40" height="13" uuid="cd821dab-1db0-42bc-a0ad-5820aa613c91"/>
+				<textFieldExpression><![CDATA[($F{dollarCountTwenty} * 20.00)]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="81" y="59" width="40" height="13" uuid="d345164d-0988-4618-8b65-d17050e8c993"/>
+				<textFieldExpression><![CDATA[($F{dollarCountTen} * 10.00)]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="81" y="20" width="40" height="13" uuid="c48b9a09-e776-4a33-92d5-352e0676618b"/>
+				<textFieldExpression><![CDATA[($F{dollarCountOneHundred} * 100.00)]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="81" y="98" width="40" height="13" uuid="16042a7c-88e0-48c2-945d-678b7288318a"/>
+				<textFieldExpression><![CDATA[($F{dollarCountOneHundred} * 1.00)]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="81" y="85" width="40" height="13" uuid="58eaceb5-2137-4814-acfd-4805fb9c39e6"/>
+				<textFieldExpression><![CDATA[($F{dollarCountTwo} * 2.00)]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="81" y="72" width="40" height="13" uuid="71d2bde0-eef1-4e8f-aefb-5dbe1d6ef41e"/>
+				<textFieldExpression><![CDATA[($F{dollarCountFive} * 5.00)]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="81" y="33" width="40" height="13" uuid="0e085764-ef91-485a-acb7-d9e6dc1f623c"/>
+				<textFieldExpression><![CDATA[($F{dollarCountFifty} * 50.00)]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<noData>
+		<band height="20">
+			<staticText>
+				<reportElement x="0" y="0" width="390" height="20" uuid="540c1064-50e0-4d94-9e75-fc0930d985e5"/>
+				<text><![CDATA[No Data for Drawer Counts and Tenders. ]]></text>
+			</staticText>
+		</band>
+	</noData>
+</jasperReport>

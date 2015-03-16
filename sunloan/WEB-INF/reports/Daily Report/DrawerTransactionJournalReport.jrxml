@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="DrawerTransactionJournalReport" pageWidth="802" pageHeight="555" orientation="Landscape" columnWidth="762" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="c6dea86e-ea90-4d54-b420-e9f512f1c45f">
+	<property name="ireport.zoom" value="1.4641000000000008"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["C:\\Work\\Sunloan\\WebApp\\web\\WEB-INF\\reports\\Daily Report\\"]]></defaultValueExpression>
+	</parameter>
+	<field name="totalOpeningCash" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[totalOpeningCash]]></fieldDescription>
+	</field>
+	<field name="totalClosingCash" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[totalClosingCash]]></fieldDescription>
+	</field>
+	<field name="totalChecks" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[totalChecks]]></fieldDescription>
+	</field>
+	<field name="totalVouchers" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[totalVouchers]]></fieldDescription>
+	</field>
+	<field name="totalCount" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[totalCount]]></fieldDescription>
+	</field>
+	<field name="netTransaction" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[netTransaction]]></fieldDescription>
+	</field>
+	<field name="netInOuts" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[netInOuts]]></fieldDescription>
+	</field>
+	<field name="longShortToday" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[longShortToday]]></fieldDescription>
+	</field>
+	<field name="longShortMonth" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[longShortMonth]]></fieldDescription>
+	</field>
+	<field name="longShortYear" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[longShortYear]]></fieldDescription>
+	</field>
+	<field name="drawerName" class="java.lang.String">
+		<fieldDescription><![CDATA[drawerName]]></fieldDescription>
+	</field>
+	<field name="drawerCount" class="java.lang.Object">
+		<fieldDescription><![CDATA[drawerCount]]></fieldDescription>
+	</field>
+	<detail>
+		<band height="45" splitType="Stretch">
+			<subreport>
+				<reportElement x="0" y="20" width="762" height="25" uuid="2c30ffc9-34fa-4054-a7bf-d2b944a17019"/>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "DrawerTransactionJournalItemReport.jasper"]]></subreportExpression>
+			</subreport>
+			<textField>
+				<reportElement x="0" y="0" width="762" height="20" uuid="9dd59215-125d-4a67-80bb-e914da137a31"/>
+				<textFieldExpression><![CDATA["Drawer " + $F{drawerName} + ":"]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="119">
+			<subreport>
+				<reportElement x="0" y="0" width="400" height="105" uuid="ca81fca1-d0b2-4228-a2af-6204f5a2ce33"/>
+				<dataSourceExpression><![CDATA[(new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource(java.util.Collections.singleton($F{drawerCount})))]]></dataSourceExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "DrawerTransactionJournalDenominationCountReport.jasper"]]></subreportExpression>
+			</subreport>
+			<staticText>
+				<reportElement x="411" y="0" width="100" height="15" uuid="ff0fa08c-20fa-4ead-a758-6e3eed8ac7ae"/>
+				<text><![CDATA[Total Cash]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="411" y="15" width="100" height="15" uuid="474a9ba4-3337-4611-8af6-6f99b5c169a9"/>
+				<text><![CDATA[Total Checks]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="411" y="30" width="100" height="15" uuid="415117bc-4e10-49ee-90d6-9306038829dd"/>
+				<text><![CDATA[Total Vouchers]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="411" y="45" width="100" height="15" uuid="76562385-0ffa-4bac-acea-79991f63103a"/>
+				<text><![CDATA[Total Count]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="511" y="0" width="5" height="15" uuid="ac36fcb8-fbae-4b6b-91e0-991fe3390809"/>
+				<text><![CDATA[:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="511" y="15" width="5" height="15" uuid="aaf1c2c0-d2d1-46d3-b228-c09e12dc4db8"/>
+				<text><![CDATA[:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="511" y="30" width="5" height="15" uuid="e46c34a4-3bf1-49e0-8855-f60b4777662c"/>
+				<text><![CDATA[:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="511" y="45" width="5" height="15" uuid="aa0edc44-6fa7-4200-a509-a7b1b41231b0"/>
+				<text><![CDATA[:]]></text>
+			</staticText>
+			<textField pattern="#,##0.00;-#,##0.00">
+				<reportElement x="516" y="0" width="50" height="15" uuid="5900e4ed-174b-40de-a0f7-ef291b9ba6bc"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[$F{totalClosingCash}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00;-#,##0.00">
+				<reportElement x="516" y="15" width="50" height="15" uuid="9012cde8-e566-48a5-b586-fb9a796e83bd"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[$F{totalChecks}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00;-#,##0.00">
+				<reportElement x="516" y="30" width="50" height="15" uuid="1865b8fb-70f9-4541-ae5d-108302994642"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[$F{totalVouchers}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00;-#,##0.00">
+				<reportElement x="516" y="45" width="50" height="15" uuid="66b22dd4-2c9f-49f0-9840-29030914dc89"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[$F{totalCount}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="680" y="0" width="5" height="15" uuid="afcd3737-fc28-4ed5-a8b3-bb027c872d26"/>
+				<text><![CDATA[:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="580" y="0" width="100" height="15" uuid="69065da7-791d-4c3f-abd8-2ac6deefd445"/>
+				<text><![CDATA[Opening Cash]]></text>
+			</staticText>
+			<textField pattern="#,##0.00">
+				<reportElement x="685" y="0" width="50" height="15" uuid="31244d45-8db8-4810-ab39-d59c9400a5fa"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[$F{totalOpeningCash}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="680" y="15" width="5" height="15" uuid="c2cd0a09-17c0-494a-9c4b-2170731ea6a9"/>
+				<text><![CDATA[:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="580" y="15" width="100" height="15" uuid="7493593a-f134-4362-a53b-5b7425ef2380"/>
+				<text><![CDATA[Net Transaction]]></text>
+			</staticText>
+			<textField pattern="#,##0.00">
+				<reportElement x="685" y="15" width="50" height="15" uuid="51850c3b-fc6d-4297-aa42-d4c2aab353e8"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[$F{netTransaction}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="680" y="30" width="5" height="15" uuid="8c80fc51-54a6-41df-89f5-2df4765f3a8f"/>
+				<text><![CDATA[:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="580" y="30" width="100" height="15" uuid="b80b15a8-cc1d-419e-885b-5bfc487867b6"/>
+				<text><![CDATA[Net Ins Outs]]></text>
+			</staticText>
+			<textField pattern="#,##0.00">
+				<reportElement x="685" y="30" width="50" height="15" uuid="0c9442d0-a230-40b1-8221-82c8bb0b1b7c"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[$F{netInOuts}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="680" y="45" width="5" height="15" uuid="d39be78d-7607-4a33-a5cd-1f26fa63cddf"/>
+				<text><![CDATA[:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="580" y="45" width="100" height="15" uuid="a19dcb8c-e03d-44c6-bde8-17d0a1bcd303"/>
+				<text><![CDATA[Cash Count]]></text>
+			</staticText>
+			<textField pattern="#,##0.00">
+				<reportElement x="685" y="45" width="50" height="15" uuid="86316c54-f18d-4529-9973-dd282bd31ffb"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[$F{totalCount}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="680" y="60" width="5" height="15" uuid="a337fd55-399c-441a-bd06-c1b3d1da8131"/>
+				<text><![CDATA[:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="580" y="60" width="100" height="15" uuid="c889824a-b1c6-4990-8bb7-2570eb7a4c1c"/>
+				<text><![CDATA[Today Long(-)/Short]]></text>
+			</staticText>
+			<textField pattern="#,##0.00">
+				<reportElement x="685" y="60" width="50" height="15" uuid="1ba6bea2-8043-4dce-aece-d7185dcd94b8"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[$F{longShortToday}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="680" y="75" width="5" height="15" uuid="a20f25f9-f5e6-4499-9470-dcf179810078"/>
+				<text><![CDATA[:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="580" y="75" width="100" height="15" uuid="7f22e9ab-4f6b-4d1a-ab30-699c5a7a20ae"/>
+				<text><![CDATA[MTD L/S]]></text>
+			</staticText>
+			<textField pattern="#,##0.00">
+				<reportElement x="685" y="75" width="50" height="15" uuid="0913513a-f360-44cd-b696-dbdd4cb44e13"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[$F{longShortMonth}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00">
+				<reportElement x="685" y="90" width="50" height="15" uuid="3350dd1c-5968-43e2-8b5c-5c79aa4377a9"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[$F{longShortYear}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="580" y="90" width="100" height="15" uuid="7b0e1131-febc-47b7-9b38-7304379f6a73"/>
+				<text><![CDATA[YTD L/S]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="680" y="90" width="5" height="15" uuid="c8c46205-9b32-40d2-a05e-34922d34b4a6"/>
+				<text><![CDATA[:]]></text>
+			</staticText>
+			<line direction="BottomUp">
+				<reportElement x="0" y="111" width="762" height="1" uuid="f135c466-f8e9-483c-9bc3-5a9f9dddeedd"/>
+				<graphicElement>
+					<pen lineStyle="Dashed"/>
+				</graphicElement>
+			</line>
+		</band>
+	</detail>
+</jasperReport>

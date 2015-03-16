@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <script src="/sunloans/html/content/js/library/jquery.js"></script>
+        <script src="/sunloans/html/content/js/library/ICanHaz.js"></script>
+        <script src="/sunloans/test/test.js"></script>
+        <script>
+            function create_phone_entry(phone_idx) {
+                var c = $('#phone_template').clone();
+                    
+                $(':input', c).each(function(i, elm) {
+                    var y = $(elm).attr('name').replace('?', phone_idx);
+                    $(elm).attr('name', y);
+                });
+
+                c.attr('id', 'phone_entry_' + phone_idx);
+                c.css('display', 'block');
+
+                $('#add_phone').parent().before(c);
+
+                $('.phone_entry_remove', c).click(function() {
+                    $(this).closest('div').remove();
+                });
+            }
+            
+            function set_phone_entry(phone_idx, type, number) {
+                $('#phone_entry_' + phone_idx + ' select').val(type);
+                $('#phone_entry_' + phone_idx + ' input').val(number);
+            }
+            
+            $(document).ready(function() {
+                
+                var borrower = test.get('rest/application/{0}/borrower'.format(test.session.appId)) || {};
+                
+                document.body.innerHTML = ich.borrower({
+                    'borrower': borrower,
+                    'prefixes': test.get('rest/application/prefix'),
+                    'suffixes': test.get('rest/application/suffix'),
+                    'phones':  test.get('rest/application/phone')
+                }, true);
+                
+                var phones = test.get('rest/application/{0}/borrower/phone'.format(test.session.appId));
+                
+                for(var i = 0; i < phones.length; i++) {
+                 
+                    /*
+                     *  the first phone will be a modification of the html code
+                     */
+                    if(i == 0) {
+                        set_phone_entry(i, phones[i].phone_type_id, phones[i].phone_number);
+//                        $('#phone_entry_0 select').val(phones[0].phone_type_id);
+//                        $('#phone_entry_0 input').val(phones[0].phone_number);
+                    } else {
+                        create_phone_entry(i);
+                        set_phone_entry(i, phones[i].phone_type_id, phones[i].phone_number);
+                    }
+                }
+        
+               
+                
+                // set dropdowns
+                $('#prefix').val(borrower.prefix);
+                $('#suffix').val(borrower.suffix);
+                
+                $('#save').click(function(e) {
+
+                    var form = test.getForm();
+                    
+                    test.put('rest/application/{0}/borrower'.format(test.session.appId), {
+                        data: JSON.stringify(form),
+                        success: function() {
+                            $('#message').show().text('save successful').fadeOut(1000);
+                        }
+                    });
+                    
+                    $('div[id^="phone_entry_"]').each(function(i, e) {
+                        
+                        var data = {
+                          'phone_number': $('input', e).val(),
+                          'phone_type_id': $('select', e).val(),
+                          'is_primary': false
+                        };
+                        
+                        test.post('rest/application/{0}/borrower/phone'.format(test.session.appId), {
+                            data: JSON.stringify(data)
+                        });
+                    });
+                });
+                
+                $('#next').click(function(e) {
+                   e.preventDefault();
+                   
+                   var form = test.getForm();
+                   
+                   test.put('rest/application/{0}/borrower'.format(test.session.appId), {
+                       data: JSON.stringify(form),
+                       
+                       success: function() {
+                           window.location.href = 'address.html';
+                       },
+                       
+                       error: function(xhr, status, error) {
+                           $('#message').text(status + ": " + + xhr.status + " " + error);
+                       }
+                   });
+                   
+                });
+                
+                
+                /*
+                 * handle add phone click events
+                 * see http://jsfiddle.net/wc28f/3/
+                 */
+                var phone_idx = 0;
+                
+                $('#add_phone').click(function(e) {
+                    phone_idx++;
+                    
+                    create_phone_entry(phone_idx);
+
+//                    var c = $('#phone_template').clone();
+//                    
+//                    $(':input', c).each(function(i, elm) {
+//                        var y = $(elm).attr('name').replace('?', phone_idx);
+//                        $(elm).attr('name', y);
+//                    });
+//                    
+//                    c.attr('id', 'phone_entry_' + phone_idx);
+//                    c.css('display', 'block');
+//                    $(this).parent().before(c);
+//                    
+//                    $('.phone_entry_remove', c).click(function() {
+//                       $(this).closest('div').remove();
+//                    });
+                });
+        
+            });
+        </script>
+        <script id="borrower" type="text/html">
+            <div id='phone_template' style='display:none'>
+                <dd>
+                    <select name="phone_type[?]">
+                        {{#phones}}
+                        <option value="{{id}}">{{name}}</option>
+                        {{/phones}}
+                    </select>
+
+                    <input type="text" name="phone[?]" />
+                    
+                    <a href='javascript:void(0)' class='phone_entry_remove'>remove</a>
+                </dd>
+            </div>
+        <dl>
+            <dt>prefix</dt>
+            <dd>
+                <select id="prefix" name="prefix">
+                    {{#prefixes}}
+                    <option value="{{name}}">{{name}}</option>
+                    {{/prefixes}}
+                </select>
+            </dd>
+            
+            <dt>first name</dt>
+            <dd><input type="text" name="first_name" value="{{borrower.first_name}}" /></dd>
+            
+            <dt>middle name</dt>
+            <dd><input type="text" name="middle_name" value="{{borrower.middle_name}}" /></dd>
+            
+            <dt>last name</dt>
+            <dd><input type="text" name="last_name" value="{{borrower.last_name}}" /></dd>
+            
+            <dt>suffix</dt>
+            <dd>
+                <select id="suffix" name="suffix">
+                    {{#suffixes}}
+                    <option value="{{name}}">{{name}}</option>
+                    {{/suffixes}}
+                </select>
+            </dd>
+            
+            <dt>email</dt>
+            <dd><input type="text" name="email_address" value="{{borrower.email_address}}" /></dd>
+            
+            <dt>phone</dt>
+            
+
+            
+            <div id='phone_entry_0'>
+                <dd>
+                    <select name="phone_type[0]">
+                        {{#phones}}
+                        <option value="{{id}}">{{name}}</option>
+                        {{/phones}}
+                    </select>
+
+                    <input type="text" name="phone[0]" />
+                </dd>
+            </div>
+            
+            <dd>
+                 <a href="javascript:void(0)" id="add_phone">add phone</a>
+            </dd>
+            
+            <dt>number of dependents<dt>
+            <dd></dd>
+            
+            <dt>home city</dt>
+            <dd></dd>
+        </dl>
+        <div>
+            <a href="javascript:void(0)" id="prev">< previous</a>
+            <a href="javascript:void(0)" id="save">save</a>
+            <a href="javascript:void(0)" id="next">next ></a>
+            <span id="message"></span>
+        </div>
+        </script>
+    </head>
+    <body>
+    </body>
+</html>

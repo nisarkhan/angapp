@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+        <style>
+            textarea {
+                height:600px;
+                width:750px;
+            }
+        </style>
+        <script src="/sunloans/html/content/js/library/jquery.js"></script>
+        <script>
+           $(document).ready(function() {
+               
+               $('#do_request_1').click(function(e) {
+                    e.preventDefault();
+                   
+                    var response = $.ajax('/sunloans/ws/application?action=inprogress', {
+                        async: false,
+                        type: 'POST',
+                        data: {
+                            ssn: $('#request_ssn').val()
+                        }
+                   });
+                   
+                    $('#response').html(JSON.stringify(response.responseJSON, null, '  '));
+                   
+               });
+               
+           });
+        </script>
+    </head>
+    <body>
+        <div>
+            <div>
+                <div>
+                    <button id="do_request_1">request an in progress application</button>
+                    <input type="text" id="request_ssn" value="123456789" />
+                </div>
+                <div>
+                    <textarea id="response">
+                </textarea>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

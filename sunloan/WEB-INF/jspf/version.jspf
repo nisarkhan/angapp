@@ -1,0 +1,2 @@
+<jsp:useBean id="version" class="com.brundage.sunloan.webapp.beans.Version" scope="page" />
+v${version.version} <%-- ${version.lastUpdated} --%>

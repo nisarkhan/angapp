@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>loan payment</title>
+        <script src="/sunloans/html/content/js/library/jquery.js"></script>
+        <script src="/sunloans/html/content/js/library/ICanHaz.js"></script>
+        <script src="/sunloans/test/test.js"></script>
+        <script>
+            $(document).ready(function() {
+                
+                function echo(control, data) {
+                    $(control).text(JSON.stringify(data, null, ' '));
+                }
+                
+                function refreshData() {
+                    var account = $('#account').val();
+                    $.getJSON('/sunloans/rest/borrower/{0}'.format(account))
+                    .done(function(data) {
+                        echo('#borrower', data);
+                    })
+                    .fail(function(xhr) {
+                        echo('#borrower', xhr);
+                    });
+
+                    $.getJSON('/sunloans/rest/borrower/{0}/loan/last'.format(account))
+                    .done(function(data) {
+                        echo('#loan', data);
+                    })
+                    .fail(function(xhr) {
+                        echo('#loan', xhr);
+                    });
+
+                    $.getJSON('/sunloans/rest/borrower/{0}/loan/last/transaction'.format(account))
+                    .done(function(data) {
+                        test.elm('transactions-target').innerHTML = ich.transactions({
+                            'transactions': data
+                        }, true);
+
+})
+                    .fail(function(xhr) {
+//                            echo('#transactions', xhr);
+                    });
+
+                    $.getJSON('/sunloans/rest/borrower/{0}/loan/payment'.format(account))
+                    .done(function(data) {
+                       echo('#payment', data); 
+                    })
+                    .fail(function(xhr) {
+                        echo('#payment', xhr);
+                    });
+
+                }
+                
+                var timer,
+                    delay = 800;
+                    
+                $('#account').on('input', function() {
+                    
+                    window.clearTimeout(timer);
+                    
+                    timer = window.setTimeout(function() {
+                        refreshData();
+                    }, delay);
+                    
+                });
+                
+               $('#find-borrower').click(function(e) {
+                   refreshData();
+               });
+               
+               $('#loan-list').click(function(e) {
+                  e.preventDefault();
+                  
+                  var account = $('#account').val();
+                  
+                  $.getJSON('/sunloans/rest/borrower/{0}/loan'.format(account))
+                  .done(function(data) {
+                      echo('#loan', data);
+                  })
+                  .fail(function(xhr) {
+                      echo('#loan', xhr);
+                  });
+               });
+                
+                $('#submit-payment').click(function(e) {
+                    e.preventDefault(); 
+                    var account = $('#account').val(),
+                        tendered = $('#tendered').val(),
+                        instrument = $('#instrument').val();
+                    
+                    $.ajax('/sunloans/rest/borrower/{0}/loan/payment'.format(account), {
+                        contentType: 'application/json',
+                        type: 'POST',
+                        data: JSON.stringify({
+                            'tendered': tendered,
+                            'instrument': instrument,
+                            'check_num': ''
+                        })
+                    })
+                    .done(function(data) {
+                        $('#message').show().text('payment succesful').fadeOut(5000);
+                
+                        refreshData();
+                    })
+                    .fail(function(xhr) {
+                        var errors,
+                            error;
+
+                        $('#message').show().text('There was an error').fadeOut(5000);
+
+                        if(Array.isArray(xhr.responseJSON)) {
+                            errors = xhr.responseJSON;
+                            if(errors.length > 0) {
+                                error = errors[0];
+                                
+                                if(error.path.indexOf('tendered') > 0) {
+                                    $('#tendered-error').show().text(error.message).fadeOut(5000);
+                                }
+                            }
+                        }
+                    });
+                });
+               
+            });
+        </script>
+        <style>
+            td, th {
+                border: solid 1px lightgrey;
+                padding: 4px;
+            }
+        </style>
+        <script id='transactions' type='text/html'>
+            <table style='border-collapse:collapse'>
+                <thead>
+                <tr>
+                    <th>seq</th>
+                    <th>date</th>
+                    <th>code</th>
+                    <th>amt</th>
+                    <th>to bal</th>
+                    <th>to lc</th>
+                    <th>mat</th>
+                    <th>bal</th>
+                    <th>r</th>
+                </tr>
+                </thead>
+                <tbody>
+                {{#transactions}}
+                    <tr>
+                        <td>{{sequence}}</td>
+                        <td>{{transaction_date}}</td>
+                        <td>{{transaction_code}}</td>
+                        <td>{{transaction_amount}}</td>
+                        <td>{{applied_to_balance}}</td>
+                        <td>{{applied_to_late_charge}}</td>
+                        <td>{{applied_to_maturity_interest}}</td>
+                        <td>{{new_ending_balance}}</td>
+                        <td>{{reversed_code}}</td>
+                    </tr>
+                {{/transactions}}
+                </tbody>
+            </table>
+        </script>
+    </head>
+    <body>
+        <div>
+            <label for="account"><input type="text" id="account" name="account" value="76027" />account</label>
+            <a href='javascript:void(0)' id="find-borrower">find borrower</a>
+            <span style='vertical-align: super;font-size: 0.83em'>
+            <a href='javascript:void(0)' onclick='$("#account").val("76027");return false'>1</a>
+            <a href='javascript:void(0)' onclick='$("#account").val("12340");return false'>2</a>
+            </span>
+        </div>
+        
+        <div>
+            <label for="tendered" style="display: block">
+                <input type="text" id="tendered" />tendered <span id='tendered-error'></span>
+            </label>
+                
+            <label for="instrument" style="display: block"><input type="text" id="instrument" value="1" />instrument</label>
+            <div>
+                <a href='javascript:void(0)' id='submit-payment'>submit payment</a>
+                <span id='message'></span>
+            </div>
+        </div>
+
+        <div style='float:left'>
+            <div>borrower</div>
+            <pre id='borrower' style='height:18em;width:40em;overflow-y: scroll; font-size:0.82em'></pre>
+
+            <div>loan</div>
+            <pre id='loan' style='height:18em;width:40em;overflow-y: scroll; font-size:0.82em'></pre>
+            
+            <div>payment info</div>
+            <pre id='payment' style='height:18em;width:40em;overflow-y:scroll; font-size:0.82em'></pre>
+        </div>
+        
+<!--
+        <div>
+            <div>transactions</div>
+            <pre id='transactions' style='height:50em;width:40em;overflow-y: scroll;font-size:0.82em'></pre>
+        </div>
+-->
+        
+        <div id='transactions-target'></div>
+        
+        <div style='clear: both'></div>
+       
+    </body>
+</html>

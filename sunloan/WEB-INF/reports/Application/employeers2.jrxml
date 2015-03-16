@@ -1,0 +1,549 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 5.6.2.final using JasperReports Library version 5.6.1  -->
+<!-- 2014-10-22T16:33:21 -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="current_employer" pageWidth="555" pageHeight="802" columnWidth="555" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="7ad03e04-a7bf-4022-81f2-bc6319438d12">
+	<property name="ireport.zoom" value="3.305785123966942"/>
+	<property name="ireport.x" value="660"/>
+	<property name="ireport.y" value="0"/>
+	<style name="table">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<subDataset name="Table Dataset 1" uuid="34ea28d6-2ad3-42c1-8611-ce71280b906f"/>
+	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA[""]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<field name="employers_employer_name" class="java.lang.String">
+		<fieldDescription><![CDATA[employerName]]></fieldDescription>
+	</field>
+	<field name="employers_address" class="java.lang.String">
+		<fieldDescription><![CDATA[address]]></fieldDescription>
+	</field>
+	<field name="employers_city" class="java.lang.String">
+		<fieldDescription><![CDATA[city]]></fieldDescription>
+	</field>
+	<field name="employers_state" class="java.lang.String">
+		<fieldDescription><![CDATA[state]]></fieldDescription>
+	</field>
+	<field name="employers_zip" class="java.lang.String">
+		<fieldDescription><![CDATA[zip]]></fieldDescription>
+	</field>
+	<field name="employers_phone_number" class="java.lang.String">
+		<fieldDescription><![CDATA[phoneNumber]]></fieldDescription>
+	</field>
+	<field name="employers_contact_last_name" class="java.lang.String">
+		<fieldDescription><![CDATA[contactLastName]]></fieldDescription>
+	</field>
+	<field name="employers_contact_first_name" class="java.lang.String">
+		<fieldDescription><![CDATA[contactFirstName]]></fieldDescription>
+	</field>
+	<field name="employers_contact_email_address" class="java.lang.String">
+		<fieldDescription><![CDATA[contactEmail]]></fieldDescription>
+	</field>
+	<field name="employers_payment_schedule" class="java.lang.String">
+		<fieldDescription><![CDATA[paymentSchedule]]></fieldDescription>
+	</field>
+	<field name="employers_shift" class="java.lang.String">
+		<fieldDescription><![CDATA[shiftName]]></fieldDescription>
+	</field>
+	<field name="employers_how_verified" class="java.lang.String">
+		<fieldDescription><![CDATA[howVerified]]></fieldDescription>
+	</field>
+	<field name="employers_employment_date" class="java.util.Date">
+		<fieldDescription><![CDATA[employmentDate]]></fieldDescription>
+	</field>
+	<field name="employers_net_income" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[netIncome]]></fieldDescription>
+	</field>
+	<field name="employers_net_salary" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[netSalary]]></fieldDescription>
+	</field>
+	<field name="employers_who_verified" class="java.lang.String">
+		<fieldDescription><![CDATA[whoVerified]]></fieldDescription>
+	</field>
+	<field name="employers_extension" class="java.lang.String">
+		<fieldDescription><![CDATA[phoneExtension]]></fieldDescription>
+	</field>
+	<field name="employers_position" class="java.lang.String">
+		<fieldDescription><![CDATA[position]]></fieldDescription>
+	</field>
+	<field name="employers_how_long" class="java.lang.String">
+		<fieldDescription><![CDATA[howLong]]></fieldDescription>
+	</field>
+	<detail>
+		<band height="72" splitType="Stretch">
+			<frame>
+				<reportElement mode="Transparent" x="0" y="0" width="150" height="18" uuid="6858e7e4-4da7-4d5d-95c7-d6cc81016f91"/>
+				<box>
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textField pattern="dd/MM/yyyy h.mm a" isBlankWhenNull="true">
+					<reportElement x="0" y="9" width="150" height="9" uuid="57aceebc-9c61-4fb3-ba73-e05c41d5f310"/>
+					<box leftPadding="1"/>
+					<textElement>
+						<font size="7" isBold="true"/>
+						<paragraph leftIndent="2"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{employers_employer_name}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="0" y="0" width="150" height="9" uuid="4721fa92-2773-40ca-b0d3-5a858ad8c9f6"/>
+					<box leftPadding="2"/>
+					<textElement>
+						<font size="7"/>
+					</textElement>
+					<text><![CDATA[Present Employer:]]></text>
+				</staticText>
+			</frame>
+			<frame>
+				<reportElement mode="Transparent" x="150" y="0" width="130" height="18" uuid="6858e7e4-4da7-4d5d-95c7-d6cc81016f91"/>
+				<box>
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textField pattern="dd/MM/yyyy h.mm a" isBlankWhenNull="true">
+					<reportElement x="0" y="9" width="130" height="9" uuid="57aceebc-9c61-4fb3-ba73-e05c41d5f310"/>
+					<box leftPadding="1"/>
+					<textElement>
+						<font size="7" isBold="true"/>
+						<paragraph leftIndent="2"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{employers_position}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="0" y="0" width="130" height="9" uuid="4721fa92-2773-40ca-b0d3-5a858ad8c9f6"/>
+					<box leftPadding="2"/>
+					<textElement>
+						<font size="7"/>
+					</textElement>
+					<text><![CDATA[Position:]]></text>
+				</staticText>
+			</frame>
+			<frame>
+				<reportElement mode="Transparent" x="280" y="0" width="125" height="18" uuid="6858e7e4-4da7-4d5d-95c7-d6cc81016f91"/>
+				<box>
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textField pattern="dd/MM/yyyy h.mm a" isBlankWhenNull="true">
+					<reportElement x="0" y="9" width="125" height="9" uuid="57aceebc-9c61-4fb3-ba73-e05c41d5f310"/>
+					<box leftPadding="1"/>
+					<textElement>
+						<font size="7" isBold="true"/>
+						<paragraph leftIndent="2"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{employers_contact_last_name}+", "+$F{employers_contact_first_name}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="0" y="0" width="125" height="9" uuid="4721fa92-2773-40ca-b0d3-5a858ad8c9f6"/>
+					<box leftPadding="2"/>
+					<textElement>
+						<font size="7"/>
+					</textElement>
+					<text><![CDATA[Supervisor:]]></text>
+				</staticText>
+			</frame>
+			<frame>
+				<reportElement mode="Transparent" x="405" y="0" width="79" height="18" uuid="6858e7e4-4da7-4d5d-95c7-d6cc81016f91"/>
+				<box>
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<staticText>
+					<reportElement x="0" y="0" width="79" height="9" uuid="65f514d7-e766-4827-b7e7-926efb3a0f0a"/>
+					<box leftPadding="2"/>
+					<textElement>
+						<font size="7"/>
+					</textElement>
+					<text><![CDATA[How Long:]]></text>
+				</staticText>
+				<textField>
+					<reportElement x="0" y="9" width="79" height="9" uuid="481b0a4f-fe77-4769-89df-c7ff3fe81730"/>
+					<textElement>
+						<font size="7" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{employers_how_long}]]></textFieldExpression>
+				</textField>
+			</frame>
+			<frame>
+				<reportElement mode="Transparent" x="484" y="0" width="71" height="18" uuid="6858e7e4-4da7-4d5d-95c7-d6cc81016f91"/>
+				<box>
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<staticText>
+					<reportElement x="0" y="0" width="71" height="9" uuid="4721fa92-2773-40ca-b0d3-5a858ad8c9f6"/>
+					<box leftPadding="2"/>
+					<textElement>
+						<font size="7"/>
+					</textElement>
+					<text><![CDATA[Work #/Ext.:]]></text>
+				</staticText>
+			</frame>
+			<frame>
+				<reportElement mode="Transparent" x="0" y="18" width="280" height="18" uuid="6858e7e4-4da7-4d5d-95c7-d6cc81016f91"/>
+				<box>
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textField pattern="dd/MM/yyyy h.mm a" isBlankWhenNull="true">
+					<reportElement x="0" y="9" width="280" height="9" uuid="57aceebc-9c61-4fb3-ba73-e05c41d5f310"/>
+					<box leftPadding="1"/>
+					<textElement>
+						<font size="7" isBold="true"/>
+						<paragraph leftIndent="2"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{employers_address}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="0" y="0" width="280" height="9" uuid="4721fa92-2773-40ca-b0d3-5a858ad8c9f6"/>
+					<box leftPadding="2"/>
+					<textElement>
+						<font size="7"/>
+					</textElement>
+					<text><![CDATA[Street Address:]]></text>
+				</staticText>
+			</frame>
+			<frame>
+				<reportElement mode="Transparent" x="0" y="36" width="150" height="18" uuid="6858e7e4-4da7-4d5d-95c7-d6cc81016f91"/>
+				<box>
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textField pattern="dd/MM/yyyy h.mm a" isBlankWhenNull="true">
+					<reportElement x="0" y="9" width="150" height="9" uuid="57aceebc-9c61-4fb3-ba73-e05c41d5f310"/>
+					<box leftPadding="1"/>
+					<textElement>
+						<font size="7" isBold="true"/>
+						<paragraph leftIndent="2"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{employers_city}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="0" y="0" width="150" height="9" uuid="4721fa92-2773-40ca-b0d3-5a858ad8c9f6"/>
+					<box leftPadding="2"/>
+					<textElement>
+						<font size="7"/>
+					</textElement>
+					<text><![CDATA[City:]]></text>
+				</staticText>
+			</frame>
+			<frame>
+				<reportElement mode="Transparent" x="150" y="36" width="65" height="18" uuid="6858e7e4-4da7-4d5d-95c7-d6cc81016f91"/>
+				<box>
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textField pattern="dd/MM/yyyy h.mm a" isBlankWhenNull="true">
+					<reportElement x="0" y="9" width="64" height="9" uuid="57aceebc-9c61-4fb3-ba73-e05c41d5f310"/>
+					<box leftPadding="1"/>
+					<textElement>
+						<font size="7" isBold="true"/>
+						<paragraph leftIndent="2"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{employers_state}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="0" y="0" width="64" height="9" uuid="4721fa92-2773-40ca-b0d3-5a858ad8c9f6"/>
+					<box leftPadding="2"/>
+					<textElement>
+						<font size="7"/>
+					</textElement>
+					<text><![CDATA[State:]]></text>
+				</staticText>
+			</frame>
+			<frame>
+				<reportElement mode="Transparent" x="215" y="36" width="65" height="18" uuid="6858e7e4-4da7-4d5d-95c7-d6cc81016f91"/>
+				<box>
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textField pattern="dd/MM/yyyy h.mm a" isBlankWhenNull="true">
+					<reportElement mode="Opaque" x="0" y="9" width="65" height="9" uuid="57aceebc-9c61-4fb3-ba73-e05c41d5f310"/>
+					<box leftPadding="1"/>
+					<textElement>
+						<font size="7" isBold="true"/>
+						<paragraph leftIndent="2"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{employers_zip}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="0" y="0" width="65" height="9" uuid="4721fa92-2773-40ca-b0d3-5a858ad8c9f6"/>
+					<box leftPadding="2"/>
+					<textElement>
+						<font size="7"/>
+					</textElement>
+					<text><![CDATA[Zip:]]></text>
+				</staticText>
+			</frame>
+			<frame>
+				<reportElement mode="Transparent" x="280" y="18" width="68" height="36" uuid="6858e7e4-4da7-4d5d-95c7-d6cc81016f91"/>
+				<box>
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textField pattern="¤ #,##0.00" isBlankWhenNull="true">
+					<reportElement x="0" y="9" width="68" height="9" uuid="57aceebc-9c61-4fb3-ba73-e05c41d5f310"/>
+					<box leftPadding="1"/>
+					<textElement>
+						<font size="7" isBold="true"/>
+						<paragraph leftIndent="2"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{employers_net_salary}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="0" y="0" width="68" height="9" uuid="4721fa92-2773-40ca-b0d3-5a858ad8c9f6"/>
+					<box leftPadding="2"/>
+					<textElement>
+						<font size="7"/>
+					</textElement>
+					<text><![CDATA[Net Salary:]]></text>
+				</staticText>
+			</frame>
+			<frame>
+				<reportElement mode="Transparent" x="348" y="18" width="68" height="36" uuid="6858e7e4-4da7-4d5d-95c7-d6cc81016f91"/>
+				<box>
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textField pattern="" isBlankWhenNull="true">
+					<reportElement x="0" y="9" width="68" height="9" uuid="57aceebc-9c61-4fb3-ba73-e05c41d5f310"/>
+					<box leftPadding="1"/>
+					<textElement>
+						<font size="7" isBold="true"/>
+						<paragraph leftIndent="2"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{employers_payment_schedule}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="0" y="0" width="68" height="9" uuid="4721fa92-2773-40ca-b0d3-5a858ad8c9f6"/>
+					<box leftPadding="2"/>
+					<textElement>
+						<font size="7"/>
+					</textElement>
+					<text><![CDATA[Payday:]]></text>
+				</staticText>
+			</frame>
+			<frame>
+				<reportElement mode="Transparent" x="416" y="18" width="68" height="36" uuid="6858e7e4-4da7-4d5d-95c7-d6cc81016f91"/>
+				<box>
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textField pattern="¤ #,##0.00" isBlankWhenNull="true">
+					<reportElement x="0" y="9" width="68" height="9" uuid="57aceebc-9c61-4fb3-ba73-e05c41d5f310"/>
+					<box leftPadding="1"/>
+					<textElement>
+						<font size="7" isBold="true"/>
+						<paragraph leftIndent="2"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{employers_net_income}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="0" y="0" width="68" height="9" uuid="4721fa92-2773-40ca-b0d3-5a858ad8c9f6"/>
+					<box leftPadding="2"/>
+					<textElement>
+						<font size="7"/>
+					</textElement>
+					<text><![CDATA[Net Income:]]></text>
+				</staticText>
+			</frame>
+			<frame>
+				<reportElement mode="Transparent" x="484" y="18" width="71" height="36" uuid="6858e7e4-4da7-4d5d-95c7-d6cc81016f91"/>
+				<box>
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textField pattern="" isBlankWhenNull="true">
+					<reportElement x="0" y="9" width="71" height="9" uuid="57aceebc-9c61-4fb3-ba73-e05c41d5f310"/>
+					<box leftPadding="1"/>
+					<textElement>
+						<font size="7" isBold="true"/>
+						<paragraph leftIndent="2"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{employers_shift}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="0" y="0" width="71" height="9" uuid="4721fa92-2773-40ca-b0d3-5a858ad8c9f6"/>
+					<box leftPadding="2"/>
+					<textElement>
+						<font size="7"/>
+					</textElement>
+					<text><![CDATA[Shift:]]></text>
+				</staticText>
+			</frame>
+			<frame>
+				<reportElement mode="Transparent" x="0" y="54" width="150" height="18" uuid="6858e7e4-4da7-4d5d-95c7-d6cc81016f91"/>
+				<box>
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<staticText>
+					<reportElement x="0" y="0" width="150" height="9" uuid="4721fa92-2773-40ca-b0d3-5a858ad8c9f6"/>
+					<box leftPadding="2"/>
+					<textElement>
+						<font size="7"/>
+					</textElement>
+					<text><![CDATA[Emp Intial:]]></text>
+				</staticText>
+			</frame>
+			<frame>
+				<reportElement mode="Transparent" x="150" y="54" width="130" height="18" uuid="6858e7e4-4da7-4d5d-95c7-d6cc81016f91"/>
+				<box>
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<staticText>
+					<reportElement x="0" y="0" width="129" height="9" uuid="d9b83cf5-8d1a-40bb-9bb9-0708bc95eaef"/>
+					<box leftPadding="2"/>
+					<textElement>
+						<font size="7"/>
+					</textElement>
+					<text><![CDATA[How Verified:]]></text>
+				</staticText>
+				<textField pattern="dd/MM/yyyy h.mm a" isBlankWhenNull="true">
+					<reportElement x="0" y="9" width="129" height="9" uuid="1745d8ac-98c0-4057-b477-b474c7c91c04"/>
+					<box leftPadding="1"/>
+					<textElement>
+						<font size="7" isBold="true"/>
+						<paragraph leftIndent="2"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{employers_how_verified}]]></textFieldExpression>
+				</textField>
+			</frame>
+			<frame>
+				<reportElement mode="Transparent" x="280" y="54" width="136" height="18" uuid="6858e7e4-4da7-4d5d-95c7-d6cc81016f91"/>
+				<box>
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<staticText>
+					<reportElement x="0" y="0" width="136" height="9" uuid="76a86ad4-3702-49ef-b141-484932b3e2d9"/>
+					<box leftPadding="2"/>
+					<textElement>
+						<font size="7"/>
+					</textElement>
+					<text><![CDATA[Who Verified:]]></text>
+				</staticText>
+				<textField pattern="dd/MM/yyyy h.mm a" isBlankWhenNull="true">
+					<reportElement x="0" y="9" width="136" height="9" uuid="c6e000b9-0610-4edc-b5e4-e74e071090f6"/>
+					<box leftPadding="1"/>
+					<textElement>
+						<font size="7" isBold="true"/>
+						<paragraph leftIndent="2"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{employers_who_verified}]]></textFieldExpression>
+				</textField>
+			</frame>
+			<frame>
+				<reportElement mode="Transparent" x="416" y="54" width="139" height="18" uuid="6858e7e4-4da7-4d5d-95c7-d6cc81016f91"/>
+				<box>
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<staticText>
+					<reportElement x="0" y="0" width="138" height="9" uuid="4721fa92-2773-40ca-b0d3-5a858ad8c9f6"/>
+					<box leftPadding="2"/>
+					<textElement>
+						<font size="7"/>
+					</textElement>
+					<text><![CDATA[Emp Date:]]></text>
+				</staticText>
+				<textField pattern="MM/dd/yyyy">
+					<reportElement x="0" y="9" width="138" height="9" uuid="4c0e7ef3-f4f0-450f-994d-f5048a4f3498"/>
+					<box leftPadding="1"/>
+					<textElement>
+						<font size="7" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{employers_employment_date}]]></textFieldExpression>
+				</textField>
+			</frame>
+			<textField pattern="dd/MM/yyyy h.mm a" isBlankWhenNull="true">
+				<reportElement x="484" y="9" width="71" height="9" uuid="57aceebc-9c61-4fb3-ba73-e05c41d5f310"/>
+				<box leftPadding="1"/>
+				<textElement>
+					<font size="7" isBold="true"/>
+					<paragraph leftIndent="2"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{employers_phone_number}+
+(
+    $F{employers_extension} != null &&
+    !$F{employers_extension}.trim().isEmpty() ?
+    " / "+$F{employers_extension} :
+    ""
+)]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>

@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="RefundJournalViewReport" pageWidth="510" pageHeight="555" orientation="Landscape" columnWidth="510" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="6701b025-6d04-4f1a-8577-14b093e76650">
+	<property name="ireport.zoom" value="2.1435888100000016"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<field name="borrowerFirstName" class="java.lang.String">
+		<fieldDescription><![CDATA[borrowerFirstName]]></fieldDescription>
+	</field>
+	<field name="borrowerLarstName" class="java.lang.String">
+		<fieldDescription><![CDATA[borrowerLarstName]]></fieldDescription>
+	</field>
+	<field name="borrowerMiddleName" class="java.lang.String">
+		<fieldDescription><![CDATA[borrowerMiddleName]]></fieldDescription>
+	</field>
+	<field name="borrowerPrefix" class="java.lang.String">
+		<fieldDescription><![CDATA[borrowerPrefix]]></fieldDescription>
+	</field>
+	<field name="borrowerSuffix" class="java.lang.String">
+		<fieldDescription><![CDATA[borrowerSuffix]]></fieldDescription>
+	</field>
+	<field name="borrowerAccountNumber" class="java.lang.String">
+		<fieldDescription><![CDATA[borrowerAccountNumber]]></fieldDescription>
+	</field>
+	<field name="transactionCode" class="java.lang.String">
+		<fieldDescription><![CDATA[transactionCode]]></fieldDescription>
+	</field>
+	<field name="transactionDate" class="java.util.Date">
+		<fieldDescription><![CDATA[transactionDate]]></fieldDescription>
+	</field>
+	<field name="drawerNumber" class="java.lang.String">
+		<fieldDescription><![CDATA[drawerNumber]]></fieldDescription>
+	</field>
+	<field name="acqRefund" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[acqRefund]]></fieldDescription>
+	</field>
+	<field name="iahcRefund" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[iahcRefund]]></fieldDescription>
+	</field>
+	<field name="loanNumber" class="java.lang.Long">
+		<fieldDescription><![CDATA[loanNumber]]></fieldDescription>
+	</field>
+	<field name="employeeLastName" class="java.lang.String">
+		<fieldDescription><![CDATA[employeeLastName]]></fieldDescription>
+	</field>
+	<field name="employeeFirstName" class="java.lang.String">
+		<fieldDescription><![CDATA[employeeFirstName]]></fieldDescription>
+	</field>
+	<field name="employeeMiddleName" class="java.lang.String">
+		<fieldDescription><![CDATA[employeeMiddleName]]></fieldDescription>
+	</field>
+	<columnHeader>
+		<band height="20" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="60" height="20" uuid="5e05e846-e018-4d35-9d72-9b9828aec60b"/>
+				<box leftPadding="2" rightPadding="2"/>
+				<text><![CDATA[Account]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="180" y="0" width="40" height="20" uuid="38019860-03e4-468a-b289-872a880bb77e"/>
+				<box leftPadding="2" rightPadding="2"/>
+				<text><![CDATA[Dr]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="60" y="0" width="120" height="20" uuid="0926848c-8ca1-4d8b-8a96-17002519ab93"/>
+				<box leftPadding="2" rightPadding="2"/>
+				<text><![CDATA[Name]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="220" y="0" width="70" height="20" uuid="17801142-bcdc-49ca-98a3-d92dc8975e3e"/>
+				<box leftPadding="2" rightPadding="2"/>
+				<text><![CDATA[ACQ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="290" y="0" width="70" height="20" uuid="a1c0001c-fc35-408a-b7c4-53a788baa1e7"/>
+				<box leftPadding="2" rightPadding="2"/>
+				<text><![CDATA[IAHC]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="480" y="0" width="30" height="20" uuid="ba03dd84-8c0f-405d-81a8-f453635e6f42"/>
+				<box leftPadding="2" rightPadding="2"/>
+				<text><![CDATA[Emp]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="430" y="0" width="50" height="20" uuid="05962e39-ec74-410f-adb5-705e5c05f5b7"/>
+				<box leftPadding="2" rightPadding="2"/>
+				<text><![CDATA[Date]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="360" y="0" width="70" height="20" uuid="c683f11a-b658-4852-8b60-7d36312e1e61"/>
+				<box leftPadding="2" rightPadding="2"/>
+				<text><![CDATA[]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="15" splitType="Stretch">
+			<textField>
+				<reportElement x="180" y="0" width="15" height="15" uuid="2cb8fbe0-b14f-4122-b613-c0e5685cddab"/>
+				<box leftPadding="2" rightPadding="2"/>
+				<textFieldExpression><![CDATA[$F{drawerNumber}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="0" width="41" height="15" uuid="a229c5fa-3865-430a-8b8e-f1937bca000c"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[$F{borrowerAccountNumber}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="41" y="0" width="4" height="15" uuid="29a9df10-cf0d-4d08-b982-1b4157ab1aab"/>
+				<text><![CDATA[-]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="195" y="0" width="25" height="15" uuid="96b1e919-026c-48b7-8e6a-56c4379c256a"/>
+				<textFieldExpression><![CDATA[$F{transactionCode}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="45" y="0" width="15" height="15" uuid="063831bd-7564-4bb8-99f5-6ad2450f469d"/>
+				<textFieldExpression><![CDATA[$F{loanNumber}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="60" y="0" width="120" height="15" uuid="d073b013-6ae4-4795-a185-b0328b34943c"/>
+				<textFieldExpression><![CDATA[$F{borrowerLarstName} +","+$F{borrowerFirstName}+" "+$F{borrowerMiddleName}]]></textFieldExpression>
+			</textField>
+			<textField pattern="MM/dd">
+				<reportElement x="430" y="0" width="50" height="15" uuid="46355d85-d416-45b5-a2c9-b0ae80eb73b2"/>
+				<textFieldExpression><![CDATA[$F{transactionDate}]]></textFieldExpression>
+			</textField>
+			<textField pattern="">
+				<reportElement x="480" y="0" width="30" height="15" uuid="1275604c-fced-4dd5-88fe-a110fb2b2def"/>
+				<textFieldExpression><![CDATA[$F{employeeLastName}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00">
+				<reportElement x="220" y="0" width="70" height="15" uuid="3692509c-b3ae-44f7-b0f3-6d5c93eefa87"/>
+				<textFieldExpression><![CDATA[$F{acqRefund}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00">
+				<reportElement x="290" y="0" width="70" height="15" uuid="b2b1a1e1-ef31-4a76-91fd-1c80fd8759f4"/>
+				<textFieldExpression><![CDATA[$F{iahcRefund}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="360" y="0" width="70" height="15" uuid="6a68ead3-d0c4-417b-9730-ffbd32005e12"/>
+				<textFieldExpression><![CDATA["0.00"]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>

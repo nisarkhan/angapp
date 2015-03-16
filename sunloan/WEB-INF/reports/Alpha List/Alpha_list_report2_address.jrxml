@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Alpha_list_report2_address" language="groovy" pageWidth="100" pageHeight="752" columnWidth="100" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="2dd9fe1b-fb15-4a8d-b5d1-ebfc477b287d">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="borrowerID" class="java.lang.Long">
+		<defaultValueExpression><![CDATA[new java.lang.Long(1)]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT
+     residences."address" AS residences_address,
+     borrower_residences."residence_id" AS borrower_residences_residence_id,
+     residences."residence_id" AS residences_residence_id
+FROM
+     "sunloans"."borrower_residences" borrower_residences,
+     "sunloans"."residences" residences
+WHERE
+    borrower_residences."residence_id" = residences."residence_id"
+AND
+    borrower_residences."borrower_id" = $P{borrowerID}]]>
+	</queryString>
+	<field name="residences_address" class="java.lang.String"/>
+	<field name="borrower_residences_residence_id" class="java.lang.Long"/>
+	<field name="residences_residence_id" class="java.lang.Long"/>
+	<detail>
+		<band height="20" splitType="Stretch">
+			<textField>
+				<reportElement uuid="c3524c1d-2442-4867-9c26-202b87430257" x="0" y="0" width="100" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font size="7"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{residences_address}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>

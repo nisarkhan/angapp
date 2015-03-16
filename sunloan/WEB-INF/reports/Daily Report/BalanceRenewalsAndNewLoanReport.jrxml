@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="BalanceRenewalsAndNewLoanReport" pageWidth="750" pageHeight="555" orientation="Landscape" columnWidth="750" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="2583fc04-5332-427a-9bb9-1a5f75341b38">
+	<property name="ireport.zoom" value="1.3310000000000008"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<field name="borrowerFirstName" class="java.lang.String">
+		<fieldDescription><![CDATA[borrowerFirstName]]></fieldDescription>
+	</field>
+	<field name="borrowerLarstName" class="java.lang.String">
+		<fieldDescription><![CDATA[borrowerLarstName]]></fieldDescription>
+	</field>
+	<field name="borrowerMiddleName" class="java.lang.String">
+		<fieldDescription><![CDATA[borrowerMiddleName]]></fieldDescription>
+	</field>
+	<field name="borrowerPrefix" class="java.lang.String">
+		<fieldDescription><![CDATA[borrowerPrefix]]></fieldDescription>
+	</field>
+	<field name="borrowerSuffix" class="java.lang.String">
+		<fieldDescription><![CDATA[borrowerSuffix]]></fieldDescription>
+	</field>
+	<field name="borrowerAccountNumber" class="java.lang.String">
+		<fieldDescription><![CDATA[borrowerAccountNumber]]></fieldDescription>
+	</field>
+	<field name="firstDueDate" class="java.util.Date">
+		<fieldDescription><![CDATA[firstDueDate]]></fieldDescription>
+	</field>
+	<field name="dateMade" class="java.util.Date">
+		<fieldDescription><![CDATA[dateMade]]></fieldDescription>
+	</field>
+	<field name="loanNumber" class="java.lang.Long">
+		<fieldDescription><![CDATA[loanNumber]]></fieldDescription>
+	</field>
+	<field name="IAHCCharge" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[IAHCCharge]]></fieldDescription>
+	</field>
+	<field name="ACQCharge" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[ACQCharge]]></fieldDescription>
+	</field>
+	<field name="periodicPayment" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[periodicPayment]]></fieldDescription>
+	</field>
+	<field name="numberOfPayments" class="java.lang.Integer">
+		<fieldDescription><![CDATA[numberOfPayments]]></fieldDescription>
+	</field>
+	<field name="totalNote" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[totalNote]]></fieldDescription>
+	</field>
+	<field name="proceeds" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[proceeds]]></fieldDescription>
+	</field>
+	<field name="amountAdvanced" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[amountAdvanced]]></fieldDescription>
+	</field>
+	<field name="drawerNumber" class="java.lang.String">
+		<fieldDescription><![CDATA[drawerNumber]]></fieldDescription>
+	</field>
+	<field name="transactionCode" class="java.lang.String">
+		<fieldDescription><![CDATA[transactionCode]]></fieldDescription>
+	</field>
+	<field name="employeeLastName" class="java.lang.String">
+		<fieldDescription><![CDATA[employeeLastName]]></fieldDescription>
+	</field>
+	<field name="employeeFirstName" class="java.lang.String">
+		<fieldDescription><![CDATA[employeeFirstName]]></fieldDescription>
+	</field>
+	<field name="employeeMiddleName" class="java.lang.String">
+		<fieldDescription><![CDATA[employeeMiddleName]]></fieldDescription>
+	</field>
+	<columnHeader>
+		<band height="20" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="60" height="20" uuid="9bab80da-a301-4760-b03c-e9de5871b24b"/>
+				<box leftPadding="2" rightPadding="2"/>
+				<text><![CDATA[Account]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="60" y="0" width="120" height="20" uuid="b4dda2eb-f11f-4a90-827d-9967b41164fd"/>
+				<box leftPadding="2" rightPadding="2"/>
+				<text><![CDATA[Name]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="180" y="0" width="40" height="20" uuid="5139a7f4-85e6-4408-be3f-db1502541295"/>
+				<box leftPadding="2" rightPadding="2"/>
+				<text><![CDATA[Dr]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="220" y="0" width="60" height="20" uuid="da18efe4-cc50-4d73-957d-c0b4acea043f"/>
+				<box leftPadding="2" rightPadding="2"/>
+				<text><![CDATA[Advanced]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="280" y="0" width="60" height="20" uuid="ec102cb2-98c8-45b4-a2c2-a85f305b07f7"/>
+				<box leftPadding="2" rightPadding="2"/>
+				<text><![CDATA[ACQ.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="340" y="0" width="60" height="20" uuid="56d05bc1-d555-41cd-9f54-af74a8418aeb"/>
+				<box leftPadding="2" rightPadding="2"/>
+				<text><![CDATA[IAHC]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="400" y="0" width="60" height="20" uuid="2681e8d5-679f-4940-8039-5c1de1987d34"/>
+				<box leftPadding="2" rightPadding="2"/>
+				<text><![CDATA[Total]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="510" y="0" width="60" height="20" uuid="ee371196-70bd-4ea9-afa6-6ee677e340b2"/>
+				<box leftPadding="2" rightPadding="2"/>
+				<text><![CDATA[Made]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="570" y="0" width="60" height="20" uuid="bf0be953-153a-4fea-b023-6cc49d58f651"/>
+				<box leftPadding="2" rightPadding="2"/>
+				<text><![CDATA[First]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="630" y="0" width="60" height="20" uuid="3aed3970-fd0e-451d-be6c-e68acead66d7"/>
+				<box leftPadding="2" rightPadding="2"/>
+				<text><![CDATA[Proceeds]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="690" y="0" width="60" height="20" uuid="ac390b99-933e-4c22-9fd8-aa8a3df4d38d"/>
+				<box leftPadding="2" rightPadding="2"/>
+				<text><![CDATA[Emp]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="15" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="41" height="15" uuid="7e08c2f7-931e-4465-bfe8-45a220c9aa0a"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[$F{borrowerAccountNumber}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="41" y="0" width="4" height="15" uuid="57d539df-c978-41c0-b983-200ea2331a9c"/>
+				<text><![CDATA[-]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="45" y="0" width="15" height="15" uuid="573ff56a-29cb-4d62-b03d-a7bbb09e792a"/>
+				<textFieldExpression><![CDATA[$F{loanNumber}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="60" y="0" width="120" height="15" uuid="9c1f8d09-f171-40ec-8173-24376105d850"/>
+				<textFieldExpression><![CDATA[$F{borrowerLarstName} +","+$F{borrowerFirstName}+" "+$F{borrowerMiddleName}
+]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="180" y="0" width="15" height="15" uuid="43b83c7f-c09d-4554-85fa-7da37c8b6f0f"/>
+				<box leftPadding="2" rightPadding="2"/>
+				<textFieldExpression><![CDATA[$F{drawerNumber}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00">
+				<reportElement x="220" y="0" width="60" height="15" uuid="bdaa82cc-9580-4bae-a0c2-a55a97c259b4"/>
+				<box leftPadding="2" rightPadding="2"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[$F{amountAdvanced}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00">
+				<reportElement x="280" y="0" width="60" height="15" uuid="3a2b485d-d0d1-42bd-9b07-ce3e9d82bdeb"/>
+				<box leftPadding="2" rightPadding="2"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[$F{ACQCharge}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00">
+				<reportElement x="340" y="0" width="60" height="15" uuid="4e61d5ab-b611-4f19-a112-ba5d91e619c4"/>
+				<box leftPadding="2" rightPadding="2"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[$F{IAHCCharge}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00">
+				<reportElement x="400" y="0" width="60" height="15" uuid="eb5fc6bb-ba9d-46af-85eb-7182e9ca692e"/>
+				<box leftPadding="2" rightPadding="2"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[$F{totalNote}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="460" y="0" width="7" height="15" uuid="4c1d5cfa-0a69-4e7f-ba22-9a05a3dd26d6"/>
+				<box leftPadding="2" rightPadding="2"/>
+				<text><![CDATA[/]]></text>
+			</staticText>
+			<textField pattern="">
+				<reportElement x="467" y="0" width="30" height="15" uuid="e7ad9dfa-e984-4b73-af7f-e0349a39be55"/>
+				<box leftPadding="2" rightPadding="2"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[$F{numberOfPayments}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="497" y="0" width="13" height="15" uuid="a2de0ae0-c47f-4acd-944e-31cc8f462f54"/>
+				<box leftPadding="2" rightPadding="2"/>
+				<text><![CDATA[M]]></text>
+			</staticText>
+			<textField pattern="MM/dd/yyyy">
+				<reportElement x="510" y="0" width="60" height="15" uuid="44d0be23-d6a8-49b0-adad-a0bee331b276"/>
+				<box leftPadding="2" rightPadding="2"/>
+				<textFieldExpression><![CDATA[$F{dateMade}]]></textFieldExpression>
+			</textField>
+			<textField pattern="MM/dd/yyyy">
+				<reportElement x="570" y="0" width="60" height="15" uuid="e11d18f7-ea77-40fc-afe0-abdecdd61542"/>
+				<box leftPadding="2" rightPadding="2"/>
+				<textFieldExpression><![CDATA[$F{firstDueDate}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00">
+				<reportElement x="630" y="0" width="60" height="15" uuid="82dab7c5-930a-4f13-b8e1-b4e2f6a8ee96"/>
+				<box leftPadding="2" rightPadding="2"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[$F{proceeds}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00">
+				<reportElement x="690" y="0" width="60" height="15" uuid="0f334d99-a2cc-4f06-9c33-e695b1f8f4bb"/>
+				<box leftPadding="2" rightPadding="2"/>
+				<textFieldExpression><![CDATA[$F{employeeLastName}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="195" y="0" width="25" height="15" uuid="a1b84522-d1a3-4e5d-b76a-58f4060e770b"/>
+				<textFieldExpression><![CDATA[$F{transactionCode}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>

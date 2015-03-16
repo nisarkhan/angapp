@@ -1,0 +1,444 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" pageWidth="595" pageHeight="842" whenNoDataType="AllSectionsNoDetail" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="0f44f170-e7e8-4f5c-abf8-27cba22f576d">
+	<property name="ireport.zoom" value="1.1269722013523684"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="30"/>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<field name="organizationName" class="java.lang.String"/>
+	<field name="organizationAddress" class="java.lang.String"/>
+	<field name="organizationPhoneNumber" class="java.lang.String"/>
+	<field name="nextDueDate" class="java.util.Date"/>
+	<field name="accountNumber" class="java.lang.String"/>
+	<field name="borrowerFullName" class="java.lang.String"/>
+	<field name="previousBalance" class="java.math.BigDecimal"/>
+	<field name="amountToBalance" class="java.math.BigDecimal"/>
+	<field name="newBalance" class="java.math.BigDecimal"/>
+	<field name="lateCharges" class="java.math.BigDecimal"/>
+	<field name="totalCollected" class="java.math.BigDecimal"/>
+	<field name="otherCharges" class="java.math.BigDecimal"/>
+	<field name="amountTendered" class="java.math.BigDecimal"/>
+	<field name="employeeName" class="java.lang.String"/>
+	<field name="loanNumber" class="java.lang.String"/>
+	<field name="transactionDate" class="java.util.Date"/>
+	<field name="changeToCustomer" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[changeToCustomer]]></fieldDescription>
+	</field>
+	<detail>
+		<band height="203">
+			<textField>
+				<reportElement x="0" y="91" width="325" height="92" uuid="1df17121-d34e-4e68-b125-d74131591871"/>
+				<box>
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{borrowerFullName}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="40" width="325" height="51" uuid="7fa2e75e-d064-4aa2-b530-738f2281e1a7"/>
+				<box topPadding="2" leftPadding="2" bottomPadding="2" rightPadding="2">
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[THANK YOU FOR YOUR PAYMENT. WE APPRECIATE YOUR BUSINESS. PLEASE REFER A FRIEND TODAY, AND DON'T FORGET THAT SUN LOAN WILL PREPARE YOUR INCOME TAX RETURN QUICKLY AND ACCURATELY.]]></text>
+			</staticText>
+			<elementGroup>
+				<rectangle>
+					<reportElement x="325" y="40" width="230" height="143" uuid="45fb86c7-e03d-409d-8ea2-a78b6eab6919"/>
+					<graphicElement>
+						<pen lineWidth="0.5"/>
+					</graphicElement>
+				</rectangle>
+				<staticText>
+					<reportElement x="338" y="91" width="140" height="12" uuid="894d0197-ea6d-479e-9656-68ceb7d66a75"/>
+					<textElement>
+						<font size="9"/>
+					</textElement>
+					<text><![CDATA[Other Charges:]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="338" y="103" width="140" height="12" uuid="3214466f-e18d-4edf-bff3-65619e915bfe"/>
+					<textElement>
+						<font size="9"/>
+					</textElement>
+					<text><![CDATA[Amount to Balance:]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="338" y="71" width="140" height="12" uuid="fe0e0c54-9ca3-4c13-93ef-cf6ea5a1d329"/>
+					<textElement>
+						<font size="9"/>
+					</textElement>
+					<text><![CDATA[New Balance:]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="338" y="58" width="140" height="12" uuid="16264f3b-b141-4ece-976d-fc5fcc2f5d71"/>
+					<textElement>
+						<font size="9"/>
+					</textElement>
+					<text><![CDATA[Amount to Balance:]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="338" y="48" width="140" height="12" uuid="3588ca6d-6f2f-40cf-8b49-889beef6526f"/>
+					<textElement>
+						<font size="9"/>
+					</textElement>
+					<text><![CDATA[Previous Balance:]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="338" y="116" width="140" height="12" uuid="94617e08-58bb-4bec-b948-aa46328d64be"/>
+					<textElement>
+						<font size="9"/>
+					</textElement>
+					<text><![CDATA[Total Collected:]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="338" y="136" width="140" height="12" uuid="57e5c8ef-f468-44a1-b193-3bbae9b9e991"/>
+					<textElement>
+						<font size="9"/>
+					</textElement>
+					<text><![CDATA[Amount Tendered:]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="338" y="161" width="140" height="12" uuid="1862040a-0c9a-4f08-b4c0-942ef7a81cf1"/>
+					<textElement>
+						<font size="9"/>
+					</textElement>
+					<text><![CDATA[Change To Customer:]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="338" y="148" width="140" height="12" uuid="7ab7767a-4d7c-4413-a868-503ff890fb24"/>
+					<textElement>
+						<font size="9"/>
+					</textElement>
+					<text><![CDATA[Total Collected:]]></text>
+				</staticText>
+				<textField pattern="#,##0.00">
+					<reportElement x="478" y="91" width="63" height="12" uuid="8529b861-1e51-44be-a949-145d010019fb"/>
+					<textElement textAlignment="Right">
+						<font size="9"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{otherCharges}]]></textFieldExpression>
+				</textField>
+				<textField pattern="#,##0.00">
+					<reportElement x="478" y="116" width="63" height="12" uuid="54501255-0880-40f9-8d5e-0667e0825660"/>
+					<textElement textAlignment="Right">
+						<font size="9"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{totalCollected}]]></textFieldExpression>
+				</textField>
+				<textField pattern="#,##0.00">
+					<reportElement x="478" y="148" width="63" height="12" uuid="52856698-2aee-43c0-a19a-70ee866b4959"/>
+					<textElement textAlignment="Right">
+						<font size="9"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{totalCollected}]]></textFieldExpression>
+				</textField>
+				<textField pattern="#,##0.00">
+					<reportElement x="478" y="58" width="63" height="12" uuid="8bd0e9b7-29ab-4685-80dd-d3bb17cca422"/>
+					<textElement textAlignment="Right">
+						<font size="9"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{amountToBalance}]]></textFieldExpression>
+				</textField>
+				<line>
+					<reportElement x="478" y="115" width="63" height="1" uuid="e991a987-1abe-45b0-8362-06ff293300a2"/>
+				</line>
+				<textField pattern="#,##0.00">
+					<reportElement x="478" y="48" width="63" height="12" uuid="f5d0e8f3-379c-4e95-9c93-a3c4c4daea91"/>
+					<textElement textAlignment="Right">
+						<font size="9"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{previousBalance}]]></textFieldExpression>
+				</textField>
+				<textField pattern="#,##0.00">
+					<reportElement x="478" y="161" width="63" height="12" uuid="62295f3f-7153-4fed-a3fd-4a63e66098f0"/>
+					<textElement textAlignment="Right">
+						<font size="9"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{changeToCustomer}]]></textFieldExpression>
+				</textField>
+				<textField pattern="#,##0.00">
+					<reportElement x="478" y="103" width="63" height="12" uuid="95f1d719-3236-4b0a-9228-dd6616569427"/>
+					<textElement textAlignment="Right">
+						<font size="9"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{amountToBalance}]]></textFieldExpression>
+				</textField>
+				<textField pattern="#,##0.00">
+					<reportElement x="478" y="71" width="63" height="12" uuid="0d40124e-47ba-49d6-807f-857ac4dad7d4"/>
+					<textElement textAlignment="Right">
+						<font size="9"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{newBalance}]]></textFieldExpression>
+				</textField>
+				<line>
+					<reportElement x="478" y="70" width="63" height="1" uuid="24db65cf-fbeb-4ce4-a474-54bdd9885cdb"/>
+				</line>
+				<textField pattern="#,##0.00">
+					<reportElement x="478" y="136" width="63" height="12" uuid="95207c31-1cac-4b8a-b62b-3663025fe90f"/>
+					<textElement textAlignment="Right">
+						<font size="9"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{amountTendered}]]></textFieldExpression>
+				</textField>
+				<line>
+					<reportElement x="478" y="160" width="63" height="1" uuid="c4eb4a86-b5b8-4282-b3d2-336f01d032fa"/>
+				</line>
+			</elementGroup>
+			<textField>
+				<reportElement x="0" y="0" width="555" height="40" uuid="afa5265d-bdf4-4b75-a45d-028225ee1d80"/>
+				<textElement textAlignment="Center" markup="none"/>
+				<textFieldExpression><![CDATA[$F{organizationName}+"\n"+
+$F{organizationAddress}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="393" y="0" width="162" height="40" uuid="8da979c0-daad-44f4-9cc0-35bdf869ef34"/>
+				<textElement textAlignment="Right" markup="none"/>
+				<textFieldExpression><![CDATA[$F{organizationPhoneNumber}+"\n"+
+$F{employeeName}+"\n"+
+"Acct # / Loan # : "+ $F{accountNumber} + " / " + $F{loanNumber}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="183" width="555" height="20" uuid="102bd5ed-7e8f-4458-9697-b4190f659278"/>
+				<textElement textAlignment="Center" markup="none"/>
+				<text><![CDATA[THANK YOU!!]]></text>
+			</staticText>
+			<textField pattern="MMM dd, yyyy hh:mm aaa">
+				<reportElement x="100" y="17" width="100" height="17" uuid="ac5658f9-3a4c-4d7b-b91f-ed834593fd79"/>
+				<textFieldExpression><![CDATA[$F{transactionDate}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="17" width="100" height="17" uuid="5c29236c-2442-4e36-b546-7ef8747f66b6"/>
+				<text><![CDATA[Transaction Date:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="0" width="100" height="17" uuid="0f2e63e2-f897-48c2-ae48-922a70eb483b"/>
+				<text><![CDATA[Current Date:]]></text>
+			</staticText>
+			<textField pattern="MM/dd/yyyy h:mm a">
+				<reportElement x="100" y="0" width="100" height="17" uuid="b70b49f1-b4d6-4c69-9a82-db5b238e0dc6"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="181">
+			<line direction="BottomUp">
+				<reportElement x="0" y="175" width="555" height="1" uuid="c0b5b7de-b39e-4ab5-b330-0ed549981652"/>
+				<graphicElement>
+					<pen lineStyle="Dashed"/>
+				</graphicElement>
+			</line>
+		</band>
+		<band height="203">
+			<textField>
+				<reportElement x="0" y="91" width="325" height="92" uuid="1df17121-d34e-4e68-b125-d74131591871"/>
+				<box>
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{borrowerFullName}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="40" width="325" height="51" uuid="7fa2e75e-d064-4aa2-b530-738f2281e1a7"/>
+				<box topPadding="2" leftPadding="2" bottomPadding="2" rightPadding="2">
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[THANK YOU FOR YOUR PAYMENT. WE APPRECIATE YOUR BUSINESS. PLEASE REFER A FRIEND TODAY, AND DON'T FORGET THAT SUN LOAN WILL PREPARE YOUR INCOME TAX RETURN QUICKLY AND ACCURATELY.]]></text>
+			</staticText>
+			<elementGroup>
+				<rectangle>
+					<reportElement x="325" y="40" width="230" height="143" uuid="45fb86c7-e03d-409d-8ea2-a78b6eab6919"/>
+					<graphicElement>
+						<pen lineWidth="0.5"/>
+					</graphicElement>
+				</rectangle>
+				<staticText>
+					<reportElement x="338" y="91" width="140" height="12" uuid="894d0197-ea6d-479e-9656-68ceb7d66a75"/>
+					<textElement>
+						<font size="9"/>
+					</textElement>
+					<text><![CDATA[Other Charges:]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="338" y="103" width="140" height="12" uuid="3214466f-e18d-4edf-bff3-65619e915bfe"/>
+					<textElement>
+						<font size="9"/>
+					</textElement>
+					<text><![CDATA[Amount to Balance:]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="338" y="71" width="140" height="12" uuid="fe0e0c54-9ca3-4c13-93ef-cf6ea5a1d329"/>
+					<textElement>
+						<font size="9"/>
+					</textElement>
+					<text><![CDATA[New Balance:]]></text>
+				</staticText>
+				<textField pattern="#,##0.00">
+					<reportElement x="478" y="48" width="63" height="12" uuid="cf08c28e-0f2b-4496-b11f-d5d2516cb795"/>
+					<textElement textAlignment="Right">
+						<font size="9"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{previousBalance}]]></textFieldExpression>
+				</textField>
+				<textField pattern="#,##0.00">
+					<reportElement x="478" y="58" width="63" height="12" uuid="5869cfc3-179c-45cd-bfa0-55c0041f147d"/>
+					<textElement textAlignment="Right">
+						<font size="9"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{amountToBalance}]]></textFieldExpression>
+				</textField>
+				<textField pattern="#,##0.00">
+					<reportElement x="478" y="71" width="63" height="12" uuid="24ea9b66-8934-4a4d-be2b-6b9f3afaaf40"/>
+					<textElement textAlignment="Right">
+						<font size="9"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{newBalance}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="338" y="58" width="140" height="12" uuid="16264f3b-b141-4ece-976d-fc5fcc2f5d71"/>
+					<textElement>
+						<font size="9"/>
+					</textElement>
+					<text><![CDATA[Amount to Balance:]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="338" y="48" width="140" height="12" uuid="3588ca6d-6f2f-40cf-8b49-889beef6526f"/>
+					<textElement>
+						<font size="9"/>
+					</textElement>
+					<text><![CDATA[Previous Balance:]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="338" y="116" width="140" height="12" uuid="94617e08-58bb-4bec-b948-aa46328d64be"/>
+					<textElement>
+						<font size="9"/>
+					</textElement>
+					<text><![CDATA[Total Collected:]]></text>
+				</staticText>
+				<line>
+					<reportElement x="478" y="70" width="63" height="1" uuid="cb99e07d-c0a1-4f9e-8cb9-4ef4644663c2"/>
+				</line>
+				<staticText>
+					<reportElement x="338" y="136" width="140" height="12" uuid="57e5c8ef-f468-44a1-b193-3bbae9b9e991"/>
+					<textElement>
+						<font size="9"/>
+					</textElement>
+					<text><![CDATA[Amount Tendered:]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="338" y="161" width="140" height="12" uuid="1862040a-0c9a-4f08-b4c0-942ef7a81cf1"/>
+					<textElement>
+						<font size="9"/>
+					</textElement>
+					<text><![CDATA[Change To Customer:]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="338" y="148" width="140" height="12" uuid="7ab7767a-4d7c-4413-a868-503ff890fb24"/>
+					<textElement>
+						<font size="9"/>
+					</textElement>
+					<text><![CDATA[Total Collected:]]></text>
+				</staticText>
+			</elementGroup>
+			<textField>
+				<reportElement x="0" y="0" width="555" height="40" uuid="afa5265d-bdf4-4b75-a45d-028225ee1d80"/>
+				<textElement textAlignment="Center" markup="none"/>
+				<textFieldExpression><![CDATA[$F{organizationName}+"\n"+
+$F{organizationAddress}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="393" y="0" width="162" height="40" uuid="8da979c0-daad-44f4-9cc0-35bdf869ef34"/>
+				<textElement textAlignment="Right" markup="none"/>
+				<textFieldExpression><![CDATA[$F{organizationPhoneNumber}+"\n"+
+$F{employeeName}+"\n"+
+"Acct # / Loan # : "+ $F{accountNumber} + " / " + $F{loanNumber}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="183" width="555" height="20" uuid="102bd5ed-7e8f-4458-9697-b4190f659278"/>
+				<textElement textAlignment="Center" markup="none"/>
+				<text><![CDATA[THANK YOU!!]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="0" width="100" height="17" uuid="c4c9c0af-e9f2-4e3c-93dd-6c73d462608f"/>
+				<text><![CDATA[Current Date:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="17" width="100" height="17" uuid="d9be2612-f7ba-4e81-a6c0-7d3ae2fedf07"/>
+				<text><![CDATA[Transaction Date:]]></text>
+			</staticText>
+			<textField pattern="MM/dd/yyyy h:mm a">
+				<reportElement x="100" y="0" width="100" height="17" uuid="f6b3295a-4c18-42ba-a6bc-8fdc93496252"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<textField pattern="MMM dd, yyyy hh:mm aaa">
+				<reportElement x="100" y="17" width="100" height="17" uuid="6a2ac72c-3e3d-4911-b550-777ea00593e2"/>
+				<textFieldExpression><![CDATA[$F{transactionDate}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00">
+				<reportElement x="478" y="91" width="63" height="12" uuid="d1a41513-b3ec-4026-b049-ee740146cf2a"/>
+				<textElement textAlignment="Right">
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{otherCharges}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00">
+				<reportElement x="478" y="116" width="63" height="12" uuid="1b13a430-0e37-4d5a-b76f-12cb5da05a8e"/>
+				<textElement textAlignment="Right">
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{totalCollected}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00">
+				<reportElement x="478" y="136" width="63" height="12" uuid="167091ee-ce35-4dad-b4b8-ed65f61fddb3"/>
+				<textElement textAlignment="Right">
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{amountTendered}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00">
+				<reportElement x="478" y="103" width="63" height="12" uuid="a634f1b7-4e21-4011-a528-367b08b82a3c"/>
+				<textElement textAlignment="Right">
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{amountToBalance}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="478" y="115" width="63" height="1" uuid="74c992f3-4ccc-47d2-bf36-5b8ef7183424"/>
+			</line>
+			<textField pattern="#,##0.00">
+				<reportElement x="478" y="148" width="63" height="12" uuid="9a2033ec-72a9-4db0-ac81-904a949ba15d"/>
+				<textElement textAlignment="Right">
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{totalCollected}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="478" y="160" width="63" height="1" uuid="a58002c6-63bd-496a-84ec-d3cbcaf15bc8"/>
+			</line>
+			<textField pattern="#,##0.00">
+				<reportElement x="478" y="161" width="63" height="12" uuid="9514f824-5942-459e-940f-b3f0036660f6"/>
+				<textElement textAlignment="Right">
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{changeToCustomer}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="EndOfSummaryItemReport" pageWidth="195" pageHeight="802" columnWidth="195" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="b9ae04f0-b90f-4137-af0a-49f8dabeebe7">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<field name="period" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[period]]></fieldDescription>
+	</field>
+	<field name="monthToDate" class="java.math.BigDecimal"/>
+	<field name="yearToDate" class="java.math.BigDecimal"/>
+	<detail>
+		<band height="15" splitType="Stretch">
+			<textField pattern="#,##0.00;-#,##0.00">
+				<reportElement x="0" y="0" width="65" height="15" uuid="890fb848-89ad-4125-aa56-3a551d35a087"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[($F{period} == null ? "" : $F{period})]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00;-#,##0.00">
+				<reportElement x="65" y="0" width="65" height="15" uuid="1df052f2-0e4e-4e41-aa0a-89eb7f796259"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[($F{monthToDate} == null ? "" : $F{monthToDate})]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00;-#,##0.00">
+				<reportElement x="130" y="0" width="65" height="15" uuid="33d14e31-acb9-414e-905e-fb0328b7db03"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[($F{yearToDate} == null ? "" : $F{yearToDate})]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>

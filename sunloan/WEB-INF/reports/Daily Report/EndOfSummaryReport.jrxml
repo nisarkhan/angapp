@@ -1,0 +1,1061 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="EndOfSummaryReport" pageWidth="740" pageHeight="555" orientation="Landscape" whenNoDataType="AllSectionsNoDetail" columnWidth="740" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="841635b9-2380-4ce4-82d2-0d651a6a15a4">
+	<property name="ireport.zoom" value="1.1000000000000052"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["./"]]></defaultValueExpression>
+	</parameter>
+	<field name="paymentsCollectedItem" class="java.lang.Object"/>
+	<field name="payoutsCollectedItem" class="java.lang.Object"/>
+	<field name="ballanceRenewalCollectionsItem" class="java.lang.Object"/>
+	<field name="insuranceSummaryItem" class="java.lang.Object"/>
+	<field name="telephoneSalesItem" class="java.lang.Object"/>
+	<field name="taxPrepItem" class="java.lang.Object"/>
+	<field name="ACQChargesItem" class="java.lang.Object"/>
+	<field name="IAHCChargesItem" class="java.lang.Object"/>
+	<field name="vigoReceiptsItem" class="java.lang.Object"/>
+	<field name="returnedChecksItem" class="java.lang.Object"/>
+	<field name="legalFeesItem" class="java.lang.Object"/>
+	<field name="lateChargesItem" class="java.lang.Object"/>
+	<field name="maturityInterestItem" class="java.lang.Object"/>
+	<field name="deferralChargesItem" class="java.lang.Object"/>
+	<field name="recoveriesItem" class="java.lang.Object"/>
+	<field name="directoCommisionsItem" class="java.lang.Object"/>
+	<field name="preSolutionsSalesItem" class="java.lang.Object"/>
+	<field name="salesTaxPayableItem" class="java.lang.Object"/>
+	<field name="otherCreditsItem" class="java.lang.Object"/>
+	<field name="newLoansItem" class="java.lang.Object"/>
+	<field name="formerBorrowerLoansItem" class="java.lang.Object"/>
+	<field name="borrowerRenewalLoansItem" class="java.lang.Object"/>
+	<field name="otherLoanChargesItem" class="java.lang.Object"/>
+	<field name="telephonePurchasesItem" class="java.lang.Object"/>
+	<field name="taxReturnExpensesItem" class="java.lang.Object"/>
+	<field name="ACQRefundsItem" class="java.lang.Object"/>
+	<field name="IAHCRefundsItem" class="java.lang.Object"/>
+	<field name="vigoDraftsItem" class="java.lang.Object"/>
+	<field name="expensesItem" class="java.lang.Object"/>
+	<field name="payrollSummaryItem" class="java.lang.Object"/>
+	<field name="legalChargesItem" class="java.lang.Object"/>
+	<field name="cashLongShortItem" class="java.lang.Object"/>
+	<field name="cashFromToHomeOfficeItem" class="java.lang.Object"/>
+	<field name="presolutionsDraftsItem" class="java.lang.Object"/>
+	<field name="ballanceAdjustItem" class="java.lang.Object"/>
+	<field name="otherDebtsItem" class="java.lang.Object"/>
+	<field name="totalDebits" class="java.lang.Object"/>
+	<field name="totalCredits" class="java.lang.Object"/>
+	<detail>
+		<band height="402" splitType="Stretch">
+			<staticText>
+				<reportElement x="376" y="15" width="70" height="15" uuid="ce4e2a2a-845f-46a7-a36f-7fd660158d99"/>
+				<textElement verticalAlignment="Middle" markup="none"/>
+				<text><![CDATA[21) New Loans]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="376" y="30" width="65" height="15" uuid="3127eafe-5aff-475e-8cea-e8b9ada5ac47"/>
+				<textElement verticalAlignment="Middle" markup="none"/>
+				<text><![CDATA[22) FB Loans]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="376" y="45" width="65" height="15" uuid="655cfa09-d17f-4838-970c-9d7e2d73b909"/>
+				<textElement verticalAlignment="Middle" markup="none"/>
+				<text><![CDATA[23) BR Loans]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="376" y="60" width="110" height="15" uuid="beba017d-c48e-45db-9b4b-de4b2b43de5a"/>
+				<textElement verticalAlignment="Middle" markup="none"/>
+				<text><![CDATA[24) Other Loan Charges]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="376" y="75" width="115" height="15" uuid="8fa83d7d-8d97-46b3-9991-7154421845a3"/>
+				<textElement verticalAlignment="Middle" markup="none"/>
+				<text><![CDATA[25) Telephone Purchases]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="376" y="90" width="115" height="15" uuid="7ad1da96-afb9-4807-9af3-8734c1cff36b"/>
+				<textElement verticalAlignment="Middle" markup="none"/>
+				<text><![CDATA[26] Tax Return Expenses]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="376" y="105" width="15" height="15" uuid="33595ac3-c02b-47ef-bbce-bd8672d2112e"/>
+				<textElement verticalAlignment="Middle" markup="none"/>
+				<text><![CDATA[27)]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="376" y="120" width="79" height="15" uuid="9cee8cfd-183e-4235-8539-4c49e2b556f9"/>
+				<textElement verticalAlignment="Middle" markup="none">
+					<font size="10"/>
+				</textElement>
+				<text><![CDATA[28] Acq. Refunds]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="376" y="135" width="81" height="15" uuid="0d537673-7501-4420-8d14-4139d6d0bac4"/>
+				<textElement verticalAlignment="Middle" markup="none">
+					<font size="10"/>
+				</textElement>
+				<text><![CDATA[29] IAHC Refunds]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="376" y="150" width="70" height="15" uuid="f4dc5c0a-a940-43c3-8057-f2de4983cb83"/>
+				<textElement verticalAlignment="Middle" markup="none"/>
+				<text><![CDATA[30] Vigo Drafts]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="376" y="285" width="85" height="15" uuid="d2bdc7b1-86aa-4bf7-946c-43e5486af8b0"/>
+				<textElement verticalAlignment="Middle" markup="none"/>
+				<text><![CDATA[39) Balance Adjust]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="376" y="225" width="83" height="15" uuid="2e9c9f06-10c1-4981-840a-426cc3868fff"/>
+				<textElement verticalAlignment="Middle" markup="none"/>
+				<text><![CDATA[35] Legal Charges]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="376" y="210" width="15" height="15" uuid="80fee829-c856-4fe7-a542-c31268e24028"/>
+				<textElement verticalAlignment="Middle" markup="none">
+					<font size="10"/>
+				</textElement>
+				<text><![CDATA[34)]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="376" y="165" width="15" height="15" uuid="cd956d3d-c89b-4f12-b1d1-eec245c5abd8"/>
+				<textElement verticalAlignment="Middle" markup="none"/>
+				<text><![CDATA[31)]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="376" y="240" width="104" height="15" uuid="f2f57f04-9288-4c34-bfce-7dcb5a37f41b"/>
+				<textElement verticalAlignment="Middle" markup="none"/>
+				<text><![CDATA[36] Cash Long(-)/Short]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="376" y="255" width="110" height="15" uuid="5f126bda-c7f0-4f22-97a5-82c9dc73f16d"/>
+				<textElement verticalAlignment="Middle" markup="none">
+					<font size="10"/>
+				</textElement>
+				<text><![CDATA[37) Cash From/To H.O.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="376" y="270" width="105" height="15" uuid="137cbfe3-3d56-4074-b5ca-1bf98d4a3e8c"/>
+				<textElement verticalAlignment="Middle" markup="none">
+					<font size="10"/>
+				</textElement>
+				<text><![CDATA[38) PreSolutions Drafts]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="376" y="300" width="75" height="15" uuid="d8911dfb-8c83-4a5c-b945-2b647c2a2fca"/>
+				<textElement verticalAlignment="Middle" markup="none"/>
+				<text><![CDATA[40) Other Debits]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="376" y="180" width="65" height="15" uuid="446b7e4d-5632-4898-b669-ad491dc8dc5f"/>
+				<textElement verticalAlignment="Middle" markup="none">
+					<font size="10"/>
+				</textElement>
+				<text><![CDATA[32] Expenses]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="376" y="195" width="95" height="15" uuid="d1fefaef-8a8f-46cd-afd7-85fe03e6e078"/>
+				<textElement verticalAlignment="Middle" markup="none"/>
+				<text><![CDATA[33] Payroll Summary]]></text>
+			</staticText>
+			<line>
+				<reportElement x="446" y="29" width="87" height="1" uuid="65970b68-c4bb-449c-9095-7453967fea4e"/>
+				<graphicElement>
+					<pen lineStyle="Dotted"/>
+				</graphicElement>
+			</line>
+			<line>
+				<reportElement x="441" y="42" width="92" height="1" uuid="5a8e8fb3-9479-4f4b-b8ed-12eb4766f80c"/>
+				<graphicElement>
+					<pen lineStyle="Dotted"/>
+				</graphicElement>
+			</line>
+			<line>
+				<reportElement x="441" y="58" width="92" height="1" uuid="cfb3387e-f6c0-47e1-a820-123239b05d26"/>
+				<graphicElement>
+					<pen lineStyle="Dotted"/>
+				</graphicElement>
+			</line>
+			<line>
+				<reportElement x="486" y="73" width="47" height="1" uuid="2f429c95-1f70-421a-b6ed-9d639fd3a75d"/>
+				<graphicElement>
+					<pen lineStyle="Dotted"/>
+				</graphicElement>
+			</line>
+			<line>
+				<reportElement x="491" y="87" width="42" height="1" uuid="8c267eef-de49-431c-abe0-094e855224bc"/>
+				<graphicElement>
+					<pen lineStyle="Dotted"/>
+				</graphicElement>
+			</line>
+			<line>
+				<reportElement x="486" y="102" width="47" height="1" uuid="662289b3-bc5e-4f28-9c89-17ea231cdf2d"/>
+				<graphicElement>
+					<pen lineStyle="Dotted"/>
+				</graphicElement>
+			</line>
+			<line>
+				<reportElement x="391" y="118" width="142" height="1" uuid="06c32256-aaa9-4ea6-9338-336ad32fbc7b"/>
+				<graphicElement>
+					<pen lineStyle="Dotted"/>
+				</graphicElement>
+			</line>
+			<line>
+				<reportElement x="455" y="132" width="78" height="1" uuid="7b9dcf71-674a-4418-8121-9f1823737d03"/>
+				<graphicElement>
+					<pen lineStyle="Dotted"/>
+				</graphicElement>
+			</line>
+			<line>
+				<reportElement x="457" y="147" width="76" height="1" uuid="90fbfc72-c23c-4199-b87c-e20eee2c7a2c"/>
+				<graphicElement>
+					<pen lineStyle="Dotted"/>
+				</graphicElement>
+			</line>
+			<line>
+				<reportElement x="446" y="163" width="87" height="1" uuid="ccb11abe-22b3-4368-8a7e-4e1470cb672b"/>
+				<graphicElement>
+					<pen lineStyle="Dotted"/>
+				</graphicElement>
+			</line>
+			<line>
+				<reportElement x="391" y="178" width="142" height="1" uuid="ae4882af-2fdd-4713-8bae-baf532ced302"/>
+				<graphicElement>
+					<pen lineStyle="Dotted"/>
+				</graphicElement>
+			</line>
+			<line>
+				<reportElement x="441" y="194" width="92" height="1" uuid="1008471d-a39a-41f2-802b-0ce66245756a"/>
+				<graphicElement>
+					<pen lineStyle="Dotted"/>
+				</graphicElement>
+			</line>
+			<line>
+				<reportElement x="471" y="209" width="62" height="1" uuid="9a350033-7097-412a-9c48-21cf32da87af"/>
+				<graphicElement>
+					<pen lineStyle="Dotted"/>
+				</graphicElement>
+			</line>
+			<line>
+				<reportElement x="391" y="223" width="142" height="1" uuid="9439adb9-fe72-41a9-875e-1931436e2d23"/>
+				<graphicElement>
+					<pen lineStyle="Dotted"/>
+				</graphicElement>
+			</line>
+			<line>
+				<reportElement x="457" y="239" width="76" height="1" uuid="ce3d8fb6-dea3-45a2-b703-6ad0921583ba"/>
+				<graphicElement>
+					<pen lineStyle="Dotted"/>
+				</graphicElement>
+			</line>
+			<line>
+				<reportElement x="480" y="254" width="53" height="1" uuid="1b20bcb4-4c4b-4de0-b5d1-aa32b7a4f0e4"/>
+				<graphicElement>
+					<pen lineStyle="Dotted"/>
+				</graphicElement>
+			</line>
+			<line>
+				<reportElement x="480" y="268" width="53" height="1" uuid="31ef86ae-cc9a-4f2b-8968-bb58786feaa7"/>
+				<graphicElement>
+					<pen lineStyle="Dotted"/>
+				</graphicElement>
+			</line>
+			<line>
+				<reportElement x="481" y="283" width="52" height="1" uuid="78a5e93c-5156-47b8-ba7a-949e01c94dfc"/>
+				<graphicElement>
+					<pen lineStyle="Dotted"/>
+				</graphicElement>
+			</line>
+			<line>
+				<reportElement x="461" y="298" width="72" height="1" uuid="82687bdf-da12-4795-b9c3-8df27a948c47"/>
+				<graphicElement>
+					<pen lineStyle="Dotted"/>
+				</graphicElement>
+			</line>
+			<line>
+				<reportElement x="451" y="313" width="82" height="1" uuid="b5fca729-3afb-42d6-a443-5fb14240e979"/>
+				<graphicElement>
+					<pen lineStyle="Dotted"/>
+				</graphicElement>
+			</line>
+			<staticText>
+				<reportElement x="533" y="0" width="65" height="15" uuid="e19b169a-3dfe-499d-a4c2-8f26f5a6ec82"/>
+				<textElement textAlignment="Right" markup="none"/>
+				<text><![CDATA[Period]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="598" y="0" width="65" height="15" uuid="979176e1-a9f7-4c20-97a0-a46a0b17fa2c"/>
+				<textElement textAlignment="Right" markup="none"/>
+				<text><![CDATA[MTD]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="663" y="0" width="65" height="15" uuid="05c33261-d418-41b0-855f-1de255a551fc"/>
+				<textElement textAlignment="Right" markup="none"/>
+				<text><![CDATA[YTD]]></text>
+			</staticText>
+			<line>
+				<reportElement x="90" y="209" width="71" height="1" uuid="2648a6b8-4ca0-4be2-9356-6280615f21fb"/>
+				<graphicElement>
+					<pen lineStyle="Dotted"/>
+				</graphicElement>
+			</line>
+			<staticText>
+				<reportElement x="7" y="210" width="95" height="15" uuid="6c7461cb-1bf8-4206-9454-46e1cbc6199f"/>
+				<textElement verticalAlignment="Middle" markup="none">
+					<font size="10"/>
+				</textElement>
+				<text><![CDATA[14] Maturity Interest]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="7" y="285" width="104" height="15" uuid="5dc1ffbe-91ee-4e55-84f4-e91c21d56482"/>
+				<textElement verticalAlignment="Middle" markup="none"/>
+				<text><![CDATA[19) Sales Tax Payable]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="7" y="270" width="115" height="15" uuid="e16bd2b9-aa56-4185-a137-8336986b3538"/>
+				<textElement verticalAlignment="Middle" markup="none">
+					<font size="10"/>
+				</textElement>
+				<text><![CDATA[18) PreSolutions Income]]></text>
+			</staticText>
+			<line>
+				<reportElement x="102" y="224" width="59" height="1" uuid="769f1986-6cb4-4215-9f49-866f5e0c0d27"/>
+				<graphicElement>
+					<pen lineStyle="Dotted"/>
+				</graphicElement>
+			</line>
+			<line>
+				<reportElement x="18" y="118" width="143" height="1" uuid="f1fd8653-eb7d-4da6-a4e7-84aa5dcdfac9"/>
+				<graphicElement>
+					<pen lineStyle="Dotted"/>
+				</graphicElement>
+			</line>
+			<line>
+				<reportElement x="107" y="178" width="54" height="1" uuid="6fc611a3-3123-4088-92f2-fe1e39a70b3f"/>
+				<graphicElement>
+					<pen lineStyle="Dotted"/>
+				</graphicElement>
+			</line>
+			<staticText>
+				<reportElement x="7" y="150" width="90" height="15" uuid="06d5e239-9537-4a73-9354-8b9af65267ec"/>
+				<textElement verticalAlignment="Middle" markup="none"/>
+				<text><![CDATA[10] Vigo Receipts]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="7" y="135" width="81" height="15" uuid="b942d3c8-f4fb-4bb8-80da-690f2182930a"/>
+				<textElement verticalAlignment="Middle" markup="none">
+					<font size="10"/>
+				</textElement>
+				<text><![CDATA[9] IAHC Charges]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="7" y="15" width="104" height="15" uuid="73a36b5f-6cf5-468f-b3f5-f76b867e8335"/>
+				<textElement verticalAlignment="Middle" markup="none"/>
+				<text><![CDATA[1) Payments Collected]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="7" y="30" width="100" height="15" uuid="8c193815-d27b-4d88-a59a-5b6930b7b9ac"/>
+				<textElement verticalAlignment="Middle" markup="none"/>
+				<text><![CDATA[2) Paidouts Collected]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="7" y="120" width="79" height="15" uuid="2ecf5c11-035b-4f75-a6c9-10c2c163410c"/>
+				<textElement verticalAlignment="Middle" markup="none">
+					<font size="10"/>
+				</textElement>
+				<text><![CDATA[8] Acq Charges]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="7" y="105" width="11" height="15" uuid="25d178ff-d0a1-455c-bdd4-58a293ec696c"/>
+				<textElement verticalAlignment="Middle" markup="none"/>
+				<text><![CDATA[7]]]></text>
+			</staticText>
+			<line>
+				<reportElement x="117" y="88" width="44" height="1" uuid="4c3f20fc-9f59-4f13-bf49-f8ea9806e65b"/>
+				<graphicElement>
+					<pen lineStyle="Dotted"/>
+				</graphicElement>
+			</line>
+			<line>
+				<reportElement x="110" y="73" width="51" height="1" uuid="647e3d7e-0fd9-4207-9c28-eab6f52dc8bf"/>
+				<graphicElement>
+					<pen lineStyle="Dotted"/>
+				</graphicElement>
+			</line>
+			<staticText>
+				<reportElement x="7" y="225" width="100" height="15" uuid="447dcaa7-9008-40ba-9497-ac3ec468c17f"/>
+				<textElement verticalAlignment="Middle" markup="none"/>
+				<text><![CDATA[15] Deferral Charges]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="7" y="75" width="110" height="15" uuid="6098ecca-f13b-41c1-983c-7ab230881b30"/>
+				<textElement verticalAlignment="Middle" markup="none"/>
+				<text><![CDATA[5) Telephone Sales Acct]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="7" y="300" width="81" height="15" uuid="794edc30-e7d1-4a58-84bc-e1138d6e49ab"/>
+				<textElement verticalAlignment="Middle" markup="none"/>
+				<text><![CDATA[20) Other Credits]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="229" y="0" width="65" height="15" uuid="4d95ffdb-a1f6-49dd-b683-bc0cf16819d9"/>
+				<textElement textAlignment="Right" markup="none"/>
+				<text><![CDATA[MTD]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="164" y="0" width="65" height="15" uuid="5c36c7d0-8840-4622-b885-a95684de4751"/>
+				<textElement textAlignment="Right" markup="none"/>
+				<text><![CDATA[Period]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="7" y="180" width="90" height="15" uuid="69e0e872-8c83-4239-8e12-e03e583c3abd"/>
+				<textElement verticalAlignment="Middle" markup="none">
+					<font size="10"/>
+				</textElement>
+				<text><![CDATA[12] Legal Charges]]></text>
+			</staticText>
+			<line>
+				<reportElement x="97" y="163" width="64" height="1" uuid="e18884fe-1a81-4071-9970-ecb8f341c35d"/>
+				<graphicElement>
+					<pen lineStyle="Dotted"/>
+				</graphicElement>
+			</line>
+			<line>
+				<reportElement x="111" y="28" width="50" height="1" uuid="3a4803f1-2443-400a-bb29-4fd024828b18"/>
+				<graphicElement>
+					<pen lineStyle="Dotted"/>
+				</graphicElement>
+			</line>
+			<line>
+				<reportElement x="127" y="269" width="34" height="1" uuid="3827d787-a99d-48f7-a834-6b44b1632df2"/>
+				<graphicElement>
+					<pen lineStyle="Dotted"/>
+				</graphicElement>
+			</line>
+			<line>
+				<reportElement x="107" y="43" width="54" height="1" uuid="a1caa373-91ab-451d-96ea-af0ccc788c21"/>
+				<graphicElement>
+					<pen lineStyle="Dotted"/>
+				</graphicElement>
+			</line>
+			<line>
+				<reportElement x="102" y="239" width="59" height="1" uuid="6ad378c3-84f2-4c36-9454-699c39222841"/>
+				<graphicElement>
+					<pen lineStyle="Dotted"/>
+				</graphicElement>
+			</line>
+			<staticText>
+				<reportElement x="294" y="0" width="65" height="15" uuid="0f171178-796c-4459-934c-9bc78652e04c"/>
+				<textElement textAlignment="Right" markup="none"/>
+				<text><![CDATA[YTD]]></text>
+			</staticText>
+			<line>
+				<reportElement x="86" y="314" width="75" height="1" uuid="c51fe40b-c08e-427d-91a3-66f16741b993"/>
+				<graphicElement>
+					<pen lineStyle="Dotted"/>
+				</graphicElement>
+			</line>
+			<line>
+				<reportElement x="122" y="284" width="39" height="1" uuid="f91c58ab-9f7c-4de4-8457-0b4c066f7ba6"/>
+				<graphicElement>
+					<pen lineStyle="Dotted"/>
+				</graphicElement>
+			</line>
+			<line>
+				<reportElement x="86" y="133" width="75" height="1" uuid="c6e197c9-1ed7-461d-82ee-c86e6d89b35b"/>
+				<graphicElement>
+					<pen lineStyle="Dotted"/>
+				</graphicElement>
+			</line>
+			<line>
+				<reportElement x="90" y="58" width="71" height="1" uuid="3239c824-1e50-4891-9cc6-b1355e36f016"/>
+				<graphicElement>
+					<pen lineStyle="Dotted"/>
+				</graphicElement>
+			</line>
+			<staticText>
+				<reportElement x="7" y="45" width="81" height="15" uuid="4b3aa92c-38c8-4678-a7de-97c9fb6a22db"/>
+				<textElement verticalAlignment="Middle" markup="none"/>
+				<text><![CDATA[3) BR Collections]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="7" y="90" width="81" height="15" uuid="2fdea18f-708a-48ec-b15a-b316eb522c6e"/>
+				<textElement verticalAlignment="Middle" markup="none"/>
+				<text><![CDATA[6] Tax Prep Fees]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="7" y="60" width="104" height="15" uuid="0e149a27-7480-4e04-bf9d-4e76a69298bc"/>
+				<textElement verticalAlignment="Middle" markup="none"/>
+				<text><![CDATA[4) Insurance Summary]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="7" y="165" width="100" height="15" uuid="2ac4d2d5-79ad-41e6-9a91-c5689dc746e1"/>
+				<textElement verticalAlignment="Middle" markup="none"/>
+				<text><![CDATA[11] Returned Checks]]></text>
+			</staticText>
+			<line>
+				<reportElement x="111" y="299" width="50" height="1" uuid="f530c3f0-164e-4330-8946-64448469c465"/>
+				<graphicElement>
+					<pen lineStyle="Dotted"/>
+				</graphicElement>
+			</line>
+			<staticText>
+				<reportElement x="7" y="195" width="81" height="15" uuid="f5106d8d-ab5c-4f6c-96e4-7959e1bc211a"/>
+				<textElement verticalAlignment="Middle" markup="none"/>
+				<text><![CDATA[13] Late Charges]]></text>
+			</staticText>
+			<line>
+				<reportElement x="97" y="194" width="64" height="1" uuid="f0e8625b-8dd7-4585-986d-241550bbd7c0"/>
+				<graphicElement>
+					<pen lineStyle="Dotted"/>
+				</graphicElement>
+			</line>
+			<line>
+				<reportElement x="77" y="254" width="84" height="1" uuid="1d865467-f6a0-41f8-b108-97abc004d7bf"/>
+				<graphicElement>
+					<pen lineStyle="Dotted"/>
+				</graphicElement>
+			</line>
+			<line>
+				<reportElement x="90" y="103" width="71" height="1" uuid="a777c540-d758-4a82-85cb-95f857d2d6a7"/>
+				<graphicElement>
+					<pen lineStyle="Dotted"/>
+				</graphicElement>
+			</line>
+			<staticText>
+				<reportElement x="7" y="240" width="70" height="15" uuid="a03c6470-5679-4dd4-b274-747b379b04e5"/>
+				<textElement verticalAlignment="Middle" markup="none"/>
+				<text><![CDATA[16] Recoveries]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="7" y="255" width="120" height="15" uuid="c27d685c-21ff-4b60-8811-d72c4f77bc49"/>
+				<textElement verticalAlignment="Middle" markup="none">
+					<font size="10"/>
+				</textElement>
+				<text><![CDATA[17) Directo Commissions]]></text>
+			</staticText>
+			<line>
+				<reportElement x="86" y="148" width="75" height="1" uuid="d124ab88-7c4d-4c38-8d8a-916001144ca4"/>
+				<graphicElement>
+					<pen lineStyle="Dotted"/>
+				</graphicElement>
+			</line>
+			<subreport>
+				<reportElement x="164" y="15" width="195" height="15" uuid="5a27d89d-c0fa-44a3-be04-ce015db1856c"/>
+				<subreportParameter name="SUBREPORT_DIR">
+					<subreportParameterExpression><![CDATA[$P{SUBREPORT_DIR}]]></subreportParameterExpression>
+				</subreportParameter>
+				<dataSourceExpression><![CDATA[(new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource(java.util.Collections.singleton($F{paymentsCollectedItem})))]]></dataSourceExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "EndOfSummaryItemReport.jasper"]]></subreportExpression>
+			</subreport>
+			<subreport>
+				<reportElement x="164" y="30" width="195" height="15" uuid="c834d3c7-e81b-402c-8a1c-877f86962856"/>
+				<subreportParameter name="SUBREPORT_DIR">
+					<subreportParameterExpression><![CDATA[$P{SUBREPORT_DIR}]]></subreportParameterExpression>
+				</subreportParameter>
+				<dataSourceExpression><![CDATA[(new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource(java.util.Collections.singleton($F{payoutsCollectedItem})))]]></dataSourceExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "EndOfSummaryItemReport.jasper"]]></subreportExpression>
+			</subreport>
+			<subreport>
+				<reportElement x="164" y="45" width="195" height="15" uuid="087b566a-63eb-4f77-afb7-dc4a8914cc5a"/>
+				<subreportParameter name="SUBREPORT_DIR">
+					<subreportParameterExpression><![CDATA[$P{SUBREPORT_DIR}]]></subreportParameterExpression>
+				</subreportParameter>
+				<dataSourceExpression><![CDATA[(new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource(java.util.Collections.singleton($F{ballanceRenewalCollectionsItem})))]]></dataSourceExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "EndOfSummaryItemReport.jasper"]]></subreportExpression>
+			</subreport>
+			<subreport>
+				<reportElement x="164" y="60" width="195" height="15" uuid="54cc4974-a950-4bbc-a409-3df5fa42c09e"/>
+				<subreportParameter name="SUBREPORT_DIR">
+					<subreportParameterExpression><![CDATA[$P{SUBREPORT_DIR}]]></subreportParameterExpression>
+				</subreportParameter>
+				<dataSourceExpression><![CDATA[(new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource(java.util.Collections.singleton($F{insuranceSummaryItem})))]]></dataSourceExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "EndOfSummaryItemReport.jasper"]]></subreportExpression>
+			</subreport>
+			<subreport>
+				<reportElement x="164" y="75" width="195" height="15" uuid="508dcd1f-a255-481d-b8d7-90891483dfb3"/>
+				<subreportParameter name="SUBREPORT_DIR">
+					<subreportParameterExpression><![CDATA[$P{SUBREPORT_DIR}]]></subreportParameterExpression>
+				</subreportParameter>
+				<dataSourceExpression><![CDATA[(new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource(java.util.Collections.singleton($F{telephoneSalesItem})))]]></dataSourceExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "EndOfSummaryItemReport.jasper"]]></subreportExpression>
+			</subreport>
+			<subreport>
+				<reportElement x="164" y="90" width="195" height="15" uuid="6c4a73a7-42a6-41d7-8f3f-1578f104e559"/>
+				<subreportParameter name="SUBREPORT_DIR">
+					<subreportParameterExpression><![CDATA[$P{SUBREPORT_DIR}]]></subreportParameterExpression>
+				</subreportParameter>
+				<dataSourceExpression><![CDATA[(new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource(java.util.Collections.singleton($F{taxPrepItem})))]]></dataSourceExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "EndOfSummaryItemReport.jasper"]]></subreportExpression>
+			</subreport>
+			<subreport>
+				<reportElement x="164" y="105" width="195" height="15" uuid="63389583-308b-4c09-ae59-1b3b09164cb3"/>
+				<subreportParameter name="SUBREPORT_DIR">
+					<subreportParameterExpression><![CDATA[$P{SUBREPORT_DIR}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "EndOfSummaryItemReport.jasper"]]></subreportExpression>
+			</subreport>
+			<subreport>
+				<reportElement x="164" y="120" width="195" height="15" uuid="920272c3-9d54-4869-b26e-f8c8cd00f4af"/>
+				<subreportParameter name="SUBREPORT_DIR">
+					<subreportParameterExpression><![CDATA[$P{SUBREPORT_DIR}]]></subreportParameterExpression>
+				</subreportParameter>
+				<dataSourceExpression><![CDATA[(new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource(java.util.Collections.singleton($F{ACQChargesItem})))]]></dataSourceExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "EndOfSummaryItemReport.jasper"]]></subreportExpression>
+			</subreport>
+			<subreport>
+				<reportElement x="164" y="135" width="195" height="15" uuid="38fb3109-5fad-49e0-9962-a6f9ab040631"/>
+				<subreportParameter name="SUBREPORT_DIR">
+					<subreportParameterExpression><![CDATA[$P{SUBREPORT_DIR}]]></subreportParameterExpression>
+				</subreportParameter>
+				<dataSourceExpression><![CDATA[(new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource(java.util.Collections.singleton($F{IAHCChargesItem})))]]></dataSourceExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "EndOfSummaryItemReport.jasper"]]></subreportExpression>
+			</subreport>
+			<subreport>
+				<reportElement x="164" y="150" width="195" height="15" uuid="77d0acfe-4625-407c-b4f7-fe4e546ecfbd"/>
+				<subreportParameter name="SUBREPORT_DIR">
+					<subreportParameterExpression><![CDATA[$P{SUBREPORT_DIR}]]></subreportParameterExpression>
+				</subreportParameter>
+				<dataSourceExpression><![CDATA[(new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource(java.util.Collections.singleton($F{vigoReceiptsItem})))]]></dataSourceExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "EndOfSummaryItemReport.jasper"]]></subreportExpression>
+			</subreport>
+			<subreport>
+				<reportElement x="164" y="165" width="195" height="15" uuid="a19e4a92-a41f-4c2f-909d-95ded9f112e7"/>
+				<subreportParameter name="SUBREPORT_DIR">
+					<subreportParameterExpression><![CDATA[$P{SUBREPORT_DIR}]]></subreportParameterExpression>
+				</subreportParameter>
+				<dataSourceExpression><![CDATA[(new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource(java.util.Collections.singleton($F{returnedChecksItem})))]]></dataSourceExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "EndOfSummaryItemReport.jasper"]]></subreportExpression>
+			</subreport>
+			<subreport>
+				<reportElement x="164" y="180" width="195" height="15" uuid="d230a2c3-dd01-465c-84ec-4999e6c519e0"/>
+				<subreportParameter name="SUBREPORT_DIR">
+					<subreportParameterExpression><![CDATA[$P{SUBREPORT_DIR}]]></subreportParameterExpression>
+				</subreportParameter>
+				<dataSourceExpression><![CDATA[(new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource(java.util.Collections.singleton($F{legalFeesItem})))]]></dataSourceExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "EndOfSummaryItemReport.jasper"]]></subreportExpression>
+			</subreport>
+			<subreport>
+				<reportElement x="164" y="195" width="195" height="15" uuid="99643a3e-9e15-44ef-a0e3-32a310052043"/>
+				<subreportParameter name="SUBREPORT_DIR">
+					<subreportParameterExpression><![CDATA[$P{SUBREPORT_DIR}]]></subreportParameterExpression>
+				</subreportParameter>
+				<dataSourceExpression><![CDATA[(new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource(java.util.Collections.singleton($F{lateChargesItem})))]]></dataSourceExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "EndOfSummaryItemReport.jasper"]]></subreportExpression>
+			</subreport>
+			<subreport>
+				<reportElement x="164" y="210" width="195" height="15" uuid="6213df60-dbdc-46fc-9d6b-1ae5b9d815bc"/>
+				<subreportParameter name="SUBREPORT_DIR">
+					<subreportParameterExpression><![CDATA[$P{SUBREPORT_DIR}]]></subreportParameterExpression>
+				</subreportParameter>
+				<dataSourceExpression><![CDATA[(new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource(java.util.Collections.singleton($F{maturityInterestItem})))]]></dataSourceExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "EndOfSummaryItemReport.jasper"]]></subreportExpression>
+			</subreport>
+			<subreport>
+				<reportElement x="164" y="225" width="195" height="15" uuid="5da6e91b-9579-4a8f-b634-70c265f17e99"/>
+				<subreportParameter name="SUBREPORT_DIR">
+					<subreportParameterExpression><![CDATA[$P{SUBREPORT_DIR}]]></subreportParameterExpression>
+				</subreportParameter>
+				<dataSourceExpression><![CDATA[(new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource(java.util.Collections.singleton($F{deferralChargesItem})))]]></dataSourceExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "EndOfSummaryItemReport.jasper"]]></subreportExpression>
+			</subreport>
+			<subreport>
+				<reportElement x="164" y="240" width="195" height="15" uuid="b3c44bb2-a221-4286-ada6-42e11896fa17"/>
+				<subreportParameter name="SUBREPORT_DIR">
+					<subreportParameterExpression><![CDATA[$P{SUBREPORT_DIR}]]></subreportParameterExpression>
+				</subreportParameter>
+				<dataSourceExpression><![CDATA[(new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource(java.util.Collections.singleton($F{recoveriesItem})))]]></dataSourceExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "EndOfSummaryItemReport.jasper"]]></subreportExpression>
+			</subreport>
+			<subreport>
+				<reportElement x="164" y="255" width="195" height="15" uuid="d5cfc981-dee4-40ea-82f7-2374949c5f0d"/>
+				<subreportParameter name="SUBREPORT_DIR">
+					<subreportParameterExpression><![CDATA[$P{SUBREPORT_DIR}]]></subreportParameterExpression>
+				</subreportParameter>
+				<dataSourceExpression><![CDATA[(new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource(java.util.Collections.singleton($F{directoCommisionsItem})))]]></dataSourceExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "EndOfSummaryItemReport.jasper"]]></subreportExpression>
+			</subreport>
+			<subreport>
+				<reportElement x="164" y="270" width="195" height="15" uuid="efab0be1-081b-40a2-ad5a-d3337250d618"/>
+				<subreportParameter name="SUBREPORT_DIR">
+					<subreportParameterExpression><![CDATA[$P{SUBREPORT_DIR}]]></subreportParameterExpression>
+				</subreportParameter>
+				<dataSourceExpression><![CDATA[(new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource(java.util.Collections.singleton($F{preSolutionsSalesItem})))]]></dataSourceExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "EndOfSummaryItemReport.jasper"]]></subreportExpression>
+			</subreport>
+			<subreport>
+				<reportElement x="164" y="285" width="195" height="15" uuid="c34b0989-a77b-431b-bd25-7fe5b93fa3d3"/>
+				<subreportParameter name="SUBREPORT_DIR">
+					<subreportParameterExpression><![CDATA[$P{SUBREPORT_DIR}]]></subreportParameterExpression>
+				</subreportParameter>
+				<dataSourceExpression><![CDATA[(new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource(java.util.Collections.singleton($F{salesTaxPayableItem})))]]></dataSourceExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "EndOfSummaryItemReport.jasper"]]></subreportExpression>
+			</subreport>
+			<subreport>
+				<reportElement x="164" y="300" width="195" height="15" uuid="075f8e71-133d-4932-9e6a-132c1408003c"/>
+				<subreportParameter name="SUBREPORT_DIR">
+					<subreportParameterExpression><![CDATA[$P{SUBREPORT_DIR}]]></subreportParameterExpression>
+				</subreportParameter>
+				<dataSourceExpression><![CDATA[(new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource(java.util.Collections.singleton($F{otherCreditsItem})))]]></dataSourceExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "EndOfSummaryItemReport.jasper"]]></subreportExpression>
+			</subreport>
+			<subreport>
+				<reportElement x="533" y="58" width="195" height="15" uuid="9fadd56b-6c99-4734-bb62-95923d90c06d"/>
+				<subreportParameter name="SUBREPORT_DIR">
+					<subreportParameterExpression><![CDATA[$P{SUBREPORT_DIR}]]></subreportParameterExpression>
+				</subreportParameter>
+				<dataSourceExpression><![CDATA[(new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource(java.util.Collections.singleton($F{otherLoanChargesItem})))]]></dataSourceExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "EndOfSummaryItemReport.jasper"]]></subreportExpression>
+			</subreport>
+			<subreport>
+				<reportElement x="533" y="208" width="195" height="15" uuid="19f77fcb-2d4a-42de-86c7-d39575a778b5"/>
+				<subreportParameter name="SUBREPORT_DIR">
+					<subreportParameterExpression><![CDATA[$P{SUBREPORT_DIR}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "EndOfSummaryItemReport.jasper"]]></subreportExpression>
+			</subreport>
+			<subreport>
+				<reportElement x="533" y="88" width="195" height="15" uuid="27f1e923-a135-4c3e-b9c8-ccecaa2f9a71"/>
+				<subreportParameter name="SUBREPORT_DIR">
+					<subreportParameterExpression><![CDATA[$P{SUBREPORT_DIR}]]></subreportParameterExpression>
+				</subreportParameter>
+				<dataSourceExpression><![CDATA[(new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource(java.util.Collections.singleton($F{taxReturnExpensesItem})))]]></dataSourceExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "EndOfSummaryItemReport.jasper"]]></subreportExpression>
+			</subreport>
+			<subreport>
+				<reportElement x="533" y="118" width="195" height="15" uuid="a5d31658-514e-4b88-a252-45e7e2f172e1"/>
+				<subreportParameter name="SUBREPORT_DIR">
+					<subreportParameterExpression><![CDATA[$P{SUBREPORT_DIR}]]></subreportParameterExpression>
+				</subreportParameter>
+				<dataSourceExpression><![CDATA[(new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource(java.util.Collections.singleton($F{ACQRefundsItem})))]]></dataSourceExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "EndOfSummaryItemReport.jasper"]]></subreportExpression>
+			</subreport>
+			<subreport>
+				<reportElement x="533" y="13" width="195" height="15" uuid="2c20d051-9f13-48ef-bc01-2bad125cfe9c"/>
+				<subreportParameter name="SUBREPORT_DIR">
+					<subreportParameterExpression><![CDATA[$P{SUBREPORT_DIR}]]></subreportParameterExpression>
+				</subreportParameter>
+				<dataSourceExpression><![CDATA[(new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource(java.util.Collections.singleton($F{newLoansItem})))]]></dataSourceExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "EndOfSummaryItemReport.jasper"]]></subreportExpression>
+			</subreport>
+			<subreport>
+				<reportElement x="533" y="28" width="195" height="15" uuid="f39d62b1-a491-4e2a-8b43-75b7e5c5ac7b"/>
+				<subreportParameter name="SUBREPORT_DIR">
+					<subreportParameterExpression><![CDATA[$P{SUBREPORT_DIR}]]></subreportParameterExpression>
+				</subreportParameter>
+				<dataSourceExpression><![CDATA[(new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource(java.util.Collections.singleton($F{formerBorrowerLoansItem})))]]></dataSourceExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "EndOfSummaryItemReport.jasper"]]></subreportExpression>
+			</subreport>
+			<subreport>
+				<reportElement x="533" y="283" width="195" height="15" uuid="626bc5fa-ec33-4dda-af93-6497df43d2ee"/>
+				<subreportParameter name="SUBREPORT_DIR">
+					<subreportParameterExpression><![CDATA[$P{SUBREPORT_DIR}]]></subreportParameterExpression>
+				</subreportParameter>
+				<dataSourceExpression><![CDATA[(new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource(java.util.Collections.singleton($F{ballanceAdjustItem})))]]></dataSourceExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "EndOfSummaryItemReport.jasper"]]></subreportExpression>
+			</subreport>
+			<subreport>
+				<reportElement x="533" y="163" width="195" height="15" uuid="dd77607b-b449-4a82-a3f2-5948a35e2cb0"/>
+				<subreportParameter name="SUBREPORT_DIR">
+					<subreportParameterExpression><![CDATA[$P{SUBREPORT_DIR}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "EndOfSummaryItemReport.jasper"]]></subreportExpression>
+			</subreport>
+			<subreport>
+				<reportElement x="533" y="268" width="195" height="15" uuid="69737437-ca8e-4822-961e-2867c2901a9c"/>
+				<subreportParameter name="SUBREPORT_DIR">
+					<subreportParameterExpression><![CDATA[$P{SUBREPORT_DIR}]]></subreportParameterExpression>
+				</subreportParameter>
+				<dataSourceExpression><![CDATA[(new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource(java.util.Collections.singleton($F{presolutionsDraftsItem})))]]></dataSourceExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "EndOfSummaryItemReport.jasper"]]></subreportExpression>
+			</subreport>
+			<subreport>
+				<reportElement x="533" y="43" width="195" height="15" uuid="98f40cac-ec74-4131-9784-65d0622358a9"/>
+				<subreportParameter name="SUBREPORT_DIR">
+					<subreportParameterExpression><![CDATA[$P{SUBREPORT_DIR}]]></subreportParameterExpression>
+				</subreportParameter>
+				<dataSourceExpression><![CDATA[(new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource(java.util.Collections.singleton($F{borrowerRenewalLoansItem})))]]></dataSourceExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "EndOfSummaryItemReport.jasper"]]></subreportExpression>
+			</subreport>
+			<subreport>
+				<reportElement x="533" y="178" width="195" height="15" uuid="764a12b8-edb7-4399-a550-d716534c7c0e"/>
+				<subreportParameter name="SUBREPORT_DIR">
+					<subreportParameterExpression><![CDATA[$P{SUBREPORT_DIR}]]></subreportParameterExpression>
+				</subreportParameter>
+				<dataSourceExpression><![CDATA[(new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource(java.util.Collections.singleton($F{expensesItem})))]]></dataSourceExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "EndOfSummaryItemReport.jasper"]]></subreportExpression>
+			</subreport>
+			<subreport>
+				<reportElement x="533" y="223" width="195" height="15" uuid="181fbaf4-2031-4b54-a629-035c6982dd1f"/>
+				<subreportParameter name="SUBREPORT_DIR">
+					<subreportParameterExpression><![CDATA[$P{SUBREPORT_DIR}]]></subreportParameterExpression>
+				</subreportParameter>
+				<dataSourceExpression><![CDATA[(new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource(java.util.Collections.singleton($F{legalChargesItem})))]]></dataSourceExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "EndOfSummaryItemReport.jasper"]]></subreportExpression>
+			</subreport>
+			<subreport>
+				<reportElement x="533" y="133" width="195" height="15" uuid="acbdd635-2aa3-4ed3-aad1-3198f09709c0"/>
+				<subreportParameter name="SUBREPORT_DIR">
+					<subreportParameterExpression><![CDATA[$P{SUBREPORT_DIR}]]></subreportParameterExpression>
+				</subreportParameter>
+				<dataSourceExpression><![CDATA[(new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource(java.util.Collections.singleton($F{IAHCRefundsItem})))]]></dataSourceExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "EndOfSummaryItemReport.jasper"]]></subreportExpression>
+			</subreport>
+			<subreport>
+				<reportElement x="533" y="103" width="195" height="15" uuid="dee539bc-7722-409b-ade3-8a7276a8a8c1"/>
+				<subreportParameter name="SUBREPORT_DIR">
+					<subreportParameterExpression><![CDATA[$P{SUBREPORT_DIR}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "EndOfSummaryItemReport.jasper"]]></subreportExpression>
+			</subreport>
+			<subreport>
+				<reportElement x="533" y="193" width="195" height="15" uuid="394cf02a-60b8-443b-86a8-6d51023395f2"/>
+				<subreportParameter name="SUBREPORT_DIR">
+					<subreportParameterExpression><![CDATA[$P{SUBREPORT_DIR}]]></subreportParameterExpression>
+				</subreportParameter>
+				<dataSourceExpression><![CDATA[(new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource(java.util.Collections.singleton($F{payrollSummaryItem})))]]></dataSourceExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "EndOfSummaryItemReport.jasper"]]></subreportExpression>
+			</subreport>
+			<subreport>
+				<reportElement x="533" y="73" width="195" height="15" uuid="2c04f723-35c0-489f-8908-0f2f5425c69b"/>
+				<subreportParameter name="SUBREPORT_DIR">
+					<subreportParameterExpression><![CDATA[$P{SUBREPORT_DIR}]]></subreportParameterExpression>
+				</subreportParameter>
+				<dataSourceExpression><![CDATA[(new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource(java.util.Collections.singleton($F{telephonePurchasesItem})))]]></dataSourceExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "EndOfSummaryItemReport.jasper"]]></subreportExpression>
+			</subreport>
+			<subreport>
+				<reportElement x="533" y="148" width="195" height="15" uuid="1df9bba9-2cd2-47a1-a104-1858e91cc43c"/>
+				<subreportParameter name="SUBREPORT_DIR">
+					<subreportParameterExpression><![CDATA[$P{SUBREPORT_DIR}]]></subreportParameterExpression>
+				</subreportParameter>
+				<dataSourceExpression><![CDATA[(new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource(java.util.Collections.singleton($F{vigoDraftsItem})))]]></dataSourceExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "EndOfSummaryItemReport.jasper"]]></subreportExpression>
+			</subreport>
+			<subreport>
+				<reportElement x="533" y="298" width="195" height="15" uuid="582fb0b5-7368-4cab-a7ab-6715d9d765b8"/>
+				<subreportParameter name="SUBREPORT_DIR">
+					<subreportParameterExpression><![CDATA[$P{SUBREPORT_DIR}]]></subreportParameterExpression>
+				</subreportParameter>
+				<dataSourceExpression><![CDATA[(new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource(java.util.Collections.singleton($F{otherDebtsItem})))]]></dataSourceExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "EndOfSummaryItemReport.jasper"]]></subreportExpression>
+			</subreport>
+			<subreport>
+				<reportElement x="533" y="238" width="195" height="15" uuid="b59c3da1-c7e0-4d66-8f40-9bbaf0fbc173"/>
+				<subreportParameter name="SUBREPORT_DIR">
+					<subreportParameterExpression><![CDATA[$P{SUBREPORT_DIR}]]></subreportParameterExpression>
+				</subreportParameter>
+				<dataSourceExpression><![CDATA[(new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource(java.util.Collections.singleton($F{cashLongShortItem})))]]></dataSourceExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "EndOfSummaryItemReport.jasper"]]></subreportExpression>
+			</subreport>
+			<subreport>
+				<reportElement x="533" y="253" width="195" height="15" uuid="63c82264-17c4-4405-a944-1bdbb66301d7"/>
+				<subreportParameter name="SUBREPORT_DIR">
+					<subreportParameterExpression><![CDATA[$P{SUBREPORT_DIR}]]></subreportParameterExpression>
+				</subreportParameter>
+				<dataSourceExpression><![CDATA[(new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource(java.util.Collections.singleton($F{cashFromToHomeOfficeItem})))]]></dataSourceExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "EndOfSummaryItemReport.jasper"]]></subreportExpression>
+			</subreport>
+			<line>
+				<reportElement x="533" y="320" width="195" height="1" uuid="14c58d60-5508-473a-bfc7-0625771c2438"/>
+				<graphicElement>
+					<pen lineStyle="Dashed"/>
+				</graphicElement>
+			</line>
+			<line>
+				<reportElement x="163" y="320" width="195" height="1" uuid="f29c4661-0a42-4bbc-aec9-bdb147f2151a"/>
+				<graphicElement>
+					<pen lineStyle="Dashed"/>
+				</graphicElement>
+			</line>
+			<staticText>
+				<reportElement x="23" y="325" width="60" height="15" uuid="7741c48e-9345-46d7-b734-62c59e090f25"/>
+				<text><![CDATA[Total Credits]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="23" y="340" width="55" height="15" uuid="ecc48b56-2bc8-4bd6-add7-bc3bac5fad3d"/>
+				<text><![CDATA[Total Debits]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="23" y="355" width="80" height="15" uuid="b7cd397f-8471-4b1b-9cf5-2680140acc69"/>
+				<text><![CDATA[Balance Forward]]></text>
+			</staticText>
+			<subreport>
+				<reportElement x="164" y="325" width="195" height="15" uuid="daa36e61-ffb6-46a0-8634-a3114f742f39"/>
+				<subreportParameter name="SUBREPORT_DIR">
+					<subreportParameterExpression><![CDATA[$P{SUBREPORT_DIR}]]></subreportParameterExpression>
+				</subreportParameter>
+				<dataSourceExpression><![CDATA[(new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource(java.util.Collections.singleton($F{totalCredits})))]]></dataSourceExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "EndOfSummaryItemReport.jasper"]]></subreportExpression>
+			</subreport>
+			<subreport>
+				<reportElement x="164" y="340" width="195" height="15" uuid="92c54fad-3417-447d-96c0-aecb9fa177ab"/>
+				<subreportParameter name="SUBREPORT_DIR">
+					<subreportParameterExpression><![CDATA[$P{SUBREPORT_DIR}]]></subreportParameterExpression>
+				</subreportParameter>
+				<dataSourceExpression><![CDATA[(new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource(java.util.Collections.singleton($F{totalDebits})))]]></dataSourceExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "EndOfSummaryItemReport.jasper"]]></subreportExpression>
+			</subreport>
+			<subreport>
+				<reportElement x="164" y="355" width="195" height="15" uuid="12794a4b-ea72-4543-8128-bfe42f91f1d8"/>
+				<subreportParameter name="SUBREPORT_DIR">
+					<subreportParameterExpression><![CDATA[$P{SUBREPORT_DIR}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "EndOfSummaryItemReport.jasper"]]></subreportExpression>
+			</subreport>
+			<line>
+				<reportElement x="164" y="375" width="195" height="1" uuid="6d2020c3-6bd7-47fb-8dd5-96600ef5f87c"/>
+				<graphicElement>
+					<pen lineStyle="Dashed"/>
+				</graphicElement>
+			</line>
+			<subreport>
+				<reportElement x="533" y="325" width="195" height="15" uuid="2838f2b1-8500-4acc-a3f6-ada0854acd76"/>
+				<subreportParameter name="SUBREPORT_DIR">
+					<subreportParameterExpression><![CDATA[$P{SUBREPORT_DIR}]]></subreportParameterExpression>
+				</subreportParameter>
+				<dataSourceExpression><![CDATA[(new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource(java.util.Collections.singleton($F{totalDebits})))]]></dataSourceExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "EndOfSummaryItemReport.jasper"]]></subreportExpression>
+			</subreport>
+			<staticText>
+				<reportElement x="394" y="325" width="55" height="15" uuid="1f872634-74fc-4c55-be48-53ffdf3abfb0"/>
+				<text><![CDATA[Total Debits]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="141" y="325" width="20" height="15" uuid="73cf47ae-32c7-4c23-9101-c0b85245f6f7"/>
+				<textElement textAlignment="Right"/>
+				<text><![CDATA[( + )]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="141" y="340" width="20" height="15" uuid="270c3c1c-2aaa-4c02-9a39-67485011b66c"/>
+				<textElement textAlignment="Right"/>
+				<text><![CDATA[( - )]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="141" y="355" width="20" height="15" uuid="998b55e1-6142-4858-bcdd-d2c09cde145b"/>
+				<textElement textAlignment="Right"/>
+				<text><![CDATA[( + )]]></text>
+			</staticText>
+			<line>
+				<reportElement x="83" y="339" width="58" height="1" uuid="c2a3b5ec-9c89-413f-bf4b-3b3e810c2940"/>
+				<graphicElement>
+					<pen lineStyle="Dotted"/>
+				</graphicElement>
+			</line>
+			<line>
+				<reportElement x="78" y="354" width="63" height="1" uuid="1c155d8d-c863-4b10-ab76-09af1bcafb56"/>
+				<graphicElement>
+					<pen lineStyle="Dotted"/>
+				</graphicElement>
+			</line>
+			<line>
+				<reportElement x="102" y="369" width="39" height="1" uuid="15f359ff-2c12-4b02-8629-71eabfc3c551"/>
+				<graphicElement>
+					<pen lineStyle="Dotted"/>
+				</graphicElement>
+			</line>
+			<line>
+				<reportElement x="449" y="339" width="84" height="1" uuid="924da0a0-f859-4cf5-87f8-be08fce19d3e"/>
+				<graphicElement>
+					<pen lineStyle="Dotted"/>
+				</graphicElement>
+			</line>
+			<staticText>
+				<reportElement x="376" y="340" width="81" height="15" uuid="f459afca-353e-422f-bdab-708f4f348ecd"/>
+				<textElement verticalAlignment="Middle" markup="none"/>
+				<text><![CDATA[41) Cash in Office]]></text>
+			</staticText>
+			<line>
+				<reportElement x="459" y="353" width="54" height="1" uuid="b7cf9f6d-4cef-4300-8416-ec4164c21dc8"/>
+				<graphicElement>
+					<pen lineStyle="Dotted"/>
+				</graphicElement>
+			</line>
+			<staticText>
+				<reportElement x="513" y="340" width="20" height="15" uuid="d95b941d-c086-4029-b693-b30d40aa211e"/>
+				<textElement textAlignment="Right"/>
+				<text><![CDATA[( + )]]></text>
+			</staticText>
+			<subreport>
+				<reportElement x="533" y="340" width="195" height="15" uuid="36ecf736-ddba-4d27-b09a-50c8119e203b"/>
+				<subreportParameter name="SUBREPORT_DIR">
+					<subreportParameterExpression><![CDATA[$P{SUBREPORT_DIR}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "EndOfSummaryItemReport.jasper"]]></subreportExpression>
+			</subreport>
+			<staticText>
+				<reportElement x="376" y="355" width="77" height="15" uuid="bc4e20ce-dc41-48a2-86ec-96619b436c2f"/>
+				<textElement verticalAlignment="Middle" markup="none"/>
+				<text><![CDATA[42) Cash in Bank]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="513" y="355" width="20" height="15" uuid="4d19cf9b-1ce0-4005-91a4-dd02a81ce450"/>
+				<textElement textAlignment="Right"/>
+				<text><![CDATA[( + )]]></text>
+			</staticText>
+			<subreport>
+				<reportElement x="533" y="355" width="195" height="15" uuid="2ac523fa-0f77-436d-8cd6-1deb362694cd"/>
+				<subreportParameter name="SUBREPORT_DIR">
+					<subreportParameterExpression><![CDATA[$P{SUBREPORT_DIR}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "EndOfSummaryItemReport.jasper"]]></subreportExpression>
+			</subreport>
+			<line>
+				<reportElement x="453" y="368" width="60" height="1" uuid="4373f905-4c84-420e-93a9-7eb432d9cc9a"/>
+				<graphicElement>
+					<pen lineStyle="Dotted"/>
+				</graphicElement>
+			</line>
+			<line>
+				<reportElement x="533" y="375" width="195" height="1" uuid="644074a6-6d47-4957-861a-b83d9a4d9d30"/>
+				<graphicElement>
+					<pen lineStyle="Dashed"/>
+				</graphicElement>
+			</line>
+			<staticText>
+				<reportElement x="394" y="380" width="50" height="15" uuid="0f8f52b9-871a-4df7-bc7d-b0b3f2c1b041"/>
+				<text><![CDATA[Total Cash]]></text>
+			</staticText>
+			<line>
+				<reportElement x="444" y="395" width="69" height="1" uuid="f6acfa68-c7cb-4bd1-b442-13603e78d966"/>
+				<graphicElement>
+					<pen lineStyle="Dotted"/>
+				</graphicElement>
+			</line>
+			<staticText>
+				<reportElement x="513" y="381" width="20" height="15" uuid="1ca0af6d-0a3d-4769-b627-a13ba098f059"/>
+				<textElement textAlignment="Right"/>
+				<text><![CDATA[( = )]]></text>
+			</staticText>
+			<subreport>
+				<reportElement x="533" y="381" width="195" height="15" uuid="3c3857ec-e9fb-4c66-82ae-4cddab07b7f0"/>
+				<subreportParameter name="SUBREPORT_DIR">
+					<subreportParameterExpression><![CDATA[$P{SUBREPORT_DIR}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "EndOfSummaryItemReport.jasper"]]></subreportExpression>
+			</subreport>
+			<subreport>
+				<reportElement x="164" y="381" width="195" height="15" uuid="f2c9bbea-47b2-45fd-a1fa-9d06bedcf13f"/>
+				<subreportParameter name="SUBREPORT_DIR">
+					<subreportParameterExpression><![CDATA[$P{SUBREPORT_DIR}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "EndOfSummaryItemReport.jasper"]]></subreportExpression>
+			</subreport>
+			<staticText>
+				<reportElement x="25" y="380" width="50" height="15" uuid="38a88e1f-c8d8-41b4-a9b7-f4bea7822eb9"/>
+				<text><![CDATA[Total Cash]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="141" y="381" width="20" height="15" uuid="ba7e2799-b2f5-49b4-9647-d2c80489c9e9"/>
+				<textElement textAlignment="Right"/>
+				<text><![CDATA[( = )]]></text>
+			</staticText>
+			<line>
+				<reportElement x="75" y="395" width="66" height="1" uuid="283d386b-068d-4c53-8d18-6e6dcb648897"/>
+				<graphicElement>
+					<pen lineStyle="Dotted"/>
+				</graphicElement>
+			</line>
+		</band>
+	</detail>
+</jasperReport>

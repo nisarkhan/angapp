@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+        <style>
+            textarea {
+                height:600px;
+                width:750px;
+            }
+        </style>
+        <script src="/sunloans/html/content/js/library/jquery.js"></script>
+        <script>
+            $(document).ready(function() {
+
+                $('#do_request_1').click(function() {
+                    var request = $.ajax('/sunloans/rest/application/incomplete/123456789', {
+                    });
+                });
+
+                $('#do_request_2').click(function() {
+
+                    var request = $.ajax('/sunloans/rest/application/incomplete', {
+                    }).done(function(data) {
+                        $('#response').html(JSON.stringify(data, null, '  '));
+                    }).fail(function(data) {
+                        $('#response').html('error: ' + data);
+                    });
+
+                });
+
+            });
+        </script>
+    </head>
+    <body>
+        <div>
+            <div>
+                <div>
+                    <button id="do_request_1">add incomplete apps</button>
+                    <button id="do_request_2">list incomplete apps</button>
+                </div>
+                <div>
+                    <textarea id="request">    
+                    </textarea>
+                </div>
+            </div>
+            <div>
+                <textarea id="response">
+                </textarea>
+            </div>
+        </div>
+    </body>
+</html>

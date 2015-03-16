@@ -1,0 +1,250 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Alpha_list_report" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="af6d2c0c-be83-4e96-a854-9bb60ea4c82d">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["C:\\Work-Temp\\sunloans\\Docs\\"]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT
+     borrowers."borrower_id",
+     borrowers."last_name",
+     borrowers."first_name",
+     borrowers."middle_name",
+     borrowers."account_number"
+FROM
+     "sunloans"."borrowers" borrowers]]>
+	</queryString>
+	<field name="borrower_id" class="java.lang.Long"/>
+	<field name="last_name" class="java.lang.String"/>
+	<field name="first_name" class="java.lang.String"/>
+	<field name="middle_name" class="java.lang.String"/>
+	<field name="account_number" class="java.lang.String"/>
+	<variable name="BACKGROUND" class="java.lang.Integer" resetType="None" calculation="DistinctCount">
+		<variableExpression><![CDATA[$F{account_number}]]></variableExpression>
+		<initialValueExpression><![CDATA[0]]></initialValueExpression>
+	</variable>
+	<title>
+		<band height="35" splitType="Stretch">
+			<staticText>
+				<reportElement uuid="f73e07f1-43e8-434f-bced-a8d720501966" x="0" y="0" width="802" height="35"/>
+				<textElement textAlignment="Center">
+					<font size="24" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[Sunloan Alpha List]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="20" splitType="Stretch">
+			<textField>
+				<reportElement uuid="842c3923-3ee5-40f0-84d0-becee076dd03" x="0" y="0" width="80" height="20"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement uuid="fa397c13-cc3e-410f-bc43-c6a708f189c1" x="80" y="0" width="40" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement uuid="dd61a421-db01-4394-b8aa-006bf386d287" x="702" y="0" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="22" splitType="Stretch">
+			<staticText>
+				<reportElement uuid="98691bd7-1d42-4381-a305-67c614d33036" x="0" y="1" width="80" height="20"/>
+				<box topPadding="1" leftPadding="1">
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement/>
+				<text><![CDATA[Account Num]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="7031cdf2-0a83-4226-9185-a1ccdb3635ba" x="80" y="1" width="36" height="20"/>
+				<box topPadding="1" leftPadding="1">
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement/>
+				<text><![CDATA[COL]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="6ee03a4f-a1e6-4e67-866b-7b836b13ed27" x="116" y="1" width="120" height="20"/>
+				<box topPadding="1" leftPadding="1">
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement/>
+				<text><![CDATA[Borrower Name]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="65f967b2-9bf9-435b-9883-113ff469bf48" x="236" y="1" width="125" height="20"/>
+				<box topPadding="1" leftPadding="1">
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement/>
+				<text><![CDATA[Home Address]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="f55dc115-d890-4ca8-aa52-96babd6ebbe6" x="361" y="1" width="46" height="20"/>
+				<box topPadding="1" leftPadding="1">
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement/>
+				<text><![CDATA[MADE]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="f5f38490-8027-4e89-99b3-3f3fb19468c6" x="407" y="1" width="38" height="20"/>
+				<box topPadding="1" leftPadding="1">
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement/>
+				<text><![CDATA[ADV]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="249fb7e7-22d1-4066-96ad-23c3c45131c5" x="445" y="1" width="26" height="20"/>
+				<box topPadding="1" leftPadding="1">
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement/>
+				<text><![CDATA[HI]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="e8cc9b28-7669-47ba-b4bf-1995f4e499d8" x="471" y="1" width="53" height="20"/>
+				<box topPadding="1" leftPadding="1">
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement/>
+				<text><![CDATA[Balance]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="9970022f-15d7-46f8-9376-16f0fbb5d591" x="524" y="1" width="40" height="20"/>
+				<box topPadding="1" leftPadding="1">
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement/>
+				<text><![CDATA[DUE]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="da87d78f-e059-4b39-91c9-48e1333b496d" x="564" y="1" width="53" height="20"/>
+				<box topPadding="1" leftPadding="1">
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement/>
+				<text><![CDATA[RENEW]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="cf07e0ca-f5ad-4fd6-9bd6-4cef9da40d3c" x="617" y="1" width="49" height="20"/>
+				<box topPadding="1" leftPadding="1">
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement/>
+				<text><![CDATA[HOME]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="7e711ff1-300d-4807-a408-b399a9b40bc6" x="715" y="1" width="87" height="20"/>
+				<box topPadding="1" leftPadding="1">
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement/>
+				<text><![CDATA[Spouse]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="ba5b5dee-2e33-4ca7-b5be-95e220e03530" x="666" y="1" width="49" height="20"/>
+				<box topPadding="1" leftPadding="1">
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement/>
+				<text><![CDATA[WORK]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="20" splitType="Stretch">
+			<staticText>
+				<reportElement uuid="8848058f-f3c9-4fe8-b0a9-638b77ff330c" mode="Opaque" x="0" y="0" width="802" height="20" backcolor="#CCCCCC">
+					<printWhenExpression><![CDATA[($V{BACKGROUND}.intValue() % 2) == 1]]></printWhenExpression>
+				</reportElement>
+				<textElement/>
+				<text><![CDATA[ ]]></text>
+			</staticText>
+			<textField>
+				<reportElement uuid="f96d1192-2361-48cd-af61-1ad34e3b1534" x="0" y="0" width="80" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{account_number}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="6ae2ff8b-0dbe-49ec-bc26-f9d394f47375" x="116" y="0" width="120" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{last_name} + ", " + $F{first_name}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement uuid="861d73bd-a84d-4bd9-823b-007358110ce2" x="0" y="19" width="802" height="1"/>
+			</line>
+			<subreport>
+				<reportElement uuid="63e868b1-826f-42cf-b924-8b27bc4696fc" x="236" y="0" width="125" height="20"/>
+				<subreportParameter name="borrowerID">
+					<subreportParameterExpression><![CDATA[$F{borrower_id}]]></subreportParameterExpression>
+				</subreportParameter>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "Alpha_list_report2_address.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+	</detail>
+</jasperReport>

@@ -1,0 +1,259 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="EndOfReportLoanAmountReport" pageWidth="360" pageHeight="802" whenNoDataType="AllSectionsNoDetail" columnWidth="360" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="2caabb7c-78c0-4ce8-8e4e-31079c870009">
+	<property name="ireport.zoom" value="1.6105100000000039"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["./"]]></defaultValueExpression>
+	</parameter>
+	<field name="cashFlow" class="java.lang.Object">
+		<fieldDescription><![CDATA[cashFlow]]></fieldDescription>
+	</field>
+	<field name="netOutstandingLoans" class="java.lang.Object">
+		<fieldDescription><![CDATA[netOutstandingLoans]]></fieldDescription>
+	</field>
+	<field name="netRefinanceBalances" class="java.lang.Object">
+		<fieldDescription><![CDATA[netRefinanceBalances]]></fieldDescription>
+	</field>
+	<field name="otherLoanCharges" class="java.lang.Object">
+		<fieldDescription><![CDATA[otherLoanCharges]]></fieldDescription>
+	</field>
+	<field name="outstandingForwards" class="java.lang.Object">
+		<fieldDescription><![CDATA[outstandingForwards]]></fieldDescription>
+	</field>
+	<field name="totalCollectionsPaidOffsBalanceRenewals" class="java.lang.Object">
+		<fieldDescription><![CDATA[totalCollectionsPaidOffsBalanceRenewals]]></fieldDescription>
+	</field>
+	<field name="totalLoansMade" class="java.lang.Object">
+		<fieldDescription><![CDATA[totalLoansMade]]></fieldDescription>
+	</field>
+	<field name="totalOutstandingLoans" class="java.lang.Object">
+		<fieldDescription><![CDATA[totalOutstandingLoans]]></fieldDescription>
+	</field>
+	<field name="writeOffCredit" class="java.lang.Object">
+		<fieldDescription><![CDATA[writeOffCredit]]></fieldDescription>
+	</field>
+	<field name="writeOffDebit" class="java.lang.Object">
+		<fieldDescription><![CDATA[writeOffDebit]]></fieldDescription>
+	</field>
+	<detail>
+		<band height="197" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="60" width="20" height="15" uuid="a9fd4c1d-a933-4ffb-b263-22f24397bbc8"/>
+				<box leftPadding="2"/>
+				<text><![CDATA[43)]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="146" y="0" width="70" height="15" uuid="90ccbf0e-7bd6-4a30-a8be-63b271b7521d"/>
+				<textElement textAlignment="Right"/>
+				<text><![CDATA[Period]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="216" y="0" width="70" height="15" uuid="b2773889-145f-43a9-bc38-88980fc5a115"/>
+				<textElement textAlignment="Right"/>
+				<text><![CDATA[MTD]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="286" y="0" width="70" height="15" uuid="a7b9691a-8211-408b-a946-a1d0cfc465a3"/>
+				<textElement textAlignment="Right"/>
+				<text><![CDATA[YTD]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="20" y="15" width="95" height="15" uuid="2994ff05-c26d-4ff5-b0d8-ead3406c4884"/>
+				<text><![CDATA[Outstanding Forward]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="136" y="15" width="10" height="15" uuid="875e18f6-962b-44f5-8dd6-5a9ee8b3f457"/>
+				<box leftPadding="2"/>
+				<text><![CDATA[+]]></text>
+			</staticText>
+			<line>
+				<reportElement x="115" y="29" width="21" height="1" uuid="9f9d2cc7-b640-4265-9c31-f45e1bfb2879"/>
+				<graphicElement>
+					<pen lineStyle="Dotted"/>
+				</graphicElement>
+			</line>
+			<line>
+				<reportElement x="102" y="42" width="34" height="1" uuid="7d7257b2-89d6-4069-8759-213740bef34e"/>
+				<graphicElement>
+					<pen lineStyle="Dotted"/>
+				</graphicElement>
+			</line>
+			<staticText>
+				<reportElement x="20" y="30" width="82" height="15" uuid="9ed79f19-3f90-4972-ae5e-2b3414fbb1bc"/>
+				<text><![CDATA[Total Loans Made]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="136" y="30" width="10" height="15" uuid="bfceb575-e8bd-4528-91e5-0f11aab54762"/>
+				<box leftPadding="2"/>
+				<text><![CDATA[+]]></text>
+			</staticText>
+			<line>
+				<reportElement x="130" y="59" width="6" height="1" uuid="484147b8-707f-4b79-bfb0-7b1b1e8200c2"/>
+				<graphicElement>
+					<pen lineStyle="Dotted"/>
+				</graphicElement>
+			</line>
+			<staticText>
+				<reportElement x="20" y="45" width="110" height="15" uuid="4be6b263-c3c4-4e7b-8b32-855850ffa327"/>
+				<text><![CDATA[Total Collections/PO/BR]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="136" y="45" width="10" height="15" uuid="3092eb9e-74c5-4f77-be70-4230a2905994"/>
+				<box leftPadding="2"/>
+				<text><![CDATA[+]]></text>
+			</staticText>
+			<line>
+				<reportElement x="89" y="74" width="47" height="1" uuid="c1547775-2e38-458f-a640-afabc478ba87"/>
+				<graphicElement>
+					<pen lineStyle="Dotted"/>
+				</graphicElement>
+			</line>
+			<staticText>
+				<reportElement x="20" y="60" width="69" height="15" uuid="b5a7ef49-cd22-41ff-88ae-423864eceff8"/>
+				<text><![CDATA[Write off Credit]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="136" y="60" width="10" height="15" uuid="503d02e9-853d-40e5-9461-ad67ad904acb"/>
+				<box leftPadding="2"/>
+				<text><![CDATA[+]]></text>
+			</staticText>
+			<line>
+				<reportElement x="112" y="89" width="24" height="1" uuid="762b7159-7e89-4bbe-9cae-e0c96fca8172"/>
+				<graphicElement>
+					<pen lineStyle="Dotted"/>
+				</graphicElement>
+			</line>
+			<staticText>
+				<reportElement x="136" y="75" width="10" height="15" uuid="5fdc463a-026d-4228-b5ce-c6ba90728293"/>
+				<box leftPadding="2"/>
+				<text><![CDATA[+]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="20" y="75" width="92" height="15" uuid="b2bcde7e-2171-4489-b0bd-4b7fbf932d71"/>
+				<text><![CDATA[Other Loan Charges]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="75" width="20" height="15" uuid="21c2791b-a930-4629-8314-3acd4602a011"/>
+				<box leftPadding="2"/>
+				<text><![CDATA[24)]]></text>
+			</staticText>
+			<line>
+				<reportElement x="146" y="95" width="210" height="1" uuid="9d68fe46-20dd-4392-9776-0d8531567b3e"/>
+				<graphicElement>
+					<pen lineStyle="Dashed"/>
+				</graphicElement>
+			</line>
+			<staticText>
+				<reportElement x="20" y="100" width="110" height="15" uuid="203154a1-128b-4fb0-83bd-f7c8537fe509"/>
+				<text><![CDATA[Total Outstanding Loans]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="20" y="115" width="115" height="15" uuid="55639761-910b-413f-b15e-0af14fb217cd"/>
+				<text><![CDATA[Net Outstanding Change]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="20" y="145" width="48" height="15" uuid="f4a3174e-d91b-4572-b741-851cf8504959"/>
+				<text><![CDATA[Cash Flow]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="160" width="20" height="15" uuid="3838bf77-202f-47b1-b920-01cf3fb75292"/>
+				<box leftPadding="2"/>
+				<text><![CDATA[44)]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="20" y="160" width="65" height="15" uuid="92850e25-4f45-44f5-a102-06b41c6ea776"/>
+				<text><![CDATA[Write off Debit]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="20" y="175" width="113" height="15" uuid="be108259-95a2-47eb-a819-ab575d4e819e"/>
+				<text><![CDATA[Net Refinanced Balances]]></text>
+			</staticText>
+			<line>
+				<reportElement x="130" y="114" width="6" height="1" uuid="eb909f60-9551-4158-80cd-91ed90ac4e56"/>
+				<graphicElement>
+					<pen lineStyle="Dotted"/>
+				</graphicElement>
+			</line>
+			<staticText>
+				<reportElement x="136" y="100" width="10" height="15" uuid="c620f284-8974-4fa4-a27f-bb85739ac9ef"/>
+				<box leftPadding="2"/>
+				<text><![CDATA[=]]></text>
+			</staticText>
+			<line>
+				<reportElement x="135" y="129" width="11" height="1" uuid="9bf1cf97-19f2-4ded-bf35-6b605148f76d"/>
+				<graphicElement>
+					<pen lineStyle="Dotted"/>
+				</graphicElement>
+			</line>
+			<line>
+				<reportElement x="68" y="159" width="78" height="1" uuid="dbe8130e-d285-449b-aa02-2d7d1fd88794"/>
+				<graphicElement>
+					<pen lineStyle="Dotted"/>
+				</graphicElement>
+			</line>
+			<line>
+				<reportElement x="85" y="174" width="61" height="1" uuid="bb23c013-7bae-4d9d-a949-0155b2d59d97"/>
+				<graphicElement>
+					<pen lineStyle="Dotted"/>
+				</graphicElement>
+			</line>
+			<line>
+				<reportElement x="136" y="189" width="10" height="1" uuid="2b9fc062-789a-4bb9-aca4-ced1fc23cc14"/>
+				<graphicElement>
+					<pen lineStyle="Dotted"/>
+				</graphicElement>
+			</line>
+			<subreport>
+				<reportElement x="146" y="15" width="210" height="15" uuid="272414b1-a1ec-4a90-a7ca-d706f77b7595"/>
+				<dataSourceExpression><![CDATA[(new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource(java.util.Collections.singleton($F{outstandingForwards})))]]></dataSourceExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "EndOfReportLoanAmountItemReport.jasper"]]></subreportExpression>
+			</subreport>
+			<subreport>
+				<reportElement x="146" y="30" width="210" height="15" uuid="f3b16f21-511d-4c06-8671-80b0560364c8"/>
+				<dataSourceExpression><![CDATA[(new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource(java.util.Collections.singleton($F{totalLoansMade})))]]></dataSourceExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "EndOfReportLoanAmountItemReport.jasper"]]></subreportExpression>
+			</subreport>
+			<subreport>
+				<reportElement x="146" y="45" width="210" height="15" uuid="2602eb9d-0a2c-4f25-bd4f-fa3218a2ebac"/>
+				<dataSourceExpression><![CDATA[(new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource(java.util.Collections.singleton($F{totalCollectionsPaidOffsBalanceRenewals})))]]></dataSourceExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "EndOfReportLoanAmountItemReport.jasper"]]></subreportExpression>
+			</subreport>
+			<subreport>
+				<reportElement x="146" y="60" width="210" height="15" uuid="86263b3a-1240-45d1-94ee-96bd33601fae"/>
+				<dataSourceExpression><![CDATA[(new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource(java.util.Collections.singleton($F{writeOffCredit})))]]></dataSourceExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "EndOfReportLoanAmountItemReport.jasper"]]></subreportExpression>
+			</subreport>
+			<subreport>
+				<reportElement x="146" y="75" width="210" height="15" uuid="39e2e96e-ece9-45ed-90d1-c49e746a50fd"/>
+				<dataSourceExpression><![CDATA[(new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource(java.util.Collections.singleton($F{otherLoanCharges})))]]></dataSourceExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "EndOfReportLoanAmountItemReport.jasper"]]></subreportExpression>
+			</subreport>
+			<subreport>
+				<reportElement x="146" y="100" width="210" height="15" uuid="ba7ce34c-09e3-47fc-9bb4-323169f53c18"/>
+				<dataSourceExpression><![CDATA[(new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource(java.util.Collections.singleton($F{totalOutstandingLoans})))]]></dataSourceExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "EndOfReportLoanAmountItemReport.jasper"]]></subreportExpression>
+			</subreport>
+			<subreport>
+				<reportElement x="146" y="115" width="210" height="15" uuid="47edd5f8-6656-4bfc-8992-c255f0fc765b"/>
+				<dataSourceExpression><![CDATA[(new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource(java.util.Collections.singleton($F{netOutstandingLoans})))]]></dataSourceExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "EndOfReportLoanAmountItemReport.jasper"]]></subreportExpression>
+			</subreport>
+			<subreport>
+				<reportElement x="146" y="145" width="210" height="15" uuid="8747194d-eef3-435d-9a37-fd1033fa68f7"/>
+				<dataSourceExpression><![CDATA[(new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource(java.util.Collections.singleton($F{cashFlow})))]]></dataSourceExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "EndOfReportLoanAmountItemReport.jasper"]]></subreportExpression>
+			</subreport>
+			<subreport>
+				<reportElement x="146" y="160" width="210" height="15" uuid="2d57e7f4-54af-4dc3-b28f-a3309da5a4c2"/>
+				<dataSourceExpression><![CDATA[(new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource(java.util.Collections.singleton($F{writeOffDebit})))]]></dataSourceExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "EndOfReportLoanAmountItemReport.jasper"]]></subreportExpression>
+			</subreport>
+			<subreport>
+				<reportElement x="146" y="175" width="210" height="15" uuid="82fd5990-9ea1-47f5-a7b2-7787b04e3701"/>
+				<dataSourceExpression><![CDATA[(new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource(java.util.Collections.singleton($F{netRefinanceBalances})))]]></dataSourceExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "EndOfReportLoanAmountItemReport.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+	</detail>
+</jasperReport>

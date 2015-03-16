@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="CollectionJournalReport" pageWidth="720" pageHeight="555" orientation="Landscape" columnWidth="720" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="43ded8eb-4363-4f03-8d2d-63f5029da3f9">
+	<property name="ireport.zoom" value="1.4641000000000008"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<field name="borrowerFirstName" class="java.lang.String">
+		<fieldDescription><![CDATA[borrowerFirstName]]></fieldDescription>
+	</field>
+	<field name="borrowerLarstName" class="java.lang.String">
+		<fieldDescription><![CDATA[borrowerLarstName]]></fieldDescription>
+	</field>
+	<field name="borrowerMiddleName" class="java.lang.String">
+		<fieldDescription><![CDATA[borrowerMiddleName]]></fieldDescription>
+	</field>
+	<field name="borrowerPrefix" class="java.lang.String">
+		<fieldDescription><![CDATA[borrowerPrefix]]></fieldDescription>
+	</field>
+	<field name="borrowerSuffix" class="java.lang.String">
+		<fieldDescription><![CDATA[borrowerSuffix]]></fieldDescription>
+	</field>
+	<field name="borrowerAccountNumber" class="java.lang.String">
+		<fieldDescription><![CDATA[borrowerAccountNumber]]></fieldDescription>
+	</field>
+	<field name="transactionCode" class="java.lang.String">
+		<fieldDescription><![CDATA[transactionCode]]></fieldDescription>
+	</field>
+	<field name="transactionDate" class="java.util.Date">
+		<fieldDescription><![CDATA[transactionDate]]></fieldDescription>
+	</field>
+	<field name="drawerNumber" class="java.lang.String">
+		<fieldDescription><![CDATA[drawerNumber]]></fieldDescription>
+	</field>
+	<field name="renewal" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[renewal]]></fieldDescription>
+	</field>
+	<field name="refunds" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[refunds]]></fieldDescription>
+	</field>
+	<field name="appliedToBalance" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[appliedToBalance]]></fieldDescription>
+	</field>
+	<field name="appliedToLateGharge" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[appliedToLateGharge]]></fieldDescription>
+	</field>
+	<field name="appliedToMaturityInterest" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[appliedToMaturityInterest]]></fieldDescription>
+	</field>
+	<field name="newEndingBalance" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[newEndingBalance]]></fieldDescription>
+	</field>
+	<field name="loanNumber" class="java.lang.Long">
+		<fieldDescription><![CDATA[loanNumber]]></fieldDescription>
+	</field>
+	<field name="employeeLastName" class="java.lang.String">
+		<fieldDescription><![CDATA[employeeLastName]]></fieldDescription>
+	</field>
+	<field name="employeeFirstName" class="java.lang.String">
+		<fieldDescription><![CDATA[employeeFirstName]]></fieldDescription>
+	</field>
+	<field name="employeeMiddleName" class="java.lang.String">
+		<fieldDescription><![CDATA[employeeMiddleName]]></fieldDescription>
+	</field>
+	<columnHeader>
+		<band height="20" splitType="Stretch">
+			<staticText>
+				<reportElement x="60" y="0" width="120" height="20" uuid="38a2c148-2d66-4b56-b619-b7713f7ccd8d"/>
+				<box leftPadding="2" rightPadding="2"/>
+				<text><![CDATA[Name]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="0" width="60" height="20" uuid="b79018cb-c8ed-49f7-8516-a31328bc0b73"/>
+				<box leftPadding="2" rightPadding="2"/>
+				<text><![CDATA[Account]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="180" y="0" width="40" height="20" uuid="fb1e1cce-2c0f-4717-992a-4a2321225bcf"/>
+				<box leftPadding="2" rightPadding="2"/>
+				<text><![CDATA[Dr]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="220" y="0" width="50" height="20" uuid="137c5ab6-5f1c-42df-b54e-71835edc0001"/>
+				<box leftPadding="2" rightPadding="2"/>
+				<text><![CDATA[Cash]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="270" y="0" width="50" height="20" uuid="5a01d15a-7a85-4d95-bd74-217edf0a466a"/>
+				<box leftPadding="2" rightPadding="2"/>
+				<text><![CDATA[Renewal]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="320" y="0" width="50" height="20" uuid="77ddadb1-d3a0-4d43-9dc9-0a40b85e193d"/>
+				<box leftPadding="2" rightPadding="2"/>
+				<text><![CDATA[Late Chg]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="370" y="0" width="50" height="20" uuid="5587b59d-3102-4719-ab2b-27d2d39748b3"/>
+				<box leftPadding="2" rightPadding="2"/>
+				<text><![CDATA[Mat.Int]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="420" y="0" width="50" height="20" uuid="f7a483af-7def-42a3-8af4-16ffd35f1868"/>
+				<box leftPadding="2" rightPadding="2"/>
+				<text><![CDATA[Refunds]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="470" y="0" width="50" height="20" uuid="8e1d889f-8e71-4d70-9b68-8d78951f6493"/>
+				<box leftPadding="2" rightPadding="2"/>
+				<text><![CDATA[P&L Rec]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="520" y="0" width="50" height="20" uuid="543cc913-1ab0-46d4-a08e-3eb78c8a2006"/>
+				<box leftPadding="2" rightPadding="2"/>
+				<text><![CDATA[Extend]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="570" y="0" width="50" height="20" uuid="431882f2-e2b6-4483-9a7b-dacba2062c5c"/>
+				<box leftPadding="2" rightPadding="2"/>
+				<text><![CDATA[Balance]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="640" y="0" width="50" height="20" uuid="4b51e96e-7137-407b-a329-b341778d86e4"/>
+				<box leftPadding="2" rightPadding="2"/>
+				<text><![CDATA[Date]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="690" y="0" width="30" height="20" uuid="bc114965-331a-472b-a5cf-93f0d4d103d6"/>
+				<box leftPadding="2" rightPadding="2"/>
+				<text><![CDATA[Emp]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="16" splitType="Stretch">
+			<textField>
+				<reportElement x="45" y="0" width="15" height="15" uuid="5535d15a-38d9-4545-a507-e3a91c1b74be"/>
+				<textFieldExpression><![CDATA[$F{loanNumber}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="0" width="41" height="15" uuid="74c6476a-a33a-4492-b59a-e1900a071e02"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[$F{borrowerAccountNumber}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="41" y="0" width="4" height="15" uuid="7a43b13d-8a14-4e3d-9e67-8596c5a3b9a2"/>
+				<text><![CDATA[-]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="195" y="0" width="25" height="15" uuid="72d83131-79ae-404d-a022-70e35867551e"/>
+				<textFieldExpression><![CDATA[$F{transactionCode}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="180" y="0" width="15" height="15" uuid="b00d79f4-5b53-49e7-a5f3-1f5e0f184b38"/>
+				<box leftPadding="2" rightPadding="2"/>
+				<textFieldExpression><![CDATA[$F{drawerNumber}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="60" y="0" width="120" height="15" uuid="50bb9905-ef1e-413f-b9de-5a0b722f459e"/>
+				<textFieldExpression><![CDATA[$F{borrowerLarstName} +","+$F{borrowerFirstName}+" "+$F{borrowerMiddleName}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00">
+				<reportElement x="220" y="1" width="50" height="15" uuid="117b5924-004d-4b82-a40b-808d540581c4"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[$F{appliedToBalance}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00">
+				<reportElement x="270" y="0" width="50" height="15" uuid="0f296308-202c-4660-97ed-3bab71ff2ba6"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[$F{renewal}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00">
+				<reportElement x="320" y="0" width="50" height="15" uuid="ffacb664-dfc6-4fd0-bec9-cbf5292e8ff3"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[$F{appliedToLateGharge}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00">
+				<reportElement x="370" y="0" width="50" height="15" uuid="34e160e4-6bbb-4038-b0fb-962d4594f9b3"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[$F{appliedToMaturityInterest}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00">
+				<reportElement x="420" y="0" width="50" height="15" uuid="e6a9ef0b-3d89-41e1-9b5b-2a95493bc6d4"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[$F{refunds}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00">
+				<reportElement x="470" y="0" width="50" height="15" uuid="eeefccf3-5a67-4e46-b90b-02ee4d0c344f"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA["??"]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00">
+				<reportElement x="520" y="0" width="50" height="15" uuid="effde6dd-9c9c-428b-87b1-565dd5b5a777"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA["??"]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00">
+				<reportElement x="570" y="0" width="50" height="15" uuid="c702e03f-3c42-40f3-ba9a-e809dbf485a7"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[$F{newEndingBalance}]]></textFieldExpression>
+			</textField>
+			<textField pattern="MM/dd">
+				<reportElement x="640" y="0" width="50" height="15" uuid="9af3b357-eb09-457e-80fa-02aec563b934"/>
+				<textFieldExpression><![CDATA[$F{transactionDate}]]></textFieldExpression>
+			</textField>
+			<textField pattern="">
+				<reportElement x="690" y="0" width="30" height="15" uuid="7a2973f2-3f59-4b26-a7ca-86f38bda7b77"/>
+				<textFieldExpression><![CDATA[$F{employeeLastName}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>

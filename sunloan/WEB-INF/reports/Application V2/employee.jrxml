@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="employee" pageWidth="555" pageHeight="802" columnWidth="555" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="2595cf13-88b0-4471-a54c-5bbda7073ca5">
+	<property name="ireport.zoom" value="3.0"/>
+	<property name="ireport.x" value="30"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="title" class="java.lang.String"/>
+	<parameter name="employeeID" class="java.lang.Integer">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT
+     employees."last_name" AS employees_last_name,
+     employees."first_name" AS employees_first_name,
+     employees."middle_name" AS employees_middle_name
+FROM
+     "sunloans"."employees" employees
+WHERE
+     employees."employee_id" = $P{employeeID}]]>
+	</queryString>
+	<field name="employees_last_name" class="java.lang.String"/>
+	<field name="employees_first_name" class="java.lang.String"/>
+	<field name="employees_middle_name" class="java.lang.String"/>
+	<detail>
+		<band height="18" splitType="Stretch">
+			<textField>
+				<reportElement uuid="721ca1e3-75f0-4ca8-bf3d-68ba0ffe40a8" positionType="Float" x="0" y="9" width="555" height="9"/>
+				<textElement>
+					<font size="7" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{employees_last_name}+", "+
+$F{employees_first_name}+" "+
+($F{employees_middle_name} == null &&
+    $F{employees_middle_name}.trim().isEmpty() ?
+    "" :
+    $F{employees_middle_name}+"."
+)]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="d162c26b-1ab1-4fae-a617-16c68f0b5f26" x="0" y="0" width="555" height="10"/>
+				<textElement>
+					<font size="7"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{title}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>

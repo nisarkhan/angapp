@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="GeneralLedgerPostingTotalReport" pageWidth="450" pageHeight="555" orientation="Landscape" columnWidth="450" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="1240a689-0376-4467-a14a-7ce05296f6af">
+	<property name="ireport.zoom" value="1.771561000000001"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<field name="amount" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[amount]]></fieldDescription>
+	</field>
+	<field name="debit" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[debit]]></fieldDescription>
+	</field>
+	<field name="credit" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[credit]]></fieldDescription>
+	</field>
+	<field name="accountName" class="java.lang.String">
+		<fieldDescription><![CDATA[accountName]]></fieldDescription>
+	</field>
+	<field name="accountNumber" class="java.lang.Integer">
+		<fieldDescription><![CDATA[accountNumber]]></fieldDescription>
+	</field>
+	<columnHeader>
+		<band height="20" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="73" height="20" uuid="2010b0b9-d7af-4769-93f4-5553639d1ed0"/>
+				<text><![CDATA[Account Num]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="385" y="0" width="65" height="20" uuid="f5183133-342c-4b33-bd94-bf94152444bd"/>
+				<textElement textAlignment="Right"/>
+				<text><![CDATA[Total]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="311" y="0" width="65" height="20" uuid="36db6ea7-0470-4b9d-931d-4f52836efb19"/>
+				<textElement textAlignment="Right"/>
+				<text><![CDATA[Debit]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="233" y="0" width="65" height="20" uuid="0a83f35f-7dc3-4b1f-a957-01c3a0d48cdd"/>
+				<textElement textAlignment="Right"/>
+				<text><![CDATA[Credit]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="73" y="0" width="160" height="20" uuid="33bfa4e8-2864-4a5b-91f3-ce79d1403a79"/>
+				<text><![CDATA[Account Name]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="20" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="73" height="20" uuid="075d5bea-3012-46f3-b344-a4bc188dd72e"/>
+				<textFieldExpression><![CDATA[$F{accountNumber}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="73" y="0" width="160" height="20" uuid="f3ed3279-5717-472f-8d40-a8d2685c38a0"/>
+				<textFieldExpression><![CDATA[$F{accountName}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="311" y="0" width="65" height="20" uuid="06495633-995e-4cbe-875c-9033510f4581"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[$F{debit}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="233" y="0" width="65" height="20" uuid="5a6709e5-b0f4-43f2-b031-80ffce08adc9"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[$F{credit}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="385" y="0" width="65" height="20" uuid="4c99d897-327c-41be-8f5d-7be503a25896"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[$F{amount}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>

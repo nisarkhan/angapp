@@ -1,0 +1,529 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{EC610217-7859-40FA-8AAE-B08B9135EA0F}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>sunloan</RootNamespace>
+    <AssemblyName>sunloan</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="html\.htaccess" />
+    <Content Include="html\assets\css\bootstrap.css.map" />
+    <Content Include="html\assets\fonts\fontawesome-webfont.eot" />
+    <Content Include="html\assets\fonts\fontawesome-webfont.ttf" />
+    <Content Include="html\assets\fonts\fontawesome-webfont.woff" />
+    <Content Include="html\assets\fonts\PT_Sans-Caption-Web-Bold.eot" />
+    <Content Include="html\assets\fonts\PT_Sans-Caption-Web-Bold.ttf" />
+    <Content Include="html\assets\fonts\PT_Sans-Caption-Web-Bold.woff" />
+    <Content Include="html\assets\fonts\PT_Sans-Caption-Web-Regular.eot" />
+    <Content Include="html\assets\fonts\PT_Sans-Caption-Web-Regular.ttf" />
+    <Content Include="html\assets\fonts\PT_Sans-Caption-Web-Regular.woff" />
+    <Content Include="html\assets\js\vendor\angular\angular-animate.min.js.map" />
+    <Content Include="html\assets\js\vendor\angular\angular-cookies.min.js.map" />
+    <Content Include="html\assets\js\vendor\angular\angular-loader.min.js.map" />
+    <Content Include="html\assets\js\vendor\angular\angular-resource.min.js.map" />
+    <Content Include="html\assets\js\vendor\angular\angular-route.min.js.map" />
+    <Content Include="html\assets\js\vendor\angular\angular-sanitize.min.js.map" />
+    <Content Include="html\assets\js\vendor\angular\angular-touch.min.js.map" />
+    <Content Include="html\assets\js\vendor\angular\angular.min.js.map" />
+    <Content Include="html\common\json\collect.json" />
+    <Content Include="html\common\json\loan.json" />
+    <Content Include="html\common\json\types.json" />
+    <Content Include="html\index.php" />
+    <Content Include="html\login.jsp" />
+    <Content Include="html\login_error.jsp" />
+    <Content Include="html\rest\library\api.php" />
+    <Content Include="html\rest\library\bootstrap.php" />
+    <Content Include="html\rest\library\global.php" />
+    <Content Include="html\rest\library\request.php" />
+    <Content Include="html\rest\library\storage.php" />
+    <Content Include="index.jsp" />
+    <Content Include="html\rest\application\types.json" />
+    <None Include="services.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="WEB-INF\jspf\version.jspf" />
+    <Content Include="WEB-INF\reports\Alpha List\Alpha_list_report.jasper" />
+    <Content Include="WEB-INF\reports\Alpha List\Alpha_list_report.jrxml" />
+    <Content Include="WEB-INF\reports\Alpha List\Alpha_list_report2.jasper" />
+    <Content Include="WEB-INF\reports\Alpha List\Alpha_list_report2.jrxml" />
+    <Content Include="WEB-INF\reports\Alpha List\Alpha_list_report2_address.jasper" />
+    <Content Include="WEB-INF\reports\Alpha List\Alpha_list_report2_address.jrxml" />
+    <Content Include="WEB-INF\reports\Alpha List\Alpha_list_report2_phone_number.jasper" />
+    <Content Include="WEB-INF\reports\Alpha List\Alpha_list_report2_phone_number.jrxml" />
+    <Content Include="WEB-INF\reports\Alpha List\Alpha_list_report2_work.jasper" />
+    <Content Include="WEB-INF\reports\Alpha List\Alpha_list_report2_work.jrxml" />
+    <Content Include="WEB-INF\reports\Alpha List\Alpha_list_report3.jasper" />
+    <Content Include="WEB-INF\reports\Alpha List\Alpha_list_report3.jrxml" />
+    <Content Include="WEB-INF\reports\Application V2\application_verified_method_type.jasper" />
+    <Content Include="WEB-INF\reports\Application V2\application_verified_method_type.jrxml" />
+    <Content Include="WEB-INF\reports\Application V2\automobile.jasper" />
+    <Content Include="WEB-INF\reports\Application V2\automobile.jrxml" />
+    <Content Include="WEB-INF\reports\Application V2\credit application.jasper" />
+    <Content Include="WEB-INF\reports\Application V2\credit application.jrxml" />
+    <Content Include="WEB-INF\reports\Application V2\employee.jasper" />
+    <Content Include="WEB-INF\reports\Application V2\employee.jrxml" />
+    <Content Include="WEB-INF\reports\Application V2\employeers.jasper" />
+    <Content Include="WEB-INF\reports\Application V2\employeers.jrxml" />
+    <Content Include="WEB-INF\reports\Application V2\joint_borrower.jasper" />
+    <Content Include="WEB-INF\reports\Application V2\joint_borrower.jrxml" />
+    <Content Include="WEB-INF\reports\Application V2\other_debts.jasper" />
+    <Content Include="WEB-INF\reports\Application V2\other_debts.jrxml" />
+    <Content Include="WEB-INF\reports\Application V2\other_income.jasper" />
+    <Content Include="WEB-INF\reports\Application V2\other_income.jrxml" />
+    <Content Include="WEB-INF\reports\Application V2\previous_address.jasper" />
+    <Content Include="WEB-INF\reports\Application V2\previous_address.jrxml" />
+    <Content Include="WEB-INF\reports\Application V2\previous_employer.jasper" />
+    <Content Include="WEB-INF\reports\Application V2\previous_employer.jrxml" />
+    <Content Include="WEB-INF\reports\Application V2\primary_debts.jasper" />
+    <Content Include="WEB-INF\reports\Application V2\primary_debts.jrxml" />
+    <Content Include="WEB-INF\reports\Application V2\references.jasper" />
+    <Content Include="WEB-INF\reports\Application V2\references.jrxml" />
+    <Content Include="WEB-INF\reports\Application V2\timespan_type.jasper" />
+    <Content Include="WEB-INF\reports\Application V2\timespan_type.jrxml" />
+    <Content Include="WEB-INF\reports\Application\application_verified_method_type.jasper" />
+    <Content Include="WEB-INF\reports\Application\application_verified_method_type.jrxml" />
+    <Content Include="WEB-INF\reports\Application\automobile.jasper" />
+    <Content Include="WEB-INF\reports\Application\automobile.jrxml" />
+    <Content Include="WEB-INF\reports\Application\automobile2.jasper" />
+    <Content Include="WEB-INF\reports\Application\automobile2.jrxml" />
+    <Content Include="WEB-INF\reports\Application\credit application.jasper" />
+    <Content Include="WEB-INF\reports\Application\credit application.jrxml" />
+    <Content Include="WEB-INF\reports\Application\credit application2.jrxml" />
+    <Content Include="WEB-INF\reports\Application\employee.jasper" />
+    <Content Include="WEB-INF\reports\Application\employee.jrxml" />
+    <Content Include="WEB-INF\reports\Application\employeers.jasper" />
+    <Content Include="WEB-INF\reports\Application\employeers.jrxml" />
+    <Content Include="WEB-INF\reports\Application\employeers2.jasper" />
+    <Content Include="WEB-INF\reports\Application\employeers2.jrxml" />
+    <Content Include="WEB-INF\reports\Application\joint_borrower.jasper" />
+    <Content Include="WEB-INF\reports\Application\joint_borrower.jrxml" />
+    <Content Include="WEB-INF\reports\Application\other_debts.jasper" />
+    <Content Include="WEB-INF\reports\Application\other_debts.jrxml" />
+    <Content Include="WEB-INF\reports\Application\other_debts2.jasper" />
+    <Content Include="WEB-INF\reports\Application\other_debts2.jrxml" />
+    <Content Include="WEB-INF\reports\Application\other_income.jasper" />
+    <Content Include="WEB-INF\reports\Application\other_income.jrxml" />
+    <Content Include="WEB-INF\reports\Application\other_income2.jasper" />
+    <Content Include="WEB-INF\reports\Application\other_income2.jrxml" />
+    <Content Include="WEB-INF\reports\Application\previous_address.jasper" />
+    <Content Include="WEB-INF\reports\Application\previous_address.jrxml" />
+    <Content Include="WEB-INF\reports\Application\previous_address2.jasper" />
+    <Content Include="WEB-INF\reports\Application\previous_address2.jrxml" />
+    <Content Include="WEB-INF\reports\Application\previous_employer.jasper" />
+    <Content Include="WEB-INF\reports\Application\previous_employer.jrxml" />
+    <Content Include="WEB-INF\reports\Application\primary_debts.jasper" />
+    <Content Include="WEB-INF\reports\Application\primary_debts.jrxml" />
+    <Content Include="WEB-INF\reports\Application\primary_debts2.jasper" />
+    <Content Include="WEB-INF\reports\Application\primary_debts2.jrxml" />
+    <Content Include="WEB-INF\reports\Application\references.jasper" />
+    <Content Include="WEB-INF\reports\Application\references.jrxml" />
+    <Content Include="WEB-INF\reports\Application\references2.jasper" />
+    <Content Include="WEB-INF\reports\Application\references2.jrxml" />
+    <Content Include="WEB-INF\reports\Application\timespan_type.jasper" />
+    <Content Include="WEB-INF\reports\Application\timespan_type.jrxml" />
+    <Content Include="WEB-INF\reports\Counter Offer\CounterOfferLetter.jasper" />
+    <Content Include="WEB-INF\reports\Counter Offer\CounterOfferLetter.jrxml" />
+    <Content Include="WEB-INF\reports\Daily Report\BalanceRenewalsAndNewLoanReport.jasper" />
+    <Content Include="WEB-INF\reports\Daily Report\BalanceRenewalsAndNewLoanReport.jrxml" />
+    <Content Include="WEB-INF\reports\Daily Report\CollectionJournalReport.jrxml" />
+    <Content Include="WEB-INF\reports\Daily Report\CollectionJournalTotalsReport.jasper" />
+    <Content Include="WEB-INF\reports\Daily Report\CollectionJournalTotalsReport.jrxml" />
+    <Content Include="WEB-INF\reports\Daily Report\DailyReportMain.jasper" />
+    <Content Include="WEB-INF\reports\Daily Report\DailyReportMain.jrxml" />
+    <Content Include="WEB-INF\reports\Daily Report\DrawerTransactionJournalDenominationCountReport.jasper" />
+    <Content Include="WEB-INF\reports\Daily Report\DrawerTransactionJournalDenominationCountReport.jrxml" />
+    <Content Include="WEB-INF\reports\Daily Report\DrawerTransactionJournalDollarAmountReport.jasper" />
+    <Content Include="WEB-INF\reports\Daily Report\DrawerTransactionJournalDollarAmountReport.jrxml" />
+    <Content Include="WEB-INF\reports\Daily Report\DrawerTransactionJournalItemReport.jasper" />
+    <Content Include="WEB-INF\reports\Daily Report\DrawerTransactionJournalItemReport.jrxml" />
+    <Content Include="WEB-INF\reports\Daily Report\DrawerTransactionJournalReport.jasper" />
+    <Content Include="WEB-INF\reports\Daily Report\DrawerTransactionJournalReport.jrxml" />
+    <Content Include="WEB-INF\reports\Daily Report\EndOfReportFinalLoanAmountItemReport.jasper" />
+    <Content Include="WEB-INF\reports\Daily Report\EndOfReportFinalLoanAmountItemReport.jrxml" />
+    <Content Include="WEB-INF\reports\Daily Report\EndOfReportFinalLoanAmountsReport.jasper" />
+    <Content Include="WEB-INF\reports\Daily Report\EndOfReportFinalLoanAmountsReport.jrxml" />
+    <Content Include="WEB-INF\reports\Daily Report\EndOfReportLoanAmountItemReport.jasper" />
+    <Content Include="WEB-INF\reports\Daily Report\EndOfReportLoanAmountItemReport.jrxml" />
+    <Content Include="WEB-INF\reports\Daily Report\EndOfReportLoanAmountReport.jasper" />
+    <Content Include="WEB-INF\reports\Daily Report\EndOfReportLoanAmountReport.jrxml" />
+    <Content Include="WEB-INF\reports\Daily Report\EndOfReportLoanCountItemReport.jasper" />
+    <Content Include="WEB-INF\reports\Daily Report\EndOfReportLoanCountItemReport.jrxml" />
+    <Content Include="WEB-INF\reports\Daily Report\EndOfReportLoanCounts.jasper" />
+    <Content Include="WEB-INF\reports\Daily Report\EndOfReportLoanCounts.jrxml" />
+    <Content Include="WEB-INF\reports\Daily Report\EndOfSummaryItemReport.jasper" />
+    <Content Include="WEB-INF\reports\Daily Report\EndOfSummaryItemReport.jrxml" />
+    <Content Include="WEB-INF\reports\Daily Report\EndOfSummaryReport.jasper" />
+    <Content Include="WEB-INF\reports\Daily Report\EndOfSummaryReport.jrxml" />
+    <Content Include="WEB-INF\reports\Daily Report\GeneralLedgerPostingReport.jasper" />
+    <Content Include="WEB-INF\reports\Daily Report\GeneralLedgerPostingReport.jrxml" />
+    <Content Include="WEB-INF\reports\Daily Report\GeneralLedgerPostingTotalReport.jasper" />
+    <Content Include="WEB-INF\reports\Daily Report\GeneralLedgerPostingTotalReport.jrxml" />
+    <Content Include="WEB-INF\reports\Daily Report\RefundJournalTotalViewReport.jasper" />
+    <Content Include="WEB-INF\reports\Daily Report\RefundJournalTotalViewReport.jrxml" />
+    <Content Include="WEB-INF\reports\Daily Report\RefundJournalViewReport.jasper" />
+    <Content Include="WEB-INF\reports\Daily Report\RefundJournalViewReport.jrxml" />
+    <Content Include="WEB-INF\reports\Delinquency\DelinquencyReport.jasper" />
+    <Content Include="WEB-INF\reports\Delinquency\DelinquencyReport.jrxml" />
+    <Content Include="WEB-INF\reports\Denial Reason\DenialReasonLetter.jasper" />
+    <Content Include="WEB-INF\reports\Denial Reason\DenialReasonLetter.jrxml" />
+    <Content Include="WEB-INF\reports\Mailing Labels\label_5160.jrxml" />
+    <Content Include="WEB-INF\reports\Mailing Labels\label_5388.jrxml" />
+    <Content Include="WEB-INF\reports\Mailing Labels\label_5390.jrxml" />
+    <Content Include="WEB-INF\reports\Mailing Labels\Mail_label.jasper" />
+    <Content Include="WEB-INF\reports\Mailing Labels\Mail_label.jrxml" />
+    <Content Include="WEB-INF\reports\Mailing Labels\Mail_label_5960.jrxml" />
+    <Content Include="WEB-INF\reports\Payment\Payment.jasper" />
+    <Content Include="WEB-INF\reports\Payment\Payment.jrxml" />
+    <Content Include="WEB-INF\reports\Promise to Pay\PromiseToPay.jasper" />
+    <Content Include="WEB-INF\reports\Promise to Pay\PromiseToPay.jrxml" />
+    <Content Include="WEB-INF\reports\Promissary Note\deffinitions.jasper" />
+    <Content Include="WEB-INF\reports\Promissary Note\deffinitions.jrxml" />
+    <Content Include="WEB-INF\reports\Promissary Note\promissary_note.jasper" />
+    <Content Include="WEB-INF\reports\Promissary Note\promissary_note.jrxml" />
+    <Content Include="WEB-INF\reports\Promissary Note\promiss_text.jasper" />
+    <Content Include="WEB-INF\reports\Promissary Note\promiss_text.jrxml" />
+    <Content Include="WEB-INF\reports\Turn Down Letter\TurnDownLetter.jasper" />
+    <Content Include="WEB-INF\reports\Turn Down Letter\TurnDownLetter.jrxml" />
+    <Content Include="WEB-INF\reports\Write Off\WriteOff.jasper" />
+    <Content Include="WEB-INF\reports\Write Off\WriteOff.jrxml" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="developer.html" />
+    <Content Include="display.xsl" />
+    <Content Include="html\administrator\dashboard\controller.js" />
+    <Content Include="html\administrator\dashboard\drawer.html" />
+    <Content Include="html\administrator\dashboard\index.html" />
+    <Content Include="html\administrator\dashboard\make_loan_confirm.html" />
+    <Content Include="html\administrator\dashboard\stream.html" />
+    <Content Include="html\administrator\index.html" />
+    <Content Include="html\administrator\routes.js" />
+    <Content Include="html\assets\css\bootstrap.min.css" />
+    <Content Include="html\assets\css\font-awesome.min.css" />
+    <Content Include="html\assets\css\sunloan.animate.css" />
+    <Content Include="html\assets\css\sunloan.css" />
+    <Content Include="html\assets\css\sunloan.datatable.css" />
+    <Content Include="html\assets\css\sunloan.datepicker.css" />
+    <Content Include="html\assets\css\ui-select\select.css" />
+    <Content Include="html\assets\css\ui-select\select.default.css" />
+    <Content Include="html\assets\fonts\fontawesome-webfont.svg" />
+    <Content Include="html\assets\fonts\PT_Sans-Caption-Web-Bold.svg" />
+    <Content Include="html\assets\fonts\PT_Sans-Caption-Web-Regular.svg" />
+    <Content Include="html\assets\images\login.jpg" />
+    <Content Include="html\assets\images\spinner-1.gif" />
+    <Content Include="html\assets\images\spinner.gif" />
+    <Content Include="html\assets\images\sunloan.png" />
+    <Content Include="html\assets\js\plugins.js" />
+    <Content Include="html\assets\js\ui-select\angular-sanitize.js" />
+    <Content Include="html\assets\js\ui-select\select.js" />
+    <Content Include="html\assets\js\vendor\angular\angular-animate.js" />
+    <Content Include="html\assets\js\vendor\angular\angular-animate.min.js" />
+    <Content Include="html\assets\js\vendor\angular\angular-cookies.js" />
+    <Content Include="html\assets\js\vendor\angular\angular-cookies.min.js" />
+    <Content Include="html\assets\js\vendor\angular\angular-csp.css" />
+    <Content Include="html\assets\js\vendor\angular\angular-loader.js" />
+    <Content Include="html\assets\js\vendor\angular\angular-loader.min.js" />
+    <Content Include="html\assets\js\vendor\angular\angular-mocks.js" />
+    <Content Include="html\assets\js\vendor\angular\angular-resource.js" />
+    <Content Include="html\assets\js\vendor\angular\angular-resource.min.js" />
+    <Content Include="html\assets\js\vendor\angular\angular-route.js" />
+    <Content Include="html\assets\js\vendor\angular\angular-route.min.js" />
+    <Content Include="html\assets\js\vendor\angular\angular-sanitize.js" />
+    <Content Include="html\assets\js\vendor\angular\angular-sanitize.min.js" />
+    <Content Include="html\assets\js\vendor\angular\angular-scenario.js" />
+    <Content Include="html\assets\js\vendor\angular\angular-touch.js" />
+    <Content Include="html\assets\js\vendor\angular\angular-touch.min.js" />
+    <Content Include="html\assets\js\vendor\angular\angular.js" />
+    <Content Include="html\assets\js\vendor\angular\angular.min.js" />
+    <Content Include="html\assets\js\vendor\bootstrap.js" />
+    <Content Include="html\assets\js\vendor\bootstrap.min.js" />
+    <Content Include="html\assets\js\vendor\html5shiv.min.js" />
+    <Content Include="html\assets\js\vendor\jquery.min.js" />
+    <Content Include="html\assets\js\vendor\respond.min.js" />
+    <Content Include="html\common\directives\dropdown.js" />
+    <Content Include="html\common\directives\focus.js" />
+    <Content Include="html\common\directives\form.js" />
+    <Content Include="html\common\directives\gridview.js" />
+    <Content Include="html\common\directives\mask.js" />
+    <Content Include="html\common\directives\match.js" />
+    <Content Include="html\common\directives\matching.js" />
+    <Content Include="html\common\directives\server_validation.js" />
+    <Content Include="html\common\directives\templates.js" />
+    <Content Include="html\common\drawer\cash_transfer.html" />
+    <Content Include="html\common\drawer\controller.js" />
+    <Content Include="html\common\drawer\edit.html" />
+    <Content Include="html\common\drawer\manage.html" />
+    <Content Include="html\common\filters.js" />
+    <Content Include="html\common\filters\sumtender.js" />
+    <Content Include="html\common\filters\sumvalues.js" />
+    <Content Include="html\common\modules\application\address.html" />
+    <Content Include="html\common\modules\application\address.js" />
+    <Content Include="html\common\modules\application\borrower.html" />
+    <Content Include="html\common\modules\application\borrower.js" />
+    <Content Include="html\common\modules\application\create.html" />
+    <Content Include="html\common\modules\application\create.js" />
+    <Content Include="html\common\modules\application\decline.html" />
+    <Content Include="html\common\modules\application\decline.js" />
+    <Content Include="html\common\modules\application\evaluate.html" />
+    <Content Include="html\common\modules\application\evaluate.js" />
+    <Content Include="html\common\modules\application\letter.html" />
+    <Content Include="html\common\modules\application\letter.js" />
+    <Content Include="html\common\modules\application\options.html" />
+    <Content Include="html\common\modules\application\options.js" />
+    <Content Include="html\common\modules\application\tabs.html" />
+    <Content Include="html\common\modules\borrower\collection.html" />
+    <Content Include="html\common\modules\borrower\contact.html" />
+    <Content Include="html\common\modules\borrower\controller.js" />
+    <Content Include="html\common\modules\borrower\dashboard.html" />
+    <Content Include="html\common\modules\borrower\loan.html" />
+    <Content Include="html\common\modules\borrower\nfs.html" />
+    <Content Include="html\common\modules\borrower\promise.html" />
+    <Content Include="html\common\modules\borrower\search.html" />
+    <Content Include="html\common\modules\borrower\writeoff.html" />
+    <Content Include="html\common\modules\changepassword\controller.js" />
+    <Content Include="html\common\modules\changepassword\index.html" />
+    <Content Include="html\common\modules\check\controller.js" />
+    <Content Include="html\common\modules\check\maintenance.html" />
+    <Content Include="html\common\modules\check\write.html" />
+    <Content Include="html\common\modules\collection\controller.js" />
+    <Content Include="html\common\modules\collection\index.html" />
+    <Content Include="html\common\modules\drawer\cash_transfer.html" />
+    <Content Include="html\common\modules\drawer\controller.js" />
+    <Content Include="html\common\modules\drawer\edit.html" />
+    <Content Include="html\common\modules\drawer\manage.html" />
+    <Content Include="html\common\modules\employees\controller.js" />
+    <Content Include="html\common\modules\employees\index.html" />
+    <Content Include="html\common\modules\loan\make.html" />
+    <Content Include="html\common\modules\loan\make.js" />
+    <Content Include="html\common\modules\loan\rate.html" />
+    <Content Include="html\common\modules\loan\rate.js" />
+    <Content Include="html\common\modules\loan\renew.html" />
+    <Content Include="html\common\modules\loan\renew.js" />
+    <Content Include="html\common\modules\report\controller.js" />
+    <Content Include="html\common\modules\report\index.html" />
+    <Content Include="html\common\modules\review\address.html" />
+    <Content Include="html\common\modules\review\borrower.html" />
+    <Content Include="html\common\modules\review\create.html" />
+    <Content Include="html\common\modules\templates\residence\borrower.html" />
+    <Content Include="html\common\modules\templates\residence\edit.html" />
+    <Content Include="html\common\modules\templates\residence\index.html" />
+    <Content Include="html\common\modules\writeoff\controller.js" />
+    <Content Include="html\common\modules\writeoff\index.html" />
+    <Content Include="html\common\services\application.js" />
+    <Content Include="html\common\services\automobile.js" />
+    <Content Include="html\common\services\borrower.js" />
+    <Content Include="html\common\services\callroute.js" />
+    <Content Include="html\common\services\cashtransfer.js" />
+    <Content Include="html\common\services\chart_of_accounts.js" />
+    <Content Include="html\common\services\checkbook.js" />
+    <Content Include="html\common\services\collateral.js" />
+    <Content Include="html\common\services\collect.js" />
+    <Content Include="html\common\services\debt.js" />
+    <Content Include="html\common\services\delinquency.js" />
+    <Content Include="html\common\services\drawer.js" />
+    <Content Include="html\common\services\drawer_history.js" />
+    <Content Include="html\common\services\employee.js" />
+    <Content Include="html\common\services\employees.js" />
+    <Content Include="html\common\services\employer.js" />
+    <Content Include="html\common\services\employers.js" />
+    <Content Include="html\common\services\form_error.js" />
+    <Content Include="html\common\services\inquieries.js" />
+    <Content Include="html\common\services\line.js" />
+    <Content Include="html\common\services\loan.js" />
+    <Content Include="html\common\services\organization.js" />
+    <Content Include="html\common\services\other_income.js" />
+    <Content Include="html\common\services\pay_collection.js" />
+    <Content Include="html\common\services\phones.js" />
+    <Content Include="html\common\services\phone_number.js" />
+    <Content Include="html\common\services\promissory_note.js" />
+    <Content Include="html\common\services\reference.js" />
+    <Content Include="html\common\services\residence.js" />
+    <Content Include="html\common\services\storage.js" />
+    <Content Include="html\common\services\tab.js" />
+    <Content Include="html\common\services\tender_types.js" />
+    <Content Include="html\common\services\user.js" />
+    <Content Include="html\common\services\writeoff.js" />
+    <Content Include="html\common\sunloan.js" />
+    <Content Include="html\common\templates\automobiles\edit.html" />
+    <Content Include="html\common\templates\automobiles\index.html" />
+    <Content Include="html\common\templates\automobile\edit.html" />
+    <Content Include="html\common\templates\automobile\index.html" />
+    <Content Include="html\common\templates\borrower\edit.html" />
+    <Content Include="html\common\templates\borrower\index.html" />
+    <Content Include="html\common\templates\collaterals\edit.html" />
+    <Content Include="html\common\templates\collaterals\index.html" />
+    <Content Include="html\common\templates\collateral\edit.html" />
+    <Content Include="html\common\templates\collateral\index.html" />
+    <Content Include="html\common\templates\debt\edit.html" />
+    <Content Include="html\common\templates\debt\index.html" />
+    <Content Include="html\common\templates\employees\edit.html" />
+    <Content Include="html\common\templates\employees\index.html" />
+    <Content Include="html\common\templates\employee\edit.html" />
+    <Content Include="html\common\templates\employee\index.html" />
+    <Content Include="html\common\templates\employer\edit.html" />
+    <Content Include="html\common\templates\employer\index.html" />
+    <Content Include="html\common\templates\header.html" />
+    <Content Include="html\common\templates\inquiry\edit.html" />
+    <Content Include="html\common\templates\inquiry\index.html" />
+    <Content Include="html\common\templates\loan_history\index.html" />
+    <Content Include="html\common\templates\loan_history\reverse.html" />
+    <Content Include="html\common\templates\notification.html" />
+    <Content Include="html\common\templates\other_debt\edit.html" />
+    <Content Include="html\common\templates\other_debt\index.html" />
+    <Content Include="html\common\templates\other_income\edit.html" />
+    <Content Include="html\common\templates\other_income\index.html" />
+    <Content Include="html\common\templates\phones\edit.html" />
+    <Content Include="html\common\templates\phones\index.html" />
+    <Content Include="html\common\templates\phone_number\edit.html" />
+    <Content Include="html\common\templates\phone_number\index.html" />
+    <Content Include="html\common\templates\primary_debt\edit.html" />
+    <Content Include="html\common\templates\primary_debt\index.html" />
+    <Content Include="html\common\templates\reference\edit.html" />
+    <Content Include="html\common\templates\reference\index.html" />
+    <Content Include="html\common\templates\residence\borrower.html" />
+    <Content Include="html\common\templates\residence\edit.html" />
+    <Content Include="html\common\templates\residence\index.html" />
+    <Content Include="html\common\templates\transaction\edit.html" />
+    <Content Include="html\common\templates\transaction\index.html" />
+    <Content Include="html\common\templates\transaction\reverse.html" />
+    <Content Include="html\csr\dashboard\controller.js" />
+    <Content Include="html\csr\dashboard\index.html" />
+    <Content Include="html\csr\dashboard\stream.html" />
+    <Content Include="html\csr\index.html" />
+    <Content Include="html\csr\routes.js" />
+    <Content Include="html\favicon.ico" />
+    <Content Include="html\manager\dashboard\controller.js" />
+    <Content Include="html\manager\dashboard\drawer.html" />
+    <Content Include="html\manager\dashboard\index.html" />
+    <Content Include="html\manager\dashboard\stream.html" />
+    <Content Include="html\manager\index.html" />
+    <Content Include="html\manager\routes.js" />
+    <Content Include="search.html" />
+    <Content Include="services.xml" />
+    <Content Include="services_v2.xml" />
+    <Content Include="test\application\approve.html" />
+    <Content Include="test\application\deny.html" />
+    <Content Include="test\application\inprogress.html" />
+    <Content Include="test\application\inprogress_request.html" />
+    <Content Include="test\application\request.html" />
+    <Content Include="test\application\review.html" />
+    <Content Include="test\application\save.html" />
+    <Content Include="test\application\submit.html" />
+    <Content Include="test\application\types.html" />
+    <Content Include="test\borrower\search.html" />
+    <Content Include="test\borrower\search_datatables.html" />
+    <Content Include="test\borrower\transaction.html" />
+    <Content Include="test\jquery.dataTables.js" />
+    <Content Include="test\jquery.rest.js" />
+    <Content Include="test\jquery.rest.min.js" />
+    <Content Include="test\reports\report.html" />
+    <Content Include="test\test.js" />
+    <Content Include="test\v2\application\flow\address.html" />
+    <Content Include="test\v2\application\flow\borrower.html" />
+    <Content Include="test\v2\application\flow\index.html" />
+    <Content Include="test\v2\application\flow\new.html" />
+    <Content Include="test\v2\application\inprogress.html" />
+    <Content Include="test\v2\application\inreview.html" />
+    <Content Include="test\v2\application\submit.html" />
+    <Content Include="test\v2\delinquency\assignment.html" />
+    <Content Include="test\v2\delinquency\jquery.rest.js" />
+    <Content Include="test\v2\loan\payment.html" />
+    <Content Include="WEB-INF\beans.xml" />
+    <Content Include="WEB-INF\glassfish-resources.xml" />
+    <Content Include="WEB-INF\glassfish-web.xml" />
+    <Content Include="WEB-INF\web-jcifs-filter.xml" />
+    <Content Include="WEB-INF\web.xml" />
+    <Content Include="Web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>49466</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:49466/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,125 @@
+<div class="container">
+    <h3 class="row title">
+        <div class="col-xs-6">
+            Manager 
+        </div>
+        <div class="col-xs-6 text-right text-gray">
+            {{ today | date:'MMMM d, y' }}
+        </div>
+    </h3>
+</div>
+
+<section ng-repeat="template in templates">
+    <ng-include src="template"></ng-include>
+</section>
+
+<div class="container" ng-init="init()">
+
+    <!-- Buttons -->
+    <div class="row">
+        <div class="col-md-12">
+
+            <div class="btn-group btn-group-justified btn-group-squares">
+                <div class="btn-group">
+                    <a href="#/writeoff" class="btn btn-default easing">
+                        <i class="fa fa-pencil"></i>
+                        Writeoff
+                    </a>
+                </div>
+                <div class="btn-group">
+                    <a ng-click="new_application()" class="btn btn-default easing">
+                        <i class="fa fa-plus-circle"></i>
+                        New Application
+                    </a>
+                </div>
+                <div class="btn-group">
+                    <a href="#/check/write" class="btn btn-default easing">
+                        <i class="fa fa-pencil-square"></i>
+                        Write Check
+                    </a>
+                </div>
+                <div class="btn-group">
+                    <a href="#/check/maintenance" class="btn btn-default easing">
+                        <i class="fa fa-wrench"></i>
+                        Checkbook Maintenance
+                    </a>
+                </div>
+                <div class="btn-group">
+                    <a href="#/drawer/cash_transfer" class="btn btn-default easing">
+                        <i class="fa fa-retweet"></i>
+                        Cash Transfer
+                    </a>
+                </div>
+                <div class="btn-group">
+                    <a href="#/collection/assign" type="button" class="btn btn-default easing">
+                        <i class="fa fa-check-square-o"></i>
+                        Assign Collections
+                    </a>
+                </div>
+                <div class="btn-group">
+                    <a href="#/reports" class="btn btn-default easing">
+                        <i class="fa fa-bar-chart"></i>
+                        Reports
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        
+        <div class="col-md-12">
+
+
+            <div class="panel panel-default">
+                <h3 class="panel-heading">
+                    Pending Applications
+                </h3>
+                <div class="panel-body">
+
+                    <!-- Grid -->
+                    <table ng-gridview="pending">
+                        <thead>
+                            <tr>
+                                <th data-render="{{last_name}} {{first_name}}">Borrower</th>
+                                <th data-name="social_security_number">SSN</th>
+                                <th data-render="{{phones[0].phone_number}}">Phone Number</th>
+                                <th data-name="requested_amount"> Amount</th>
+                                <th data-name="submitted_date">Date Submitted</th>
+                                <th data-name="submitted_by">Taken by</th>
+                                <th data-name="$options">Options</th>
+                            </tr>
+                        </thead>
+                    </table> 
+
+                </div>
+            </div> 
+
+            <!-- approved -->
+              <div class="panel panel-default">
+                <h3 class="panel-heading">
+                    Approved Applications
+                </h3>
+                <div class="panel-body">
+
+                    <!-- Grid -->
+                    <table ng-gridview="approved">
+                        <thead>
+                            <tr>
+                                <th data-render="{{last_name}} {{first_name}}">Borrower</th>
+                                <th data-name="social_security_number">SSN</th>
+                                <th data-render="{{phones[0].phone_number}}">Phone Number</th>
+                                <th data-name="requested_amount"> Amount</th>
+                                <th data-name="submitted_date">Date Submitted</th>
+                                <th data-name="submitted_by">Taken by</th>
+                                <th width="260" data-name="$options2">Options</th>
+                            </tr>
+                        </thead>
+                    </table> 
+
+                </div>
+            </div> 
+        </div>
+    </div>
+
+</div>

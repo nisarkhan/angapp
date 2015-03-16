@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <style>
+            textarea {
+                height:600px;
+                width:750px;
+            }
+        </style>
+        <script src="../../html/content/js/library/jquery.js" type="text/javascript"></script>
+        <script>
+            $(document).ready(function() {
+                
+                $('#submit_app').click(function() {
+                    var ajx, envelope;
+                    
+                    ajx = $.ajax('../../ws/application/reset.json', {
+                        'type': 'GET',
+                        'dataType': 'json',
+                        'async': false,
+                        'data': {
+                            'ssn': '123456789'
+                        }
+                    });
+                    
+                    ajx = $.ajax('../../ws/application?action=submit', {
+                        'type': 'POST',
+                        'dataType': 'json',
+                        'async': false,
+                        'data': {
+                            ssn: '123456789',
+                            json_raw: $('#request textarea').val()
+                        } 
+                    });
+                    
+                    envelope = ajx.responseJSON;
+                    
+                    if(envelope.response === 0) {
+                        
+                        /* 
+                         * When you submit an application you get most fields
+                         * back from action=submit.  However, denial_reason_id 
+                         * and denial_description aren't returned.  To test, we
+                         * manually set here.
+                         */
+                        envelope.data.denial_reason_id = 2;
+                        envelope.data.denial_description = 'Denial reason of 2 means that the application is incomplete';
+                        
+                        ajx = $.ajax('../../ws/application?action=deny', {
+                           'type': 'POST',
+                           'dataType': 'json',
+                           'async': false,
+                           'data': {
+                               'json_raw': JSON.stringify(envelope.data)
+                           }
+                        });
+                        
+                        envelope = ajx.responseJSON;
+                        
+                    }
+                    
+                    $('#response textarea').html(JSON.stringify(envelope, null, '  '));
+                    
+                });
+            });
+        </script>
+    </head>
+    <body>
+        <div id="request">
+            <textarea>
+{
+     "id": "",  /* borrowerapplication id */
+     "last_name": "Public", /* some comments */
+     "first_name": "John",
+     "middle_name": "Q",
+     "social_security_number": "123456789",
+     "prefix": 2,
+     "suffix": 5,
+     "date_of_birth": "3/7/1960",
+     "remarks": "This is an area to write comments about the borrower",
+     "high_credit": "200.00",
+     "email_address": "sample@server.com",
+     "number_of_dependents": 2,
+     "home_city": "San Antonio",
+     "home_city_how_long": 14,
+     "requested_amount": "300.00",
+     "ownership_type_id": 2, 
+     "by_phone": true,
+     "referral_name": "Jane Thompson",
+     "stability": 2, 
+     "ability": 2, 
+     "willingness": 2, 
+     "security": 2, 
+     "approval_date": "9/9/2013",
+     "net_loan": "200.00",
+     "terms": "M", 
+     "credit_agency_id": 1,
+     "credit_agency_no_credit_report" : false,
+     "credit_agency_transunion" : false,
+     "credit_agency_equifax" : false,
+     "credit_agency_experian" : false,
+     "credit_agency_outside_source" : false,
+     "directions_to_residence": "Some text to describe directions to residence",
+     "status_id" : 1, 
+     "source_id": 0, 
+     "approved_amount": "200.00",
+     "joint_borrower_ssn": "999999999",
+     "joint_relationship": 2, 
+     "residences": [
+         {
+             "id": "",
+             "ownership_type_id": 2, 
+             "verified_by": 1,
+             "verified_how": 2, 
+             "payment": "900.00",
+             "how_long": 2,
+             "year_moved_in": 1990,
+             "is_primary": true,
+             "address": "1 Street",
+             "city": "San Antonio",
+             "state": "XX",
+             "zip": "78201",
+             "zip_four": "1234",
+             "type": 3,
+             "description": "An area to type a description"
+         },
+         {
+             "id": "",
+             "ownership_type_id": 2,
+             "verified_by": 1,
+             "verified_how": 2,
+             "payment": "950.00",
+             "how_long": 2,
+             "year_moved_in": 1975,
+             "is_primary": false,
+             "address": "2 Ave",
+             "city": "Houston",
+             "state": "XX",
+             "zip": "77123",
+             "zip_four": "1234",
+             "type": 3,
+             "description": "An area to type a description"
+         }
+     ],
+     "phones": [
+         {
+             "id": "",
+             "number": "2105550001",
+             "extension": "23",
+             "type": 2, 
+             "description": "An area to describe the phone number",
+             "is_primary": true
+         },
+         {
+             "id": "",
+             "number": "2105550002",
+             "extension": "67",
+             "type": 3,
+             "description": "An area to describe the phone number",
+             "is_primary": false
+         },
+         {
+             "id": "",
+             "number": "2105550003",
+             "type": 4,
+             "description": "An area to describe the phone number",
+             "is_primary": false
+         }
+     ],
+     "employers": [
+     {
+         "id": "",
+         "name": "Company name",
+         "address": "1 Street",
+         "city": "San Antonio",
+         "state": 43,
+         "zip": "78201",
+         "zip_four": "1234",
+         "contact_last_name": "Roberts",
+         "contact_first_name": "Steve",
+         "contact_email_address": "roberts@server.com",
+         "payment_schedule_id": 2, 
+         "shift": "Textual shift name",
+         "net_income": "100.00",
+         "net_salary": "100.00",
+         "verified_how": 2, 
+         "verified_by": 1, 
+         "employment_date": "5/20/2001",
+         "phone_number": "2105551234",
+         "extension": "x123",
+         "position": "Position name",
+         "how_long": 2 
+     },
+     {
+         "id": "",
+         "name": "Franchise name",
+         "address": "1 Street",
+         "city": "San Antonio",
+         "state": 43,
+         "zip": "78201",
+         "zip_four": "1234",
+         "contact_last_name": "Martinez",
+         "contact_first_name": "Jason",
+         "contact_email_address": "martinez@server.com",
+         "payment_schedule_id": 2,
+         "shift": "Textual shift name",
+         "verified_how": 3,
+         "verified_by": 1,
+         "employment_date": "5/20/2001",
+         "phone_number": "2105551234",
+         "extension": "x126",
+         "position": "Position name",
+         "how_long": 3
+     }
+     ],
+     "debts": [
+     {
+         "id": "",
+         "type": 1,  
+         "value": "312.44",
+         "description": "A place to type a description of debt",
+         "no_pay": false
+     },
+     {
+         "id": "",
+         "type": 1,
+         "value": "4412.44",
+         "description": "The place to type a description of debt",
+         "no_pay": true
+     },
+     {
+         "id": "",
+         "type": 2,
+         "value": "312.44",
+         "description": "A place to type a description of debt",
+         "no_pay": false
+     },
+     {
+         "id": "",
+         "type": 3,
+         "value": "215.50",
+         "description": "A place to type a description of debt",
+         "no_pay": true
+     },
+     {
+         "id": "",
+         "type": 4,
+         "value": "312.44",
+         "description": "A place to type a description of debt",
+         "no_pay": false
+     },
+     {
+         "id": "",
+         "type": 5,
+         "value": "312.44",
+         "description": "A place to type a description of debt",
+         "no_pay": false
+     },
+     {
+         "id": "",
+         "type": 6,
+         "value": "312.44",
+         "description": "A place to type a description of debt",
+         "no_pay": false
+     }
+
+     ],
+     "other_debts": [
+     {
+         "id": "",
+         "creditor": "Creditor Card Co",
+         "other_debt_type_id": 2, 
+         "previous": "300.00",
+         "high_credit": "4000.00",
+         "debt_value": "1500.00",
+         "payment_schedule_type_id": 2, 
+         "no_pay": true,
+         "current_balance": "750.00",
+         "how_paid": "Describe how paid",
+         "last_payment_made": "8/15/2013",
+         "next_payment_due": "9/10/2013",
+         "description": "Description of other debt"
+     },
+     {
+         "id": "",
+         "creditor": "USA Bank",
+         "other_debt_type_id": 7,
+         "previous": "300.00",
+         "high_credit": "4000.00",
+         "debt_value": "1500.00",
+         "payment_schedule_type_id": 2,
+         "no_pay": false,
+         "current_balance": "750.00",
+         "how_paid": "Describe how paid",
+         "last_payment_made": "7/20/2013",
+         "next_payment_due": "8/19/2013",
+         "description": "Description of other debt"
+     }
+     ],
+     "references": [
+     {
+         "id": "",
+         "relationship_type_id": 2, 
+         "last_name": "Smith",
+         "first_name": "John",
+         "middle_name": "Lance",
+         "address": "300 Westberry",
+         "city": "San Antonio",
+         "state": "XX",
+         "zip": "78100",
+         "zip_four": "1234",
+         "phone_number": "2105551111",
+         "phone_type_id": 2 
+     },
+     {
+         "id": "",
+         "relationship_type_id": 22,
+         "last_name": "Smith",
+         "first_name": "Sally",
+         "middle_name": "Jefferies",
+         "address": "300 Westberry",
+         "city": "San Antonio",
+         "state": "XX",
+         "zip": "78100",
+         "zip_four": "1234",
+         "phone_number": "2105551111",
+         "phone_type_id": 3
+     }
+     ],
+     "automobiles": [
+     {
+         "id": "",
+         "make": "Honda",
+         "model": "Civic",
+         "color": "black",
+         "description": "Description of automobile",
+         "vin_number": "12345678901234567"
+     },
+     {
+         "id": "",
+         "make": "Ford",
+         "model": "F150",
+         "color": "silver",
+         "description": "Description of automobile",
+         "vin_number": "12345678901234568"
+     }
+     ],
+     "collateral": [
+     {
+         "id": "",
+         "collateral_types_id": 2, 
+         "description": "Description of collateral",
+         "object_id": 3, 
+         "object_value": "12000.00"
+     },
+     {
+         "id": "",
+         "collateral_types_id": 3,
+         "description": "Description of collateral",
+         "object_id": 4,
+         "object_value": "16000.00"
+     }
+     ]
+}
+            </textarea>
+            <button id="submit_app">deny test app</button>
+        </div>
+        <div id="response">
+            <textarea>
+            </textarea>
+        </div>
+    </body>
+</html>

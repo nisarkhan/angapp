@@ -1,0 +1,69 @@
+<div class="container">
+    <h3 class="row title">
+        <div class="col-xs-6">
+            Customer Service Rep
+        </div>
+        <div class="col-xs-6 text-right text-gray">
+            {{ today | date:'MMMM d, y' }}
+        </div>
+    </h3>
+</div>
+
+<section ng-repeat="template in templates">
+    <ng-include src="template"></ng-include>
+</section>
+
+<div class="container" ng-init="init()">
+
+    <!-- Buttons -->
+    <div class="row">
+        <div class="col-md-12">
+        <!-- btn-group-justified-->
+            <div class="btn-group btn-group-squares">
+                
+                <div class="btn-group">
+                    <a ng-click="new_application()" class="btn btn-default easing">
+                        <i class="fa fa-plus-circle"></i>
+                        New Application
+                    </a>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        
+        <div class="col-md-12">
+
+
+            <div class="panel panel-default">
+                <h3 class="panel-heading">
+                    Pending Applications
+                </h3>
+                <div class="panel-body">
+
+                    <!-- Grid -->
+                    <table ng-gridview="pending">
+                        <thead>
+                            <tr>
+                                <th data-render="{{last_name}} {{first_name}}">Borrower</th>
+                                <th data-name="social_security_number">SSN</th>
+                                <th data-render="{{phones[0].phone_number}}">Phone Number</th>
+                                <th data-name="requested_amount"> Amount</th>
+                                <th data-name="submitted_date">Date Submitted</th>
+                                <th data-name="submitted_by">Taken by</th>
+                                <th data-name="$options">Options</th>
+                            </tr>
+                        </thead>
+                    </table> 
+
+                </div>
+            </div> 
+
+            
+        </div>
+    </div>
+
+
+</div>

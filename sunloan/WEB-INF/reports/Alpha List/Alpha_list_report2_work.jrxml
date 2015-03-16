@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Alpha_list_report2_work" language="groovy" pageWidth="100" pageHeight="752" columnWidth="100" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="94d472ba-27de-4545-bacb-e42ababde00e">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="borrowerID" class="java.lang.Long">
+		<defaultValueExpression><![CDATA[28L]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT
+     employers."employer_name" AS employers_employer_name,
+     borrower_employers."employment_date" AS borrower_employers_employment_date
+FROM
+     "sunloans"."employers" employers INNER JOIN "sunloans"."borrower_employers" borrower_employers ON employers."employer_id" = borrower_employers."employer_id"
+WHERE
+     borrower_employers."active" = true
+ AND borrower_employers."borrower_id" = $P{borrowerID}
+ORDER BY
+     borrower_employers."employment_date" ASC
+LIMIT
+     1]]>
+	</queryString>
+	<field name="employers_employer_name" class="java.lang.String"/>
+	<field name="borrower_employers_employment_date" class="java.sql.Date"/>
+	<detail>
+		<band height="20" splitType="Stretch">
+			<textField>
+				<reportElement uuid="fa830fd9-df2c-4fb0-bc6b-2d82205907e6" x="0" y="0" width="100" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font size="7"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{employers_employer_name}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>

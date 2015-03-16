@@ -1,0 +1,771 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="promissary_note" pageWidth="612" pageHeight="792" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="7d00f6fd-3976-48f3-bce9-55ec1c4829b9">
+	<property name="ireport.zoom" value="2.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="105"/>
+	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["C:\\Work-Temp\\sunloans\\Reports\\Promissary Note\\"]]></defaultValueExpression>
+	</parameter>
+	<field name="accountNumber" class="java.lang.String">
+		<fieldDescription><![CDATA[accountNumber]]></fieldDescription>
+	</field>
+	<field name="acquisitionCharge" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[acquisitionCharge]]></fieldDescription>
+	</field>
+	<field name="creditorLenderAddress" class="java.lang.String">
+		<fieldDescription><![CDATA[creditorLenderAddress]]></fieldDescription>
+	</field>
+	<field name="amountFinanced" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[amountFinanced]]></fieldDescription>
+	</field>
+	<field name="amountOfPayments" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[amountOfPayments]]></fieldDescription>
+	</field>
+	<field name="annualPercentageRate" class="java.lang.Float">
+		<fieldDescription><![CDATA[annualPercentageRate]]></fieldDescription>
+	</field>
+	<field name="borrowerAddress" class="java.lang.String">
+		<fieldDescription><![CDATA[borrowerAddress]]></fieldDescription>
+	</field>
+	<field name="borrowerName" class="java.lang.String">
+		<fieldDescription><![CDATA[borrowerName]]></fieldDescription>
+	</field>
+	<field name="cashToMe" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[cashToMe]]></fieldDescription>
+	</field>
+	<field name="creditorLender" class="java.lang.String">
+		<fieldDescription><![CDATA[creditorLender]]></fieldDescription>
+	</field>
+	<field name="dateOfNote" class="java.util.Date">
+		<fieldDescription><![CDATA[dateOfNote]]></fieldDescription>
+	</field>
+	<field name="fianaceCharge" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[fianaceCharge]]></fieldDescription>
+	</field>
+	<field name="installmentAccountHandlingCharge" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[installmentAccountHandlingCharge]]></fieldDescription>
+	</field>
+	<field name="lateChargeOnPreviousAccount" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[lateChargeOnPreviousAccount]]></fieldDescription>
+	</field>
+	<field name="lessRefund" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[lessRefund]]></fieldDescription>
+	</field>
+	<field name="maturityInterestOnPreviousAccount" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[maturityInterestOnPreviousAccount]]></fieldDescription>
+	</field>
+	<field name="netBalanceRenewed" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[netBalanceRenewed]]></fieldDescription>
+	</field>
+	<field name="numberOfPayments" class="java.lang.Integer">
+		<fieldDescription><![CDATA[numberOfPayments]]></fieldDescription>
+	</field>
+	<field name="previousAccount" class="java.lang.String">
+		<fieldDescription><![CDATA[previousAccount]]></fieldDescription>
+	</field>
+	<field name="scheduleOfPayments" class="java.lang.String">
+		<fieldDescription><![CDATA[scheduleOfPayments]]></fieldDescription>
+	</field>
+	<field name="totalOfPayments" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[totalOfPayments]]></fieldDescription>
+	</field>
+	<field name="previousBalance" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[previousBalance]]></fieldDescription>
+	</field>
+	<field name="finalPaymentDate" class="java.util.Date">
+		<fieldDescription><![CDATA[finalPaymentDate]]></fieldDescription>
+	</field>
+	<field name="finalPaymentAmount" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[finalPaymentAmount]]></fieldDescription>
+	</field>
+	<field name="documentID" class="java.lang.String">
+		<fieldDescription><![CDATA[documentID]]></fieldDescription>
+	</field>
+	<field name="tinID" class="java.lang.String">
+		<fieldDescription><![CDATA[tinID]]></fieldDescription>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<pageHeader>
+		<band height="136" splitType="Stretch">
+			<staticText>
+				<reportElement x="1" y="20" width="572" height="13" uuid="b8a2a528-61b3-4812-a395-edfda4b469d0"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[CONSUMER CREDIT DISCLOSURE - PROMISSORY NOTE]]></text>
+			</staticText>
+			<line>
+				<reportElement x="1" y="33" width="572" height="1" uuid="63f3a6f3-e310-4a9b-a471-a03fb65b9fae"/>
+			</line>
+			<staticText>
+				<reportElement x="1" y="34" width="118" height="20" uuid="91cd2489-36f6-4348-9b3e-170d9c8c53b6"/>
+				<text><![CDATA[Account/Contract No.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="294" y="34" width="65" height="20" uuid="1004dd77-289b-4c17-ad4b-25bf8562bfb2"/>
+				<text><![CDATA[Date of Note:]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="119" y="34" width="175" height="20" uuid="40accd01-c734-420c-be04-2bc401bd21f2"/>
+				<textFieldExpression><![CDATA[$F{accountNumber}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="359" y="34" width="214" height="20" uuid="b9021b32-1537-4a72-9613-585c26e5d2b4"/>
+				<textFieldExpression><![CDATA[$F{dateOfNote}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="1" y="54" width="89" height="20" uuid="32aa664e-63f9-4901-a868-73309dfca4df"/>
+				<text><![CDATA[Creditor/Lender:]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="90" y="53" width="204" height="20" uuid="9bd56cf2-1f62-4ac5-9c5b-171cc375dd2c"/>
+				<textFieldExpression><![CDATA[$F{creditorLender}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="1" y="73" width="89" height="43" uuid="e610ba31-3132-44be-b34a-6292c96189de"/>
+				<text><![CDATA[Address:]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="90" y="73" width="204" height="43" uuid="63045df5-3832-412c-97c4-3a7986fb785a"/>
+				<textFieldExpression><![CDATA[$F{creditorLenderAddress}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="294" y="54" width="48" height="19" uuid="ed760158-1f48-48f8-be2f-03d80c58129d"/>
+				<text><![CDATA[Borrower:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="294" y="73" width="48" height="43" uuid="197a3f54-61fd-478c-8e0b-5ce7276a6e1f"/>
+				<text><![CDATA[Address:]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="342" y="54" width="231" height="19" uuid="965e2566-feb0-4048-8b4d-4c72e79dabc6"/>
+				<textFieldExpression><![CDATA[$F{borrowerName}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="342" y="73" width="231" height="43" uuid="ee3d207f-8e9b-4f71-97d8-27da210500df"/>
+				<textFieldExpression><![CDATA[$F{borrowerAddress}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="1" y="120" width="572" height="14" uuid="8cc10d4e-ad7d-48be-955c-afac21845c12"/>
+				<textElement textAlignment="Center">
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA['I' and 'me' means each person who signs as a Borrower.  'You' means the Lender.]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="0" y="0" width="572" height="22" uuid="b34d8f79-8fe5-4ed3-945f-5f46516ad745"/>
+				<textElement markup="none">
+					<font size="7"/>
+				</textElement>
+				<textFieldExpression><![CDATA["THIS INSTRUMENT IS SUBJECT TO A PERFECTED FIRST LIEN POSITION SECURITY INTEREST GRANTED TO CAPITAL ONE, NATIONAL ASSOCIATION,"+
+"\nTIN # "+$F{tinID}+", AS AGENT"]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="473" y="120" width="100" height="14" uuid="1ec162b3-345f-42b2-aadc-da3d712c601c"/>
+				<textElement textAlignment="Right" verticalAlignment="Top">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{documentID}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageHeader>
+	<detail>
+		<band height="166" splitType="Stretch">
+			<frame>
+				<reportElement x="0" y="0" width="572" height="76" uuid="e59b01be-6ca9-44fe-b137-e11307ad623a"/>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<staticText>
+					<reportElement x="0" y="0" width="143" height="56" uuid="619278b3-54a1-48f4-9f7c-b27c389202d8"/>
+					<box leftPadding="2" rightPadding="2"/>
+					<textElement>
+						<font size="9"/>
+					</textElement>
+					<text><![CDATA[ANNUAL PERCENTAGE RATE
+The cost of my credit as a yearly rate.]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="143" y="0" width="143" height="56" uuid="2aaa78f5-6fac-40ef-a5ec-1b3e78fb0061"/>
+					<box leftPadding="2" rightPadding="2"/>
+					<textElement>
+						<font size="9"/>
+					</textElement>
+					<text><![CDATA[FINANCE CHARGE
+The dollar amount the credit will cost me.]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="286" y="0" width="143" height="56" uuid="e217a49f-03b9-45b6-96a7-8e93dfc178c2"/>
+					<box leftPadding="2" rightPadding="2"/>
+					<textElement>
+						<font size="9"/>
+					</textElement>
+					<text><![CDATA[AMOUNT FINANCED
+The amount of credit provided to me or on my behalf.]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="429" y="0" width="143" height="56" uuid="149bc9ea-9133-43c0-8fad-7e8a46d4ae62"/>
+					<box leftPadding="2" rightPadding="2"/>
+					<textElement>
+						<font size="9"/>
+					</textElement>
+					<text><![CDATA[TOTAL OF PAYMENTS
+The amount I will have paid after I have made all payments as scheduled.]]></text>
+				</staticText>
+				<textField pattern="#,##0.00 %" isBlankWhenNull="true">
+					<reportElement x="0" y="56" width="143" height="20" uuid="82852217-1bb6-4616-b475-3cde4a839051"/>
+					<box rightPadding="2"/>
+					<textElement textAlignment="Right"/>
+					<textFieldExpression><![CDATA[$F{annualPercentageRate}]]></textFieldExpression>
+				</textField>
+				<line>
+					<reportElement x="143" y="0" width="1" height="76" uuid="d8ba9c68-67fb-49ad-878e-ea6bbd71279e"/>
+				</line>
+				<line>
+					<reportElement x="286" y="0" width="1" height="76" uuid="1d2cde18-a46b-41e3-b478-9b831e1f451e"/>
+				</line>
+				<line>
+					<reportElement x="428" y="0" width="1" height="76" uuid="189ea103-2fdc-434e-ad3e-c2c544a472e5"/>
+				</line>
+				<textField pattern="¤ #,##0.00" isBlankWhenNull="true">
+					<reportElement x="144" y="56" width="143" height="20" uuid="4c72ad8e-3ac1-4d42-b42b-94a9de2b478a"/>
+					<box rightPadding="2"/>
+					<textElement textAlignment="Right"/>
+					<textFieldExpression><![CDATA[$F{fianaceCharge}]]></textFieldExpression>
+				</textField>
+				<textField pattern="¤ #,##0.00" isBlankWhenNull="true">
+					<reportElement x="429" y="56" width="143" height="20" uuid="bd815ea9-842c-42b5-a417-1763f7b517bc"/>
+					<box rightPadding="2"/>
+					<textElement textAlignment="Right"/>
+					<textFieldExpression><![CDATA[$F{totalOfPayments}]]></textFieldExpression>
+				</textField>
+				<textField pattern="¤ #,##0.00" isBlankWhenNull="true">
+					<reportElement x="286" y="56" width="143" height="20" uuid="27a7c9aa-9cd1-4c2a-8b1d-e66aefc70210"/>
+					<box rightPadding="2"/>
+					<textElement textAlignment="Right"/>
+					<textFieldExpression><![CDATA[$F{amountFinanced}]]></textFieldExpression>
+				</textField>
+			</frame>
+			<frame>
+				<reportElement x="0" y="79" width="572" height="60" uuid="861442c6-4c0d-4d6b-a186-3addd2486197"/>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<staticText>
+					<reportElement x="0" y="0" width="100" height="20" uuid="5e7bfe4b-6f45-4b0d-935c-50831106d04e"/>
+					<box leftPadding="1">
+						<pen lineWidth="0.5"/>
+						<topPen lineWidth="0.5"/>
+						<leftPen lineWidth="0.5"/>
+						<bottomPen lineWidth="0.5"/>
+						<rightPen lineWidth="0.5"/>
+					</box>
+					<textElement textAlignment="Center"/>
+					<text><![CDATA[Number of Payments]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="100" y="0" width="101" height="20" uuid="a69854b9-ac05-4a16-aa4f-c0370cbb7305"/>
+					<box leftPadding="1">
+						<pen lineWidth="0.5"/>
+						<topPen lineWidth="0.5"/>
+						<leftPen lineWidth="0.5"/>
+						<bottomPen lineWidth="0.5"/>
+						<rightPen lineWidth="0.5"/>
+					</box>
+					<textElement textAlignment="Center"/>
+					<text><![CDATA[Amount of Payments]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="201" y="0" width="371" height="20" uuid="7ec98abe-3a69-46f5-800a-096b2a3cd13f"/>
+					<box leftPadding="1">
+						<pen lineWidth="0.5"/>
+						<topPen lineWidth="0.5"/>
+						<leftPen lineWidth="0.5"/>
+						<bottomPen lineWidth="0.5"/>
+						<rightPen lineWidth="0.5"/>
+					</box>
+					<text><![CDATA[Schedule of payments]]></text>
+				</staticText>
+				<textField isBlankWhenNull="true">
+					<reportElement x="0" y="20" width="100" height="20" uuid="eb58c80a-a244-4ad8-a351-71db9035febb"/>
+					<box>
+						<pen lineWidth="0.5"/>
+						<topPen lineWidth="0.5"/>
+						<leftPen lineWidth="0.5"/>
+						<bottomPen lineWidth="0.5"/>
+						<rightPen lineWidth="0.5"/>
+					</box>
+					<textElement textAlignment="Center"/>
+					<textFieldExpression><![CDATA[$F{numberOfPayments}]]></textFieldExpression>
+				</textField>
+				<textField isBlankWhenNull="true">
+					<reportElement x="100" y="20" width="101" height="20" uuid="8655133d-bd16-4734-a0d2-3fade9d5692b"/>
+					<box>
+						<pen lineWidth="0.5"/>
+						<topPen lineWidth="0.5"/>
+						<leftPen lineWidth="0.5"/>
+						<bottomPen lineWidth="0.5"/>
+						<rightPen lineWidth="0.5"/>
+					</box>
+					<textElement textAlignment="Center"/>
+					<textFieldExpression><![CDATA[$F{amountOfPayments}]]></textFieldExpression>
+				</textField>
+				<textField isBlankWhenNull="true">
+					<reportElement x="201" y="20" width="371" height="20" uuid="c504c1f2-2550-4754-ad9c-520be75ec37e"/>
+					<box leftPadding="2">
+						<pen lineWidth="0.5"/>
+						<topPen lineWidth="0.5"/>
+						<leftPen lineWidth="0.5"/>
+						<bottomPen lineWidth="0.5"/>
+						<rightPen lineWidth="0.5"/>
+					</box>
+					<textFieldExpression><![CDATA[$F{scheduleOfPayments}]]></textFieldExpression>
+				</textField>
+				<textField pattern="MM/dd/yyyy" isBlankWhenNull="true">
+					<reportElement x="201" y="40" width="371" height="20" uuid="325139c7-158b-456f-ac4a-2cd3a12b5fbd"/>
+					<box leftPadding="2">
+						<pen lineWidth="0.5"/>
+						<topPen lineWidth="0.5"/>
+						<leftPen lineWidth="0.5"/>
+						<bottomPen lineWidth="0.5"/>
+						<rightPen lineWidth="0.5"/>
+					</box>
+					<textFieldExpression><![CDATA[$F{finalPaymentDate}]]></textFieldExpression>
+				</textField>
+				<textField isBlankWhenNull="true">
+					<reportElement x="0" y="40" width="100" height="20" uuid="357486b0-a093-4cad-8d92-7a58f5a478db"/>
+					<box>
+						<pen lineWidth="0.5"/>
+						<topPen lineWidth="0.5"/>
+						<leftPen lineWidth="0.5"/>
+						<bottomPen lineWidth="0.5"/>
+						<rightPen lineWidth="0.5"/>
+					</box>
+					<textElement textAlignment="Center"/>
+					<textFieldExpression><![CDATA[($F{finalPaymentDate} != null ? "1" : "")]]></textFieldExpression>
+				</textField>
+				<textField pattern="" isBlankWhenNull="true">
+					<reportElement x="100" y="40" width="101" height="20" uuid="5e1af32c-09f9-46c5-ac52-0f8a5229db54"/>
+					<box>
+						<pen lineWidth="0.5"/>
+						<topPen lineWidth="0.5"/>
+						<leftPen lineWidth="0.5"/>
+						<bottomPen lineWidth="0.5"/>
+						<rightPen lineWidth="0.5"/>
+					</box>
+					<textElement textAlignment="Center"/>
+					<textFieldExpression><![CDATA[$F{finalPaymentAmount}]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+		<band height="133" splitType="Stretch">
+			<frame>
+				<reportElement x="0" y="0" width="572" height="133" uuid="a4b6eb83-3c6c-4474-a082-deba38aea3d2"/>
+				<box>
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<staticText>
+					<reportElement x="0" y="8" width="79" height="20" uuid="e7aff41c-e980-4e9c-8e16-27c9a3bad652"/>
+					<box rightPadding="1"/>
+					<textElement textAlignment="Right" verticalAlignment="Top">
+						<font size="7"/>
+					</textElement>
+					<text><![CDATA[SECURITY:]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="79" y="8" width="493" height="20" uuid="adc972fa-1508-41fe-946a-e255a0d4daeb"/>
+					<box leftPadding="1"/>
+					<textElement verticalAlignment="Top">
+						<font size="7"/>
+					</textElement>
+					<text><![CDATA[You will have a security interest in the following described collateral
+Unsecured]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="0" y="28" width="79" height="51" uuid="6a68a495-8037-442e-a8b0-84f27cd35584"/>
+					<box rightPadding="1"/>
+					<textElement textAlignment="Right" verticalAlignment="Top">
+						<font size="7"/>
+					</textElement>
+					<text><![CDATA[LATE CHARGE:]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="79" y="28" width="493" height="51" uuid="74eba6ea-a8e9-4ecb-9059-8dae3139d922"/>
+					<box leftPadding="1"/>
+					<textElement verticalAlignment="Top">
+						<font size="7"/>
+					</textElement>
+					<text><![CDATA[For a loan that has an amount financed of less than $100, the late charge for a payment that is unpaid for 10 days after it is due is 5% of the amount of the installment. For a loan that has an amount financed of $100 or more, the late charge for a payment that is unpaid for 10 days after it is due is the greater of $10 or 5% of the amount of the installment.]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="0" y="79" width="79" height="20" uuid="57bfa00a-6991-41c4-ae74-7a71b3683ab0"/>
+					<box rightPadding="1"/>
+					<textElement textAlignment="Right" verticalAlignment="Top">
+						<font size="7"/>
+					</textElement>
+					<text><![CDATA[PREPAYMENT:]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="79" y="79" width="493" height="20" uuid="afc774c4-7204-4103-a17b-64718c190e40"/>
+					<box leftPadding="1"/>
+					<textElement verticalAlignment="Top">
+						<font size="7"/>
+					</textElement>
+					<text><![CDATA[If I pay off early, I may be entitled to a refund of part of the finance charge.]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="0" y="99" width="79" height="34" uuid="1cd2a8b2-9d04-41f3-91f4-f21963ab1153"/>
+					<box rightPadding="1"/>
+					<textElement textAlignment="Right" verticalAlignment="Top">
+						<font size="7"/>
+					</textElement>
+					<text><![CDATA[Additional Information:]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="79" y="99" width="493" height="34" uuid="bb2167e7-246c-431d-838a-53b8441bb014"/>
+					<box leftPadding="1"/>
+					<textElement verticalAlignment="Top">
+						<font size="7"/>
+					</textElement>
+					<text><![CDATA[See the contract documents for any additional information about nonpayment, default, any required repayment in full before the scheduled date, and prepayment refunds and penalties.]]></text>
+				</staticText>
+			</frame>
+		</band>
+		<band height="214" splitType="Stretch">
+			<frame>
+				<reportElement x="0" y="14" width="280" height="72" uuid="8e2d2146-9d98-4840-a74b-0eb62c95ac04"/>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<staticText>
+					<reportElement x="0" y="0" width="280" height="15" uuid="c24a8b3d-211d-4468-a904-a0154923dab9"/>
+					<box leftPadding="1">
+						<pen lineWidth="0.25"/>
+						<topPen lineWidth="0.25"/>
+						<leftPen lineWidth="0.25"/>
+						<bottomPen lineWidth="0.25"/>
+						<rightPen lineWidth="0.25"/>
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Bottom"/>
+					<text><![CDATA[ITEMIZATION OF THE FINANCE CHARGE]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="1" y="15" width="85" height="20" uuid="eeca9a2b-0698-4e5a-b0a7-dc3a4962d3d2"/>
+					<box leftPadding="1"/>
+					<textElement verticalAlignment="Bottom"/>
+					<text><![CDATA[Acquisition Charge]]></text>
+				</staticText>
+				<textField pattern="¤ #,##0.00" isBlankWhenNull="true">
+					<reportElement x="231" y="15" width="49" height="20" uuid="a20d1d40-d186-4e1d-94bf-88c6761c193c"/>
+					<box rightPadding="1"/>
+					<textElement verticalAlignment="Bottom"/>
+					<textFieldExpression><![CDATA[$F{acquisitionCharge}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="1" y="35" width="142" height="28" uuid="d834c89e-e941-4dc4-870a-2a775d5c3b0a"/>
+					<box leftPadding="1"/>
+					<textElement verticalAlignment="Bottom"/>
+					<text><![CDATA[Installment Account Handling Charge]]></text>
+				</staticText>
+				<line>
+					<reportElement x="86" y="33" width="144" height="1" uuid="2e772ee1-43fc-476e-84ce-8cac40cbee1d"/>
+					<graphicElement>
+						<pen lineStyle="Dotted"/>
+					</graphicElement>
+				</line>
+				<line>
+					<reportElement x="36" y="61" width="194" height="1" uuid="8b5f2c6e-3e04-49fd-8dd6-7a0f342ec7ab"/>
+					<graphicElement>
+						<pen lineStyle="Dotted"/>
+					</graphicElement>
+				</line>
+			</frame>
+			<frame>
+				<reportElement x="292" y="14" width="280" height="186" uuid="01b3a3c6-c6c4-4947-a240-696b44f5b22a"/>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<staticText>
+					<reportElement x="0" y="0" width="280" height="15" uuid="ab65109c-1c28-4a83-a2c4-591a827bb9b2"/>
+					<box leftPadding="1">
+						<pen lineWidth="0.25"/>
+						<topPen lineWidth="0.25"/>
+						<leftPen lineWidth="0.25"/>
+						<bottomPen lineWidth="0.25"/>
+						<rightPen lineWidth="0.25"/>
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Bottom"/>
+					<text><![CDATA[ITEMIZATION OF THE AMOUNT FINANCED ]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="1" y="15" width="82" height="20" uuid="9fd6ae35-b8c5-4b5c-8c11-1c1078f1550f"/>
+					<box leftPadding="1"/>
+					<textElement verticalAlignment="Bottom"/>
+					<text><![CDATA[Previous Account]]></text>
+				</staticText>
+				<textField isBlankWhenNull="true">
+					<reportElement x="231" y="15" width="49" height="20" uuid="1edd023b-8070-49ee-a856-203f1fdc9899"/>
+					<box rightPadding="1"/>
+					<textElement verticalAlignment="Bottom"/>
+					<textFieldExpression><![CDATA[$F{previousAccount}]]></textFieldExpression>
+				</textField>
+				<line>
+					<reportElement x="83" y="33" width="148" height="1" uuid="cbd5fd14-73dd-48ed-945e-d0d4ff714dc2"/>
+					<graphicElement>
+						<pen lineStyle="Dotted"/>
+					</graphicElement>
+				</line>
+				<textField isBlankWhenNull="true">
+					<reportElement x="231" y="35" width="49" height="20" uuid="6e49ad32-bf7c-4c9f-befd-ca0819fe9393"/>
+					<box rightPadding="1"/>
+					<textElement verticalAlignment="Bottom"/>
+					<textFieldExpression><![CDATA[$F{lateChargeOnPreviousAccount}]]></textFieldExpression>
+				</textField>
+				<line>
+					<reportElement x="154" y="53" width="77" height="1" uuid="7da6a0a9-9587-4cb2-88ef-03bdb16c93ab"/>
+					<graphicElement>
+						<pen lineStyle="Dotted"/>
+					</graphicElement>
+				</line>
+				<staticText>
+					<reportElement x="1" y="35" width="153" height="20" uuid="fe12f7b8-6c46-4714-a945-60a77954bd24"/>
+					<box leftPadding="1"/>
+					<textElement verticalAlignment="Bottom"/>
+					<text><![CDATA[Late Charge on Previous Account]]></text>
+				</staticText>
+				<textField isBlankWhenNull="true">
+					<reportElement x="231" y="55" width="49" height="20" uuid="b558985e-2fcf-4354-987a-d18eb37281fb"/>
+					<box rightPadding="1"/>
+					<textElement verticalAlignment="Bottom"/>
+					<textFieldExpression><![CDATA[$F{lateChargeOnPreviousAccount}]]></textFieldExpression>
+				</textField>
+				<line>
+					<reportElement x="169" y="73" width="61" height="1" uuid="4be8d306-899a-436b-a286-172568085409"/>
+					<graphicElement>
+						<pen lineStyle="Dotted"/>
+					</graphicElement>
+				</line>
+				<staticText>
+					<reportElement x="1" y="55" width="168" height="20" uuid="c42404a3-818f-49d2-ad83-cc21f3577247"/>
+					<box leftPadding="1"/>
+					<textElement verticalAlignment="Bottom"/>
+					<text><![CDATA[Maturity Interest on Previous Account]]></text>
+				</staticText>
+				<textField isBlankWhenNull="true">
+					<reportElement x="231" y="75" width="49" height="20" uuid="d7ec5661-f376-43c4-9509-91cde97c4041"/>
+					<box rightPadding="1"/>
+					<textElement verticalAlignment="Bottom"/>
+					<textFieldExpression><![CDATA[$F{previousBalance}]]></textFieldExpression>
+				</textField>
+				<line>
+					<reportElement x="83" y="93" width="148" height="1" uuid="6b0ac9af-764f-43b7-8e67-f8237a8aa201"/>
+					<graphicElement>
+						<pen lineStyle="Dotted"/>
+					</graphicElement>
+				</line>
+				<staticText>
+					<reportElement x="1" y="75" width="82" height="20" uuid="55b882fa-d31b-4f4c-bbb9-a0585c82c70a"/>
+					<box leftPadding="1"/>
+					<textElement verticalAlignment="Bottom"/>
+					<text><![CDATA[Previous Balance]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="1" y="95" width="60" height="20" uuid="71e8fc57-5fa0-4704-9b8f-32f9137d9dd9"/>
+					<box leftPadding="1"/>
+					<textElement verticalAlignment="Bottom"/>
+					<text><![CDATA[Less Refund]]></text>
+				</staticText>
+				<line>
+					<reportElement x="61" y="113" width="170" height="1" uuid="581784d7-fbea-4c81-b6ff-f98ab9bd7ac4"/>
+					<graphicElement>
+						<pen lineStyle="Dotted"/>
+					</graphicElement>
+				</line>
+				<textField isBlankWhenNull="true">
+					<reportElement x="231" y="95" width="49" height="20" uuid="2ef14249-f491-4160-b074-eaddf6345693"/>
+					<box rightPadding="1"/>
+					<textElement verticalAlignment="Bottom"/>
+					<textFieldExpression><![CDATA[$F{lessRefund}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="1" y="115" width="101" height="20" uuid="23cdf029-6d66-4cb6-bfb7-567619729cdd"/>
+					<box leftPadding="1"/>
+					<textElement verticalAlignment="Bottom"/>
+					<text><![CDATA[Net Balance Renewed]]></text>
+				</staticText>
+				<line>
+					<reportElement x="102" y="134" width="129" height="1" uuid="1d0402a0-9bb1-4a11-bb1b-756fc3bdb1c0"/>
+					<graphicElement>
+						<pen lineStyle="Dotted"/>
+					</graphicElement>
+				</line>
+				<textField isBlankWhenNull="true">
+					<reportElement x="231" y="115" width="49" height="20" uuid="2ac1343f-a82b-47d1-bd2b-ce2791d99759"/>
+					<box rightPadding="1"/>
+					<textElement verticalAlignment="Bottom"/>
+					<textFieldExpression><![CDATA[$F{netBalanceRenewed}]]></textFieldExpression>
+				</textField>
+				<textField isBlankWhenNull="true">
+					<reportElement x="231" y="135" width="49" height="20" uuid="2d013b7e-c15f-42cf-8967-4a80023883fb"/>
+					<box rightPadding="1"/>
+					<textElement verticalAlignment="Bottom"/>
+					<textFieldExpression><![CDATA[$F{cashToMe}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="1" y="135" width="53" height="20" uuid="f3051f93-fe18-47c0-bb7a-9e78a4d21d65"/>
+					<box leftPadding="1"/>
+					<textElement verticalAlignment="Bottom"/>
+					<text><![CDATA[Cash to me]]></text>
+				</staticText>
+				<line>
+					<reportElement x="54" y="154" width="177" height="1" uuid="63033a97-27de-4e26-938b-aaee5c5c4f7d"/>
+					<graphicElement>
+						<pen lineStyle="Dotted"/>
+					</graphicElement>
+				</line>
+				<line>
+					<reportElement x="83" y="174" width="148" height="1" uuid="cf4f622a-791e-4754-abc5-a5f0f6a361c1"/>
+					<graphicElement>
+						<pen lineStyle="Dotted"/>
+					</graphicElement>
+				</line>
+				<staticText>
+					<reportElement x="1" y="155" width="82" height="20" uuid="15137515-2e70-4dde-bad6-5341ee3acb78"/>
+					<box leftPadding="1"/>
+					<textElement verticalAlignment="Bottom"/>
+					<text><![CDATA[Amount Financed]]></text>
+				</staticText>
+				<textField isBlankWhenNull="true">
+					<reportElement x="231" y="155" width="49" height="20" uuid="505c8c97-3fb4-497a-b3a9-0d6e0a3ace54"/>
+					<box rightPadding="1"/>
+					<textElement verticalAlignment="Bottom"/>
+					<textFieldExpression><![CDATA[$F{amountFinanced}]]></textFieldExpression>
+				</textField>
+			</frame>
+			<textField pattern="¤ #,##0.00" isBlankWhenNull="true">
+				<reportElement x="231" y="56" width="49" height="20" uuid="1ce4ed73-24e0-4b99-b35d-4d4d0a3de80b"/>
+				<box rightPadding="1"/>
+				<textElement verticalAlignment="Bottom"/>
+				<textFieldExpression><![CDATA[$F{installmentAccountHandlingCharge}]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="334" splitType="Stretch">
+			<staticText>
+				<reportElement positionType="Float" x="0" y="0" width="572" height="334" isPrintWhenDetailOverflows="true" uuid="d2d2973c-2044-4e4b-b9b1-7e6ba5f1f82c"/>
+				<box leftPadding="1"/>
+				<textElement>
+					<font size="7"/>
+				</textElement>
+				<text><![CDATA[I promise to pay the Total of Payments to the order of you, the Lender. I will make the payments at your address above. I will make the payments on the dates and in the amounts shown in the Payment Schedule. If I don't pay an entire payment within 10 days after it is due, you can charge me a late charge. For a loan that has an amount financed of less than $100, the late charge for a payment that is unpaid for 10 days after it is due is 5% of the amount of the installment. For a loan that has an amount financed of $100 or more, the late charge for a payment that is unpaid for 10 days after it is due is the greater of $10 or 5% of the amount of the installment. If I don't pay all I owe when the final payment becomes due, I will pay interest on the amount that is still unpaid. That interest will be at a rate of 18% per year and will begin the day after the final payment becomes due.
+
+I can make any payment early. The acquisition charge on this loan will not be refunded if I pay off early. If I pay all I owe before the beginning of the last monthly period, I will save part of the installment account handling charge. You will figure the amount I save by the Sum of the Periodic Balances Method. This method is explained in the Finance Commission rules. You don't have to refund or credit any amount less than $1.
+
+If I ask for more time to make any payment and you allow me more time, I will pay additional interest to extend the payment. The additional interest will be figured as provided in the Finance Commission rules. I agree to pay you a reasonable fee of up to $30 for a returned check. You can add the fee to the amount I owe under this agreement or collect it separately.
+
+If I break any of my promises in this document, you can demand that I immediately pay all that I owe. You can also do this if you in good faith believe that I am not going to be willing or able to keep all of my promises. I agree that you don't have to give me notice that you are demanding or intend to demand immediate payment of all that I owe.
+
+If I am giving collateral for this loan, I will see the separate security agreement for more information and agreements.
+
+I will keep all of my promises in this document. If there is more than one Borrower, each Borrower agrees to keep all of the promises in this document, even if the other Borrowers do not. I promise that all information I gave you is true.
+
+If you don't enforce your rights every time, you can still enforce them later. Federal law and Texas law apply to this contract.
+I don't have to pay interest or other amounts that are more than the law allows.
+
+Any change to this agreement has to be in writing. Both you and I have to sign it. You can mail any notice to me at my last address in your records.
+
+WE MAY REPORT INFORMATION ABOUT YOUR ACCOUNT TO CREDIT BUREAUS. LATE PAYMENTS, MISSED PAYMENTS, OR OTHER DEFAULTS ON YOUR ACCOUNT
+MAY BE REFLECTED IN YOUR CREDIT REPORT.
+
+This lender is licensed and examined by the State of Texas - Office of Consumer Credit Commissioner.
+Call the Consumer Credit Hotline or write for credit information or assistance with credit problems:
+Office of Consumer Credit Commissioner, 2601 North Lamar Boulevard, Austin, Texas 78705-4207;
+http:\\www.occc.state.tx.us; (512) 936-7600 -(800) 538-1579.]]></text>
+			</staticText>
+		</band>
+		<band height="179">
+			<staticText>
+				<reportElement x="1" y="0" width="5" height="13" uuid="95d74b72-a4db-465a-a6d8-81e6d490d733"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[X]]></text>
+			</staticText>
+			<line>
+				<reportElement x="6" y="11" width="230" height="1" uuid="786d1a58-8c9c-4d6f-80d0-81a752fa86cf"/>
+			</line>
+			<staticText>
+				<reportElement x="7" y="11" width="230" height="11" uuid="27773079-33eb-4aee-98fd-b92c9d8311ff"/>
+				<textElement textAlignment="Center">
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Borrower]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="311" y="11" width="230" height="11" uuid="9bb55ac0-4440-4a3e-8f99-08c7a21f6389"/>
+				<textElement textAlignment="Center">
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Co-Borrower]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="306" y="0" width="5" height="13" uuid="923999a8-768b-465b-be63-400beadc6d8c"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[X]]></text>
+			</staticText>
+			<line>
+				<reportElement x="311" y="11" width="230" height="1" uuid="c8c32da0-0179-4379-ac6d-f0232c1d64f4"/>
+			</line>
+			<staticText>
+				<reportElement x="2" y="86" width="5" height="13" uuid="3d1a9b0c-b27d-4ac8-9da0-2184bd0c07d6"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[X]]></text>
+			</staticText>
+			<line>
+				<reportElement x="7" y="97" width="230" height="1" uuid="742be5ff-adb7-4756-94e4-6b1e416d6f62"/>
+			</line>
+			<staticText>
+				<reportElement x="7" y="97" width="230" height="11" uuid="638cc33a-54ec-4884-b5cd-a49a55d863e1"/>
+				<textElement textAlignment="Center">
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Witness]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="154" width="160" height="25" uuid="cbb62fe7-3d72-4878-ac23-4df6805d6dc4"/>
+				<textElement>
+					<font size="9"/>
+				</textElement>
+				<text><![CDATA[Recibi la Forma Informe de Prestamo
+(I received the Spanish Disclosure)]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="160" y="166" width="5" height="13" uuid="6f3a9d9c-22b6-437c-bef3-5a03e272b576"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[X]]></text>
+			</staticText>
+			<line>
+				<reportElement x="165" y="177" width="230" height="1" uuid="1aab600a-53d1-4ce5-b52c-677a2a38bf46"/>
+			</line>
+		</band>
+	</detail>
+</jasperReport>

@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="DenialReasonLetter" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" whenResourceMissingType="Empty" uuid="324a0e82-bd4a-4239-9aaf-f5ab1e35f18c">
+	<property name="ireport.zoom" value="1.4641000000000008"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="letterID" class="java.lang.Integer">
+		<defaultValueExpression><![CDATA[6]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT
+     borrowers."last_name" AS borrowers_last_name,
+     borrowers."first_name" AS borrowers_first_name,
+     borrowers."middle_name" AS borrowers_middle_name,
+     borrowers."address" AS borrowers_address,
+     borrowers."city" AS borrowers_city,
+     borrowers."state" AS borrowers_state,
+     borrowers."zip" AS borrowers_zip,
+     borrowers."zip_four" AS borrowers_zip_four,
+     application_letters."created_date" AS application_letters_created_date,
+     application_letters."letter_description" AS application_letters_letter_description,
+     borrower_applications."requested_amount" AS borrower_applications_requested_amount
+FROM
+     "sunloans"."borrower_applications" borrower_applications INNER JOIN "borrowers" borrowers ON borrower_applications."borrower_id" = borrowers."borrower_id"
+     INNER JOIN "sunloans"."application_letters" application_letters ON borrower_applications."application_id" = application_letters."borrower_application_id"
+WHERE
+     application_letters."letter_id" = $P{letterID}]]>
+	</queryString>
+	<field name="borrowers_last_name" class="java.lang.String"/>
+	<field name="borrowers_first_name" class="java.lang.String"/>
+	<field name="borrowers_middle_name" class="java.lang.String"/>
+	<field name="borrowers_address" class="java.lang.String"/>
+	<field name="borrowers_city" class="java.lang.String"/>
+	<field name="borrowers_state" class="java.lang.String"/>
+	<field name="borrowers_zip" class="java.lang.String"/>
+	<field name="borrowers_zip_four" class="java.lang.String"/>
+	<field name="application_letters_created_date" class="java.sql.Date"/>
+	<field name="application_letters_letter_description" class="java.lang.String"/>
+	<field name="borrower_applications_requested_amount" class="java.lang.Double"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<detail>
+		<band height="732" splitType="Stretch">
+			<staticText>
+				<reportElement uuid="60d92cc4-c3f2-44de-b130-d4d82fc2ab1c" x="0" y="217" width="555" height="17"/>
+				<textElement>
+					<font size="8" isBold="false"/>
+				</textElement>
+				<text><![CDATA[DISCLOSURE OF USE OF INFORMATION OBTAINED FROM AN OUTSIDE SOURCE:
+]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="27ad9814-b263-412e-9e5e-d27c440224cd" x="0" y="234" width="555" height="102"/>
+				<textElement>
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[OUR CREDIT DECISION WAS BASED IN WHOLE OR IN PART ON INFORMATION OBTAINED FROM AN OUTSIDE SOURCE OTHER THAN A CONSUMER REPORTING AGENCY. UNDER THE FAIR CREDIT REPORTING ACT, YOU HAVE THE RIGHT TO MAKE A REQUEST, NO LATER THAN 60 DAYS AFTER YOU RECEIVE THIS NOTICE, FOR A DISCLOSURE OF THIS INFORMATION.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="8b54c87d-36c6-4e1f-906d-6449e34e433d" x="0" y="153" width="555" height="13"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Description Of Adverse Action Taken:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="20521f16-8e5b-403d-a9d6-fd102b6f2fc1" x="0" y="336" width="555" height="15"/>
+				<textElement>
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[IF YOU HAVE ANY QUESTIONS REGARDING THIS NOTICE, YOU SHOULD CONTACT:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="e9532d06-432e-4950-9fc9-cb4a5f1d1159" x="0" y="425" width="555" height="15"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[NOTICE:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="660171ef-3fee-4be2-b297-c176400dd061" x="0" y="440" width="555" height="174"/>
+				<textElement>
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[THE FEDERAL EQUAL CREDIT OPPORTUNITY ACT PROHIBITS CREDITORS FROM DISCRIMINATING AGAINST CREDIT APPLICANTS ON THE BASIS OF RACE, COLOR, RELIGION, NATIONAL ORIGIN, SEX, MARITAL STATUS, AGE (PROVIDED THE APPLICANT HAS THE CAPACITY TO ENTER INTO A BINDING CONTRACT); BECAUSE ALL OR PART OF THE APPLICANT'S INCOME DERIVES FROM ANY PUBLIC ASSISTANCE PROGRAM; OR BECAUSE THE APPLICANT HAS IN GOOD FAITH EXERCISED ANY RIGHT UNDER THE CONSUMER CREDIT PROTECTION ACT. THE FEDERAL AGENCY THAT ADMINISTERS COMPLIANCE WITH THIS LAW CONCERNING THIS CREDITOR IS THE FEDERAL TRADE COMMISSION, EQUAL CREDIT OPPORTUNITY, WASHINGTON, D.C. 20580.]]></text>
+			</staticText>
+			<line>
+				<reportElement uuid="73165b85-0c64-4590-835f-d05a9e8d1bf9" x="0" y="655" width="307" height="1"/>
+			</line>
+			<staticText>
+				<reportElement uuid="0182f828-f5fc-411c-914f-f8a7f9d11d87" x="0" y="656" width="307" height="20"/>
+				<textElement verticalAlignment="Top">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Employee Signature]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="ea01f448-111e-4293-a2fd-68452fd94f67" x="0" y="0" width="555" height="20"/>
+				<textElement textAlignment="Center">
+					<font size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[STATEMENT OF ACTION TAKEN ON CREDIT APPLICATION]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="6f072550-d30b-4d83-a751-dc036569a675" x="0" y="44" width="555" height="20"/>
+				<textElement>
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[TO:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="ef78863c-5314-4d21-81a6-593df15069a0" x="0" y="133" width="73" height="20"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Loan Requested:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="5aaea617-7494-44d2-8753-1c20b782db09" x="0" y="351" width="555" height="74"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Sun Loan Company
+2525 WEST AVE
+San Antonio, TX 78201
+210-737-1790]]></text>
+			</staticText>
+			<textField>
+				<reportElement uuid="6d701c2d-62c2-41a4-a10b-404431cf4bc3" x="0" y="64" width="555" height="12"/>
+				<textElement>
+					<font size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{borrowers_last_name}+", "+$F{borrowers_first_name}+" "+($F{borrowers_middle_name} != null ? $F{borrowers_middle_name}+"." : "")]]></textFieldExpression>
+			</textField>
+			<textField pattern="MM/dd/yyyy" isBlankWhenNull="true">
+				<reportElement uuid="ebc8c0c4-91de-4cf7-97e7-98a19bc6fd26" x="0" y="20" width="555" height="24"/>
+				<textElement textAlignment="Right">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{application_letters_created_date}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="0db1c66f-6971-4256-8428-1c6ad736bdad" x="0" y="76" width="555" height="12"/>
+				<textElement>
+					<font size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{borrowers_address}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="88f5a92a-daab-43d8-a3ff-61142dc978a2" x="0" y="88" width="555" height="12"/>
+				<textElement>
+					<font size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{borrowers_city}+", "+
+$F{borrowers_state}+" "+
+$F{borrowers_zip}+
+($F{borrowers_zip_four} != null && !$F{borrowers_zip_four}.isEmpty() ?
+    "-"+$F{borrowers_zip_four} :
+    ""
+    )]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="c220156c-6c75-4edf-baca-1d83e4683e57" x="0" y="166" width="555" height="51"/>
+				<textElement>
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[After carefully reviewing your application, we are sorry to advise you that we cannot open an account for you at this time.
+  If you would like a statement of specific reasons why your application was denied, please contact the manager in writing at the address listed below within 60 days of the date of this letter. We will provide you with a statement of reason within 30 days after we receive your request.]]></text>
+			</staticText>
+			<textField pattern="¤ #,##0.00" isBlankWhenNull="true">
+				<reportElement uuid="0505558e-1dbc-446e-9925-844e869d5a18" x="73" y="133" width="482" height="20"/>
+				<textElement>
+					<font size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{borrower_applications_requested_amount}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>

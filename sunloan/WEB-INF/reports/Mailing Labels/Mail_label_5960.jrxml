@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Mail_label_5960" language="groovy" columnCount="3" pageWidth="612" pageHeight="792" columnWidth="192" columnSpacing="8" leftMargin="13" rightMargin="7" topMargin="36" bottomMargin="20" uuid="ffd1b605-9145-40a5-83bf-cf509cb1e31e">
+	<property name="ireport.scriptlethandling" value="2"/>
+	<property name="ireport.encoding" value="UTF-8"/>
+	<property name="ireport.zoom" value="1.610510000000001"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<import value="net.sf.jasperreports.engine.*"/>
+	<import value="java.util.*"/>
+	<import value="net.sf.jasperreports.engine.data.*"/>
+	<queryString>
+		<![CDATA[SELECT
+     Students."LastName" AS Students_LastName,
+     Students."FirstName" AS Students_FirstName,
+     Students."MiddleName" AS Students_MiddleName,
+     Students."StudentID" AS Students_StudentID,
+     Students."gradelevel" AS Students_gradelevel,
+     Roster."StudentID" AS Roster_StudentID,
+     Classes."Name" AS Classes_Name,
+     Courses."title" AS Course_title,
+     Classes."Section" AS Classes_Section,
+     Classes."ClassID" AS Classes_ClassID,
+     Roster."Term1Absent" AS Roster_Term1Absent,
+     Roster."Term1Tardy" AS Roster_Term1Tardy,
+     Staff."LastName" AS Staff_LastName,
+     Staff."FirstName" AS Staff_FirstName,
+     Staff."MiddleName" AS Staff_MiddleName,
+     Staff."Salutation" AS Staff_Salutation,
+     Staff."StaffID" AS Staff_StaffID,
+     Address."Address1" AS Address_Address1,
+     Address."Address2" AS Address_Address2,
+     Address."City" AS Address_City,
+     Address."State" AS Address_State,
+     Address."ZIP" AS Address_ZIP,
+     Address."Greeting2" AS Address_Greeting2,
+     Students."Gender" AS Students_Gender,
+     Students."Birthdate" AS Students_Birthdate,
+     Students."HomePhone" AS Students_HomePhone
+FROM
+     "dbo"."Address" Address INNER JOIN "dbo"."Students" Students ON Address."AddressID" = Students."AddressID"
+     INNER JOIN "dbo"."Roster" Roster ON Students."StudentID" = Roster."StudentID"
+     INNER JOIN "dbo"."Classes" Classes ON Roster."ClassID" = Classes."ClassID"
+     INNER JOIN "dbo"."Staff" Staff ON Classes."StaffID" = Staff."StaffID"
+     INNER JOIN "dbo"."Courses" Courses ON Classes."CourseID" = Courses."CourseID"
+WHERE
+     Students."GradeLevel" IN ('06','07')
+ AND Roster."Enrolled" = 1
+ AND Courses."HomeRoom" = 1
+ORDER BY
+     Students.gradelevel ASC,
+     Courses."title" ASC,
+     Classes."Section" ASC,
+     Students."LastName" ASC,
+     Students."FirstName" ASC,
+     Students."MiddleName" ASC,
+     Roster."StudentID" ASC]]>
+	</queryString>
+	<field name="BorrowerDemografic" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="72" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="191" height="72" uuid="18251292-5486-47ad-9d65-a62315f5e337"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{BorrowerDemografic}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

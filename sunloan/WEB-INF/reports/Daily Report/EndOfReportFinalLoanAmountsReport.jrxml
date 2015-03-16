@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="EndOfReportFinalLoanAmountsReport" pageWidth="720" pageHeight="802" whenNoDataType="AllSectionsNoDetail" columnWidth="720" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="6950a5cf-444c-470d-9d13-afc3737a5181">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["./"]]></defaultValueExpression>
+	</parameter>
+	<field name="charges" class="java.lang.Object">
+		<fieldDescription><![CDATA[charges]]></fieldDescription>
+	</field>
+	<field name="collections" class="java.lang.Object">
+		<fieldDescription><![CDATA[collections]]></fieldDescription>
+	</field>
+	<field name="expenses" class="java.lang.Object">
+		<fieldDescription><![CDATA[expenses]]></fieldDescription>
+	</field>
+	<field name="loansMade" class="java.lang.Object">
+		<fieldDescription><![CDATA[loansMade]]></fieldDescription>
+	</field>
+	<field name="netBanlanceRenewal" class="java.lang.Object">
+		<fieldDescription><![CDATA[netBanlanceRenewal]]></fieldDescription>
+	</field>
+	<field name="outstanding" class="java.lang.Object">
+		<fieldDescription><![CDATA[outstanding]]></fieldDescription>
+	</field>
+	<field name="recoveries" class="java.lang.Object">
+		<fieldDescription><![CDATA[recoveries]]></fieldDescription>
+	</field>
+	<field name="refunds" class="java.lang.Object">
+		<fieldDescription><![CDATA[refunds]]></fieldDescription>
+	</field>
+	<detail>
+		<band height="98" splitType="Stretch">
+			<staticText>
+				<reportElement x="75" y="0" width="80" height="15" uuid="30699166-9bdb-4482-8601-a3a153ce9c4f"/>
+				<textElement textAlignment="Right"/>
+				<text><![CDATA[Loans Made]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="155" y="0" width="80" height="15" uuid="e52971bb-d40e-4894-b4c7-b2b66daf824d"/>
+				<textElement textAlignment="Right"/>
+				<text><![CDATA[Collection]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="235" y="0" width="80" height="15" uuid="7d0dc454-6599-4f28-9e79-0bab7afb93a3"/>
+				<textElement textAlignment="Right"/>
+				<text><![CDATA[Charges]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="315" y="0" width="80" height="15" uuid="4638a97b-9bd8-43cd-98be-d30564a5cc09"/>
+				<textElement textAlignment="Right"/>
+				<text><![CDATA[Recoveries]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="395" y="0" width="80" height="15" uuid="3a8cfb30-c533-4b17-96c7-31ee124ee9d8"/>
+				<textElement textAlignment="Right"/>
+				<text><![CDATA[Expense]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="475" y="0" width="80" height="15" uuid="16a78dd0-babe-4a50-ab4f-ec01e8619cc6"/>
+				<textElement textAlignment="Right"/>
+				<text><![CDATA[Refunds]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="555" y="0" width="80" height="15" uuid="564e8ba1-1b58-49d1-86d6-5fec3e35641c"/>
+				<textElement textAlignment="Right"/>
+				<text><![CDATA[Outstanding]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="635" y="0" width="80" height="15" uuid="af7d8202-0548-49b0-a386-243e66931e43"/>
+				<textElement textAlignment="Right"/>
+				<text><![CDATA[Net BR]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="15" width="75" height="15" uuid="2317dd46-9d03-40bc-be88-c54fb598d41a"/>
+				<box leftPadding="2"/>
+				<text><![CDATA[Last Year]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="30" width="75" height="15" uuid="3a6d56d4-1647-4c1a-812a-0783e2be468c"/>
+				<box leftPadding="2"/>
+				<text><![CDATA[Last Month]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="45" width="75" height="15" uuid="d00b6c06-6692-4952-b8bb-76aca14988fd"/>
+				<box leftPadding="2"/>
+				<text><![CDATA[This Month]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="60" width="75" height="15" uuid="62477862-9b39-4c7e-b2d7-925ceb8d2982"/>
+				<box leftPadding="2"/>
+				<text><![CDATA[Month +/-]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="75" width="75" height="15" uuid="02db9b7c-9fbb-421e-a612-07fed912d18e"/>
+				<box leftPadding="2"/>
+				<text><![CDATA[Year +/-]]></text>
+			</staticText>
+			<subreport>
+				<reportElement x="75" y="15" width="80" height="75" uuid="b589a76d-f16b-4db6-9fbc-84fd5a7825e0"/>
+				<dataSourceExpression><![CDATA[(new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource(java.util.Collections.singleton($F{loansMade})))]]></dataSourceExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "EndOfReportFinalLoanAmountItemReport.jasper"]]></subreportExpression>
+			</subreport>
+			<subreport>
+				<reportElement x="155" y="15" width="80" height="75" uuid="c70e4b5c-fbfa-4c8a-9e93-d96b83404ce4"/>
+				<dataSourceExpression><![CDATA[(new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource(java.util.Collections.singleton($F{collections})))]]></dataSourceExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "EndOfReportFinalLoanAmountItemReport.jasper"]]></subreportExpression>
+			</subreport>
+			<subreport>
+				<reportElement x="235" y="15" width="80" height="75" uuid="3c269300-ab09-4a5a-b2af-342f700f28b3"/>
+				<dataSourceExpression><![CDATA[(new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource(java.util.Collections.singleton($F{outstanding})))]]></dataSourceExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "EndOfReportFinalLoanAmountItemReport.jasper"]]></subreportExpression>
+			</subreport>
+			<subreport>
+				<reportElement x="315" y="15" width="80" height="75" uuid="98858c41-2975-4749-a103-8428cb51c96f"/>
+				<dataSourceExpression><![CDATA[(new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource(java.util.Collections.singleton($F{recoveries})))]]></dataSourceExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "EndOfReportFinalLoanAmountItemReport.jasper"]]></subreportExpression>
+			</subreport>
+			<subreport>
+				<reportElement x="395" y="15" width="80" height="75" uuid="5ed478c9-ee95-4384-be2f-2b8bca831f91"/>
+				<dataSourceExpression><![CDATA[(new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource(java.util.Collections.singleton($F{expenses})))]]></dataSourceExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "EndOfReportFinalLoanAmountItemReport.jasper"]]></subreportExpression>
+			</subreport>
+			<subreport>
+				<reportElement x="475" y="15" width="80" height="75" uuid="ecbd8ad9-299a-473e-8865-95d84b0432cd"/>
+				<dataSourceExpression><![CDATA[(new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource(java.util.Collections.singleton($F{refunds})))]]></dataSourceExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "EndOfReportFinalLoanAmountItemReport.jasper"]]></subreportExpression>
+			</subreport>
+			<subreport>
+				<reportElement x="555" y="15" width="80" height="75" uuid="302d78f0-e4c8-4409-ab2b-0dcc1ad48a0d"/>
+				<dataSourceExpression><![CDATA[(new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource(java.util.Collections.singleton($F{outstanding})))]]></dataSourceExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "EndOfReportFinalLoanAmountItemReport.jasper"]]></subreportExpression>
+			</subreport>
+			<subreport>
+				<reportElement x="635" y="15" width="80" height="75" uuid="283eadfc-b938-4f1a-b713-ec10604c902c"/>
+				<dataSourceExpression><![CDATA[(new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource(java.util.Collections.singleton($F{netBanlanceRenewal})))]]></dataSourceExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "EndOfReportFinalLoanAmountItemReport.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+	</detail>
+</jasperReport>

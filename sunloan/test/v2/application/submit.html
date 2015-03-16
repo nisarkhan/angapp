@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="../jquery-2.1.0.js" type="text/javascript"></script>
+        <script src="../jquery.rest.js" type="text/javascript"></script>
+        <script>
+            $(document).ready(function() {
+                var client = new $.RestClient('/sunloans/rest/', {
+                    stringifyData: true,
+                    stripTrailingSlash: true,
+                    ajax: {
+                        dataType: 'json',
+                        async: false,
+
+                        /* 
+                         * The following will force empty string responses to 
+                         * null.  This will make 201 created empty responses
+                         * work with ajax correctly.
+                         */
+                        dataFilter: function(data, type) {
+                            if (type === 'json' && data === '') {
+                                data = null;
+                            }
+                            return data;
+                        }
+                        
+                    }
+                });
+
+                client.add('application');
+
+                $('#app1').click(function(e) {
+                    var data = {
+                        "id": "",
+                        "last_name": "Dude",
+                        "first_name": "The",
+                        "middle_name": "",
+                        "social_security_number": "111111111",
+                        "prefix": "2",
+                        "suffix": "1",
+                        "date_of_birth": "3/7/1960",
+                        "remarks": "This is an area to write comments about the borrower",
+                        "high_credit": "0.00",
+                        "email_address": "",
+                        "number_of_dependents": "0",
+                        "home_city": "",
+                        "home_city_how_long": 1,
+                        "requested_amount": "500",
+                        "ownership_type_id": "2",
+                        "by_phone": false,
+                        "referral_name": "Dude",
+                        "stability": 2,
+                        "ability": 2,
+                        "willingness": 2,
+                        "security": 2,
+                        "approval_date": "9/9/2013",
+                        "net_loan": "200.00",
+                        "directions_to_residence": "Some text to describe directions to residence",
+                        "denial_reason_id": 1,
+                        "denial_description": "A place to describe the denial reason",
+                        "status_id": 0,
+                        "source_id": "2",
+                        "approved_amount": "0.00",
+                        "joint_borrower_ssn": "999999999",
+                        "joint_relationship": 1,
+                        "residences": [
+                            {
+                                "id": "",
+                                "ownership_type_id": "2",
+                                "verified_by": 1,
+                                "verified_how": 2,
+                                "payment": "900.00",
+                                "how_long": "4",
+                                "year_moved_in": "2014",
+                                "is_primary": true,
+                                "address": "123 Street",
+                                "city": "San Antonio",
+                                "state": "TX",
+                                "zip": "11111",
+                                "zip_four": "1234",
+                                "residence_type": "2",
+                                "description": "An area to type a description"
+                            },
+                            {
+                                "id": "",
+                                "ownership_type_id": "2",
+                                "verified_by": 1,
+                                "verified_how": 2,
+                                "payment": "900.00",
+                                "how_long": "5",
+                                "year_moved_in": "2014",
+                                "is_primary": true,
+                                "address": "254 Spencer Lane",
+                                "city": "San Antonio",
+                                "state": "TX",
+                                "zip": "78201",
+                                "zip_four": "1234",
+                                "residence_type": "2",
+                                "description": "An area to type a description"
+                            }
+                        ],
+                        "phones": [
+                            {
+                                "id": "",
+                                "number": "(111) 111-1111",
+                                "extension": "23",
+                                "phone_type": "2",
+                                "description": "An area to describe the phone number",
+                                "is_primary": true
+                            }
+                        ],
+                        "employers": [
+                            {
+                                "id": "",
+                                "name": "Generic company name",
+                                "address": "2 Street",
+                                "city": "San Antonio",
+                                "state": "TX",
+                                "zip": "11111",
+                                "zip_four": "1234",
+                                "contact_last_name": "Boss",
+                                "contact_first_name": "Mister",
+                                "contact_email_address": "boss@boss.com",
+                                "payment_schedule_id": "5",
+                                "shift": "abc",
+                                "net_income": "0.00",
+                                "net_salary": "1,000.00",
+                                "verified_how": "1",
+                                "verified_by": 1,
+                                "employment_date": "02/12/2014",
+                                "phone_number": "2105555555",
+                                "extension": "321",
+                                "position": "Morning",
+                                "how_long": "22"
+                            }
+                        ],
+                        "debts": [],
+                        "other_debts": [],
+                        "references": [],
+                        "automobiles": [],
+                        "collateral": [],
+                        "phones_types": "2"
+                    };
+                    
+                    var getId = function(xhr) {
+                        var location = xhr.getResponseHeader('location');
+                        var m = /.*\/(.+)$/.exec(location);
+                        return m[1];
+                    }
+                    
+                    
+                    var xhr1 = client.application.create(data),
+                        xhr2 = xhr1.then(function(data, status, xhr) {
+                            return client.application.read(getId(xhr));
+                        }, function(xhr, status, error) {
+                            console.error('failure');
+                        });
+                        
+                    xhr2.then(function(data) {
+                       console.log('all done'); 
+                    }, function(xhr, status, error) {
+                        console.error('failure');
+                    });
+                    
+                });
+            });
+        </script>
+    </head>
+    <body>
+        <a href='javascript:void(0)' id='app1'>submit application 1</a>
+    </body>
+</html>

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="application_verified_method_type" pageWidth="555" pageHeight="802" columnWidth="555" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="a7d0fa04-12e6-481f-9269-a103ecbcd68b">
+	<property name="ireport.zoom" value="1.771561000000001"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="application_verified_method_type_id" class="java.lang.Integer">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="title" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[SELECT
+     application_verified_method_types."verified_name" AS application_verified_method_types_verified_name
+FROM
+     "sunloans"."application_verified_method_types" application_verified_method_types
+WHERE
+application_verified_method_types."verified_id" = $P{application_verified_method_type_id}]]>
+	</queryString>
+	<field name="application_verified_method_types_verified_name" class="java.lang.String"/>
+	<group name="application_verified_method_types_verified_name">
+		<groupExpression><![CDATA[$F{application_verified_method_types_verified_name}]]></groupExpression>
+	</group>
+	<detail>
+		<band height="18" splitType="Stretch">
+			<textField>
+				<reportElement uuid="a65b9eb0-0b07-4ddb-97ce-d0a14a340c2e" x="0" y="8" width="555" height="10"/>
+				<box leftPadding="1"/>
+				<textElement>
+					<font size="7" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{application_verified_method_types_verified_name}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="064d92ac-36b8-45e1-953a-001fe19c87a1" x="0" y="0" width="555" height="9"/>
+				<box leftPadding="1"/>
+				<textElement>
+					<font size="7"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{title}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>

@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+        <style>
+            textarea {
+                height:600px;
+                width:750px;
+            }
+        </style>
+        <script src="/sunloans/html/content/js/library/jquery.js"></script>
+        <script>
+           $(document).ready(function() {
+               
+               $('#show_request_1').click(function(e) {
+                   e.preventDefault();
+                   $('#request_1').show();
+                   $('#request_2').hide();
+               });
+               
+               $('#show_request_2').click(function(e) {
+                   e.preventDefault();
+                   $('#request_1').hide();
+                   $('#request_2').show();
+               });
+               
+               function doRequest(ssn, source) {
+                   /*
+                    var response = $.ajax('/sunloans/ws/application/reset.json?ssn=' + ssn, {
+                        async: false
+                    });
+                    */
+                   
+                   /*
+                   var response = $.ajax('/sunloans/rest/application/' + ssn, {
+                      type: 'DELETE',
+                      async: false
+                   });
+                   */
+                    
+                    $('#response').html(JSON.stringify(response.responseJSON, null, '  '));
+                 
+                    response = $.ajax('/sunloans/ws/application?action=save', {
+                         type: 'POST',
+                         async: false,
+                         data: {
+                             ssn: JSON.parse($(source).val()).social_security_number,
+                             json_raw: $(source).val()
+                         }
+                      });
+                      
+                    $('#response').html(JSON.stringify(response.responseJSON, null, '  '));
+               }
+               
+               $('#do_request_1').click(function(e) {
+                    e.preventDefault();
+                   
+                    $.ajax('/sunloans/rest/application/123456789', {
+                        async: false,
+                        type: 'DELETE'
+                   });
+                   
+                    $.ajax('/sunloans/rest/application/123456790', {
+                        async: false,
+                        type: 'DELETE'
+                   });
+                   
+               });
+               
+               $('#do_request_2').click(function(e) {
+                   e.preventDefault();
+                   doRequest('123456789', '#request_1');
+               });
+               
+               $('#do_request_3').click(function(e) {
+                   e.preventDefault();
+                   doRequest('123456790', '#request_2');
+               });
+               
+               $('#do_request_4').click(function(e) {
+                   e.preventDefault();
+                   var response = $.ajax('/sunloans/ws/application?action=inprogress', {
+                       type: 'POST',
+                       async: false,
+                       contentType: 'application/x-www-form-urlencoded'
+                   });
+                   $('#response').html(JSON.stringify(response.responseJSON, null, '  '));
+               });
+           });
+        </script>
+    </head>
+    <body>
+        <div>
+            <div>
+                <div>
+                    <button id="do_request_1">delete all incomplete apps</button>
+                    <button id="do_request_2">add incomplete app 1</button>
+                    <button id="do_request_3">add incomplete app 2</button>
+                    <button id="do_request_4">list all incomplete apps</button>
+                </div>
+                <div>
+                    <div>
+                        <a href="#" id="show_request_1">show incomplete app 1</a>
+                        <a href="#" id="show_request_2">show incomplete app 2</a>
+                    </div>
+                    <textarea id="request_1">
+{
+  "id": "",
+  "last_name": "Public",
+  "first_name": "John",
+  "middle_name": "Q",
+  "social_security_number": "123456789",
+  "prefix": 2,
+  "suffix": 1,
+  "date_of_birth": "3/7/1960",
+  "remarks": "This is an area to write comments about the borrower",
+  "high_credit": "200.00",
+  "email_address": "sample@server.com",
+  "number_of_dependents": 2,
+  "home_city": "San Antonio",
+  "home_city_how_long": 14,
+  "requested_amount": "300.00",
+  "ownership_type_id": 2,
+  "by_phone": true,
+  "referral_name": "Jane Thompson",
+  "stability": 2,
+  "ability": 2,
+  "willingness": 2,
+  "security": 2,
+  "approval_date": "9/9/2013",
+  "net_loan": "200.00",
+  "directions_to_residence": "Some text to describe directions to residence",
+  "denial_reason_id": 1,
+  "denial_description": "A place to describe the denial reason",
+  "status_id" : 1,
+  "source_id": 0,
+  "approved_amount": "200.00",
+  "joint_borrower_ssn": "999999999",
+  "joint_relationship": 2,
+  "residences": [
+      {
+          "id": "",
+          "ownership_type_id": 2,
+          "verified_by": 1,
+          "verified_how": 2,
+          "payment": "900.00",
+          "how_long": 2,
+          "year_moved_in": 1990,
+          "is_primary": true,
+          "address": "1 Street",
+          "city": "San Antonio",
+          "state": "XX",
+          "zip": "78201",
+          "zip_four": "1234",
+          "type" : 3,
+          "description": "An area to type a description"
+      }
+  ],
+  "phones": [
+      {
+          "id": "",
+          "number": "2105550001",
+          "extension": "23",
+          "type": 2,
+          "description": "An area to describe the phone number",
+          "is_primary": true
+      }
+  ]
+}
+                    </textarea>
+                    <textarea id="request_2" style="display: none">
+{
+  "id": "",
+  "last_name": "Smith",
+  "first_name": "Mike",
+  "middle_name": "Q",
+  "social_security_number": "123456790",
+  "prefix": 2,
+  "suffix": 1,
+  "date_of_birth": "3/7/1960",
+  "remarks": "This is an area to write comments about the borrower",
+  "high_credit": "200.00",
+  "email_address": "sample@server.com",
+  "number_of_dependents": 2,
+  "home_city": "San Antonio",
+  "home_city_how_long": 14,
+  "requested_amount": "300.00",
+  "ownership_type_id": 1,
+  "by_phone": true,
+  "referral_name": "Todd Davila",
+  "stability": 1,
+  "ability": 1,
+  "willingness": 1,
+  "security": 1,
+  "approval_date": "9/9/2013",
+  "net_loan": "120.00",
+  "directions_to_residence": "These are directions to get to Mike Smith's house",
+  "denial_reason_id": 1,
+  "denial_description": "A place to describe the denial reason",
+  "status_id" : 1,
+  "source_id": 0,
+  "approved_amount": "200.00",
+  "joint_borrower_ssn": "999999999",
+  "joint_relationship": 2,
+  "residences": [
+      {
+          "id": "",
+          "ownership_type_id": 2,
+          "verified_by": 1,
+          "verified_how": 2,
+          "payment": "900.00",
+          "how_long": 2,
+          "year_moved_in": 1990,
+          "is_primary": true,
+          "address": "1 Street",
+          "city": "San Antonio",
+          "state": "XX",
+          "zip": "78201",
+          "zip_four": "1234",
+          "type" : 3,
+          "description": "An area to type a description"
+      }
+  ],
+  "phones": [
+      {
+          "id": "",
+          "number": "2105550001",
+          "extension": "23",
+          "type": 2,
+          "description": "An area to describe the phone number",
+          "is_primary": true
+      }
+  ]
+}
+                    </textarea>
+                </div>
+            </div>
+            <div>
+                <textarea id="response">
+                </textarea>
+            </div>
+        </div>
+    </body>
+</html>

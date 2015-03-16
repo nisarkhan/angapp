@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 5.6.2.final using JasperReports Library version 5.6.1  -->
+<!-- 2014-10-22T15:49:25 -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="previous_address" columnCount="2" printOrder="Horizontal" pageWidth="555" pageHeight="802" whenNoDataType="AllSectionsNoDetail" columnWidth="277" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="564d6d4d-9d1d-4ab9-9b88-ee7635d80956">
+	<property name="ireport.zoom" value="2.8531167061100033"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<subDataset name="dataset1" uuid="19d5789d-4f6d-453f-85be-96426033d72d"/>
+	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA[""]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<field name="borrower_residences_address" class="java.lang.String">
+		<fieldDescription><![CDATA[address1]]></fieldDescription>
+	</field>
+	<field name="borrower_residences_city" class="java.lang.String">
+		<fieldDescription><![CDATA[city]]></fieldDescription>
+	</field>
+	<field name="borrower_residences_state" class="java.lang.String">
+		<fieldDescription><![CDATA[state]]></fieldDescription>
+	</field>
+	<field name="borrower_residences_zip" class="java.lang.String">
+		<fieldDescription><![CDATA[zip]]></fieldDescription>
+	</field>
+	<field name="borrower_residences_residence_how_long_id" class="java.lang.String">
+		<fieldDescription><![CDATA[howLong]]></fieldDescription>
+	</field>
+	<field name="borrower_residences_zip_four" class="java.lang.String">
+		<fieldDescription><![CDATA[zip4]]></fieldDescription>
+	</field>
+	<detail>
+		<band height="25" splitType="Stretch">
+			<frame>
+				<reportElement mode="Transparent" x="0" y="0" width="179" height="25" uuid="6858e7e4-4da7-4d5d-95c7-d6cc81016f91"/>
+				<box>
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<staticText>
+					<reportElement x="0" y="0" width="179" height="9" uuid="da4703a7-c2e1-4f96-a6f7-549fc6f2109e"/>
+					<box leftPadding="1"/>
+					<textElement markup="none">
+						<font size="7"/>
+					</textElement>
+					<text><![CDATA[Previous Address:]]></text>
+				</staticText>
+				<textField>
+					<reportElement x="0" y="8" width="179" height="9" uuid="18c76d26-74a8-468d-8b71-114f6225fdba"/>
+					<box leftPadding="2"/>
+					<textElement>
+						<font size="7" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{borrower_residences_address}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="0" y="16" width="179" height="9" uuid="0d64a655-0919-4501-b0af-f6767aa2592c"/>
+					<box leftPadding="2"/>
+					<textElement>
+						<font size="7" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{borrower_residences_city}+", "+
+$F{borrower_residences_state}+" "+
+$F{borrower_residences_zip}+
+(
+    $F{borrower_residences_zip_four} != null &&
+    !$F{borrower_residences_zip_four}.trim().isEmpty() ?
+        "-"+$F{borrower_residences_zip_four} :
+        ""
+)]]></textFieldExpression>
+				</textField>
+			</frame>
+			<frame>
+				<reportElement x="179" y="0" width="98" height="25" uuid="1b5d16bd-8e61-436f-b32a-209f77b78018"/>
+				<box>
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<staticText>
+					<reportElement x="0" y="0" width="98" height="9" uuid="50493bd3-60f1-40f6-a5ac-01d9ff9414bf"/>
+					<box leftPadding="1"/>
+					<textElement markup="none">
+						<font size="7"/>
+					</textElement>
+					<text><![CDATA[How Long:]]></text>
+				</staticText>
+				<textField isBlankWhenNull="true">
+					<reportElement x="0" y="9" width="98" height="16" uuid="2da6cc42-c00d-42f2-88a6-5ca23cc2882a"/>
+					<textElement>
+						<font size="7" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="0" y="9" width="98" height="16" uuid="0225179b-ce8d-46e3-93bb-d2bbceef3b1a"/>
+					<box leftPadding="2"/>
+					<textElement>
+						<font size="7" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{borrower_residences_residence_how_long_id}]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+	</detail>
+</jasperReport>

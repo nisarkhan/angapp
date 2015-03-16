@@ -1,0 +1,243 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="DailyReportMain" pageWidth="802" pageHeight="555" orientation="Landscape" whenNoDataType="AllSectionsNoDetail" columnWidth="762" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="9662a3bc-26db-48b9-8f53-14d4355331d2">
+	<property name="ireport.zoom" value="1.4641000000000022"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<property name="ireport.callouts" value="##Thu Jul 25 11:21:58 CDT 2013"/>
+	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["./"]]></defaultValueExpression>
+	</parameter>
+	<field name="endOfSummaryLoanSumReportBean" class="java.lang.Object">
+		<fieldDescription><![CDATA[endOfSummaryLoanSumReportBean]]></fieldDescription>
+	</field>
+	<field name="endOfSummaryLoanCountsReportBean" class="java.lang.Object">
+		<fieldDescription><![CDATA[endOfSummaryLoanCountsReportBean]]></fieldDescription>
+	</field>
+	<field name="endOfSummaryFinalTotalsBean" class="java.lang.Object">
+		<fieldDescription><![CDATA[endOfSummaryFinalTotalsBean]]></fieldDescription>
+	</field>
+	<field name="endOfSummaryLineSumsReportBean" class="java.lang.Object">
+		<fieldDescription><![CDATA[endOfSummaryLineSumsReportBean]]></fieldDescription>
+	</field>
+	<field name="drawerReportBeans" class="java.util.List">
+		<fieldDescription><![CDATA[drawerReportBeans]]></fieldDescription>
+	</field>
+	<field name="date" class="java.util.Date">
+		<fieldDescription><![CDATA[date]]></fieldDescription>
+	</field>
+	<field name="createdLoanJournalViews" class="java.util.List">
+		<fieldDescription><![CDATA[createdLoanJournalViews]]></fieldDescription>
+	</field>
+	<field name="collectionJournalViews" class="java.util.List">
+		<fieldDescription><![CDATA[collectionJournalViews]]></fieldDescription>
+	</field>
+	<field name="collectionJournalTotalView" class="java.lang.Object">
+		<fieldDescription><![CDATA[collectionJournalTotalView]]></fieldDescription>
+	</field>
+	<field name="refundJournalViews" class="java.util.List">
+		<fieldDescription><![CDATA[refundJournalViews]]></fieldDescription>
+	</field>
+	<field name="refundJournalTotalView" class="java.lang.Object">
+		<fieldDescription><![CDATA[refundJournalTotalView]]></fieldDescription>
+	</field>
+	<field name="generalLedgerPostingViews" class="java.util.List">
+		<fieldDescription><![CDATA[generalLedgerPostingViews]]></fieldDescription>
+	</field>
+	<field name="generalLedgerPostingTotalView" class="java.util.List">
+		<fieldDescription><![CDATA[generalLedgerPostingTotalView]]></fieldDescription>
+	</field>
+	<title>
+		<band height="28" splitType="Stretch">
+			<textField pattern="MM/dd/yyyy">
+				<reportElement x="0" y="0" width="762" height="28" uuid="85a8c141-ea5e-4a62-9c9f-8627137e6564"/>
+				<textElement textAlignment="Center" markup="none">
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA["DAILY REPORT for "+$F{date}]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="20" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="80" height="20" uuid="6906fe73-c073-4f93-ba07-72892d4eafcc"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement x="80" y="0" width="40" height="20" uuid="a30f41a3-6448-45ef-ba93-80ef6b3da7d8"/>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField pattern="MM/dd/yyyy HH.mm.ss">
+				<reportElement x="662" y="0" width="100" height="20" uuid="b7207403-5311-447c-a179-084360698a62"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageHeader>
+	<detail>
+		<band height="10" splitType="Stretch">
+			<subreport>
+				<reportElement stretchType="RelativeToBandHeight" x="0" y="0" width="762" height="10" uuid="dfd76960-16db-4140-8d37-90e71bf81ade"/>
+				<subreportParameter name="SUBREPORT_DIR">
+					<subreportParameterExpression><![CDATA[$P{SUBREPORT_DIR}]]></subreportParameterExpression>
+				</subreportParameter>
+				<dataSourceExpression><![CDATA[(new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource(java.util.Collections.singleton($F{endOfSummaryLineSumsReportBean})))]]></dataSourceExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "EndOfSummaryReport.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+		<band height="10">
+			<subreport>
+				<reportElement positionType="Float" stretchType="RelativeToBandHeight" x="0" y="0" width="420" height="10" uuid="adf4e4f8-c4dd-41c5-a3b3-5d52848fd150"/>
+				<subreportParameter name="SUBREPORT_DIR">
+					<subreportParameterExpression><![CDATA[$P{SUBREPORT_DIR}]]></subreportParameterExpression>
+				</subreportParameter>
+				<dataSourceExpression><![CDATA[(new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource(java.util.Collections.singleton($F{endOfSummaryLoanCountsReportBean})))]]></dataSourceExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "EndOfReportLoanCounts.jasper"]]></subreportExpression>
+			</subreport>
+			<subreport>
+				<reportElement positionType="Float" stretchType="RelativeToBandHeight" x="420" y="0" width="342" height="10" uuid="25f9ade1-43da-4a43-9291-16083a0dd22a"/>
+				<subreportParameter name="SUBREPORT_DIR">
+					<subreportParameterExpression><![CDATA[$P{SUBREPORT_DIR}]]></subreportParameterExpression>
+				</subreportParameter>
+				<dataSourceExpression><![CDATA[(new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource(java.util.Collections.singleton($F{endOfSummaryLoanSumReportBean})))]]></dataSourceExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "EndOfReportLoanAmountReport.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+		<band height="26">
+			<subreport>
+				<reportElement positionType="Float" stretchType="RelativeToBandHeight" x="0" y="16" width="762" height="10" uuid="1f422c37-cc90-4295-b1a1-94c022cb48ea"/>
+				<subreportParameter name="SUBREPORT_DIR">
+					<subreportParameterExpression><![CDATA[$P{SUBREPORT_DIR}]]></subreportParameterExpression>
+				</subreportParameter>
+				<dataSourceExpression><![CDATA[(new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource(java.util.Collections.singleton($F{endOfSummaryFinalTotalsBean})))]]></dataSourceExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "EndOfReportFinalLoanAmountsReport.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+		<band height="55">
+			<staticText>
+				<reportElement positionType="Float" x="0" y="0" width="762" height="33" uuid="cb17326c-3929-4dfd-a708-e2a886dcefde"/>
+				<text><![CDATA[I have reviewed this summary and certify that it is correct where noted. The Total Outstanding Loans on this summary are legitimate loans and the cash count is exactly as stated.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement positionType="Float" x="478" y="34" width="100" height="20" uuid="7ba9aa70-6315-4384-b9e6-505b60005a95"/>
+				<text><![CDATA[The Manager]]></text>
+			</staticText>
+		</band>
+		<band height="25">
+			<subreport>
+				<reportElement positionType="Float" stretchType="RelativeToBandHeight" x="0" y="15" width="762" height="10" uuid="f303adaf-ecfe-4798-a027-02669ed1c0d0"/>
+				<subreportParameter name="SUBREPORT_DIR">
+					<subreportParameterExpression><![CDATA[$P{SUBREPORT_DIR}]]></subreportParameterExpression>
+				</subreportParameter>
+				<dataSourceExpression><![CDATA[(new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{drawerReportBeans}))]]></dataSourceExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "DrawerTransactionJournalReport.jasper"]]></subreportExpression>
+			</subreport>
+			<textField>
+				<reportElement x="0" y="0" width="762" height="15" uuid="1f9492ca-7b85-4c99-9a1c-c7b91f576176"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA["Transaction Journal for " + $F{date}]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="15">
+			<textField>
+				<reportElement x="0" y="0" width="762" height="15" uuid="bd06d696-45d0-4f1f-b17d-dc0fbda0468a"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA["Debit to Line Transfers for " + $F{date}]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="25">
+			<textField>
+				<reportElement x="0" y="0" width="762" height="15" uuid="a39c62b8-9e3a-4fcc-92d5-a7d8fec56d6b"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA["'B' Loan Journal for " + $F{date}]]></textFieldExpression>
+			</textField>
+			<subreport>
+				<reportElement positionType="Float" stretchType="RelativeToBandHeight" x="0" y="15" width="762" height="10" uuid="e78447fd-1d08-44ca-a11e-0fbc2029b770"/>
+				<dataSourceExpression><![CDATA[(new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{createdLoanJournalViews}))]]></dataSourceExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "BalanceRenewalsAndNewLoanReport.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+		<band height="25">
+			<textField>
+				<reportElement x="0" y="0" width="762" height="15" uuid="603f0f5e-6b41-48d7-90cf-1c26ea5b3f0f"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA["Collection Journal for " + $F{date}]]></textFieldExpression>
+			</textField>
+			<subreport>
+				<reportElement positionType="Float" stretchType="RelativeToBandHeight" mode="Opaque" x="0" y="15" width="762" height="10" uuid="cbeb66a8-0b1b-41f5-8d78-087766215ad2"/>
+				<subreportParameter name="SUBREPORT_DIR">
+					<subreportParameterExpression><![CDATA[$P{SUBREPORT_DIR}]]></subreportParameterExpression>
+				</subreportParameter>
+				<dataSourceExpression><![CDATA[(new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{collectionJournalViews}))]]></dataSourceExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "CollectionJournalReport.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+		<band height="11">
+			<line>
+				<reportElement x="0" y="0" width="762" height="1" uuid="d0792df3-85b5-4a98-85f1-1ea2b1575162"/>
+				<graphicElement>
+					<pen lineStyle="Double"/>
+				</graphicElement>
+			</line>
+			<subreport>
+				<reportElement x="0" y="1" width="762" height="10" uuid="6f3ab67b-bd0d-4dd4-a167-c0f82bc47721"/>
+				<dataSourceExpression><![CDATA[(new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource(java.util.Collections.singleton($F{collectionJournalTotalView})))]]></dataSourceExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "CollectionJournalTotalsReport.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+		<band height="26">
+			<subreport>
+				<reportElement x="0" y="16" width="762" height="10" uuid="53bef833-39cb-495f-b48c-7c2b08f760b8"/>
+				<dataSourceExpression><![CDATA[(new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{refundJournalViews}))]]></dataSourceExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "RefundJournalViewReport.jasper"]]></subreportExpression>
+			</subreport>
+			<textField>
+				<reportElement x="0" y="1" width="762" height="15" uuid="c151b5ea-3d2b-4736-8ab7-ad1925c0edd0"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA["'B' Loan Refund Journal for " + $F{date}]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="11">
+			<line>
+				<reportElement x="0" y="0" width="762" height="1" uuid="9792a9c4-2257-4a71-acef-40cb5b0e1c07"/>
+				<graphicElement>
+					<pen lineStyle="Double"/>
+				</graphicElement>
+			</line>
+			<subreport>
+				<reportElement x="0" y="1" width="762" height="10" uuid="09836e88-1fbf-49d4-82ad-b5c72a118865"/>
+				<dataSourceExpression><![CDATA[(new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource(java.util.Collections.singleton($F{refundJournalTotalView})))]]></dataSourceExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "RefundJournalTotalViewReport.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+		<band height="25">
+			<textField>
+				<reportElement x="0" y="0" width="762" height="15" uuid="34f91039-f4b9-4944-8dbb-fbc7102d03c8"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA["Postings from Cash Transfers for " + $F{date}]]></textFieldExpression>
+			</textField>
+			<subreport>
+				<reportElement x="0" y="15" width="762" height="10" uuid="a2e7a6cc-3709-40f4-a157-60dc4068e01f"/>
+				<dataSourceExpression><![CDATA[(new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{generalLedgerPostingViews}))]]></dataSourceExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "GeneralLedgerPostingReport.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+		<band height="26">
+			<subreport>
+				<reportElement x="0" y="16" width="762" height="10" uuid="f0fb599e-cd7f-4816-a71f-ada5129bc31e"/>
+				<dataSourceExpression><![CDATA[(new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{generalLedgerPostingTotalView}))]]></dataSourceExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "GeneralLedgerPostingTotalReport.jasper"]]></subreportExpression>
+			</subreport>
+			<textField>
+				<reportElement x="0" y="1" width="762" height="15" uuid="ac34ba0b-c3fd-4a57-ae56-426d52a50acf"/>
+				<textFieldExpression><![CDATA["Postings from Daily Summaries for " + $F{date}]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="17">
+			<staticText>
+				<reportElement x="0" y="0" width="762" height="17" uuid="27bf8c47-05fc-4763-8edd-a0b8eb3f96a8"/>
+				<text><![CDATA[END OF REPORT]]></text>
+			</staticText>
+		</band>
+	</detail>
+</jasperReport>

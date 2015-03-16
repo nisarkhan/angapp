@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="EndOfReportFinalLoanAmountItemReport" pageWidth="80" pageHeight="802" columnWidth="80" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="9ce7cbae-2bd8-42ea-bfed-626a040b9675">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<field name="lastYearTotals" class="java.math.BigDecimal"/>
+	<field name="lastMonthTotals" class="java.math.BigDecimal"/>
+	<field name="thisMonthTotals" class="java.math.BigDecimal"/>
+	<field name="monthPlusMinus" class="java.math.BigDecimal"/>
+	<field name="yearPlusMinus" class="java.math.BigDecimal"/>
+	<detail>
+		<band height="75" splitType="Stretch">
+			<textField pattern="#,##0.00;-#,##0.00">
+				<reportElement x="0" y="0" width="80" height="15" uuid="8acd1882-1747-46f0-a27f-5345e6684fdd"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[($F{lastYearTotals} == null ? "" : $F{lastYearTotals})]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00;-#,##0.00">
+				<reportElement x="0" y="15" width="80" height="15" uuid="56741755-4c64-4c07-901d-dfd746d20f65"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[($F{lastMonthTotals} == null ? "" : $F{lastMonthTotals})]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00;-#,##0.00">
+				<reportElement x="0" y="30" width="80" height="15" uuid="c89661e0-574f-4783-ae23-0290a84ff045"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[($F{thisMonthTotals} == null ? "" : $F{thisMonthTotals})]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00;-#,##0.00">
+				<reportElement x="0" y="45" width="80" height="15" uuid="19d23b40-83b7-41f2-9382-803c6049a96c"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[($F{monthPlusMinus} == null ? "" : $F{monthPlusMinus})]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00;-#,##0.00">
+				<reportElement x="0" y="60" width="80" height="15" uuid="c7cbadfd-0197-402d-958a-68adde16b6d6"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[($F{yearPlusMinus} == null ? "" : $F{yearPlusMinus})]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>

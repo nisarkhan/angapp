@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>delinquency assignment</title>
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
+        <script src="/sunloans/test/jquery.dataTables.js"></script>
+        <script src="/sunloans/test/jquery.rest.js"></script>
+        <link rel="stylesheet" href="/sunloans/html/content/css/app.css">
+
+        <script>
+
+            $(document).ready(function() {
+
+                var dt = $('#table_data').dataTable({
+                    'bFilter': false,
+                    'bServerSide': true,
+                    'bProcessing': true,
+                    'sAjaxSource': '/sunloans/rest/delinquency/all.dtables',
+                    'sPaginationType': 'full_numbers',
+                    /*
+                     * Used to send extra data to the server when making an Ajax
+                     * request.
+                     */
+                    'fnServerParams': function(aoData) {
+
+                        /*
+                         * Need to somehow configure additional server params
+                         * when I click the button.
+                         */
+                        $('#params select').each(function(index, elm) {
+                            var value = $(elm).val(),
+                                    name = $(elm).attr('name');
+
+                            if (value && value.length > 0) {
+                                aoData.push({'name': name, 'value': value});
+                            }
+
+                        });
+                    },
+
+                    'aoColumns': [
+                        {
+                            'mData': null,
+                            'sTitle': '<span class="fa fa-check"></span>', 
+                            'sWidth': 44,
+                            'bSortable': false,
+                            'mRender': function(data, type, full) {
+                                return '<div class="checkbox" style="margin-top:-8px">' +
+                                  '<input id="checkbox-' + full.id + '" name="checkbox-' + full.id + '" type="checkbox" />' +
+                                  '<label for="checkbox-' + full.id + '" class="label-checkbox"></label>' +
+                                  '<input type="hidden" name="id" value="' + full.id + '" />' +
+                                  '<input type="hidden" name="assignedId" value="' + ((full.assignment_id) ? full.assignment_id : '') + '" />' +
+                                '</div>';
+                            }
+                        },
+                        { 'mData': 'id', 'sName': 'id', 'sTitle': 'Id', 'bVisible': true },
+                        { 'mData': 'assignment_id', 'sName': 'assignId', 'sTitle': 'Assign Id', 'bSortable': false, 'bVisible': true },
+                        { 'mData': 'borrower', 'sName': 'borrower', 'sTitle': 'Borrower' },
+                        { 'mData': 'age', 'sName': 'age', 'sTitle': 'Age' },
+                        { 'mData': 'amount', 'sName': 'amount', 'sTitle': 'Amount' },
+                        { 'mData': 'csr', 'sName': 'assignee', 'sTitle': 'CSR', 'bSortable': false },
+                        { 'mData': 'status', 'sName': 'status', 'sTitle': 'Status', 'bSortable': false }
+                    ]
+
+                }
+                );
+                
+                $.getJSON('/sunloans/rest/employee/search', 'role=csr', function(data) {
+                    
+                    function createOption(id, text) {
+                        var option = document.createElement('option');
+                        option.setAttribute('value', id);
+                        option.innerHTML = text;
+                        return option;
+                    }
+                    
+                    var target = $('#assignee').empty(),
+                        option;
+                        
+                    option = createOption('', '');
+                    target.append(option);
+                    
+                    for(var i = 0; i < data.length; i++) {
+                        option = createOption(data[i].id, data[i].last_name + ', ' + data[i].first_name);
+                        target.append(option);
+                    }
+                    
+                });
+
+                $('#search').click(function() {
+                    dt.fnDraw();
+                });
+                
+                $('#assign').click(function() {
+                    
+                    var assignee = $('#assignee').val();
+                    var client = new $.RestClient('/sunloans/rest/', {
+                        stringifyData: true,
+                        stripTrailingSlash: true
+                    });
+                        
+                    client.add('delinquency');
+                    client.add('employee');
+                    client.delinquency.add('assign');
+                    
+                    if(assignee.length > 0) {
+
+                        $('input[type=checkbox]').each(function(index, elm) {
+                            var td, delinquencyId, assignedId, request;
+                          
+                            if(elm.checked) {
+                                
+                                td = $(elm).parents('td');
+                                delinquencyId = $('input[type=hidden][name=id]', td).val();
+                                assignedId = $('input[type=hidden][name=assignedId]', td).val();
+                                 
+                                if(!assignedId) {
+                                    request = client.delinquency.assign.create(delinquencyId, {
+                                       employee_id: assignee 
+                                    });
+                                } else {
+                                    request = client.delinquency.assign.update(delinquencyId, {
+                                       employee_id: assignee 
+                                    });
+                                }
+                                
+                                request.always(function(xhr) {
+
+                                        var row = $(elm).parents('tr');
+                                        
+                                        client.delinquency.read(delinquencyId + '.dtables').done(function(data) {
+                                           dt.fnUpdate(data, row.get(0), undefined, false, false);
+                                        });
+
+                                });
+
+                            }
+
+                        });
+
+                    }
+                    
+                });
+
+            });
+        </script>
+        <style>
+            .label {
+                float: left;
+                width: 8em
+            }
+        </style>
+    </head>
+    <body>
+        <div>
+
+            <section class="content">
+
+                <div class="container_12 box">
+
+                    <div class="grid_12">
+
+                        <div class="widget-gridview">
+
+
+
+                            <div id="params">
+                                <div>
+                                    <div class="label">age</div>
+                                    <div>
+                                        <select name="age" id="age">
+                                            <option></option>
+                                            <option value="1">Slow</option>
+                                            <option value="2">30 day</option>
+                                            <option value="3">60 day</option>
+                                            <option value="4">90 day</option>
+                                            <option value="5">91+ days</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div>
+                                    <div class="label">amount</div>
+                                    <div>
+                                        <select name="amount" id="amount">
+                                            <option></option>
+                                            <option value="0-100">$0 - $100</option>
+                                            <option value="101-150">$101 - $150</option>
+                                            <option value="151-200">$151 - $200</option>
+                                            <option value="201-250">$201 - $250</option>
+                                            <option value="251-300">$251 - $300</option>
+                                            <option value="301-350">$301 - $350</option>
+                                            <option value="351-400">$351 - $400</option>
+                                            <option value="401-450">$401 - $450</option>
+                                            <option value="451-500">$451 - $500</option>
+                                            <option value="501-550">$501 - $550</option>
+                                            <option value="551-800">$551 - $800</option>
+                                            <option value="801-1000">$801 - $1000</option>
+                                            <option value="1001-2000">$1001 - $2000</option>
+                                            <option value="2001-3000">$2001 - $3000</option>
+                                            <option value="3001-4000">$3001 - $4000</option>
+                                            <option value="4001-5000">$4001 - $5000</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div>
+                                    <div class="label">last name</div>
+                                    <div>
+                                        <select name="lastname" id="lastname">
+                                            <option></option>
+                                            <option value="A-D">A - D</option>
+                                            <option value="E-H">E - H</option>
+                                            <option value="I-L">I - L</option>
+                                            <option value="M-P">M - P</option>
+                                            <option value="Q-V">Q - V</option>
+                                            <option value="W-Z">W - Z</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div>
+                                    <div class="label">include assignment</div>
+                                    <div>
+                                        <select name="assigned" id="assigned">
+                                            <option></option>
+                                            <option value="true">Assigned</option>
+                                            <option value="false">Unassigned</option>
+                                        </select>
+                                        
+                                         
+                                    </div>
+                                    
+                                    <button id="search">search</button>
+                                    
+                                </div>
+
+                                <div>
+                                    <form id="assign-collection-to">
+                                        Assign all check to:
+                                        <select name='assignee' id='assignee'></select>
+                                    </form>
+                                    
+                                    <button id="assign"> Assign </button>
+                                </div>
+
+                            </div>
+
+                            <div>
+                                <table id="table_data" width="100%">
+<!--
+                                    <thead>
+                                        <tr>
+                                            <th>id</th>
+                                            <th style="width:12em">Borrower</th>
+                                            <th style="width:8em">Age</th>
+                                            <th style="width:8em">Amount</th>
+                                            <th style="width:12em">Assignee</th>
+                                            <th style="width:8em">Status</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+
+                                    </tbody>
+-->
+                                </table>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        </div>
+    </body>
+</html>

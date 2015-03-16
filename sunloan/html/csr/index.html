@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="sunloan" >
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../favicon.ico">
+
+    <title> Sunloan ® - CSR Dashboard  </title>
+
+    <link href="../assets/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../assets/css/font-awesome.min.css" rel="stylesheet">
+    <link href="../assets/css/sunloan.css" rel="stylesheet">
+    <link href="../assets/css/sunloan.datatable.css" rel="stylesheet">
+    <link href="../assets/css/sunloan.datepicker.css" rel="stylesheet">
+    <link href="../assets/css/sunloan.animate.css" rel="stylesheet">
+    
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="assets/js/vendor/html5shiv.min.js"></script>
+      <script src="assets/js/vendor/respond.min.js"></script>
+    <![endif]-->
+
+  </head>
+
+  <body>
+
+    <sun-header></sun-header>
+    <sun-notification></sun-notification>
+    
+    <ng-view class="fx fx-slide page" ></ng-view>
+
+    <script src="../assets/js/vendor/jquery.min.js"></script>
+    <script src="../assets/js/vendor/bootstrap.min.js"></script>
+    <script src="../assets/js/vendor/angular/angular.js"></script>
+    <script src="../assets/js/vendor/angular/angular-route.js"></script>
+    <script src="../assets/js/vendor/angular/angular-resource.js"></script>
+    <script src="../assets/js/vendor/angular/angular-animate.js"></script>
+    <script src="../assets/js/vendor/angular/angular-cookies.js"></script>
+    <script src="../assets/js/plugins.js"></script>
+    
+    <script src="../common/sunloan.js"></script>
+    <script src="../common/filters.js"></script>
+    <!-- Directives -->
+    <script src="../common/directives/templates.js"></script>
+    <script src="../common/directives/gridview.js"></script>
+    <script src="../common/directives/dropdown.js"></script>
+    <script src="../common/directives/mask.js"></script>
+    <script src="../common/directives/form.js"></script>
+    <!-- Services -->
+    <script src="../common/services/storage.js"></script>
+    <script src="../common/services/user.js"></script>
+    <script src="../common/services/drawer.js"></script>
+    <script src="../common/services/line.js"></script>
+    <script src="../common/services/checkbook.js"></script>
+    <script src="../common/services/borrower.js"></script>
+    <script src="../common/services/loan.js"></script>
+    <script src="../common/services/collect.js"></script>
+    <script src="../common/services/application.js"></script>
+    <script src="../common/services/residence.js"></script>
+    <script src="../common/services/employee.js"></script>
+    <script src="../common/services/debt.js"></script>
+    <script src="../common/services/reference.js"></script>
+    <script src="../common/services/automobile.js"></script>
+    <script src="../common/services/collateral.js"></script>
+    
+    <!-- Controllers -->
+    <script src="../common/application/create.js"></script>
+    <script src="../common/application/borrower.js"></script>
+    <script src="../common/application/address.js"></script>
+    <script src="../common/application/options.js"></script>
+    <script src="../common/application/review.js"></script>
+    <script src="../common/application/decision.js"></script>
+    <script src="dashboard/controller.js"></script>
+    <script src="routes.js"></script>
+    
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug 
+    <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
+    -->
+  </body>
+</html>

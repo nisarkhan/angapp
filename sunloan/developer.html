@@ -1,0 +1,124 @@
+<!--
+ Copyright 2010 Brundage Management Company, Inc. All rights reserved
+-->
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+        <script>
+            $(document).ready(function() {
+                $('#logout').click(function(e) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    myCall();
+                });
+            });
+
+            function myCall() {
+                var request = $.ajax({
+                    url: "./rest/auth/logout",
+                    type: "GET",
+                    dataType: "html"
+                });
+
+                request.success(function(msg) {
+                    $("#mybox").html(msg);
+                    window.location = "./login.html";
+                });
+
+                request.fail(function(jqXHR, textStatus) {
+                    //alert("Request failed: " + textStatus);
+                    $("#mybox").html("Unable to logout: " + textStatus);
+                });
+            }
+        </script>
+        <style>
+            .api-head {
+               font-weight: bold;
+               background-color: #f6f6f6;
+               border-bottom: solid 1px lightgrey;
+               padding: 0.3em;
+            }
+            
+            .api-body {
+                padding: 0.3em;
+            }
+        </style>
+    </head>
+    <body>
+        <div>
+            <div id="mybox"></div>
+            <div><a href="html/index.html">dashboard</a></div>
+
+
+            <div style="border:solid 1px lightgrey;margin:0.5em 0">
+                <div class="api-head">api v1</div>
+                <div class="api-body">
+                    <div><a href="servicedoc">description of web services</a></div>
+                    <div>application</div>
+                    <div style="margin-left:1em">
+                        <div><a href="test/application/submit.html">submit test</a></div>
+                        <div><a href="test/application/save.html">save test</a></div>
+                        <div><a href="test/application/review.html">review test</a></div>
+                        <div><a href="test/application/request.html">request test</a></div>
+                        <div><a href="test/application/approve.html">approve test</a></div>
+                        <div><a href="test/application/deny.html">deny test</a></div>
+                        <div><a href="test/application/inprogress.html">inprogress test</a></div>
+                        <div><a href="test/application/inprogress_request.html">inprogress request test</a></div>
+                    </div> 
+                    <div>borrower</div>
+                    <div style="margin-left:1em">
+                        <div><a href="test/borrower/search.html">search test</a></div>
+                        <div><a href="test/borrower/search_datatables.html">search test with datatables</a></div>
+                    </div>
+
+                    <div>
+                        <a href="test/reports/report.html">report test</a>
+                    </div>
+
+                </div>
+            </div>
+
+            <div style="border:solid 1px lightgrey;margin:0.5em 0">
+                <div class="api-head">api v2</div>
+                <div class="api-body">
+                    <div><a href="servicedoc/v2">description of web services</a></div>
+                    <div>application</div>
+                    <div style="margin-left:1em">
+                        <div><a href="test/v2/application/inprogress.html">in-progress</a></div>
+                        <div><a href="test/v2/application/inreview.html">in-review</a></div>
+                   
+                    </div> 
+                    <div>borrower</div>
+                    <div style="margin-left:1em">
+                        <div><a href="test/v2/borrower/search.html">search test</a></div>
+                        <div><a href="test/v2/borrower/search_datatables.html">search test with datatables</a></div>
+                    </div>
+                    
+                    <div>application</div>
+                    <div style="margin-left:1em">
+                        <div><a href="test/v2/application/flow/index.html">prepare application</a></div>
+                    </div>
+                    
+                    <div>loan</div>
+                    <div style="margin-left:1em">
+                        <div><a href="test/v2/loan/payment.html">payment</a></div>
+                    </div>
+                    
+                    <div>
+                        <div>delinquency assignment</div>
+                        <div style="margin-left: 1em"><a href="test/v2/delinquency/assignment.html">assignment</a></div>
+                    </div>
+
+                    <div>
+                        <a href="test/v2/reports/report.html">report test</a>
+                    </div>
+
+                </div>
+            </div>
+
+            <input id="logout" type="button" value="Logout" />
+
+        </div>
+    </body>
+</html>

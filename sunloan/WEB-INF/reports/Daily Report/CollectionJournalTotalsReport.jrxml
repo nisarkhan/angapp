@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="CollectionJournalTotalsReport" pageWidth="802" pageHeight="555" orientation="Landscape" columnWidth="802" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="7b259f81-5d00-405e-b762-6055e5e2dd63">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<field name="count" class="java.lang.Long">
+		<fieldDescription><![CDATA[count]]></fieldDescription>
+	</field>
+	<field name="cash" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[cash]]></fieldDescription>
+	</field>
+	<field name="renewal" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[renewal]]></fieldDescription>
+	</field>
+	<field name="lateCharge" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[lateCharge]]></fieldDescription>
+	</field>
+	<field name="maturityInterest" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[maturityInterest]]></fieldDescription>
+	</field>
+	<field name="refund" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[refund]]></fieldDescription>
+	</field>
+	<field name="balance" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[balance]]></fieldDescription>
+	</field>
+	<detail>
+		<band height="20" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="100" height="20" uuid="d2bb5ab1-d29c-450d-a0fc-af146a79bb28"/>
+				<textFieldExpression><![CDATA["TOTALS: " + $F{count}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00">
+				<reportElement x="220" y="0" width="50" height="20" uuid="9e34f3e8-fa64-4562-a0b1-91df6bda8ee6"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[$F{cash}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00">
+				<reportElement x="270" y="0" width="50" height="20" uuid="13ad53be-9916-45f6-beda-c777c1f4cbb4"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[$F{renewal}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00">
+				<reportElement x="320" y="0" width="50" height="20" uuid="565743af-2669-4067-9d70-89f58fe3853c"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[$F{lateCharge}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00">
+				<reportElement x="370" y="0" width="50" height="20" uuid="28bbc44e-9f37-4053-ba3b-bfaa5bbd267e"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[$F{maturityInterest}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="470" y="0" width="50" height="20" uuid="32964f9c-f3a8-4d38-b34c-5fd33b395fe4"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA["??"]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00">
+				<reportElement x="420" y="0" width="50" height="20" uuid="7cac72c6-a2b5-4cfe-a073-da5fcc4cacdb"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[$F{refund}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="520" y="0" width="50" height="20" uuid="b6345eda-eae7-40e4-9bf3-d95a4b1442eb"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA["??"]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00">
+				<reportElement x="570" y="0" width="50" height="20" uuid="c52d3c68-6787-4383-946d-eea2b5d6537b"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[$F{balance}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>

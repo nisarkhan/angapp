@@ -1,0 +1,453 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Alpha_list_report2" pageWidth="792" pageHeight="612" orientation="Landscape" columnWidth="752" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="b03013e7-822f-40fd-bc3d-a9a4d6cb2691">
+	<property name="ireport.zoom" value="1.5"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="OfficeID" class="java.lang.Integer">
+		<defaultValueExpression><![CDATA[1]]></defaultValueExpression>
+	</parameter>
+	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["C:\\Work-Temp\\sunloans\\Reports\\Alpha List\\"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="ORDER_BY" class="java.lang.String">
+		<defaultValueExpression><![CDATA["borrowers_last_name"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="SQL_EXPRESSION" class="java.lang.String">
+		<defaultValueExpression><![CDATA["SELECT"+
+"     borrowers.\"last_name\" AS borrowers_last_name,"+
+"     borrowers.\"first_name\" AS borrowers_first_name,"+
+"     borrowers.\"middle_name\" AS borrowers_middle_name,"+
+"     borrowers.\"borrower_id\" AS borrowers_borrower_id,"+
+"     borrowers.\"account_number\" AS borrowers_account_number,"+
+"     borrowers.\"high_credit\" AS borrowers_high_credit,"+
+"     borrowers.\"status\" AS borrowers_status,"+
+"     loans.\"balance\" AS loans_balance,"+
+"     loans.\"amount_advanced\" AS loans_amount_advanced,"+
+"     loans.\"first_due_date\" AS loans_first_due_date,"+
+"     loans.\"date_made\" AS loans_date_made,"+
+"     loans.\"next_due_date\" AS loans_next_due_date,"+
+"     borrowers.\"do_not_make_again\" AS borrowers_do_not_make_again,"+
+"     borrowers.\"do_not_solicit\" AS borrowers_do_not_solicit"+
+"FROM sunloans.loans, sunloans.borrower_loans, sunloans.borrowers"+
+"WHERE loans.loan_id IN (SELECT MAX(borrower_loans.\"loan_id\") FROM sunloans.borrower_loans GROUP BY borrower_loans.\"borrower_id\")"+
+"AND loans.\"loan_id\" = borrower_loans.\"loan_id\""+
+"AND borrower_loans.\"borrower_id\" = borrowers.\"borrower_id\""]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT
+     borrowers."last_name" AS borrowers_last_name,
+     borrowers."first_name" AS borrowers_first_name,
+     borrowers."middle_name" AS borrowers_middle_name,
+     borrowers."borrower_id" AS borrowers_borrower_id,
+     borrowers."account_number" AS borrowers_account_number,
+     borrowers."high_credit" AS borrowers_high_credit,
+     borrowers."status" AS borrowers_status,
+     loans."balance" AS loans_balance,
+     loans."amount_advanced" AS loans_amount_advanced,
+     loans."first_due_date" AS loans_first_due_date,
+     loans."date_made" AS loans_date_made,
+     loans."next_due_date" AS loans_next_due_date,
+     borrowers."do_not_make_again" AS borrowers_do_not_make_again,
+     borrowers."do_not_solicit" AS borrowers_do_not_solicit
+FROM sunloans.loans, sunloans.borrower_loans, sunloans.borrowers
+WHERE loans.loan_id IN (SELECT MAX(borrower_loans."loan_id") FROM sunloans.borrower_loans GROUP BY borrower_loans."borrower_id")
+AND loans."loan_id" = borrower_loans."loan_id"
+AND borrower_loans."borrower_id" = borrowers."borrower_id"
+ORDER BY $P!{ORDER_BY}]]>
+	</queryString>
+	<field name="borrowers_last_name" class="java.lang.String"/>
+	<field name="borrowers_first_name" class="java.lang.String"/>
+	<field name="borrowers_middle_name" class="java.lang.String"/>
+	<field name="borrowers_borrower_id" class="java.lang.Long"/>
+	<field name="borrowers_account_number" class="java.lang.String"/>
+	<field name="borrowers_high_credit" class="java.math.BigDecimal"/>
+	<field name="borrowers_status" class="java.lang.String"/>
+	<field name="loans_balance" class="java.math.BigDecimal"/>
+	<field name="loans_amount_advanced" class="java.math.BigDecimal"/>
+	<field name="loans_first_due_date" class="java.sql.Date"/>
+	<field name="loans_date_made" class="java.sql.Date"/>
+	<field name="loans_next_due_date" class="java.sql.Date"/>
+	<field name="borrowers_do_not_make_again" class="java.sql.Date"/>
+	<field name="borrowers_do_not_solicit" class="java.sql.Date"/>
+	<variable name="BACKGROUND" class="java.lang.Integer" resetType="None" calculation="DistinctCount">
+		<variableExpression><![CDATA[$F{borrowers_account_number}]]></variableExpression>
+		<initialValueExpression><![CDATA[0]]></initialValueExpression>
+	</variable>
+	<title>
+		<band height="35" splitType="Stretch">
+			<staticText>
+				<reportElement uuid="846105a0-f8c0-4931-ba14-44fc67752184" x="0" y="0" width="752" height="35"/>
+				<textElement textAlignment="Center">
+					<font size="24" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[Sunloan Alpha List]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="35" splitType="Stretch">
+			<textField evaluationTime="Report">
+				<reportElement uuid="b2f227ec-47ed-4370-9bf6-6b26eb26cbad" x="80" y="0" width="40" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement uuid="828891ae-c9ff-4e04-b1b5-287615721cfd" x="652" y="0" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="a6083004-d43c-45c4-96ea-0a5224b92659" x="0" y="0" width="80" height="20"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="20" splitType="Stretch">
+			<staticText>
+				<reportElement uuid="60d1dc07-cc55-4e96-961e-ec1ca4e0e596" x="458" y="0" width="34" height="20"/>
+				<box topPadding="1" leftPadding="1">
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement>
+					<font size="7"/>
+				</textElement>
+				<text><![CDATA[RENEW]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="e0456411-c2b7-441c-8a4d-507ab69724bf" x="315" y="0" width="28" height="20"/>
+				<box topPadding="1" leftPadding="1">
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement>
+					<font size="7"/>
+				</textElement>
+				<text><![CDATA[ADV]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="85360e1a-091b-4a19-9bda-a6333edd99ca" x="429" y="0" width="29" height="20"/>
+				<box topPadding="1" leftPadding="1">
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement>
+					<font size="7"/>
+				</textElement>
+				<text><![CDATA[DUE]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="9c7c7416-e46e-4839-9229-f6ac93b3f960" x="647" y="0" width="49" height="20"/>
+				<box topPadding="1" leftPadding="1">
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement>
+					<font size="7"/>
+				</textElement>
+				<text><![CDATA[WORK]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="f8fdcc9b-73a7-467f-bc9a-d1513c051a9e" x="35" y="0" width="25" height="20"/>
+				<box topPadding="1" leftPadding="1">
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement>
+					<font size="7"/>
+				</textElement>
+				<text><![CDATA[COL]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="52c1fabb-bee3-489f-bc3a-6432a2e1ec27" x="0" y="0" width="35" height="20"/>
+				<box topPadding="1" leftPadding="1">
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement>
+					<font size="7"/>
+				</textElement>
+				<text><![CDATA[Account
+Num]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="7c4b1fd2-3543-4049-b778-5ab53b0daa30" x="343" y="0" width="26" height="20"/>
+				<box topPadding="1" leftPadding="1">
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement>
+					<font size="7"/>
+				</textElement>
+				<text><![CDATA[HI]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="e873bb7f-5aa7-4f39-917f-e9bb0c2e33a4" x="167" y="0" width="102" height="20"/>
+				<box topPadding="1" leftPadding="1">
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement>
+					<font size="7"/>
+				</textElement>
+				<text><![CDATA[Home Address]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="13172860-90ae-4260-b981-1b4c50634feb" x="598" y="0" width="49" height="20"/>
+				<box topPadding="1" leftPadding="1">
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement>
+					<font size="7"/>
+				</textElement>
+				<text><![CDATA[HOME]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="2927a2ea-3e50-46d6-9ab9-194f2d54d685" x="369" y="0" width="42" height="20"/>
+				<box topPadding="1" leftPadding="1">
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement>
+					<font size="7"/>
+				</textElement>
+				<text><![CDATA[Balance]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="b1d379fd-d715-4c50-8ee5-76219afe3401" x="60" y="0" width="107" height="20"/>
+				<box topPadding="1" leftPadding="1">
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement>
+					<font size="7"/>
+				</textElement>
+				<text><![CDATA[Borrower Name]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="d9cbe818-87ee-476e-8139-8e8378cc03d8" x="696" y="0" width="56" height="20"/>
+				<box topPadding="1" leftPadding="1">
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement>
+					<font size="7"/>
+				</textElement>
+				<text><![CDATA[Spouse]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="4b92d865-62a9-4705-8b77-48d9541d26d5" x="269" y="0" width="46" height="20"/>
+				<box topPadding="1" leftPadding="1">
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement>
+					<font size="7"/>
+				</textElement>
+				<text><![CDATA[MADE]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="0c9cb9d3-d89c-4e75-a551-e489833599f2" x="492" y="0" width="106" height="20"/>
+				<box topPadding="1" leftPadding="1">
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement>
+					<font size="7"/>
+				</textElement>
+				<text><![CDATA[WORK]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="e9204548-1f9d-4329-b5aa-9e4cb2247e69" x="411" y="0" width="18" height="20"/>
+				<box topPadding="1" leftPadding="1">
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement>
+					<font size="7"/>
+				</textElement>
+				<text><![CDATA[Day]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="21" splitType="Stretch">
+			<staticText>
+				<reportElement uuid="41db5b6f-be96-4851-bffe-8714131710d1" mode="Opaque" x="0" y="0" width="752" height="20" backcolor="#CCCCCC">
+					<printWhenExpression><![CDATA[($V{BACKGROUND}.intValue() % 2) == 1]]></printWhenExpression>
+				</reportElement>
+				<textElement>
+					<font size="7"/>
+				</textElement>
+				<text><![CDATA[ ]]></text>
+			</staticText>
+			<line>
+				<reportElement uuid="69d29953-5aa7-430e-8e71-5439847d631b" x="0" y="20" width="752" height="1"/>
+			</line>
+			<textField>
+				<reportElement uuid="82d422a4-9919-4e74-8ada-969ac2620455" x="60" y="0" width="107" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font size="7"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{borrowers_last_name} + ", " + $F{borrowers_first_name}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="97b42b11-41dd-4bb6-bf07-4d6fdffc52ff" x="0" y="0" width="35" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font size="7"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{borrowers_account_number}]]></textFieldExpression>
+			</textField>
+			<subreport>
+				<reportElement uuid="d81ef2d1-be7f-435e-abcf-b4d77a85eb97" x="167" y="1" width="102" height="20"/>
+				<subreportParameter name="borrowerID">
+					<subreportParameterExpression><![CDATA[$F{borrowers_borrower_id}]]></subreportParameterExpression>
+				</subreportParameter>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "Alpha_list_report2_address.jasper"]]></subreportExpression>
+			</subreport>
+			<subreport>
+				<reportElement uuid="ee26af87-8002-40f2-8c3c-69188caaf3d3" x="492" y="1" width="106" height="19"/>
+				<subreportParameter name="borrowerID">
+					<subreportParameterExpression><![CDATA[$F{borrowers_borrower_id}]]></subreportParameterExpression>
+				</subreportParameter>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "Alpha_list_report2_work.jasper"]]></subreportExpression>
+			</subreport>
+			<textField>
+				<reportElement uuid="42a3b4c0-c6c1-4888-8d3b-470d62303b43" x="35" y="1" width="25" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font size="7"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{borrowers_status}.toUpperCase()]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="bebcea3f-641f-4ef6-8d0f-b52e7bebcfdf" x="343" y="0" width="26" height="20"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="7"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{borrowers_high_credit}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="82d30957-be84-4b57-82da-a3650e40f05f" x="369" y="0" width="42" height="20"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="7"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{loans_balance}]]></textFieldExpression>
+			</textField>
+			<subreport>
+				<reportElement uuid="322d5a71-2d41-48dc-8efc-e152e9200378" x="598" y="1" width="49" height="19"/>
+				<subreportParameter name="borrowerID">
+					<subreportParameterExpression><![CDATA[$F{borrowers_borrower_id}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="phoneTypeID">
+					<subreportParameterExpression><![CDATA[1]]></subreportParameterExpression>
+				</subreportParameter>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "Alpha_list_report2_phone_number.jasper"]]></subreportExpression>
+			</subreport>
+			<subreport>
+				<reportElement uuid="3ecfe990-d6eb-4ead-abdb-fb61dbc2c37d" x="647" y="0" width="49" height="19"/>
+				<subreportParameter name="borrowerID">
+					<subreportParameterExpression><![CDATA[$F{borrowers_borrower_id}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="phoneTypeID">
+					<subreportParameterExpression><![CDATA[2]]></subreportParameterExpression>
+				</subreportParameter>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "Alpha_list_report2_phone_number.jasper"]]></subreportExpression>
+			</subreport>
+			<textField>
+				<reportElement uuid="493e2711-ac18-495a-8c6d-ddde9e013b6e" x="269" y="1" width="46" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font size="7"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new SimpleDateFormat("MMdd").format($F{loans_first_due_date})]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="eb98ada0-145a-486f-b625-7020fec4bd98" x="315" y="1" width="28" height="20"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="7"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{loans_amount_advanced}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="2ad906b4-c194-473b-a576-07e205746cd2" x="411" y="0" width="18" height="20"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="7"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new SimpleDateFormat("dd").format($F{loans_first_due_date})]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="f340e46a-0226-4974-8947-aa6d2605cb4a" x="458" y="1" width="34" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font size="7"/>
+				</textElement>
+				<textFieldExpression><![CDATA[($F{borrowers_status} == "PL" ? "PL" :
+    ($F{borrowers_do_not_make_again} != null? "DMA" :
+        ($F{borrowers_do_not_solicit} != null ? "DNS" :
+            $F{borrowers_high_credit}
+        )
+    )
+)]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<noData>
+		<band height="20">
+			<staticText>
+				<reportElement uuid="89fb1fff-d50e-49bf-84b2-088fbf10e1bd" x="0" y="0" width="752" height="20"/>
+				<textElement textAlignment="Center" markup="none"/>
+				<text><![CDATA["-- No data found at this time --"]]></text>
+			</staticText>
+		</band>
+	</noData>
+</jasperReport>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <script src="/sunloans/html/content/js/library/jquery.js"></script>
+        <script src="/sunloans/html/content/js/library/ICanHaz.js"></script>
+        <script src="/sunloans/test/test.js"></script>
+        <script id='inprogress' type='text/html'>
+            {{#inprogress}}
+                <div>
+                    <a href='new.html?{{id}}'>{{last_name}}, {{first_name}} ({{ssn}})</a>
+                    <a href='#' application='{{id}}' class='delete-app'>delete</a>
+                </div>
+            {{/inprogress}}
+        </script>
+        <script id='submitted' type='text/html'>
+            {{#submitted}}
+            {{/submitted}}
+        </script>
+        <script>
+            $(document).ready(function() {
+                var inprogress = test.get('rest/application?show=inprogress');
+                
+                var target = document.getElementById('inprogress-target');
+                target.innerHTML = ich.inprogress({'inprogress': inprogress}, true);
+                  
+                var submitted = test.get('rest/application?show=submitted');
+                
+                $('.delete-app').click(function(e) {
+                   e.preventDefault();
+                   
+                   var ssn = $(this).attr('application');
+                   
+                   test.delete('rest/application/{0}'.format(ssn), {
+                       success: function() {
+                           window.location.reload();
+                       }
+                   });
+                });
+
+            });
+        </script>
+    </head>
+    <body>
+        <div>
+            <a id='next' href="new.html">start application</a>
+        </div>
+        <div id='inprogress-target'></div>
+        <div id='submitted-target'></div>
+    </body>
+</html>

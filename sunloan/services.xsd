@@ -1,0 +1,79 @@
+<?xml version="1.0"?>
+<xsd:schema version="1.0"
+    xmlns="urn:sunshine.local"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    elementFormDefault="qualified"
+    targetNamespace="urn:sunshine.local">
+    
+    <xsd:annotation>
+        <xsd:documentation xml:lang="en">
+            Description goes here
+        </xsd:documentation>
+    </xsd:annotation>
+
+    <xsd:element name="api" type="apiType" />
+    
+    <xsd:complexType name="apiType">
+        <xsd:sequence>
+            <xsd:element name="endpoint" type="endpointType" minOccurs="1" maxOccurs="unbounded" />
+        </xsd:sequence>
+    </xsd:complexType>
+    
+    <xsd:complexType name="endpointType">
+        <xsd:sequence>
+            <xsd:element name="url" type="xsd:string">
+                <xsd:annotation>
+                    <xsd:documentation>
+                        URL of endpoint
+                    </xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="description" type="xsd:string" minOccurs="1" />
+            <xsd:element name="request" minOccurs="1" type="requestType" />
+            <xsd:element name="response" minOccurs="1" type="responseType" />
+        </xsd:sequence>
+    </xsd:complexType>
+
+    
+    <xsd:complexType name="requestType">
+        <xsd:sequence>
+            <xsd:element name="parameter" type="parameterType" minOccurs="0" maxOccurs="unbounded" />
+        </xsd:sequence>
+        <xsd:attribute name="contentType" use="optional" type="contentTypeType" />
+        <xsd:attribute name="method" use="required" type="methodType" />
+    </xsd:complexType>
+    
+    <xsd:simpleType name="methodType">
+        <xsd:restriction base="xsd:string">
+            <xsd:enumeration value="GET" />
+            <xsd:enumeration value="POST" />
+            <xsd:enumeration value="PUT" />
+            <xsd:enumeration value="DELETE" />
+        </xsd:restriction>
+    </xsd:simpleType>
+    
+    <xsd:complexType name="responseType">
+        <xsd:sequence>
+            <xsd:element name="json" type="xsd:string" minOccurs="0" maxOccurs="unbounded" />
+        </xsd:sequence>
+        <xsd:attribute name="contentType" use="optional" type="contentTypeType" />
+    </xsd:complexType>
+    
+    
+    <xsd:simpleType name="contentTypeType">
+        <xsd:restriction base="xsd:string">
+            <xsd:enumeration value="application/x-www-form-urlencoded" />
+            <xsd:enumeration value="application/json" />
+        </xsd:restriction>
+    </xsd:simpleType>
+    
+    <xsd:complexType name="parameterType">
+        <xsd:complexContent>
+            <xsd:restriction base="xsd:anyType">
+                <xsd:attribute name="name" type="xsd:string" use="required" />
+                <xsd:attribute name="value" type="xsd:string" use="optional" />
+            </xsd:restriction>
+        </xsd:complexContent>
+    </xsd:complexType>
+
+</xsd:schema>

@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <script src="/sunloans/html/content/js/library/jquery.js"></script>
+        <script src="/sunloans/html/content/js/library/ICanHaz.js"></script>
+        <script src="/sunloans/test/test.js"></script>
+        <script id="address" type="text/html">
+            <dl>
+                
+                <dt>address</dt>
+                <dd><input type="text" name="address" value="{{address.address}}" /></dd>
+                
+                <dt>city</dt>
+                <dd><input type="text" name="city" value="{{address.city}}" /></dd>
+                
+                <dt>state</dt>
+                <dd>
+                    <select id="state" name="state">
+                        {{#states}}
+                        <option value="{{abbrev}}">{{abbrev}} - {{name}}</option>
+                        {{/states}}
+                    </select>
+                </dd>
+                
+                <dt>zip</dt>
+                <dd><input type="text" name="zip" value="{{address.zip}}" maxlength='5' /></dd>
+                
+                <dt>how long</dt>
+                <dd>
+                    <select name="how_long">
+                        {{#timespans}}
+                        <option value="{{id}}">{{name}}</option>
+                        {{/timespans}}
+                    </select>
+                </dd>
+                
+                <dt>residence</dt>
+                <dd>
+                    <select name="residence_type_id">
+                        {{#residences}}
+                        <option value="{{id}}">{{name}}</option>
+                        {{/residences}}
+                    </select>
+                </dd>
+                
+                <dt>ownership</dt>
+                <dd>
+                    <select name="ownership">
+                        {{#residenceownerships}}
+                        <option value="{{id}}">{{name}}</option>
+                        {{/residenceownerships}}
+                    </select>
+                </dd>
+                
+                <dt>year moved in</dt>
+                <dd>
+                    <select name="year">
+                        {{#years}}
+                        <option value="{{.}}">{{.}}</option>
+                        {{/years}}
+                    </select>
+                </dd>
+                
+            </dl>
+            <div>
+                <a href="javascript:void(0)" id="prev">< previous</a>
+                <a href="javascript:void(0)" id="save">save</a>
+                <a href="javascript:void(0)" id="next">next ></a>
+                <span id="message"></span>
+            </div>
+        </script>
+        <script>
+            $(document).ready(function() {
+                var address = test.get('rest/application/{0}/borrower/residence/1'.format(test.session.appId)) || {};                    
+
+                document.body.innerHTML = ich.address({
+                    "address": address,
+                    "states": test.get('rest/application/state'),
+                    "years":  test.get('rest/application/year'),
+                    "timespans": test.get('rest/application/timespan'),
+                    "residences": test.get('rest/application/residence'),
+                    "residenceownerships": test.get('rest/application/residenceownership')
+                }, true);
+                
+                // select dropdown value
+                test.elm('state').value = address.state;
+                
+                $('#save').click(function(e) {
+                   e.preventDefault();
+                   
+                   var form = test.getForm();
+                   
+                   test.put('rest/application/{0}/borrower/residence/1'.format(test.session.appId), {
+                       data: JSON.stringify(form),
+                       success: function() {
+                            $('#message').text('saved successfully').fadeOut(2000);
+                       },
+                       error: function(xhr, status, error) {
+                           $('#message').text(status + ": " + xhr.status + " " + error);
+                       }
+                   });
+                   
+                });
+                
+                $('#next').click(function(e) {
+                    e.preventDefault();
+                    
+                    var form = test.getForm();
+                    
+                    test.put('rest/application/{0}/borrower/residence/1'.format(test.session.appId), {
+                       data: JSON.stringify(form),
+                       success: function() {
+                           window.location.href = 'options.html';
+                       },
+                       error: function(xhr, status, error) {
+                            $('#message').text(status + ": " + xhr.status + " " + error);
+                       }
+                    });
+                });
+        
+            });
+        </script>
+    </head>
+    <body>
+    </body>
+</html>

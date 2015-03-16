@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="DelinquencyReport" pageWidth="792" pageHeight="612" orientation="Landscape" columnWidth="752" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="3aee9cb6-b34d-43bd-bed5-795a2c36bcfa">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<field name="accountNumber" class="java.lang.String"/>
+	<field name="fullName" class="java.lang.String"/>
+	<field name="nextDue" class="java.util.Date"/>
+	<field name="lastTransaction" class="java.util.Date"/>
+	<field name="slow" class="java.lang.Double"/>
+	<field name="oneToThirtyDaysLate" class="java.lang.Double"/>
+	<field name="thirtyOneToSixtyDaysLate" class="java.lang.Double"/>
+	<field name="sixtyToNinetyDaysLate" class="java.lang.Double"/>
+	<field name="ninetyOnePlusDaysLate" class="java.lang.Double"/>
+	<field name="payment" class="java.lang.Double"/>
+	<variable name="BACKGROUND" class="java.lang.Integer" resetType="None" calculation="DistinctCount">
+		<variableExpression><![CDATA[$F{accountNumber}]]></variableExpression>
+		<initialValueExpression><![CDATA[0]]></initialValueExpression>
+	</variable>
+	<title>
+		<band height="47" splitType="Stretch">
+			<staticText>
+				<reportElement uuid="2e01808f-7e97-4875-879c-f193c4391b14" x="0" y="0" width="752" height="47"/>
+				<textElement textAlignment="Center">
+					<font size="36" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[Delinquency Report]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="20" splitType="Stretch">
+			<textField>
+				<reportElement uuid="c284077d-e15c-40ec-b0c9-265e757ecb63" x="0" y="0" width="80" height="20"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement uuid="1b7060ec-c7bb-42e7-bafc-c05e57edfeb9" x="80" y="0" width="40" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField pattern="MMMMM dd, yyyy">
+				<reportElement uuid="9769ad6b-5cb6-4c49-b180-d17fc8071dd4" x="652" y="0" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="22" splitType="Stretch">
+			<staticText>
+				<reportElement uuid="e23374fd-d303-4a10-a673-88052cd45e42" x="0" y="1" width="55" height="20"/>
+				<textElement/>
+				<text><![CDATA[Account Number]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="0b5700d2-0344-4fde-8c77-28cd0d8c1ec8" x="55" y="1" width="162" height="20"/>
+				<textElement/>
+				<text><![CDATA[Name]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="94cdd9cc-769e-444e-a01a-080d84678d5c" x="217" y="0" width="55" height="20"/>
+				<textElement/>
+				<text><![CDATA[Next Due]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="a409357e-deb1-42ae-8ec3-839f0d798a2e" x="272" y="0" width="60" height="20"/>
+				<textElement/>
+				<text><![CDATA[Last Trans]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="82226861-a2c4-4088-8e6e-bdab88f9c9df" x="402" y="0" width="70" height="20"/>
+				<textElement/>
+				<text><![CDATA[1-30]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="23b7f1e4-2545-483c-9c06-0bad409d6f35" x="612" y="0" width="70" height="20"/>
+				<textElement/>
+				<text><![CDATA[91+]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="36e2719e-50dd-4d81-9b80-310490949653" x="542" y="0" width="70" height="20"/>
+				<textElement/>
+				<text><![CDATA[60-90]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="2de02a87-c907-4f3d-ad99-9537e34b02d5" x="472" y="0" width="70" height="20"/>
+				<textElement/>
+				<text><![CDATA[30-60]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="bb19c947-88aa-49ac-bb86-06cb1dcbd3a5" x="332" y="0" width="70" height="20"/>
+				<textElement/>
+				<text><![CDATA[Slow]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="425d1997-65ba-48dc-9b14-f3a4636e7cfa" x="682" y="0" width="70" height="20"/>
+				<textElement/>
+				<text><![CDATA[Payment]]></text>
+			</staticText>
+			<line>
+				<reportElement uuid="6fc3cb04-48be-4cc1-91f0-750705da1e85" x="0" y="21" width="752" height="1"/>
+			</line>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="20" splitType="Stretch">
+			<staticText>
+				<reportElement uuid="65dd967c-c03f-488b-aadb-02c8ffb78fcc" mode="Opaque" x="0" y="0" width="752" height="20" backcolor="#CCCCCC">
+					<printWhenExpression><![CDATA[($V{BACKGROUND}.intValue() % 2) == 1]]></printWhenExpression>
+				</reportElement>
+				<textElement>
+					<font size="7"/>
+				</textElement>
+				<text><![CDATA[ ]]></text>
+			</staticText>
+			<textField>
+				<reportElement uuid="da5f19f3-2f83-460d-961c-6ad98a8037cc" x="0" y="0" width="55" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{accountNumber}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="5354ac11-e6ed-455a-8777-3af56e639e1a" x="55" y="0" width="162" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{fullName}]]></textFieldExpression>
+			</textField>
+			<textField pattern="¤ #,##0.00" isBlankWhenNull="true">
+				<reportElement uuid="da734e59-6491-4ed6-ad39-24bce23f9285" x="682" y="0" width="70" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{payment}]]></textFieldExpression>
+			</textField>
+			<textField pattern="¤ #,##0.00" isBlankWhenNull="true">
+				<reportElement uuid="13b699c9-eb5c-4227-a775-17b6ef032b45" x="542" y="0" width="70" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{sixtyToNinetyDaysLate}]]></textFieldExpression>
+			</textField>
+			<textField pattern="¤ #,##0.00" isBlankWhenNull="true">
+				<reportElement uuid="a30ce671-4080-4766-9faa-f2cc0184f5a0" x="612" y="0" width="70" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{ninetyOnePlusDaysLate}]]></textFieldExpression>
+			</textField>
+			<textField pattern="¤ #,##0.00" isBlankWhenNull="true">
+				<reportElement uuid="c30f51d2-738e-4ab9-ab76-1d5a09816147" x="472" y="0" width="70" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{thirtyOneToSixtyDaysLate}]]></textFieldExpression>
+			</textField>
+			<textField pattern="¤ #,##0.00" isBlankWhenNull="true">
+				<reportElement uuid="b491d4f0-d796-4a12-9741-8ebf03dc24ec" x="402" y="0" width="70" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{oneToThirtyDaysLate}]]></textFieldExpression>
+			</textField>
+			<textField pattern="¤ #,##0.00" isBlankWhenNull="true">
+				<reportElement uuid="230d03d5-60ba-4d36-acef-5f63d26280a7" x="332" y="0" width="70" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{slow}]]></textFieldExpression>
+			</textField>
+			<textField pattern="MM/dd/yyyy">
+				<reportElement uuid="774a680a-e06b-4dcd-9422-c623e3e28ba4" x="272" y="0" width="60" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{lastTransaction}]]></textFieldExpression>
+			</textField>
+			<textField pattern="MM/dd/yyyy">
+				<reportElement uuid="68e6b4af-feae-4c1a-9df2-6f3c8774ec3d" x="217" y="0" width="55" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{nextDue}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<noData>
+		<band height="25">
+			<staticText>
+				<reportElement uuid="bf49945f-25ad-4c94-b8ed-2a5b2e69dc28" x="0" y="0" width="752" height="25"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[No data to be found at this time]]></text>
+			</staticText>
+		</band>
+	</noData>
+</jasperReport>

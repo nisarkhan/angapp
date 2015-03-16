@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <script src="/sunloans/html/content/js/library/jquery.js"></script>
+        <script src="/sunloans/html/content/js/library/ICanHaz.js"></script>
+        <script src="/sunloans/test/test.js"></script>
+        <script id="new" type="text/html">
+            <dl>
+                <dt>ownership type</dt>
+                <dd>
+                    <select id='ownership_type_id' name="ownership_type_id">
+                        {{#ownership}}
+                        <option value="{{id}}">{{name}}</option>
+                        {{/ownership}}
+                    </select>
+                </dd>
+                <dt>source</dt>
+                <dd>
+                    <select id='source_id' name="source_id">
+                        {{#source}}
+                        <option value="{{id}}">{{name}}</option>
+                        {{/source}}
+                    </select>
+                </dd>
+                <dt>application by phone</dt>
+                <dd><input type="checkbox" id='by_phone' name="by_phone" /></dd>
+
+                <dt>primary ssn</dt>
+                <dd><input type="text" id='ssn' name="social_security_number" maxlength='9' value='{{social_security_number}}' /></dd>
+
+                <dt>request amount</dt>
+                <dd><input type="text" name="requested_amount" value='{{requested_amount}}'/></dd>
+
+                <dt>referred by</dt>
+                <dd><input type="text" name="referral_name" value='{{referral_name}}' /></dd>
+            </dl>
+            <div>
+                <a href='javascript:void(0)' id='save-button'>save</a>
+                <a href='javascript:void(0)' id="next">next</a>
+                <span id='message'></span>
+            </div>
+        </script>
+        <script>
+            $(document).ready(function() {
+                var appId = null;
+
+                var template_vars = {
+                    'ownership': test.get('rest/application/ownership'),
+                    'source': test.get('rest/application/source')
+                };
+                
+                function populate_template(appId, template) {
+                    var status = false;
+                    
+                    if(appId) {
+                        test.get('rest/application/{0}'.format(appId), {
+                           success: function(data) {
+                               $.extend(template, data);
+                               status = true;
+                           },
+                           
+                           error: function() {
+                               /*
+                                * there was a problem getting the application.
+                                * reset the session app id.
+                                */
+                               // test.session.appId = null;
+                               //sessionStorage.removeItem('appId');
+                               status = false;
+                           }
+                        });
+                    }
+                    
+                    return status;
+                }
+                
+                                
+                if (window.location.search) {
+                    appId = window.location.search.substring(1);
+                } else if (test.session.appId) {
+                    appId = test.session.appId;
+                }
+                
+                if(appId) {
+                    if(!populate_template(appId, template_vars)) {
+                        sessionStorage.removeItem('appId');
+                    }
+                }
+                
+                document.body.innerHTML = ich["new"](template_vars, true);
+                
+                test.elm('by_phone').checked = template_vars.by_phone || false;
+                test.elm('ownership_type_id').value = template_vars.ownership_type_id || 1;
+                test.elm('source_id').value = template_vars.source_id || 1;
+                
+                $('#save-button').click(function(e) {
+
+                        test.post('rest/application', {
+                            'data': JSON.stringify(test.getForm()),
+
+                            success: function() {
+                                $('#message').show().text('saved').fadeOut(1000);
+                            },
+                            
+                            error: function(xhr, status) {
+                                var error = xhr.responseJSON;
+                                $('#message').show().text(status).fadeOut(1000);
+                            }
+                        });
+                    
+                });
+                                
+                $('#next').click(function(e) {
+                    e.preventDefault();
+                    
+                    var form = test.getForm();
+                    
+                    test.post('rest/application', {
+                        data: JSON.stringify(form),
+                        
+                        success: function(data, status, xhr) {
+
+                            // save the appId as a session var
+                            test.session.appId = test.getAppId(xhr);
+                    
+                            window.location.href = "borrower.html";
+                        },
+                        
+                        error: function(xhr, status, error) {
+                            $('#message').text(status + ": " + + xhr.status + " " + error);
+                        }
+                    });
+                    
+                });
+
+            });
+        </script>
+    </head>
+    <body></body>
+</html>

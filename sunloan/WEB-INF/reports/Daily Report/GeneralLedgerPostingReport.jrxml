@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="GeneralLedgerPostingReport" pageWidth="802" pageHeight="555" orientation="Landscape" columnWidth="802" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="8bbfbecd-c476-45b7-88d2-5baf77fb954e">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<field name="documentNumber" class="java.lang.Long">
+		<fieldDescription><![CDATA[documentNumber]]></fieldDescription>
+	</field>
+	<field name="exmlanation" class="java.lang.String">
+		<fieldDescription><![CDATA[exmlanation]]></fieldDescription>
+	</field>
+	<field name="transactionDate" class="java.util.Date">
+		<fieldDescription><![CDATA[transactionDate]]></fieldDescription>
+	</field>
+	<field name="creditAccountNumber" class="java.lang.Integer">
+		<fieldDescription><![CDATA[creditAccountNumber]]></fieldDescription>
+	</field>
+	<field name="debitAccountNumber" class="java.lang.Integer">
+		<fieldDescription><![CDATA[debitAccountNumber]]></fieldDescription>
+	</field>
+	<field name="creditAccountName" class="java.lang.String">
+		<fieldDescription><![CDATA[creditAccountName]]></fieldDescription>
+	</field>
+	<field name="debitAccountName" class="java.lang.String">
+		<fieldDescription><![CDATA[debitAccountName]]></fieldDescription>
+	</field>
+	<field name="creditAmount" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[creditAmount]]></fieldDescription>
+	</field>
+	<field name="debitAmount" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[debitAmount]]></fieldDescription>
+	</field>
+	<columnHeader>
+		<band height="20">
+			<staticText>
+				<reportElement x="70" y="0" width="48" height="20" uuid="cd4319ae-6f22-4c49-b44f-cbb8e0e8c059"/>
+				<text><![CDATA[Account]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="118" y="0" width="215" height="20" uuid="f0c9584a-63bc-4353-8864-7ebac608a91e"/>
+				<text><![CDATA[Description]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="333" y="0" width="60" height="20" uuid="b3c91f44-338b-4cfb-836c-58d380cce1d7"/>
+				<text><![CDATA[Amount]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="393" y="0" width="70" height="20" uuid="9c39d392-5983-4555-9b41-8f416d32a6b6"/>
+				<text><![CDATA[Document No.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="463" y="0" width="339" height="20" uuid="42ba4a3b-293e-47e2-89a6-2af13fc0ff30"/>
+				<text><![CDATA[Explanation]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="44" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="70" height="15" uuid="633860a7-91c2-4ce3-bfd6-2bcc1251b239"/>
+				<text><![CDATA[From/Credit -]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="15" width="70" height="15" uuid="87f5e26c-4d82-4c82-b014-293230014303"/>
+				<text><![CDATA[To/Debit - ]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="70" y="0" width="48" height="15" uuid="b9c1bccc-6875-4650-8b90-e71763917cfd"/>
+				<textFieldExpression><![CDATA[$F{creditAccountNumber}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="70" y="15" width="48" height="15" uuid="26fcab4f-8b9a-42ce-9287-1b4e475631ce"/>
+				<textFieldExpression><![CDATA[$F{debitAccountNumber}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="118" y="0" width="215" height="15" uuid="ec5fa749-bce4-4c36-b07e-48fd95cc0ef4"/>
+				<textFieldExpression><![CDATA[$F{creditAccountName}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="118" y="15" width="215" height="15" uuid="db850519-8f78-48bd-b567-6a90f60a1fbe"/>
+				<textFieldExpression><![CDATA[$F{debitAccountName}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="333" y="0" width="60" height="15" uuid="b1acd8f5-ee43-4c8f-b678-5a053cb29bd8"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[$F{creditAmount}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="393" y="0" width="70" height="15" uuid="71b65848-0bde-4f47-bd89-a6af2132125d"/>
+				<textFieldExpression><![CDATA[$F{documentNumber}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="463" y="0" width="339" height="15" uuid="f863d731-8587-4fa1-9e73-ccdc50b8f24d"/>
+				<textFieldExpression><![CDATA[$F{exmlanation}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="333" y="15" width="60" height="15" uuid="9e223f25-b5a8-429b-88a2-7048965611b7"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[$F{debitAmount}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>

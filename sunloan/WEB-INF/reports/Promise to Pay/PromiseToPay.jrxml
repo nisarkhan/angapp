@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="PromiseToPay" pageWidth="595" pageHeight="842" whenNoDataType="NoDataSection" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="76fb5687-fd84-4039-9905-fb7d09917fe1">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<field name="accountNumber" class="java.lang.String"/>
+	<field name="delinquency" class="java.lang.Integer"/>
+	<field name="name" class="java.lang.String"/>
+	<field name="dateLastPaid" class="java.util.Date"/>
+	<field name="nextDueDate" class="java.util.Date"/>
+	<field name="balance" class="java.math.BigDecimal"/>
+	<field name="primaryPhoneNumber" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<pageHeader>
+		<band height="54" splitType="Stretch">
+			<textField>
+				<reportElement uuid="24cd1cb7-1dad-45a0-a5d9-4a68f98c0cff" x="0" y="0" width="80" height="20"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement uuid="98cf3b47-09a1-4bd4-9f4d-c86f0312829a" x="80" y="0" width="40" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField pattern="MM/dd/yyyy h:mm a">
+				<reportElement uuid="51b94f6c-6160-4465-b0c7-4a1bf9d24a6c" x="455" y="0" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="ac8e7309-a59d-4958-ae50-36ebef65297e" x="0" y="20" width="555" height="34"/>
+				<textElement textAlignment="Center">
+					<font size="24" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[Promise Due Report]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="21" splitType="Stretch">
+			<staticText>
+				<reportElement uuid="f80f5447-c414-4e11-bdbc-c5373a9eac12" x="0" y="0" width="61" height="20"/>
+				<box leftPadding="1"/>
+				<textElement/>
+				<text><![CDATA[Account #]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="46024ec1-4aab-4cde-bebe-12695ee73847" x="61" y="0" width="30" height="20"/>
+				<box leftPadding="1"/>
+				<textElement/>
+				<text><![CDATA[Del]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="f73e612a-2ba7-4d54-8177-8ff8de168fe8" x="91" y="0" width="127" height="20"/>
+				<box leftPadding="1"/>
+				<textElement/>
+				<text><![CDATA[Name]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="15d57fc6-d49c-447b-b099-a87784d73b96" x="218" y="0" width="80" height="20"/>
+				<box leftPadding="1"/>
+				<textElement/>
+				<text><![CDATA[Date Last Paid]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="b0710369-5f53-44f7-8c14-83a469ed2d30" x="298" y="0" width="80" height="20"/>
+				<box leftPadding="1"/>
+				<textElement/>
+				<text><![CDATA[Next Due Date]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="8b3ccd4d-a326-4866-8cf1-3666056514fb" x="378" y="0" width="60" height="20"/>
+				<box leftPadding="1"/>
+				<textElement/>
+				<text><![CDATA[Balance]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="25f7fcc9-9a55-492c-927c-2ead7df59836" x="438" y="0" width="117" height="20"/>
+				<box leftPadding="1"/>
+				<textElement/>
+				<text><![CDATA[Phone Number]]></text>
+			</staticText>
+			<line>
+				<reportElement uuid="b49fba86-9d50-44ae-8870-57e1b3d7fbe0" x="0" y="20" width="555" height="1"/>
+			</line>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="20" splitType="Stretch">
+			<textField>
+				<reportElement uuid="9355e27d-119b-4139-8c38-b58175dee6a3" x="0" y="0" width="61" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{accountNumber}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="06627b4a-f1bd-47f6-a4df-2ccbbee19e2f" x="61" y="0" width="30" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{delinquency}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="39dd3d37-7dfc-4614-a18c-115400611749" x="91" y="0" width="127" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{name}]]></textFieldExpression>
+			</textField>
+			<textField pattern="MM/dd/yyyy">
+				<reportElement uuid="27301535-a6e6-403d-be58-c7210a0549ec" x="218" y="0" width="80" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{dateLastPaid}]]></textFieldExpression>
+			</textField>
+			<textField pattern="MM/dd/yyyy">
+				<reportElement uuid="994a3b1a-cdb7-47b1-baa2-54e8114e7e48" x="298" y="0" width="80" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{nextDueDate}]]></textFieldExpression>
+			</textField>
+			<textField pattern="¤ #,##0.00">
+				<reportElement uuid="cb57f4e5-7d17-4405-aa07-facd022434c7" x="378" y="0" width="60" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{balance}]]></textFieldExpression>
+			</textField>
+			<textField pattern="">
+				<reportElement uuid="089cc140-f562-4bf8-af4a-bf525183a1c4" x="438" y="0" width="117" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{primaryPhoneNumber}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<noData>
+		<band height="75">
+			<textField evaluationTime="Report">
+				<reportElement uuid="5c5d3c74-64f4-4489-8c33-284c4378ece9" x="80" y="1" width="40" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="39480739-7caa-4ab8-b354-c5497930ca85" x="0" y="21" width="555" height="34"/>
+				<textElement textAlignment="Center">
+					<font size="24" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[Promise Due Report]]></text>
+			</staticText>
+			<textField>
+				<reportElement uuid="9935549d-7552-429b-96ce-31d5b553b26f" x="0" y="1" width="80" height="20"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+			<textField pattern="MM/dd/yyyy h:mm a">
+				<reportElement uuid="43b1aba6-b980-421b-a18f-f073baf9e885" x="455" y="1" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="b400e79c-8fc3-4134-8ca3-5ae0ec595a24" x="0" y="55" width="555" height="20"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isItalic="true" isUnderline="false" isStrikeThrough="false"/>
+				</textElement>
+				<text><![CDATA[----- No promises to report -----]]></text>
+			</staticText>
+		</band>
+	</noData>
+</jasperReport>

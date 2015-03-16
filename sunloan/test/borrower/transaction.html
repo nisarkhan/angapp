@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>transaction entry screen</title>
+        <style>
+            body, input {
+                font-family: Verdana;
+                font-size: 11px;
+            }
+            
+            #payment-grid {
+                position: relative;
+            }
+            
+            #payment-grid .applied, #payment-grid .readonly {
+                text-align: right;
+                width: 5em;
+            }
+            
+            #payment-grid dd {
+                height: 2em;
+            }
+            
+            #payment-grid .applied {
+                position: absolute;
+                left: 10em;
+            }
+            
+            #payment-grid .readonly {
+                position: absolute;
+                left: 3em;
+            }
+        </style>
+        <script src="../../html/content/js/library/jquery.js" type="text/javascript"></script>
+        <script>
+            $(document).ready(function() {
+                
+                function fillInput(o) {
+                    for(var prop in o) {
+                        if(o.hasOwnProperty(prop)) {
+                            $('[name=' + prop + ']').val(o[prop]);
+                        }
+                    }
+                }
+                
+                function reportError(xhr) {
+                    var type = xhr.getResponseHeader('Content-Type'),
+                            message = '', 
+                            errors;
+                                        
+                    if(type === 'text/html') {
+                        $('#message').text('An error: ' + xhr.statusText);
+                    } else if(type === 'text/plain') {
+                        $('#message').text(xhr.responseText);
+                    } else if(type === 'application/json') {
+
+                        errors = xhr.responseJSON;
+
+                        for(var i = 0; i < errors.length; i++) {
+                            message += ' ' + (i + 1) + '. ' + errors[i].message;
+                        }
+                        
+                        $('#message').text(message);
+                    }   
+                }
+                
+                $('input.readonly').attr('disabled','disabled');
+                
+                $('input.applied').change(function() {
+                    var values,
+                        o = {},
+                        acct = $('#account').val(),
+                        loan = $('#loan').val();
+                        
+                    $('#message').text('');
+                    
+                    console.info('changed ' + $(this).attr('name'));
+                    
+                    values = $('#payment-grid input.applied').serializeArray();
+                    
+                    for(var i = 0; i < values.length; i++) {
+                        o[values[i].name] = values[i].value;
+                    }
+                    
+                    $.ajax('/sunloans/rest/borrower/' + acct + '/loan/' + loan + '/payment', {
+                        contentType: 'application/json',
+                        data: JSON.stringify(o),
+                        type: 'PUT'
+                    }).done(function(data) {
+                        console.info('done');
+                        fillInput(data);
+                    }).fail(function(xhr) {
+                        console.error('fail');
+                        reportError(xhr);
+                    });
+                    
+                });
+
+                $('#findborrower').click(function() {
+                    var acct = $('#account').val(),
+                        loan = $('#loan').val();
+                        
+                        $('#message').text('');
+                        
+                        if(acct && loan) {
+                          
+                            $.getJSON('/sunloans/rest/borrower/' + acct + '/loan/' + loan + '/payment', function(data) {
+                                
+                                console.info(data);
+                                
+                                fillInput(data);
+                               
+                            }).fail(function(xhr) {
+                                console.error('error with borrower fetch');
+                                reportError(xhr);
+                            });
+                        }
+                });
+            });
+        </script>
+    </head>
+    <body>
+        <div>
+            <div>
+                <div>
+                    <input type="text" name="account" value="10011" id="account" placeholder="account" maxlength="6" size="6" />
+                    <input type="text" name="loan" value="13" id="loan" placeholder="loan" maxlength="3" size="3" />
+                    <input type="button" id="findborrower" value="find" />
+                    <span id="message"></span>
+                </div>
+            </div>
+            <div id="payment-grid">
+                <dl>
+                    <dt>
+                    <dt style="border-top: solid 1px lightgrey">apply to maturity interest
+                    <dd>
+                        <input type="text" name="maturity_interest" class="readonly"  />
+                        <input type="text" name="applied_to_maturity_interest" class="applied" />
+                    </dd>
+
+                    <dt>apply to late charge
+                    <dd>
+                        <input type="text" name="late_charge" class="readonly" />
+                        <input type="text" name="applied_to_late_charge" class="applied" />
+                    </dd>
+
+                    <dt>apply to balance
+                    <dd><input type="text" name="applied_to_balance" class="applied" /></dd>
+
+                    <dt>amount tendered
+                    <dd><input type="text" name="tendered" class="applied" /></dd>
+
+                    <dt>total collected
+                    <dd><input type="text" name="total_collected" class="readonly" /></dd>
+
+                    <dt>change to customer
+                    <dd><input type="text" name="change_to_customer" class="readonly" /></dd>
+                    
+                    <dt>method of payment
+                    <dd></dd>
+                </dl>
+            </div>
+        </div>
+    </body>
+</html>
